@@ -13,16 +13,19 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
+            font-family: var(--font-primary);
+            background: var(--white);
+            color: var(--dark);
         }
 
         /* Navigační menu */
         header {
-            background-color: #000;
-            color: #fff;
+            background-color: var(--bs-dark);
+            color: var(--bs-white);
             padding: 15px 0;
             text-align: center;
+            position: relative;
+            z-index: 0;
         }
 
         nav ul {
@@ -36,14 +39,14 @@
         }
 
         nav ul li a {
-            color: #fff;
+            color: var(--bs-white);
             text-decoration: none;
             font-weight: bold;
             font-size: 18px;
         }
 
         nav ul li a:hover {
-            color: #ff6600;
+            color: var(--primary-HIGHLIGHT);
         }
 
         /* Úvodní sekce */
@@ -54,6 +57,8 @@
             color: white;
             text-align: center;
             padding: 200px 20px;
+            position: relative;
+            z-index: 0;
         }
 
         #intro h1 {
@@ -67,18 +72,19 @@
 
         /* Tlačítka */
         .btn {
-            background-color: #ff6600;
-            color: white;
+            background-color: var(--primary-HIGHLIGHT);
+            color: var(--white);
             padding: 10px 20px;
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
             margin-top: 20px;
             display: inline-block;
+            transition: background-color var(--transition-fast);
         }
 
         .btn:hover {
-            background-color: #ff3300;
+            background-color: var(--primary-dark);
         }
 
         .btn-container {
@@ -92,7 +98,7 @@
         #onas {
             padding: 50px 20px;
             text-align: center;
-            background-color: #fff;
+            background-color: var(--bs-light);
         }
 
         #onas h2 {
@@ -108,7 +114,7 @@
         /* Kontakt sekce */
         #kontakty {
             padding: 50px 20px;
-            background-color: #f9f9f9;
+            background-color: var(--bs-light);
             text-align: center;
         }
 
@@ -139,15 +145,56 @@
             --secondary-light: hsl(0, 0%, calc(83% + 16%));
             --dark: #131313;
             --light: #f1f3f6;
+            --text-on-dark: #939393;
+            --text-on-light: #444;
+            --transparent-on-dark: rgba(255, 255, 255, 0.8);
             --white: #ffffff;
             --black: #000000;
+            --transition-fast: 0.2s all;
+            --transition-medium: 0.3s all;
+            --transition-slow: 0.4s all;
             --font-primary: "Inter", sans-serif;
             --font-heading: "Mulish", sans-serif;
             --weight-light: 300;
             --weight-regular: 400;
             --weight-bold: 800;
             --border-radius: 8px;
+            --bs-blue: #0d6efd;
+            --bs-indigo: #6610f2;
+            --bs-purple: #6f42c1;
+            --bs-pink: #d63384;
+            --bs-red: #dc3545;
+            --bs-orange: #fd7e14;
+            --bs-yellow: #ffc107;
+            --bs-green: #198754;
+            --bs-teal: #20c997;
+            --bs-cyan: #0dcaf0;
+            --bs-white: #fff;
+            --bs-gray: #6c757d;
+            --bs-gray-dark: #343a40;
+            --bs-primary: #0d6efd;
+            --bs-secondary: #6c757d;
+            --bs-success: #198754;
+            --bs-info: #0dcaf0;
+            --bs-warning: #ffc107;
+            --bs-danger: #dc3545;
+            --bs-light: #f8f9fa;
+            --bs-dark: #212529;
+            --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
         }
+
+        /* Custom Section Styles */
+        section {
+            padding: 3.75rem 0;
+        }
+
+        .contact-01 {
+            background: url('https://www.pizzakladno.cz/images/pizza.jpg') center / cover;
+            overflow: hidden;
+        }
+
     </style>
 </head>
 <body>
