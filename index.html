@@ -190,9 +190,28 @@
             padding: 3.75rem 0;
         }
 
-        .contact-01 {
-            background: url('https://www.pizzakladno.cz/images/pizza.jpg') center / cover;
-            overflow: hidden;
+        /* Responzivní design */
+        @media (max-width: 768px) {
+            #intro h1 {
+                font-size: 36px;
+            }
+
+            #intro p {
+                font-size: 16px;
+            }
+
+            .btn-container {
+                flex-direction: column;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
         }
 
     </style>
@@ -205,7 +224,7 @@
             <ul>
                 <li><a href="#onas">O nás</a></li>
                 <li><a href="#galerie">Galerie</a></li>
-                <li><a href="#kontakt">Kontakt</a></li>
+                <li><a href="#kontakty">Kontakty</a></li>
             </ul>
         </nav>
     </header>
@@ -237,10 +256,7 @@
         <p>Rezervace míst: <strong>+420 604 633 373</strong></p>
         <p>Zavolejte a zarezervujte si své místo včas!</p>
         <p>Sledujte nás na sociálních sítích pro více výhod, akcí, slev a novinek:</p>
-        <p><a href="https://www.facebook.com/SanMarinoKladno" target="_blank">Facebook</a> | <a href="https://www.instagram.com/pizzakladno" target="_blank">Instagram</a></p>
-        <p>Adresa: Obránců míru 2721, 27201 Kladno</p>
-        <p>Telefon: +420 312 686 996</p>
-        <p>Email: <a href="mailto:sanmarino@kladno.cz">sanmarino@kladno.cz</a></p>
+        <p><a href="https://www.facebook.com/SanMarinoKladno" target="_blank">Facebook</a> | <a href="https://www.instagram.com/pizzasanmarino_kladno/" target="_blank">Instagram</a></p>
     </section>
 
 </body>
