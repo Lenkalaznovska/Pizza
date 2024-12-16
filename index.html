@@ -167,6 +167,27 @@
             text-align: center;
             padding: 20px 0;
         }
+
+        /* Efekty pro plynulý přechod pozadí */
+        #intro {
+            transition: background 1s ease-in-out;
+        }
+
+        /* Styl pro tlačítka */
+        .btn {
+            background-color: #ff6600;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: #ff3300;
+        }
     </style>
 </head>
 <body>
@@ -184,8 +205,9 @@
 
     <!-- Úvodní sekce -->
     <section id="intro">
-        <h1>Vítejte u Pizzerie San Marino Kladno!</h1>
+        <h1>Vítejte u Pizza Kladno!</h1>
         <p>Nejlepší pizza v Kladně, čerstvá a připravená s láskou.</p>
+        <a href="#menu" class="btn">Prozkoumejte menu</a>
     </section>
 
     <!-- Sekce O nás -->
