@@ -52,12 +52,12 @@
 
         /* Úvodní sekce */
         #intro {
-            background-image: url('https://www.pizzakladno.cz/images/pizza.jpg');
+            background-image: url('images/sanmarino.jpg'); /* Ujistěte se, že máte správnou cestu k obrázku */
             background-size: cover;
             background-position: center;
             color: white;
             text-align: center;
-            padding: 150px 20px; /* Zmenšení obrázku o 50px */
+            padding: 150px 20px;
             position: relative;
             z-index: 0;
         }
@@ -65,17 +65,26 @@
         #intro h1 {
             font-size: 50px;
             margin-bottom: 20px;
-            transition: transform 1s ease-in-out;
-            opacity: 0;
-            transform: translateY(-50px);
-        }
-
-        #intro p {
-            font-size: 20px;
             transition: font-size 0.3s ease;
+            transform: translateY(-50px);
+            animation: slideIn 0.5s ease-out forwards;
         }
 
-        /* Tlačítka */
+        @keyframes slideIn {
+            0% {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        #intro .btn-container {
+            margin-top: 20px;
+        }
+
         .btn {
             background-color: var(--primary-HIGHLIGHT);
             color: var(--white);
@@ -83,7 +92,6 @@
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
-            margin-top: 20px;
             display: inline-block;
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
@@ -152,7 +160,7 @@
             --transition-fast: 0.2s all;
             --transition-medium: 0.3s all;
             --transition-slow: 0.4s all;
-            --font-primary: "Roboto", sans-serif; /* Změna písma */
+            --font-primary: "Inter", sans-serif;
             --font-heading: "Mulish", sans-serif;
             --weight-light: 300;
             --weight-regular: 400;
@@ -223,22 +231,6 @@
                 width: 90%;
             }
         }
-
-        /* Efekt pro nadpis */
-        @keyframes slideDown {
-            0% {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        #intro h1 {
-            animation: slideDown 1s ease-out forwards;
-        }
     </style>
 </head>
 <body>
@@ -262,6 +254,9 @@
                 <a href="https://pizzeriesanmarino.kestolu.cz/#/sort:58" class="btn">Objednat online</a>
             </div>
         </div>
+        <div class="background-image">
+            <img src="images/sanmarino.jpg" alt="Pizzerie San Marino" style="width: 100%; height: auto;">
+        </div>
     </section>
 
     <!-- Sekce O nás -->
@@ -280,6 +275,9 @@
         <div class="container">
             <h2>Kontakty</h2>
             <p>Rezervace míst: <strong>+420 604 633 373</strong></p>
+            <p>Telefon: <strong>+420 312 686 996</strong></p>
+            <p>Email: <strong>sanmarino@kladno.cz</strong></p>
+            <p>Adresa: <strong>Obránců míru 2721, 27201 Kladno</strong></p>
             <p>Zavolejte a zarezervujte si své místo včas!</p>
             <p>Sledujte nás na sociálních sítích pro více výhod, akcí, slev a novinek:</p>
             <p><a href="https://www.facebook.com/SanMarinoKladno" target="_blank">Facebook</a> | <a href="https://www.instagram.com/pizzasanmarino_kladno/" target="_blank">Instagram</a></p>
