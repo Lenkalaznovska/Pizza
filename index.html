@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Úvodní Stránka</title>
+    <style>
+        /* Reset základního stylování */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Základní stylování pro celé tělo stránky */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        /* Navigační menu */
+        header {
+            background-color: #333;
+            padding: 20px;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        nav ul li a:hover {
+            color: #ff6600;
+        }
+
+        /* Úvodní sekce */
+        #intro {
+            background-color: #4e4e4e;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        #intro h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        #intro p {
+            font-size: 20px;
+        }
+
+        /* Galerie, O nás, Kontakty */
+        section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        section p {
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        /* Ikony pro sociální sítě */
+        .social-icons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        .social-icon {
+            margin: 0 10px;
+            width: 40px;
+            height: 40px;
+        }
+
+        .social-icon img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icon:hover img {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigační menu -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#galerie">Galerie</a></li>
+                <li><a href="#onas">O nás</a></li>
+                <li><a href="#kontakty">Kontakty</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Úvodní sekce -->
+    <section id="intro">
+        <h1>Vítejte na naší stránce</h1>
+        <p>Text pro úvodní sekci...</p>
+    </section>
+
+    <!-- Galerie -->
+    <section id="galerie">
+        <h2>Galerie</h2>
+        <p>Text pro galerii...</p>
+    </section>
+
+    <!-- O nás -->
+    <section id="onas">
+        <h2>O nás</h2>
+        <p>Text o nás...</p>
+    </section>
+
+    <!-- Kontakty -->
+    <section id="kontakty">
+        <h2>Kontakty</h2>
+        <p>Text pro kontakty...</p>
+    </section>
+
+    <!-- Ikony pro Facebook a Instagram -->
+    <div class="social-icons">
+        <a href="https://www.facebook.com" target="_blank" class="social-icon" id="fb-icon">
+            <img src="facebook-icon.png" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com" target="_blank" class="social-icon" id="ig-icon">
+            <img src="instagram-icon.png" alt="Instagram">
+        </a>
+    </div>
+
+</body>
+</html>
