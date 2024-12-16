@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Úvodní Stránka</title>
+    <title>Pizza Kladno</title>
     <style>
         /* Reset základního stylování */
         * {
@@ -12,26 +12,27 @@
             box-sizing: border-box;
         }
 
-        /* Základní stylování pro celé tělo stránky */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
         }
 
         /* Navigační menu */
         header {
-            background-color: #333;
-            padding: 20px;
+            background-color: #000;
+            color: #fff;
+            padding: 15px 0;
+            text-align: center;
         }
 
         nav ul {
+            list-style: none;
             display: flex;
             justify-content: center;
-            list-style: none;
         }
 
         nav ul li {
-            margin: 0 15px;
+            margin: 0 20px;
         }
 
         nav ul li a {
@@ -47,10 +48,12 @@
 
         /* Úvodní sekce */
         #intro {
-            background-color: #4e4e4e;
+            background-image: url('https://www.pizzakladno.cz/images/pizza.jpg');
+            background-size: cover;
+            background-position: center;
             color: white;
             text-align: center;
-            padding: 100px 20px;
+            padding: 200px 20px;
         }
 
         #intro h1 {
@@ -62,20 +65,75 @@
             font-size: 20px;
         }
 
-        /* Galerie, O nás, Kontakty */
-        section {
+        /* Sekce o nás */
+        #onas {
             padding: 50px 20px;
             text-align: center;
+            background-color: #fff;
         }
 
-        section h2 {
-            font-size: 30px;
+        #onas h2 {
+            font-size: 36px;
             margin-bottom: 20px;
         }
 
-        section p {
+        #onas p {
             font-size: 18px;
             line-height: 1.5;
+        }
+
+        /* Menu sekce */
+        #menu {
+            background-color: #333;
+            color: white;
+            padding: 50px 20px;
+        }
+
+        #menu h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .menu-items {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .menu-item {
+            width: 30%;
+            margin-bottom: 20px;
+            background-color: #444;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .menu-item img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .menu-item h3 {
+            margin-top: 15px;
+            font-size: 24px;
+            color: #ff6600;
+        }
+
+        /* Kontakty sekce */
+        #kontakty {
+            padding: 50px 20px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        #kontakty h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        #kontakty p {
+            font-size: 18px;
         }
 
         /* Ikony pro sociální sítě */
@@ -101,6 +159,14 @@
         .social-icon:hover img {
             transform: scale(1.1);
         }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
     </style>
 </head>
 <body>
@@ -109,8 +175,8 @@
     <header>
         <nav>
             <ul>
-                <li><a href="#galerie">Galerie</a></li>
                 <li><a href="#onas">O nás</a></li>
+                <li><a href="#menu">Menu</a></li>
                 <li><a href="#kontakty">Kontakty</a></li>
             </ul>
         </nav>
@@ -118,37 +184,60 @@
 
     <!-- Úvodní sekce -->
     <section id="intro">
-        <h1>Vítejte na naší stránce</h1>
-        <p>Text pro úvodní sekci...</p>
+        <h1>Vítejte u Pizzerie San Marino Kladno!</h1>
+        <p>Nejlepší pizza v Kladně, čerstvá a připravená s láskou.</p>
     </section>
 
-    <!-- Galerie -->
-    <section id="galerie">
-        <h2>Galerie</h2>
-        <p>Text pro galerii...</p>
-    </section>
-
-    <!-- O nás -->
+    <!-- Sekce O nás -->
     <section id="onas">
         <h2>O nás</h2>
-        <p>Text o nás...</p>
+        <p>Pizza Kladno je místem, kde si můžete vychutnat širokou nabídku vynikajících pizz a dalších pochutin. Naše ingredience jsou vždy čerstvé a kvalitní. Naším cílem je nabídnout každému zákazníkovi nezapomenutelný zážitek z jídla.</p>
     </section>
 
-    <!-- Kontakty -->
+    <!-- Sekce Menu -->
+    <section id="menu">
+        <h2>Naše Menu</h2>
+        <div class="menu-items">
+            <div class="menu-item">
+                <img src="https://www.pizzakladno.cz/images/margherita.jpg" alt="Margherita Pizza">
+                <h3>Margherita</h3>
+                <p>Tradiční pizza s rajčaty, mozzarellou a bazalkou.</p>
+            </div>
+            <div class="menu-item">
+                <img src="https://www.pizzakladno.cz/images/pepperoni.jpg" alt="Pepperoni Pizza">
+                <h3>Pepperoni</h3>
+                <p>Pizza s pikantními plátky salámu Pepperoni.</p>
+            </div>
+            <div class="menu-item">
+                <img src="https://www.pizzakladno.cz/images/vegetarian.jpg" alt="Vegetariánská Pizza">
+                <h3>Vegetariánská</h3>
+                <p>Pizza plná čerstvé zeleniny.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sekce Kontakty -->
     <section id="kontakty">
         <h2>Kontakty</h2>
-        <p>Text pro kontakty...</p>
+        <p>Navštivte nás na adrese: Náměstí 123, Kladno</p>
+        <p>Telefon: +420 123 456 789</p>
+        <p>Email: info@pizzakladno.cz</p>
     </section>
 
-    <!-- Ikony pro Facebook a Instagram -->
+    <!-- Ikony pro sociální sítě -->
     <div class="social-icons">
-        <a href="https://www.facebook.com" target="_blank" class="social-icon" id="fb-icon">
+        <a href="https://www.facebook.com/pizzakladno" target="_blank" class="social-icon">
             <img src="facebook-icon.png" alt="Facebook">
         </a>
-        <a href="https://www.instagram.com" target="_blank" class="social-icon" id="ig-icon">
+        <a href="https://www.instagram.com/pizzakladno" target="_blank" class="social-icon">
             <img src="instagram-icon.png" alt="Instagram">
         </a>
     </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Pizza Kladno. Všechna práva vyhrazena.</p>
+    </footer>
 
 </body>
 </html>
