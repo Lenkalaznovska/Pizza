@@ -86,14 +86,17 @@
 
         #intro .btn-container {
             margin-top: 20px;
+            display: flex;
+            justify-content: center;  /* Umístí tlačítka vedle sebe */
+            gap: 15px;  /* Mezera mezi tlačítky */
         }
 
         /* Společný styl pro obě tlačítka */
         .btn {
             background-color: var(--primary-HIGHLIGHT);
             color: var(--white);
-            padding: 12px 20px; /* Změněno z původního paddingu pro zmenšení tlačítka */
-            font-size: 18px;
+            padding: 10px 18px; /* Zmenšení velikosti tlačítka */
+            font-size: 16px; /* Zmenšení velikosti písma */
             font-weight: bold;
             border-radius: 5px;
             text-decoration: none;
@@ -105,7 +108,7 @@
         }
 
         .btn i {
-            margin-right: 10px;
+            margin-right: 8px;
         }
 
         .btn:hover {
