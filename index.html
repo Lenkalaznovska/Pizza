@@ -641,19 +641,28 @@ if (totalSlides > 0) {
 }
 
 // ------------------------------ HAMBURGER MENU ------------------------------
+// Toggle the visibility of the hamburger menu
 function toggleMenu() {
-    const menu = document.querySelector('nav');
-    menu.classList.toggle('active'); // Toggle the 'active' class on the menu
+    const nav = document.querySelector('nav');
     const hamburger = document.querySelector('.hamburger');
-    hamburger.classList.toggle('active'); // Toggle the 'active' class on the hamburger icon
+    if (nav && hamburger) {
+        nav.classList.toggle('active');
+        hamburger.classList.toggle('active');
+    }
 }
 
-const hamburger = document.querySelector('.hamburger');
+// Add event listener to the hamburger menu to toggle visibility
+document.querySelector('.hamburger')?.addEventListener('click', toggleMenu);
 
-// Ensure hamburger click event is added
-if (hamburger) {
-    hamburger.addEventListener('click', toggleMenu);
-}
+// Close the menu if clicking outside
+document.addEventListener('click', (event) => {
+    const nav = document.querySelector('nav');
+    const hamburger = document.querySelector('.hamburger');
+    if (nav?.classList.contains('active') && !nav.contains(event.target) && !hamburger.contains(event.target)) {
+        nav.classList.remove('active');
+        hamburger.classList.remove('active');
+    }
+});
 
 // ------------------------------ GALLERY FOR DESKTOP AND MOBILE ------------------------------
 
