@@ -649,7 +649,6 @@ function toggleMenu() {
 }
 
 const hamburger = document.querySelector('.hamburger');
-const nav = document.querySelector('nav ul');
 
 // Ensure hamburger click event is added
 if (hamburger) {
@@ -680,7 +679,7 @@ function handleGallerySlider() {
         document.getElementById('gallery-next').style.display = 'block';
     }
 
-    // Re-adjust the position of the slides based on the screen size
+    // Re-adjust the position of the gallery based on the screen size
     updateGalleryPosition();
 }
 
@@ -692,8 +691,10 @@ function updateGalleryPosition() {
     const visibleItems = isMobile ? 1 : 5; // Adjust the visible number of items based on screen size
     const totalItems = galleryItems.length;
 
-    // Calculate the gallery scroll position
-    const offset = -(galleryContainer.scrollLeft / (galleryItems[0].offsetWidth / visibleItems));
+    // Calculate the gallery scroll position based on the number of visible items
+    const offset = isMobile 
+        ? 0 // For mobile, set offset to zero (one item view)
+        : -(galleryContainer.scrollLeft / (galleryItems[0].offsetWidth / visibleItems));
 
     galleryContainer.style.transform = `translateX(${offset * (100 / visibleItems)}%)`;
 }
