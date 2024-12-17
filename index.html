@@ -17,10 +17,9 @@
             font-family: Arial, sans-serif;
             background: #f4f4f4;
             color: #333;
-            overflow-x: hidden;
         }
 
-        /* Header a Navigační menu */
+        /* Header */
         header {
             background-color: #333;
             color: #fff;
@@ -32,54 +31,69 @@
             z-index: 10;
         }
 
-        .logo {
-            width: 120px;
-            height: auto;
+        /* Logo */
+        .logo img {
+            height: 60px;
         }
 
+        /* Navigační menu */
         nav {
             display: flex;
+            justify-content: center;
+            flex: 1;
         }
 
         nav ul {
-            list-style: none;
             display: flex;
+            list-style: none;
         }
 
         nav ul li {
-            margin: 0 10px;
+            margin: 0 20px;
         }
 
         nav ul li a {
             color: #fff;
             text-decoration: none;
             font-size: 18px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #e63946;
+            text-decoration: underline;
         }
 
         /* Hamburger menu */
         .hamburger {
             display: none;
-            flex-direction: column;
             cursor: pointer;
-            position: absolute;
-            right: 20px;
-            top: 10px;
         }
 
         .hamburger div {
             width: 25px;
             height: 3px;
             background-color: #fff;
-            margin: 3px 0;
+            margin: 5px 0;
+            transition: transform 0.3s ease;
         }
 
         @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 15px;
+                right: 20px;
+            }
+
             nav ul {
                 display: none;
                 flex-direction: column;
                 background-color: #333;
                 position: absolute;
-                top: 60px;
+                top: 70px;
                 left: 0;
                 width: 100%;
             }
@@ -88,8 +102,9 @@
                 display: flex;
             }
 
-            .hamburger {
-                display: flex;
+            nav ul li {
+                margin: 10px 0;
+                text-align: center;
             }
         }
 
@@ -97,7 +112,8 @@
         .slider {
             position: relative;
             overflow: hidden;
-            width: 100%;
+            max-width: 100%;
+            height: 500px;
         }
 
         .slides {
@@ -109,43 +125,48 @@
             min-width: 100%;
             height: 500px;
             background-size: cover;
-            background-position: center;
+            background-position: center center;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-end;
             align-items: center;
             text-align: center;
-            position: relative;
+            padding-bottom: 50px;
+        }
+
+        .slide:nth-child(2) {
+            background-position: center bottom; /* Burgry.jpg posunuté dolů */
         }
 
         .slide h1 {
+            font-size: 50px;
             color: #fff;
-            font-size: 48px;
             text-shadow: 2px 2px 5px #000;
             margin-bottom: 20px;
         }
 
-        .slide .buttons {
-            display: flex;
-            gap: 15px;
-        }
-
-        .slide .buttons a {
-            background-color: #d32f2f;
+        .buttons a {
+            display: inline-block;
+            background-color: #e63946;
             color: #fff;
-            padding: 10px 20px;
-            text-decoration: none;
             font-weight: bold;
+            padding: 10px 20px;
+            margin: 5px;
             border-radius: 5px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
-        .slide .buttons a i {
-            margin-right: 8px;
+        .buttons a:hover {
+            background-color: #d62839;
+            transform: scale(1.05);
         }
 
+        .buttons a i {
+            margin-right: 5px;
+        }
+
+        /* Responzivní nadpis */
         @media (max-width: 768px) {
             .slide h1 {
                 font-size: 36px;
@@ -156,19 +177,21 @@
 <body>
     <!-- Header -->
     <header>
-        <img src="images/logo3D.png" alt="Logo Pizzerie" class="logo">
-        <div class="hamburger" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
+        <div class="logo">
+            <img src="images/logo3D.png" alt="Logo Pizzerie San Marino">
         </div>
         <nav>
             <ul>
                 <li><a href="#onas">O nás</a></li>
                 <li><a href="#galerie">Galerie</a></li>
-                <li><a href="#kontakty">Kontakty</a></li>
+                <li><a href="#kontakty">Kontakt</a></li>
             </ul>
         </nav>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     </header>
 
     <!-- Slider -->
@@ -177,35 +200,28 @@
             <div class="slide" style="background-image: url('images/sanmarino.jpg');">
                 <h1>Pizzerie San Marino</h1>
                 <div class="buttons">
-                    <a href="https://pizzeriesanmarino.kestolu.cz/#/sort:58" target="_blank"><i class="fas fa-shopping-cart"></i> Objednat online</a>
+                    <a href="https://pizzeriesanmarino.kestolu.cz/#/sort:58"><i class="fas fa-shopping-cart"></i> Objednat online</a>
                     <a href="tel:+420604633373"><i class="fas fa-phone"></i> Zavolat</a>
                 </div>
             </div>
             <div class="slide" style="background-image: url('images/Burgry.jpg');">
                 <h1>Pizzerie San Marino</h1>
                 <div class="buttons">
-                    <a href="https://pizzeriesanmarino.kestolu.cz/#/sort:58" target="_blank"><i class="fas fa-shopping-cart"></i> Objednat online</a>
+                    <a href="https://pizzeriesanmarino.kestolu.cz/#/sort:58"><i class="fas fa-shopping-cart"></i> Objednat online</a>
                     <a href="tel:+420604633373"><i class="fas fa-phone"></i> Zavolat</a>
                 </div>
             </div>
             <div class="slide" style="background-image: url('images/menu.jpg');">
                 <h1>Pizzerie San Marino</h1>
                 <div class="buttons">
-                    <a href="https://pizzeriesanmarino.kestolu.cz/#/sort:58" target="_blank"><i class="fas fa-shopping-cart"></i> Objednat online</a>
-                    <a href="tel:+420604633373"><i class="fas fa-phone"></i> Zavolat</a>
-                </div>
-            </div>
-            <div class="slide" style="background-image: url('images/VEČER.jpg');">
-                <h1>Pizzerie San Marino</h1>
-                <div class="buttons">
-                    <a href="https://pizzeriesanmarino.kestolu.cz/#/sort:58" target="_blank"><i class="fas fa-shopping-cart"></i> Objednat online</a>
+                    <a href="https://pizzeriesanmarino.kestolu.cz/#/sort:58"><i class="fas fa-shopping-cart"></i> Objednat online</a>
                     <a href="tel:+420604633373"><i class="fas fa-phone"></i> Zavolat</a>
                 </div>
             </div>
         </div>
     </div>
 
-        <!-- Sekce O nás -->
+            <!-- Sekce O nás -->
     <section id="onas">
         <div class="container">
             <h2>O nás</h2>
@@ -228,20 +244,18 @@
         </div>
     </section>
 
+    <!-- Skript pro hamburger menu a slider -->
     <script>
-        // Hamburger menu
         function toggleMenu() {
             const nav = document.querySelector('nav ul');
             nav.classList.toggle('active');
         }
 
-        // Slider
         let index = 0;
         const slides = document.querySelector('.slides');
-        const totalSlides = document.querySelectorAll('.slide').length;
 
         function showSlide() {
-            index = (index + 1) % totalSlides;
+            index = (index + 1) % 3; // Počet snímků
             slides.style.transform = `translateX(-${index * 100}%)`;
         }
 
