@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pizzerie San Marino</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Reset stylů */
+        /* Reset */
         * {
             margin: 0;
             padding: 0;
@@ -14,184 +15,170 @@
 
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            background: #f4f4f4;
             color: #333;
             overflow-x: hidden;
         }
 
+        /* Header a Navigační menu */
         header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 20px;
-            background-color: #222;
-        }
-
-        header img {
-            height: 50px;
         }
 
         nav {
             display: flex;
-            gap: 20px;
         }
 
-        nav a {
-            color: white;
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #fff;
             text-decoration: none;
-            font-size: 1.2rem;
-            transition: color 0.3s ease;
+            font-size: 18px;
         }
 
-        nav a:hover {
-            color: #f39c12;
-        }
-
+        /* Hamburger menu */
         .hamburger {
             display: none;
             flex-direction: column;
-            gap: 5px;
             cursor: pointer;
         }
 
         .hamburger div {
-            width: 30px;
+            width: 25px;
             height: 3px;
-            background-color: white;
-        }
-
-        .menu {
-            display: flex;
-            gap: 20px;
-        }
-
-        .menu-mobile {
-            display: none;
-            flex-direction: column;
-            background-color: #222;
-            position: absolute;
-            top: 70px;
-            right: 0;
-            width: 200px;
-            padding: 10px;
-        }
-
-        .menu-mobile a {
-            color: white;
-            padding: 10px;
-            border-bottom: 1px solid #444;
-        }
-
-        .menu-mobile a:last-child {
-            border-bottom: none;
-        }
-
-        .slider {
-            position: relative;
-            width: 100%;
-            max-width: 1200px;
-            margin: 20px auto;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .slides {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-
-        .slides img {
-            width: 100%;
-        }
-
-        .section {
-            padding: 40px 20px;
-            text-align: center;
-            margin: 20px;
-        }
-
-        .card {
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            animation: slideIn 1s ease;
-        }
-
-        .card:hover {
-            animation: breathe 2s infinite;
-        }
-
-        @keyframes slideIn {
-            from {
-                transform: translateY(100px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes breathe {
-            0%, 100% {
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            }
-            50% {
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-            }
+            background-color: #fff;
+            margin: 3px 0;
         }
 
         @media (max-width: 768px) {
-            nav {
+            nav ul {
                 display: none;
+                flex-direction: column;
+                background-color: #333;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+            }
+
+            nav ul.active {
+                display: flex;
             }
 
             .hamburger {
                 display: flex;
             }
+        }
 
-            .menu-mobile {
-                display: flex;
+        /* Slider */
+        .slider {
+            position: relative;
+            overflow: hidden;
+            max-width: 100%;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 1s ease;
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 500px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Úvodní sekce */
+        #intro h1 {
+            font-size: 50px;
+            text-shadow: 2px 2px 5px #000;
+            color: #fff;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        /* Karty s efektem */
+        .card {
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: slideIn 1s forwards;
+        }
+
+        .card:hover {
+            animation: breathing 1.5s infinite;
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
+        }
 
-            .slider img {
-                height: 300px;
-                object-fit: cover;
+        @keyframes breathing {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        /* Responzivní design */
+        @media (max-width: 768px) {
+            #intro h1 {
+                font-size: 36px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <h1>Pizzerie San Marino</h1>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#onas">O nás</a></li>
+                <li><a href="#galerie">Galerie</a></li>
+                <li><a href="#kontakty">Kontakty</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<header>
-    <img src="images/logo3D.png" alt="Logo">
-    <nav>
-        <a href="#uvod">Úvod</a>
-        <a href="#onas">O nás</a>
-        <a href="#kontakt">Kontakt</a>
-    </nav>
-    <div class="hamburger" onclick="toggleMenu()">
-        <div></div>
-        <div></div>
-        <div></div>
+    <!-- Slider -->
+    <div class="slider">
+        <div class="slides">
+            <div class="slide" style="background-image: url('images/sanmarino.jpg');"></div>
+            <div class="slide" style="background-image: url('images/burgry.jpg');"></div>
+            <div class="slide" style="background-image: url('images/menu.jpg');"></div>
+        </div>
     </div>
-    <div class="menu-mobile" id="menu">
-        <a href="#uvod">Úvod</a>
-        <a href="#onas">O nás</a>
-        <a href="#kontakt">Kontakt</a>
-    </div>
-</header>
 
-    <section class="slider">
-    <div class="slides" id="slides">
-        <img src="images/burgry.jpg" alt="Burgery">
-        <img src="images/menu.jpg" alt="Menu">
-        <img src="images/logo3D.png" alt="Logo">
-    </div>
-</section>
-    
     <!-- Sekce O nás -->
     <section id="onas">
         <div class="container">
@@ -215,23 +202,23 @@
         </div>
     </section>
 
-<script>
-    let currentIndex = 0;
+    <script>
+        // Hamburger menu
+        function toggleMenu() {
+            const nav = document.querySelector('nav ul');
+            nav.classList.toggle('active');
+        }
 
-    function toggleMenu() {
-        const menu = document.getElementById('menu');
-        menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
-    }
+        // Slider
+        let index = 0;
+        const slides = document.querySelector('.slides');
 
-    function showNextSlide() {
-        const slides = document.getElementById('slides');
-        const totalSlides = slides.children.length;
-        currentIndex = (currentIndex + 1) % totalSlides;
-        slides.style.transform = `translateX(-${currentIndex * 100}%)`;
-    }
+        function showSlide() {
+            index = (index + 1) % 3; // Počet snímků (3)
+            slides.style.transform = `translateX(-${index * 100}%)`;
+        }
 
-    setInterval(showNextSlide, 3000);
-</script>
-
+        setInterval(showSlide, 3000);
+    </script>
 </body>
 </html>
