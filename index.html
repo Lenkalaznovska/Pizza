@@ -210,6 +210,7 @@ section p {
     position: relative;
     margin: 20px 0;
     overflow: hidden;
+    width: 100%;
 }
 
 .gallery-slider {
@@ -218,7 +219,7 @@ section p {
 }
 
 .gallery-slide {
-    min-width: 100%; /* Plná šířka na malých zařízeních */
+    min-width: 100%; /* Jeden obrázek na šířku */
     height: 300px;
     background-size: cover;
     background-position: center;
@@ -267,22 +268,13 @@ section p {
 /* Responsiveness */
 @media (min-width: 769px) {
     .gallery-slide {
-        min-width: 33.33%; /* Tři obrázky na šířku na větších zařízeních */
-        margin: 0 10px;
-    }
-
-    .gallery-buttons {
-        display: flex; /* Zobrazit šipky na větších obrazovkách */
+        min-width: 100%; /* Jeden obrázek na šířku */
     }
 }
 
 @media (max-width: 768px) {
-    .gallery-slide {
-        min-width: 100%; /* Jeden obrázek na šířku na menších zařízeních */
-    }
-
     .gallery-buttons {
-        display: none; /* Skrýt šipky na mobilních zařízeních */
+        display: flex; /* Zobrazit šipky na mobilních zařízeních */
     }
 }
 
