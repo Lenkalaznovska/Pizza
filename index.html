@@ -331,7 +331,8 @@ section p {
     }
 }
 
-    #kontakty {
+/* Styly pro sekci Kontakty */
+#kontakty {
     background-color: #f9f9f9; /* Světle šedé pozadí pro kontrast */
     padding: 40px 0;
     text-align: center;
@@ -343,6 +344,7 @@ section p {
     margin-bottom: 20px;
 }
 
+/* Kontejner pro karty */
 .card-container {
     display: flex;
     justify-content: space-between;
@@ -350,30 +352,42 @@ section p {
     flex-wrap: wrap; /* Zajistí, že karty se přizpůsobí na menších obrazovkách */
 }
 
+/* Styl jednotlivých karet */
 .card {
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Přidání stínování */
     width: calc(33.33% - 20px); /* Každá karta zabírá třetinu šířky */
-    text-align: left;
+    text-align: center; /* Zarovnání obsahu na střed */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efekt při najetí myší */
 }
 
+.card:hover {
+    transform: translateY(-5px); /* Mírné nadzvednutí karty */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Zesílení stínování */
+}
+
+/* Styl nadpisů v kartách */
 .card h3 {
     font-size: 1.6rem;
     color: #2c3e50;
     margin-bottom: 15px;
+    text-align: center; /* Zarovnání nadpisů na střed */
 }
 
+/* Text v kartách */
 .card p {
     font-size: 1.1rem;
     color: #555;
     margin-bottom: 10px;
 }
 
+/* Odkazy na kontakt */
 .contact-link {
     color: #3498db;
     text-decoration: none;
+    font-weight: bold;
 }
 
 .contact-link:hover {
@@ -381,12 +395,14 @@ section p {
     text-decoration: underline;
 }
 
+/* Sociální odkazy */
 .social-links a {
     display: inline-flex;
     align-items: center;
     margin: 10px 0;
     color: #555;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 .social-links a img {
@@ -397,22 +413,26 @@ section p {
     color: #3498db;
 }
 
+/* Mapový iframe */
 .card iframe {
     width: 100%;
-    height: 300px; /* Můžete upravit výšku dle potřeby */
+    height: 300px; /* Nastavení výšky mapy */
     margin-top: 20px;
-    border-radius: 8px; /* Zaoblení rohů mapy pro soulad s kartami */
+    border-radius: 8px; /* Zaoblení rohů mapy */
+    border: none;
 }
 
+/* Responzivita pro tablety */
 @media (max-width: 768px) {
     .card {
-        width: calc(50% - 20px); /* Na menších obrazovkách budou karty zabírat polovinu šířky */
+        width: calc(50% - 20px); /* Na menších obrazovkách zabírají karty polovinu šířky */
     }
 }
 
+/* Responzivita pro mobily */
 @media (max-width: 480px) {
     .card {
-        width: 100%; /* Na mobilních zařízeních bude každá karta zabírat celou šířku */
+        width: 100%; /* Na mobilních zařízeních zabírá každá karta celou šířku */
     }
 }
 
