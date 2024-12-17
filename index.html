@@ -219,15 +219,14 @@ section p {
 }
 
 .gallery-slide {
-    min-width: 200px; /* Zmenšíme obrázky na malé karty vedle sebe */
-    height: 150px;
+    min-width: 100%; /* Zobrazí jeden obrázek na obrazovce */
+    height: 500px;
     background-size: cover;
     background-position: center;
-    border-radius: 15px; /* Zaoblení rohů obrázků */
+    border-radius: 15px;
     margin: 0 10px;
 }
 
-/* Gallery navigation buttons */
 .gallery-buttons {
     position: absolute;
     top: 50%;
@@ -255,25 +254,53 @@ section p {
     background: rgba(0, 0, 0, 0.8);
 }
 
-.gallery-buttons .prev {
-    position: absolute;
-    left: 10px;
-}
-
-.gallery-buttons .next {
-    position: absolute;
-    right: 10px;
-}
-
-/* Responsiveness */
+/* Responsive Design */
 @media (max-width: 768px) {
+    nav {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hamburger.active div:nth-child(1) {
+        transform: rotate(-45deg);
+        position: absolute;
+    }
+
+    .hamburger.active div:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active div:nth-child(3) {
+        transform: rotate(45deg);
+        position: absolute;
+    }
+
+    nav.active {
+        display: flex;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background-color: #333;
+        padding: 10px;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+    
     .gallery-buttons {
-        display: flex; /* Zobrazí šipky na mobilních zařízeních */
+        display: none;
     }
 
     .gallery-slide {
-        min-width: 80%; /* Na mobilu zobrazíme širší obrázky */
-        height: 150px;
+        min-width: 100%; /* Na mobilu zobrazíme širší obrázek */
+        height: 250px;
     }
 }
     
