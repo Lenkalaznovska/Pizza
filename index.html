@@ -608,143 +608,80 @@ footer {
     </footer>
 
 <script>
-// ------------------------------ SLIDER ------------------------------
-let slideIndex = 0;
-const slidesContainer = document.querySelector('.slides');
-const totalSlides = slidesContainer ? slidesContainer.children.length : 0;
+document.addEventListener("DOMContentLoaded", function () {
+    // Hamburger Menu
+    const hamburger = document.querySelector(".hamburger");
+    const nav = document.querySelector("nav");
 
-// Update the position of the slides container to show the current slide
-function updateSlidePosition() {
-    const offset = -slideIndex * 100;
-    slidesContainer.style.transform = `translateX(${offset}%)`;
-}
+    hamburger.addEventListener("click", function () {
+        nav.classList.toggle("active");
+        hamburger.classList.toggle("active");
+    });
 
-// Show the next slide
-function showNextSlide() {
-    slideIndex = (slideIndex + 1) % totalSlides;
-    updateSlidePosition();
-}
+    // Slider (Hlavní sekce)
+    let slideIndex = 0;
+    const slides = document.querySelector(".slides");
+    const totalSlides = document.querySelectorAll(".slide").length;
 
-// Show the previous slide
-function showPreviousSlide() {
-    slideIndex = (slideIndex - 1 + totalSlides) % totalSlides;
-    updateSlidePosition();
-}
-
-// Add event listeners for the slider navigation buttons
-document.getElementById('slider-prev')?.addEventListener('click', showPreviousSlide);
-document.getElementById('slider-next')?.addEventListener('click', showNextSlide);
-
-// Auto-scroll every 5 seconds
-if (totalSlides > 0) {
-    setInterval(showNextSlide, 5000);
-}
-
-// ------------------------------ HAMBURGER MENU ------------------------------
-// Toggle the visibility of the hamburger menu
-function toggleMenu() {
-    const nav = document.querySelector('nav');
-    const hamburger = document.querySelector('.hamburger');
-    if (nav && hamburger) {
-        nav.classList.toggle('active');
-        hamburger.classList.toggle('active');
+    function showSlides() {
+        slideIndex = (slideIndex + 1) % totalSlides; // Cyklické přepínání slide
+        slides.style.transform = `translateX(-${slideIndex * 100}%)`;
     }
-}
 
-// Add event listener to the hamburger menu to toggle visibility
-document.querySelector('.hamburger')?.addEventListener('click', toggleMenu);
+    setInterval(showSlides, 5000); // Automatická změna slide každých 5 sekund
 
-// Close the menu if clicking outside
-document.addEventListener('click', (event) => {
-    const nav = document.querySelector('nav');
-    const hamburger = document.querySelector('.hamburger');
-    if (nav?.classList.contains('active') && !nav.contains(event.target) && !hamburger.contains(event.target)) {
-        nav.classList.remove('active');
-        hamburger.classList.remove('active');
+    // Gallery Slider
+    const gallerySlider = document.querySelector(".gallery-slider");
+    const gallerySlides = document.querySelectorAll(".gallery-slide");
+    const galleryButtons = document.querySelectorAll(".gallery-buttons button");
+    let galleryIndex = 0;
+
+    function showGallerySlide(index) {
+        gallerySlider.style.transform = `translateX(-${index * (gallerySlides[0].clientWidth + 20)}px)`;
     }
+
+    galleryButtons.forEach((button, index) => {
+        button.addEventListener("click", function () {
+            galleryIndex = Math.max(0, Math.min(gallerySlides.length - 1, galleryIndex + (index === 0 ? -1 : 1)));
+            showGallerySlide(galleryIndex);
+        });
+    });
+
+    // Scrollovací tlačítko
+    const scrollButton = document.querySelector(".scroll-to-top");
+
+    window.addEventListener("scroll", function () {
+        if (window.scrollY > 300) {
+            scrollButton.classList.add("visible");
+        } else {
+            scrollButton.classList.remove("visible");
+        }
+    });
+
+    scrollButton.addEventListener("click", function () {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    });
+
+    // Animace sekcí při scrollování
+    const sections = document.querySelectorAll(".animate-on-scroll");
+
+    function checkVisibility() {
+        const triggerHeight = window.innerHeight * 0.8;
+        sections.forEach((section) => {
+            const sectionTop = section.getBoundingClientRect().top;
+            if (sectionTop < triggerHeight) {
+                section.classList.add("visible");
+            }
+        });
+    }
+
+    window.addEventListener("scroll", checkVisibility);
+    checkVisibility(); // Zkontrolovat při načtení stránky
 });
 
-// ------------------------------ GALLERY FOR DESKTOP AND MOBILE ------------------------------
-
-// Function to handle the visibility of images based on screen size
-function handleGallerySlider() {
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    const isMobile = window.innerWidth <= 768;
-
-    // For mobile, show only one image at a time
-    if (isMobile) {
-        galleryItems.forEach((item) => {
-            item.style.width = '100%'; // Ensure each item takes full width
-        });
-        // Hide the navigation arrows on mobile
-        document.getElementById('gallery-prev').style.display = 'none';
-        document.getElementById('gallery-next').style.display = 'none';
-    } else {
-        galleryItems.forEach((item) => {
-            item.style.width = '20%'; // On desktop, show multiple images at once
-        });
-        // Show the navigation arrows on desktop
-        document.getElementById('gallery-prev').style.display = 'block';
-        document.getElementById('gallery-next').style.display = 'block';
-    }
-
-    // Re-adjust the position of the gallery based on the screen size
-    updateGalleryPosition();
-}
-
-// Update the position of the gallery based on the number of items visible
-function updateGalleryPosition() {
-    const galleryContainer = document.querySelector('.gallery');
-    const isMobile = window.innerWidth <= 768;
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    const visibleItems = isMobile ? 1 : 5; // Adjust the visible number of items based on screen size
-    const totalItems = galleryItems.length;
-
-    // Calculate the gallery scroll position based on the number of visible items
-    const offset = isMobile 
-        ? 0 // For mobile, set offset to zero (one item view)
-        : -(galleryContainer.scrollLeft / (galleryItems[0].offsetWidth / visibleItems));
-
-    galleryContainer.style.transform = `translateX(${offset * (100 / visibleItems)}%)`;
-}
-
-// Scroll the gallery to the next item
-function scrollGalleryNext() {
-    const galleryContainer = document.querySelector('.gallery');
-    const galleryItemWidth = document.querySelector('.gallery-item').offsetWidth;
-    galleryContainer.scrollLeft += galleryItemWidth;
-}
-
-// Scroll the gallery to the previous item
-function scrollGalleryPrev() {
-    const galleryContainer = document.querySelector('.gallery');
-    const galleryItemWidth = document.querySelector('.gallery-item').offsetWidth;
-    galleryContainer.scrollLeft -= galleryItemWidth;
-}
-
-// Handle window resize events to update gallery display
-window.addEventListener('resize', handleGallerySlider);
-
-// Initialize gallery display on page load
-document.addEventListener('DOMContentLoaded', () => {
-    handleGallerySlider();
-});
-
-// ------------------------------ GALLERY NAVIGATION ------------------------------
-
-// Event listeners for gallery navigation arrows
-const galleryPrevButton = document.getElementById('gallery-prev');
-const galleryNextButton = document.getElementById('gallery-next');
-
-// Ensure the gallery navigation arrows are functional
-if (galleryPrevButton) {
-    galleryPrevButton.addEventListener('click', scrollGalleryPrev);
-}
-
-if (galleryNextButton) {
-    galleryNextButton.addEventListener('click', scrollGalleryNext);
-}
-
-</script>
+    </script>
 </body>
 </html>
