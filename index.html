@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="cs">
 <head>
     <meta charset="UTF-8">
@@ -72,63 +72,22 @@
             color: #e63946;
         }
 
-        /* Hamburger menu */
+        /* Hamburger Menu */
         .hamburger {
             display: none;
+            flex-direction: column;
             cursor: pointer;
         }
 
         .hamburger div {
-            width: 25px;
-            height: 3px;
             background-color: #fff;
-            margin: 5px 0;
-            transition: transform 0.3s ease;
+            height: 3px;
+            width: 25px;
+            margin: 4px 0;
+            transition: 0.3s;
         }
 
-        /* Animace pro efekt spadnutí */
-        @keyframes drop-down {
-            0% {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        /* Aplikace animace na nadpis */
-        h1, .buttons a {
-            animation: drop-down 1s ease-out forwards;
-            opacity: 0;
-        }
-
-        /* Zpoždění pro nadpis a tlačítka */
-        h1 {
-            animation-delay: 0.5s; /* Nadpis spadne první */
-        }
-
-        .buttons a {
-            animation-delay: 1s; /* Tlačítka spadnou s menším zpožděním */
-            animation-duration: 1s; /* Doba trvání animace pro tlačítka */
-            display: inline-block;
-            margin: 5px;
-            text-decoration: none;
-            background-color: #e63946;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-
-        .buttons a:hover {
-            background-color: #d62839;
-            transform: scale(1.05);
-        }
-
-        /* Zpomalte přechod pro slider */
+        /* Slider */
         .slider {
             position: relative;
             width: 100%;
@@ -141,7 +100,7 @@
 
         .slides {
             display: flex;
-            transition: transform 4s ease-in-out;  /* Zpomaleno na 4s */
+            transition: transform 4s ease-in-out;
         }
 
         .slide {
@@ -160,7 +119,7 @@
             color: #fff;
             text-shadow: 2px 2px 5px #000;
             margin-bottom: 20px;
-            text-align: center; /* Zarovnání nadpisu na střed */
+            text-align: center;
         }
 
         .buttons a {
@@ -211,6 +170,54 @@
 
         section a:hover {
             text-decoration: underline;
+        }
+
+        /* Responzivní design */
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger.active div:nth-child(1) {
+                transform: rotate(-45deg);
+                position: absolute;
+            }
+
+            .hamburger.active div:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active div:nth-child(3) {
+                transform: rotate(45deg);
+                position: absolute;
+            }
+
+            nav ul {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                background-color: #333;
+                padding: 10px;
+                text-align: center;
+            }
+
+            nav ul li {
+                margin: 15px 0;
+            }
+
+            nav ul li a {
+                font-size: 22px;
+            }
+
+            nav.active {
+                display: flex;
+            }
         }
     </style>
 </head>
@@ -284,13 +291,8 @@
         </div>
     </section>
 
-    <!-- Skript pro hamburger menu a slider -->
+    <!-- Skript pro slider a hamburger menu -->
     <script>
-        function toggleMenu() {
-            const nav = document.querySelector('nav ul');
-            nav.classList.toggle('active');
-        }
-
         let index = 0;
         const slides = document.querySelector('.slides');
 
@@ -300,6 +302,13 @@
         }
 
         setInterval(showSlide, 4000);  // Zpoždění pro přechod na další obrázek (4s)
+
+        function toggleMenu() {
+            const hamburger = document.querySelector('.hamburger');
+            const nav = document.querySelector('nav');
+            hamburger.classList.toggle('active');
+            nav.classList.toggle('active');
+        }
     </script>
 </body>
 </html>
