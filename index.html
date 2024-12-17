@@ -136,21 +136,56 @@
             transform: scale(1.05);
         }
 
-        /* Sekce O nás, Galerie, Kontakt */
-        section {
-            background: #fff;
-            padding: 40px 20px;
-            margin: 20px 0;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            text-align: center;
-        }
+/* Sekce O nás, Galerie, Kontakt */
+section {
+    background: #fff;
+    padding: 40px 20px;
+    margin: 20px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    transition: box-shadow 0.3s ease; /* Přechod pro stín */
+}
 
-        section h2 {
-            font-size: 32px;
-            margin-bottom: 20px;
-            color: #e63946;
-        }
+section:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Zvýraznění při najetí myší */
+}
+
+section h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #e63946; /* Barva nadpisu */
+    font-family: 'Arial', sans-serif; /* Volitelný font */
+    font-weight: bold;
+}
+
+/* Přidání stylu pro texty uvnitř sekcí */
+section p {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Styling pro kontaktní sekci */
+#kontakty .container p {
+    margin-bottom: 10px;
+}
+
+/* Styling pro sociální ikony */
+.social-icons a {
+    margin: 0 10px;
+}
+
+.social-icons a img {
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    transition: transform 0.3s ease; /* Efekt při najetí myší */
+}
+
+.social-icons a:hover img {
+    transform: scale(1.2); /* Zvětšení ikon při najetí myší */
+}
 
  /* Galerie slider */
 .gallery {
