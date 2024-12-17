@@ -518,6 +518,24 @@
         galleryIndex = (galleryIndex + 1) % galleryTotal;
         showGallerySlide(galleryIndex);
     });
+
+    // ------------------------------ ADAPTIVNÍ DESIGN ------------------------------
+    // Zajistí, že obrázky a texty budou správně reagovat na různé velikosti obrazovek
+    window.addEventListener('resize', () => {
+        adjustLayout();
+    });
+
+    function adjustLayout() {
+        // Příklad, jak přizpůsobit velikost textů nebo obrázků pro menší obrazovky
+        if (window.innerWidth < 768) {
+            document.body.style.fontSize = '14px'; // Změní velikost textu pro menší obrazovky
+        } else {
+            document.body.style.fontSize = '16px'; // Zpět na výchozí velikost
+        }
+    }
+
+    adjustLayout(); // Inicializuje přizpůsobení při načtení stránky
+
 </script>
 </body>
 </html>
