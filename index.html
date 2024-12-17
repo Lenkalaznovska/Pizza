@@ -89,14 +89,22 @@ nav ul li a:hover {
     transition: 0.3s;
 }
 
-/* Responsive Design */
+/* Adjusting Hamburger Menu position */
 @media (max-width: 768px) {
     nav {
         display: none;  /* Hide nav on mobile */
+        position: absolute;
+        top: 70px; /* Adjust this value to set the correct position below header */
+        left: 0;
+        width: 100%;
+        background-color: #333;
     }
 
     .hamburger {
         display: flex;
+        position: absolute;
+        top: 20px;  /* Adjust if needed to position the hamburger */
+        right: 20px;
     }
 
     .hamburger.active div:nth-child(1) {
@@ -111,6 +119,26 @@ nav ul li a:hover {
     .hamburger.active div:nth-child(3) {
         transform: rotate(45deg);
         position: absolute;
+    }
+
+    nav.active {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    nav ul li {
+        margin: 15px 0;
+    }
+
+    nav ul li a {
+        font-size: 22px;
     }
 }
     
