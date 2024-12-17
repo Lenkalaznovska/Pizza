@@ -125,10 +125,10 @@ nav ul li a:hover {
         text-align: center;
     }
 
-nav ul {
-    background-color: rgba(51, 51, 51, 0.9); /* Průsvitnost pozadí */
-    top: 50px; /* Posun blíže k horní části */
-}
+    nav ul {
+        flex-direction: column;
+        padding: 0;
+    }
 
     nav ul li {
         margin: 15px 0;
@@ -311,10 +311,9 @@ section p {
             height: 250px; /* Adjust height for mobile */
         }
 
-@media (max-width: 768px) {
-    .gallery-buttons {
-        display: flex !important;
-    }
+        .gallery-buttons {
+            display: flex;
+        }
     }
 
 /* Responsive Design */
@@ -600,10 +599,10 @@ footer {
                 <div class="gallery-slide" style="background-image: url('images/VEČER.jpg');"></div>
                 <div class="gallery-slide" style="background-image: url('images/menu.jpg');"></div>
             </div>
-<div class="gallery-buttons">
-    <button onclick="moveGallery(-1)">&lt;</button>
-    <button onclick="moveGallery(1)">&gt;</button>
-</div>
+            <div class="gallery-buttons">
+                <button id="gallery-prev" class="prev">&#8592;</button> <!-- Left arrow -->
+                <button id="gallery-next" class="next">&#8594;</button> <!-- Right arrow -->
+            </div>
         </div>
     </div>
 </section>
@@ -677,7 +676,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function showSlides() {
         slideIndex = (slideIndex + 1) % totalSlides; // Cyklické přepínání slide
-        slides.style.transform = `translateX(-${slideIndex * 100}%)`;
+        slides.style.transform = translateX(-${slideIndex * 100}%);
     }
 
     setInterval(showSlides, 5000); // Automatická změna slide každých 5 sekund
@@ -689,7 +688,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let galleryIndex = 0;
 
     function showGallerySlide(index) {
-        gallerySlider.style.transform = `translateX(-${index * (gallerySlides[0].clientWidth + 20)}px)`;
+        gallerySlider.style.transform = translateX(-${index * (gallerySlides[0].clientWidth + 20)}px);
     }
 
     galleryButtons.forEach((button, index) => {
