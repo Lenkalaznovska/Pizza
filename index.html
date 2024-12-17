@@ -205,7 +205,7 @@ section p {
     color: #ff4500; /* Změna barvy odkazu při najetí myší */
 }
 
- /* Galerie slider */
+/* Galerie slider */
 .gallery {
     position: relative;
     overflow: hidden;
@@ -367,12 +367,18 @@ section p {
     <div class="container">
         <h2>Galerie</h2>
         <div class="gallery">
-            <img src="images/Burgry.jpg" alt="Burgry">
-            <img src="images/sanmarino.jpg" alt="San Marino Menu">
-            <img src="images/Omáčky.jpg" alt="Omáčky">
-            <img src="images/Popkorn.jpg" alt="Popkorn">
-            <img src="images/VEČER.jpg" alt="VEČER">
-            <img src="images/menu.jpg" alt="Menu">
+            <div class="gallery-slider">
+                <div class="gallery-slide" style="background-image: url('images/Burgry.jpg');"></div>
+                <div class="gallery-slide" style="background-image: url('images/sanmarino.jpg');"></div>
+                <div class="gallery-slide" style="background-image: url('images/Omáčky.jpg');"></div>
+                <div class="gallery-slide" style="background-image: url('images/Popkorn.jpg');"></div>
+                <div class="gallery-slide" style="background-image: url('images/VEČER.jpg');"></div>
+                <div class="gallery-slide" style="background-image: url('images/menu.jpg');"></div>
+            </div>
+            <div class="gallery-buttons">
+                <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+                <button class="next" onclick="moveSlide(1)">&#10095;</button>
+            </div>
         </div>
     </div>
 </section>
@@ -436,26 +442,26 @@ section p {
     });
 
     // Galerie slider
-let galleryIndex = 0;
-const gallerySlider = document.querySelector('.gallery-slider');
-const gallerySlides = document.querySelectorAll('.gallery-slide');
-const galleryTotal = gallerySlides.length;
+    let galleryIndex = 0;
+    const gallerySlider = document.querySelector('.gallery-slider');
+    const gallerySlides = document.querySelectorAll('.gallery-slide');
+    const galleryTotal = gallerySlides.length;
 
-// Funkce pro zobrazení dalšího snímku
-function showGallerySlide(index) {
-    gallerySlider.style.transform = `translateX(-${index * 100}%)`;
-}
+    // Funkce pro zobrazení dalšího snímku
+    function showGallerySlide(index) {
+        gallerySlider.style.transform = `translateX(-${index * 100}%)`;
+    }
 
-// Tlačítka pro galerii
-document.getElementById('gallery-prev').addEventListener('click', () => {
-    galleryIndex = (galleryIndex - 1 + galleryTotal) % galleryTotal;
-    showGallerySlide(galleryIndex);
-});
+    // Tlačítka pro galerii
+    document.getElementById('gallery-prev').addEventListener('click', () => {
+        galleryIndex = (galleryIndex - 1 + galleryTotal) % galleryTotal;
+        showGallerySlide(galleryIndex);
+    });
 
-document.getElementById('gallery-next').addEventListener('click', () => {
-    galleryIndex = (galleryIndex + 1) % galleryTotal;
-    showGallerySlide(galleryIndex);
-});
+    document.getElementById('gallery-next').addEventListener('click', () => {
+        galleryIndex = (galleryIndex + 1) % galleryTotal;
+        showGallerySlide(galleryIndex);
+    });
 </script>
     </body>
 </html>
