@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pizzerie San Marino</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Web s Hamburger Menu a Sliderem</title>
     <style>
+        /* Reset stylů */
         * {
             margin: 0;
             padding: 0;
@@ -13,9 +13,10 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f8f9fa;
-            color: #212529;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            overflow-x: hidden;
         }
 
         header {
@@ -23,108 +24,141 @@
             justify-content: space-between;
             align-items: center;
             padding: 10px 20px;
-            background-color: #212529;
-            color: #fff;
-            position: relative;
+            background-color: #222;
         }
 
         header img {
             height: 50px;
         }
 
-        nav ul {
-            list-style: none;
+        nav {
             display: flex;
             gap: 20px;
         }
 
-        nav ul li a {
+        nav a {
             color: white;
             text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
         }
 
-        nav ul li a:hover {
-            text-decoration: underline;
+        nav a:hover {
+            color: #f39c12;
         }
 
-        #intro {
-            position: relative;
-            overflow: hidden;
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
         }
 
-        #slider {
-            position: relative;
-            width: 100%;
-            height: 400px;
+        .hamburger div {
+            width: 30px;
+            height: 3px;
+            background-color: white;
         }
 
-        #slider img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .menu {
+            display: flex;
+            gap: 20px;
         }
 
-        #intro h1 {
+        .menu-mobile {
+            display: none;
+            flex-direction: column;
+            background-color: #222;
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            top: 70px;
+            right: 0;
+            width: 200px;
+            padding: 10px;
+        }
+
+        .menu-mobile a {
             color: white;
-            font-size: 50px;
-            text-shadow: 3px 3px 10px black;
+            padding: 10px;
+            border-bottom: 1px solid #444;
+        }
+
+        .menu-mobile a:last-child {
+            border-bottom: none;
+        }
+
+        .slider {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slides img {
+            width: 100%;
+        }
+
+        .section {
+            padding: 40px 20px;
+            text-align: center;
+            margin: 20px;
         }
 
         .card {
-            margin: 20px auto;
             padding: 20px;
-            max-width: 600px;
             background: white;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             border-radius: 10px;
-            opacity: 0;
-            transform: translateY(50px);
-            animation: fadeInUp 1s forwards;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            animation: slideIn 1s ease;
         }
 
-        @keyframes fadeInUp {
+        .card:hover {
+            animation: breathe 2s infinite;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(100px);
+                opacity: 0;
+            }
             to {
-                opacity: 1;
                 transform: translateY(0);
+                opacity: 1;
             }
         }
 
-        .breathing {
-            animation: breathing 3s infinite;
-        }
-
-        @keyframes breathing {
+        @keyframes breathe {
             0%, 100% {
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             }
             50% {
-                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
             }
         }
 
         @media (max-width: 768px) {
-            header {
-                flex-wrap: wrap;
-            }
-
-            nav ul {
-                flex-direction: column;
+            nav {
                 display: none;
             }
 
-            nav.active ul {
+            .hamburger {
                 display: flex;
             }
 
-            .hamburger {
-                cursor: pointer;
-                font-size: 24px;
+            .menu-mobile {
+                display: flex;
+            }
+
+            .slider img {
+                height: 300px;
+                object-fit: cover;
             }
         }
     </style>
