@@ -121,12 +121,17 @@ nav ul li a:hover {
         position: absolute;
     }
 
-    nav.active {
-        display: flex;
-        flex-direction: column;
-        padding: 10px;
-        text-align: center;
-    }
+nav.active {
+    display: flex;
+    position: absolute;
+    top: 20px; /* Původní hodnota */
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background-color: #333;
+    padding: 10px;
+    text-align: center;
+}
 
     nav ul {
         flex-direction: column;
