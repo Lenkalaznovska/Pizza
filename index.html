@@ -87,12 +87,24 @@ nav ul li a:hover {
     z-index: 20; /* Aby bylo nad menu */
 }
 
-.hamburger div {
-    background-color: #fff;
-    height: 3px;
-    width: 25px;
-    margin: 4px 0;
-    transition: 0.3s;
+    .hamburger span {
+    width: 100%;
+    height: 4px;
+    background-color: #333;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Aktivní stav hamburgeru (např. X animace) */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
 }
 
 /* Slider */
