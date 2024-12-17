@@ -684,14 +684,30 @@ function handleGallerySlider() {
     }
 
     // Re-adjust the position of the slides based on the screen size
-    updateSlidePosition();
+    updateGalleryPosition();
 }
 
-// Listen for window resize events to adjust the gallery slider
+// Update the position of the gallery based on the number of items visible
+function updateGalleryPosition() {
+    const galleryContainer = document.querySelector('.gallery');
+    const isMobile = window.innerWidth <= 768;
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const visibleItems = isMobile ? 1 : 5; // Adjust the visible number of items based on screen size
+    const totalItems = galleryItems.length;
+    const offset = -(galleryContainer.scrollLeft / (galleryItems[0].offsetWidth / visibleItems));
+
+    galleryContainer.style.transform = `translateX(${offset * (100 / visibleItems)}%)`;
+}
+
+// Handle window resize events to update gallery display
 window.addEventListener('resize', handleGallerySlider);
 
-// Initialize the gallery slider when the page loads
+// Initialize gallery display on page load
+document.addEventListener('DOMContentLoaded', handleGallerySlider);
+
+// ------------------------------ SLIDER AND GALLERY INIT ------------------------------
 handleGallerySlider();
+
 </script>
     
 </body>
