@@ -205,49 +205,64 @@
             color: #ff4500; /* Změna barvy odkazu při najetí myší */
         }
 
-        /* Galerie slider */
-        .gallery {
-            position: relative;
-            overflow: hidden;
-            height: 300px;
-        }
+/* Galerie slider */
+.gallery {
+    position: relative;
+    overflow: hidden;
+    height: 300px; /* Výška galerie */
+}
 
-        .gallery-slider {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
+.gallery-slider {
+    display: flex;
+    transition: transform 0.5s ease;
+}
 
-        .gallery-slide {
-            min-width: 100%;
-            height: 300px;
-            background-size: cover;
-            background-position: center;
-        }
+.gallery-slide {
+    min-width: 90%; /* Šířka obrázků snížena na 90% */
+    height: 300px; /* Výška obrázků */
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    margin: 0 10px; /* Mezera mezi obrázky */
+}
 
-        .gallery-buttons {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            z-index: 10;
-        }
+/* Přizpůsobení pro mobilní zařízení */
+@media (max-width: 768px) {
+    .gallery-slide {
+        min-width: 80%; /* Zmenšení šířky pro mobilní zařízení */
+    }
+}
 
-        .gallery-buttons button {
-            background: rgba(0, 0, 0, 0.5);
-            color: #fff;
-            border: none;
-            font-size: 20px;
-            padding: 10px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
+/* Přizpůsobení pro velmi malé obrazovky */
+@media (max-width: 480px) {
+    .gallery-slide {
+        min-width: 70%; /* Další zmenšení šířky pro malé telefony */
+    }
+}
 
-        .gallery-buttons button:hover {
-            background: rgba(0, 0, 0, 0.8);
-        }
+.gallery-buttons {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    z-index: 10;
+}
 
+.gallery-buttons button {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    font-size: 20px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.gallery-buttons button:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
         /* Responzivní design */
         @media (max-width: 768px) {
             nav {
