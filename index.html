@@ -219,7 +219,7 @@ section p {
 }
 
 .gallery-slide {
-    min-width: 100%; /* Zobrazí jeden obrázek na obrazovce */
+    min-width: 33%; /* Show multiple smaller images */
     height: 500px;
     background-size: cover;
     background-position: center;
@@ -252,6 +252,18 @@ section p {
 
 .gallery-buttons button:hover {
     background: rgba(0, 0, 0, 0.8);
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+    .gallery-slide {
+        min-width: 100%; /* Show one image at a time on mobile */
+        height: 250px; /* Adjust height for mobile */
+    }
+
+    .gallery-buttons {
+        display: flex;
+    }
 }
 
 /* Responsive Design */
