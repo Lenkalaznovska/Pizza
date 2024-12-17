@@ -218,7 +218,7 @@
 }
 
 .gallery-slide {
-    min-width: 90%; /* Šířka obrázků snížena na 90% */
+    min-width: 70%; /* Zmenšení šířky obrázků na 70% */
     height: 300px; /* Výška obrázků */
     background-size: cover;
     background-position: center;
@@ -229,14 +229,14 @@
 /* Přizpůsobení pro mobilní zařízení */
 @media (max-width: 768px) {
     .gallery-slide {
-        min-width: 80%; /* Zmenšení šířky pro mobilní zařízení */
+        min-width: 60%; /* Zmenšení šířky pro mobilní zařízení */
     }
 }
 
 /* Přizpůsobení pro velmi malé obrazovky */
 @media (max-width: 480px) {
     .gallery-slide {
-        min-width: 70%; /* Další zmenšení šířky pro malé telefony */
+        min-width: 50%; /* Další zmenšení šířky pro malé telefony */
     }
 }
 
@@ -263,6 +263,7 @@
 .gallery-buttons button:hover {
     background: rgba(0, 0, 0, 0.8);
 }
+        
         /* Responzivní design */
         @media (max-width: 768px) {
             nav {
@@ -486,7 +487,13 @@
         gallerySlider.style.transform = `translateX(-${index * 100}%)`;
     }
 
-    // Tlačítka pro galerii
+    // Automatické posouvání galerii každých 5 sekund
+    setInterval(() => {
+        galleryIndex = (galleryIndex + 1) % galleryTotal;
+        showGallerySlide(galleryIndex);
+    }, 5000);
+
+    // Tlačítka pro manuální posouvání galerie
     document.getElementById('gallery-prev').addEventListener('click', () => {
         galleryIndex = (galleryIndex - 1 + galleryTotal) % galleryTotal;
         showGallerySlide(galleryIndex);
