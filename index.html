@@ -411,14 +411,13 @@ footer {
                 <div class="gallery-slide" style="background-image: url('images/VEČER.jpg');"></div>
                 <div class="gallery-slide" style="background-image: url('images/menu.jpg');"></div>
             </div>
-                <div class="gallery-buttons">
+            <div class="gallery-buttons">
                 <button id="gallery-prev" class="prev">&#8592;</button> <!-- Left arrow -->
                 <button id="gallery-next" class="next">&#8594;</button> <!-- Right arrow -->
             </div>
         </div>
     </div>
 </section>
-
     <!-- Kontakt sekce -->
     <section id="kontakty">
         <div class="container">
@@ -499,32 +498,29 @@ footer {
     hamburger.addEventListener('click', toggleMenu);
 
     // ------------------------------ GALERIE SLIDER ------------------------------
-    let galleryIndex = 0;
-    const gallerySlider = document.querySelector('.gallery-slider');
-    const gallerySlides = document.querySelectorAll('.gallery-slide');
-    const galleryTotal = gallerySlides.length;
+// JavaScript pro manuální posouvání obrázků pomocí šipek
+document.getElementById('gallery-prev').addEventListener('click', function() {
+    let gallerySlider = document.querySelector('.gallery-slider');
+    let firstSlide = gallerySlider.querySelector('.gallery-slide');
+    gallerySlider.appendChild(firstSlide); // Přesune první obrázek na konec
+    gallerySlider.style.transition = 'none'; // Okamžité přepnutí, bez přechodového efektu
+    gallerySlider.style.transform = 'translateX(0)';
+    setTimeout(() => {
+        gallerySlider.style.transition = 'transform 0.5s ease'; // Přechodový efekt
+    }, 0);
+});
 
-    // Funkce pro zobrazení konkrétního obrázku v galerii
-    function showGallerySlide(index) {
-        gallerySlider.style.transform = `translateX(-${index * 100}%)`;
-    }
-
-    // Automatické posouvání galerie
-    setInterval(() => {
-        galleryIndex = (galleryIndex + 1) % galleryTotal;
-        showGallerySlide(galleryIndex);
-    }, 5000);
-
-    // Manuální posouvání pro galerii
-    document.getElementById('gallery-prev').addEventListener('click', () => {
-        galleryIndex = (galleryIndex - 1 + galleryTotal) % galleryTotal;
-        showGallerySlide(galleryIndex);
-    });
-
-    document.getElementById('gallery-next').addEventListener('click', () => {
-        galleryIndex = (galleryIndex + 1) % galleryTotal;
-        showGallerySlide(galleryIndex);
-    });
+document.getElementById('gallery-next').addEventListener('click', function() {
+    let gallerySlider = document.querySelector('.gallery-slider');
+    let firstSlide = gallerySlider.querySelector('.gallery-slide');
+    gallerySlider.style.transition = 'none'; // Okamžité přepnutí, bez přechodového efektu
+    gallerySlider.style.transform = 'translateX(-100%)';
+    setTimeout(() => {
+        gallerySlider.appendChild(firstSlide); // Přesune první obrázek na konec
+        gallerySlider.style.transition = 'transform 0.5s ease'; // Přechodový efekt
+        gallerySlider.style.transform = 'translateX(0)';
+    }, 500);
+});
 
     // ------------------------------ ADAPTIVNÍ DESIGN ------------------------------
     // Zajistí, že obrázky a texty budou správně reagovat na různé velikosti obrazovek
