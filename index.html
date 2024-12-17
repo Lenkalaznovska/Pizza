@@ -152,47 +152,48 @@
             color: #e63946;
         }
 
-        /* Galerie slider */
-        .gallery {
-            position: relative;
-            overflow: hidden;
-            height: 300px;
-        }
+ /* Galerie slider */
+.gallery {
+    position: relative;
+    overflow: hidden;
+    height: 300px;
+}
 
-        .gallery-slider {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
+.gallery-slider {
+    display: flex;
+    transition: transform 0.5s ease;
+}
 
-        .gallery-slide {
-            min-width: 100%;
-            height: 300px;
-            background-size: cover;
-            background-position: center;
-        }
+.gallery-slide {
+    min-width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+}
 
-        .gallery-buttons {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-        }
+.gallery-buttons {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    z-index: 10;
+}
 
-        .gallery-buttons button {
-            background: rgba(0, 0, 0, 0.5);
-            color: #fff;
-            border: none;
-            font-size: 20px;
-            padding: 10px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
+.gallery-buttons button {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    font-size: 20px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
 
-        .gallery-buttons button:hover {
-            background: rgba(0, 0, 0, 0.8);
-        }
+.gallery-buttons button:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
 
         /* Responzivní design */
         @media (max-width: 768px) {
@@ -366,4 +367,26 @@
         hamburger.classList.toggle('active');
         nav.classList.toggle('active');
     });
+
+    // Galerie slider
+let galleryIndex = 0;
+const gallerySlider = document.querySelector('.gallery-slider');
+const gallerySlides = document.querySelectorAll('.gallery-slide');
+const galleryTotal = gallerySlides.length;
+
+// Funkce pro zobrazení dalšího snímku
+function showGallerySlide(index) {
+    gallerySlider.style.transform = `translateX(-${index * 100}%)`;
+}
+
+// Tlačítka pro galerii
+document.getElementById('gallery-prev').addEventListener('click', () => {
+    galleryIndex = (galleryIndex - 1 + galleryTotal) % galleryTotal;
+    showGallerySlide(galleryIndex);
+});
+
+document.getElementById('gallery-next').addEventListener('click', () => {
+    galleryIndex = (galleryIndex + 1) % galleryTotal;
+    showGallerySlide(galleryIndex);
+});
 </script>
