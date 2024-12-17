@@ -467,14 +467,22 @@
         showSlide(slideIndex);
     });
 
-    // Hamburger menu
-    const hamburger = document.querySelector('.hamburger');
-    const nav = document.querySelector('nav ul');
+// Hamburger menu
+function toggleMenu() {
+    var menu = document.querySelector('nav');
+    menu.classList.toggle('active');
+    var hamburger = document.querySelector('.hamburger');
+    hamburger.classList.toggle('active');
+}
 
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        nav.classList.toggle('active');
-    });
+const hamburger = document.querySelector('.hamburger');
+const nav = document.querySelector('nav ul');
+
+// Funkce pro přepnutí třídy aktivního menu
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    nav.classList.toggle('active');
+});
 
     // Galerie slider
     let galleryIndex = 0;
