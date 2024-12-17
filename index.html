@@ -607,7 +607,7 @@ footer {
         </div>
     </footer>
 
-    <script>
+<script>
 // ------------------------------ SLIDER ------------------------------
 let slideIndex = 0;
 const slidesContainer = document.querySelector('.slides');
@@ -640,19 +640,19 @@ if (totalSlides > 0) {
     setInterval(showNextSlide, 5000);
 }
 
- // ------------------------------ HAMBURGER MENU ------------------------------
-    function toggleMenu() {
-        var menu = document.querySelector('nav');
-        menu.classList.toggle('active');
-        var hamburger = document.querySelector('.hamburger');
-        hamburger.classList.toggle('active');
-    }
+// ------------------------------ HAMBURGER MENU ------------------------------
+function toggleMenu() {
+    var menu = document.querySelector('nav');
+    menu.classList.toggle('active');
+    var hamburger = document.querySelector('.hamburger');
+    hamburger.classList.toggle('active');
+}
 
-    const hamburger = document.querySelector('.hamburger');
-    const nav = document.querySelector('nav ul');
+const hamburger = document.querySelector('.hamburger');
+const nav = document.querySelector('nav ul');
 
-    // Funkce pro přepnutí třídy aktivního menu
-    hamburger.addEventListener('click', toggleMenu);
+// Function to toggle active menu class
+hamburger.addEventListener('click', toggleMenu);
 
 // ------------------------------ GALLERY FOR DESKTOP AND MOBILE ------------------------------
 
@@ -663,13 +663,19 @@ function handleGallerySlider() {
 
     // For mobile, show only one image at a time
     if (isMobile) {
-        galleryItems.forEach((item, index) => {
+        galleryItems.forEach((item) => {
             item.style.width = '100%'; // Ensure each item takes full width
         });
+        // Hide the navigation arrows on mobile
+        document.getElementById('gallery-prev').style.display = 'none';
+        document.getElementById('gallery-next').style.display = 'none';
     } else {
-        galleryItems.forEach((item, index) => {
+        galleryItems.forEach((item) => {
             item.style.width = '20%'; // On desktop, show multiple images at once
         });
+        // Show the navigation arrows on desktop
+        document.getElementById('gallery-prev').style.display = 'block';
+        document.getElementById('gallery-next').style.display = 'block';
     }
 
     // Re-adjust the position of the slides based on the screen size
@@ -683,9 +689,25 @@ function updateGalleryPosition() {
     const galleryItems = document.querySelectorAll('.gallery-item');
     const visibleItems = isMobile ? 1 : 5; // Adjust the visible number of items based on screen size
     const totalItems = galleryItems.length;
+
+    // Calculate the gallery scroll position
     const offset = -(galleryContainer.scrollLeft / (galleryItems[0].offsetWidth / visibleItems));
 
     galleryContainer.style.transform = `translateX(${offset * (100 / visibleItems)}%)`;
+}
+
+// Scroll the gallery to the next item
+function scrollGalleryNext() {
+    const galleryContainer = document.querySelector('.gallery');
+    const galleryItemWidth = document.querySelector('.gallery-item').offsetWidth;
+    galleryContainer.scrollLeft += galleryItemWidth;
+}
+
+// Scroll the gallery to the previous item
+function scrollGalleryPrev() {
+    const galleryContainer = document.querySelector('.gallery');
+    const galleryItemWidth = document.querySelector('.gallery-item').offsetWidth;
+    galleryContainer.scrollLeft -= galleryItemWidth;
 }
 
 // Handle window resize events to update gallery display
@@ -694,10 +716,12 @@ window.addEventListener('resize', handleGallerySlider);
 // Initialize gallery display on page load
 document.addEventListener('DOMContentLoaded', handleGallerySlider);
 
-// ------------------------------ SLIDER AND GALLERY INIT ------------------------------
-handleGallerySlider();
+// ------------------------------ GALLERY NAVIGATION ------------------------------
+
+// Event listeners for gallery navigation arrows
+document.getElementById('gallery-prev')?.addEventListener('click', scrollGalleryPrev);
+document.getElementById('gallery-next')?.addEventListener('click', scrollGalleryNext);
 
 </script>
-    
 </body>
 </html>
