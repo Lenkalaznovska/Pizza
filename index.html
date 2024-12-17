@@ -157,53 +157,6 @@ h1 {
             }
         }
 
-/* Zpomalte přechod pro slider */
-.slider {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.slide {
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    transition: transform 2s ease-in-out;  /* Zpomaleno na 2s */
-}
-
-.slider .slide:nth-child(1) {
-    animation: slide 10s infinite;  /* Animace pro přechod obrázku */
-}
-
-        .slide h1 {
-            font-size: 50px;
-            color: #fff;
-            text-shadow: 2px 2px 5px #000;
-            margin-bottom: 20px;
-        }
-
-        .buttons a {
-            display: inline-block;
-            background-color: #e63946;
-            color: #fff;
-            font-weight: bold;
-            padding: 10px 20px;
-            margin: 5px;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-
-        .buttons a:hover {
-            background-color: #d62839;
-            transform: scale(1.05);
-        }
-
         /* Sekce O nás a Kontakt */
         section {
             background: #fff;
@@ -211,6 +164,11 @@ h1 {
             margin: 20px 0;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
+            width: 70%;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            animation: slide-in 1s ease-out forwards;
         }
 
         section h2 {
@@ -236,6 +194,18 @@ h1 {
         section a:hover {
             text-decoration: underline;
         }
+
+        /* Animace pro vjezd karet */
+@keyframes slide-in {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
     </style>
 </head>
 <body>
@@ -287,25 +257,21 @@ h1 {
 
     <!-- Sekce O nás -->
     <section id="onas">
-        <div class="container">
-            <h2>O nás</h2>
-            <p>Od roku 1994 děláme pizzu jinak – originálně a netradičně. Italskou klasiku u nás nehledejte! Naše pizza je originál – pečená ve formě, s bohatou dávkou ingrediencí a zapečeným sýrem na povrchu, který vytváří křupavý okraj. Naše pizza je sytá a chuťově bohatá, což z ní dělá víc než jen pizzu.</p>
-            <p>Vybírejte z 56 druhů pizzy, nebo si sestavte svou vlastní!</p>
-            <p>Čekají na vás také šťavnaté burgry, zapečené těstoviny a čerstvé saláty a další dobroty!</p>
-            <p>Pizzu nabízíme ve čtyřech velikostech: Dětské menu (18 cm), Malá (24 cm), Velká (28 cm), Maxi (40 cm)</p>
-        </div>
+        <h2>O nás</h2>
+        <p>Od roku 1994 děláme pizzu jinak – originálně a netradičně. Italskou klasiku u nás nehledejte! Naše pizza je originál – pečená ve formě, s bohatou dávkou ingrediencí a zapečeným sýrem na povrchu, který vytváří křupavý okraj. Naše pizza je sytá a chuťově bohatá, což z ní dělá víc než jen pizzu.</p>
+        <p>Vybírejte z 56 druhů pizzy, nebo si sestavte svou vlastní!</p>
+        <p>Čekají na vás také šťavnaté burgry, zapečené těstoviny a čerstvé saláty a další dobroty!</p>
+        <p>Pizzu nabízíme ve čtyřech velikostech: Dětské menu (18 cm), Malá (24 cm), Velká (28 cm), Maxi (40 cm)</p>
     </section>
 
     <!-- Kontakt sekce -->
     <section id="kontakty">
-        <div class="container">
-            <h2>Kontakt</h2>
-            <p>Pizzerie San Marino</p>
-            <p>Adresa: Obránců míru 2721, 27201 Kladno</p>
-            <p>Mobil: <a href="tel:+420604633373">+420 604 633 373</a></p>
-            <p>Telefon: +420 312 686 996</p>
-            <p>E-mail: <a href="mailto:sanmarino@kladno.cz">sanmarino@kladno.cz</a></p>
-        </div>
+        <h2>Kontakt</h2>
+        <p>Pizzerie San Marino</p>
+        <p>Adresa: Obránců míru 2721, 27201 Kladno</p>
+        <p>Mobil: <a href="tel:+420604633373">+420 604 633 373</a></p>
+        <p>Telefon: +420 312 686 996</p>
+        <p>E-mail: <a href="mailto:sanmarino@kladno.cz">sanmarino@kladno.cz</a></p>
     </section>
 
     <!-- Skript pro hamburger menu a slider -->
