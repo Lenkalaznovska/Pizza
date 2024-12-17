@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web s Hamburger Menu a Sliderem</title>
+    <title>Pizzerie San Marino</title>
     <style>
         /* Reset stylů */
         * {
@@ -216,23 +216,21 @@
     </section>
 
 <script>
-    const images = document.querySelectorAll('#slider img');
     let currentIndex = 0;
 
-    function showNextImage() {
-        images[currentIndex].style.display = 'none';
-        currentIndex = (currentIndex + 1) % images.length;
-        images[currentIndex].style.display = 'block';
+    function toggleMenu() {
+        const menu = document.getElementById('menu');
+        menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
     }
 
-    setInterval(showNextImage, 3000);
+    function showNextSlide() {
+        const slides = document.getElementById('slides');
+        const totalSlides = slides.children.length;
+        currentIndex = (currentIndex + 1) % totalSlides;
+        slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
 
-    const hamburger = document.querySelector('.hamburger');
-    const nav = document.querySelector('nav');
-
-    hamburger.addEventListener('click', () => {
-        nav.classList.toggle('active');
-    });
+    setInterval(showNextSlide, 3000);
 </script>
 
 </body>
