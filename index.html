@@ -344,33 +344,26 @@
 
 <!-- Skript pro slider a hamburger menu -->
 <script>
-    let index = 0;
-    const slides = document.querySelector('.gallery');
+    // Slider automatický pohyb
+    let slideIndex = 0;
+    const slidesContainer = document.querySelector('.slides');
+    const totalSlides = slidesContainer.children.length;
 
-    function showSlide() {
-        index = (index + 1) % 6;
-        slides.style.transform = translateX(-${index * 100}%);
+    function showNextSlide() {
+        slideIndex = (slideIndex + 1) % totalSlides;
+        const offset = -slideIndex * 100; // Posun o šířku 100% na další slide
+        slidesContainer.style.transform = `translateX(${offset}%)`;
     }
 
-    setInterval(showSlide, 4000);
+    // Automatické posouvání každých 5 sekund
+    setInterval(showNextSlide, 5000);
 
-    function toggleMenu() {
-        const hamburger = document.querySelector('.hamburger');
-        const nav = document.querySelector('nav');
+    // Hamburger menu funkce
+    const hamburger = document.querySelector('.hamburger');
+    const nav = document.querySelector('nav ul');
+
+    hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
         nav.classList.toggle('active');
-    }
-
-    let slideIndex = 0;
-
-    function moveSlide(step) {
-        const slides = document.querySelectorAll('.gallery img');
-        slideIndex += step;
-        if (slideIndex < 0) slideIndex = slides.length - 1;
-        if (slideIndex >= slides.length) slideIndex = 0;
-        const newTransformValue = -slideIndex * 100;
-        document.querySelector('.gallery').style.transform = translateX(${newTransformValue}%);
-    }   
+    });
 </script>
-</body>
-</html>
