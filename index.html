@@ -374,6 +374,19 @@
             hamburger.classList.toggle('active');
             nav.classList.toggle('active');
         }
+
+                // Gallery Slider
+        let slideIndex = 0;
+
+        function moveSlide(step) {
+            const slides = document.querySelectorAll('.gallery-slider img');
+            slideIndex += step;
+            if (slideIndex < 0) slideIndex = slides.length - 1;
+            if (slideIndex >= slides.length) slideIndex = 0;
+            const newTransformValue = -slideIndex * 100;
+            document.querySelector('.gallery-slider').style.transform = `translateX(${newTransformValue}%)`;
+        }
+    </script>
     </script>
 
 </body>
