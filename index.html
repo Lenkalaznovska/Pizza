@@ -634,6 +634,13 @@ function toggleMenu() {
         hamburger.classList.toggle('active');
     }
 }
+    function toggleMenu() {
+    const nav = document.querySelector('nav');
+    nav.classList.toggle('active');
+    
+    const hamburger = document.querySelector('.hamburger');
+    hamburger.classList.toggle('active');
+}
 
 document.querySelector('.hamburger')?.addEventListener('click', toggleMenu);
 
