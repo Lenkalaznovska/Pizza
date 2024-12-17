@@ -166,26 +166,24 @@
 <body>
 
 <header>
-    <img src="images/logo3D.png" alt="Logo">
+    <img src="images/logo3d.png" alt="Logo">
     <nav>
-        <div class="hamburger">☰</div>
-        <ul>
-            <li><a href="#onas">O nás</a></li>
-            <li><a href="#galerie">Galerie</a></li>
-            <li><a href="#kontakty">Kontakty</a></li>
-        </ul>
+        <a href="#uvod">Úvod</a>
+        <a href="#onas">O nás</a>
+        <a href="#kontakt">Kontakt</a>
     </nav>
-</header>
-
-<section id="intro">
-    <div id="slider">
-        <img src="images/sanmarino.jpg" alt="San Marino">
-        <img src="images/burgry.jpg" alt="Burgry">
-        <img src="images/menu.jpg" alt="Menu">
+    <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
     </div>
-    <h1>Pizzerie San Marino</h1>
-</section>
-
+    <div class="menu-mobile" id="menu">
+        <a href="#uvod">Úvod</a>
+        <a href="#onas">O nás</a>
+        <a href="#kontakt">Kontakt</a>
+    </div>
+</header>
+    
     <!-- Sekce O nás -->
     <section id="onas">
         <div class="container">
