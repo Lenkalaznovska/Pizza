@@ -49,6 +49,7 @@
             display: flex;
             justify-content: center;
             flex: 1;
+            margin-left: -20px; /* Posunuto více do leva */
         }
 
         nav ul {
@@ -140,7 +141,7 @@
             transform: scale(1.05);
         }
 
-        /* Sekce O nás a Kontakt */
+        /* Sekce O nás, Galerie, Kontakt */
         section {
             background: #fff;
             padding: 40px 20px;
@@ -182,6 +183,27 @@
             background-color: #fff;
             text-align: center;
             width: 70%; /* Nastavení šířky na 70% */
+        }
+
+        /* Galerie */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .gallery img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
         /* Responzivní design */
@@ -288,6 +310,19 @@
             <p>Vybírejte z 56 druhů pizzy, nebo si sestavte svou vlastní!</p>
             <p>Čekají na vás také šťavnaté burgry, zapečené těstoviny a čerstvé saláty a další dobroty!</p>
             <p>Pizzu nabízíme ve čtyřech velikostech: Dětské menu (18 cm), Malá (24 cm), Velká (28 cm), Maxi (40 cm)</p>
+        </div>
+    </section>
+
+    <!-- Sekce Galerie -->
+    <section id="galerie">
+        <div class="container">
+            <h2>Galerie</h2>
+            <div class="gallery">
+                <img src="images/Burgry.jpg" alt="Burgry">
+                <img src="images/VEČER.jpg" alt="VEČER">
+                <img src="images/menu.jpg" alt="Menu">
+                <img src="images/sanmarino.jpg" alt="San Marino">
+            </div>
         </div>
     </section>
 
