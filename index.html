@@ -423,6 +423,7 @@ section p {
     const slidesContainer = document.querySelector('.slides');
     const totalSlides = slidesContainer.children.length;
 
+    // Funkce pro zobrazení dalšího snímku
     function showNextSlide() {
         slideIndex = (slideIndex + 1) % totalSlides;
         const offset = -slideIndex * 100; // Posun o šířku 100% na další slide
@@ -431,6 +432,24 @@ section p {
 
     // Automatické posouvání každých 5 sekund
     setInterval(showNextSlide, 5000);
+
+    // Funkce pro zobrazení konkrétního snímku
+    function showSlide(index) {
+        slideIndex = index;
+        const offset = -slideIndex * 100; // Posun o šířku 100% na vybraný snímek
+        slidesContainer.style.transform = `translateX(${offset}%)`;
+    }
+
+    // Tlačítka pro manuální přepínání
+    document.getElementById('slider-prev').addEventListener('click', () => {
+        slideIndex = (slideIndex - 1 + totalSlides) % totalSlides;
+        showSlide(slideIndex);
+    });
+
+    document.getElementById('slider-next').addEventListener('click', () => {
+        slideIndex = (slideIndex + 1) % totalSlides;
+        showSlide(slideIndex);
+    });
 
     // Hamburger menu funkce
     const hamburger = document.querySelector('.hamburger');
@@ -447,7 +466,7 @@ section p {
     const gallerySlides = document.querySelectorAll('.gallery-slide');
     const galleryTotal = gallerySlides.length;
 
-    // Funkce pro zobrazení dalšího snímku
+    // Funkce pro zobrazení dalšího snímku v galerii
     function showGallerySlide(index) {
         gallerySlider.style.transform = `translateX(-${index * 100}%)`;
     }
@@ -463,5 +482,5 @@ section p {
         showGallerySlide(galleryIndex);
     });
 </script>
-    </body>
+</body>
 </html>
