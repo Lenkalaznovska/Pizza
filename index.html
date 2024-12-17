@@ -205,74 +205,90 @@ section p {
     color: #ff4500;
 }
 
-/* Gallery styles */
+/* Gallery Section */
 .gallery {
     position: relative;
-    overflow: hidden;
-    height: 300px;
-    margin-top: 20px;
+    margin: 40px 0;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.gallery:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
 }
 
 .gallery-slider {
     display: flex;
+    gap: 15px;
     transition: transform 0.5s ease;
 }
 
 .gallery-slide {
-    min-width: 33%; /* Adjust for desktop */
+    flex: 1;
     height: 300px;
     background-size: cover;
     background-position: center;
-    border-radius: 15px; /* Zaoblení rohů obrázků */
-    margin: 0 10px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
+.gallery-slide:hover {
+    transform: scale(1.05);
+}
+
+/* Gallery Buttons */
 .gallery-buttons {
     position: absolute;
     top: 50%;
     width: 100%;
     display: flex;
     justify-content: space-between;
+    transform: translateY(-50%);
     z-index: 10;
 }
 
 .gallery-buttons button {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.6);
     color: #fff;
     border: none;
-    font-size: 30px; /* Zvýšení velikosti pro lepší viditelnost */
-    padding: 10px;
+    font-size: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     cursor: pointer;
     transition: background 0.3s ease;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1000;
-    width: 50px; /* Větší šipky */
-    height: 50px;
-}
-
-.gallery-buttons .prev {
-    left: -60px; /* Posunutí levé šipky */
-}
-
-.gallery-buttons .next {
-    right: -60px; /* Posunutí pravé šipky */
 }
 
 .gallery-buttons button:hover {
     background: rgba(0, 0, 0, 0.8);
 }
 
-/* Mobile Adjustments */
+.gallery-buttons .prev {
+    margin-left: 10px;
+}
+
+.gallery-buttons .next {
+    margin-right: 10px;
+}
+
+/* Responsiveness */
 @media (max-width: 768px) {
+    .gallery-slider {
+        gap: 10px;
+    }
+
     .gallery-slide {
-        min-width: 100%; /* Plná šířka pro mobilní zařízení */
+        flex: 1 0 100%; /* Full-width slides for smaller screens */
+        height: 250px;
     }
 
     .gallery-buttons {
-        top: 50%;
-        transform: translateY(-50%);
+        display: none; /* Hide navigation buttons on small devices */
     }
 }
 
