@@ -205,63 +205,49 @@ section p {
     color: #ff4500;
 }
 
-/* Gallery Section */
+/* Gallery styles */
 .gallery {
     position: relative;
-    margin: 40px 0;
-    padding: 20px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-.gallery:hover {
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-    transform: translateY(-5px);
+    margin: 20px 0;
+    overflow: hidden;
 }
 
 .gallery-slider {
     display: flex;
-    gap: 15px;
     transition: transform 0.5s ease;
 }
 
 .gallery-slide {
-    flex: 1;
+    min-width: 100%; /* Plná šířka na malých zařízeních */
     height: 300px;
     background-size: cover;
     background-position: center;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    border-radius: 15px; /* Zaoblení rohů obrázků */
+    margin: 0 10px;
 }
 
-.gallery-slide:hover {
-    transform: scale(1.05);
-}
-
-/* Gallery Buttons */
+/* Gallery navigation buttons */
 .gallery-buttons {
     position: absolute;
     top: 50%;
     width: 100%;
     display: flex;
     justify-content: space-between;
-    transform: translateY(-50%);
     z-index: 10;
+    transform: translateY(-50%);
 }
 
 .gallery-buttons button {
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.5);
     color: #fff;
     border: none;
     font-size: 30px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+    padding: 10px;
     cursor: pointer;
     transition: background 0.3s ease;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
 }
 
 .gallery-buttons button:hover {
@@ -269,11 +255,35 @@ section p {
 }
 
 .gallery-buttons .prev {
-    margin-left: 10px;
+    position: absolute;
+    left: 10px;
 }
 
 .gallery-buttons .next {
-    margin-right: 10px;
+    position: absolute;
+    right: 10px;
+}
+
+/* Responsiveness */
+@media (min-width: 769px) {
+    .gallery-slide {
+        min-width: 33.33%; /* Tři obrázky na šířku na větších zařízeních */
+        margin: 0 10px;
+    }
+
+    .gallery-buttons {
+        display: flex; /* Zobrazit šipky na větších obrazovkách */
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-slide {
+        min-width: 100%; /* Jeden obrázek na šířku na menších zařízeních */
+    }
+
+    .gallery-buttons {
+        display: none; /* Skrýt šipky na mobilních zařízeních */
+    }
 }
 
 /* Responsiveness */
