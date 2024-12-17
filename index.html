@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pizzerie San Marino</title>
-    <!-- Font Awesome pro ikony -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
     <style>
-        /* Reset základního stylování */
         * {
             margin: 0;
             padding: 0;
@@ -16,261 +13,144 @@
         }
 
         body {
-            font-family: var(--font-primary);
-            background: var(--white);
-            color: var(--dark);
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #212529;
         }
 
-        /* Navigační menu */
         header {
-            background-color: var(--bs-dark);
-            color: var(--bs-white);
-            padding: 15px 0;
-            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #212529;
+            color: #fff;
             position: relative;
-            z-index: 0;
+        }
+
+        header img {
+            height: 50px;
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            justify-content: center;
-        }
-
-        nav ul li {
-            margin: 0 20px;
+            gap: 20px;
         }
 
         nav ul li a {
-            color: var(--bs-white);
+            color: white;
             text-decoration: none;
-            font-weight: bold;
             font-size: 18px;
-            transition: color 0.3s ease;
+            font-weight: bold;
         }
 
         nav ul li a:hover {
-            color: var(--primary-HIGHLIGHT);
+            text-decoration: underline;
         }
 
-        /* Úvodní sekce */
         #intro {
-            background-image: url('images/sanmarino.jpg'); /* Ujistěte se, že máte správnou cestu k obrázku */
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 150px 20px;
             position: relative;
-            z-index: 0;
+            overflow: hidden;
+        }
+
+        #slider {
+            position: relative;
+            width: 100%;
+            height: 400px;
+        }
+
+        #slider img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         #intro h1 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
             font-size: 50px;
-            margin-bottom: 20px;
-            transition: font-size 0.3s ease;
-            transform: translateY(-50px);
-            animation: slideIn 0.5s ease-out forwards;
+            text-shadow: 3px 3px 10px black;
         }
 
-        @keyframes slideIn {
-            0% {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-            100% {
-                transform: translateY(0);
+        .card {
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 600px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
                 opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        #intro .btn-container {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;  /* Umístí tlačítka vedle sebe */
-            gap: 15px;  /* Mezera mezi tlačítky */
+        .breathing {
+            animation: breathing 3s infinite;
         }
 
-        /* Společný styl pro obě tlačítka */
-        .btn {
-            background-color: var(--primary-HIGHLIGHT);
-            color: var(--white);
-            padding: 10px 18px; /* Zmenšení velikosti tlačítka */
-            font-size: 16px; /* Zmenšení velikosti písma */
-            font-weight: bold;
-            border-radius: 5px;
-            text-decoration: none;
-            display: inline-block;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        @keyframes breathing {
+            0%, 100% {
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+            50% {
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            }
         }
 
-        .btn i {
-            margin-right: 8px;
-        }
-
-        .btn:hover {
-            background-color: var(--primary-dark);
-            transform: scale(1.05);
-        }
-
-        /* Sekce O nás */
-        #onas {
-            padding: 50px 20px;
-            text-align: center;
-            background-color: var(--bs-light);
-        }
-
-        #onas h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-
-        #onas p {
-            font-size: 18px;
-            line-height: 1.5;
-        }
-
-        /* Kontakt sekce */
-        #kontakty {
-            padding: 50px 20px;
-            background-color: var(--bs-light);
-            text-align: center;
-        }
-
-        #kontakty h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-
-        #kontakty p {
-            font-size: 18px;
-        }
-
-        /* Custom Global Styles */
-        :root {
-            --primary-HIGHLIGHT: hsl(355, 93%, 46%);
-            --primary-h: 355;
-            --primary-s: 93%;
-            --primary-l: 46%;
-            --primary: hsl(var(--primary-h), var(--primary-s), var(--primary-l));
-            --primary-dark: hsl(355, 93%, calc(46% - 8%));
-            --primary-light: hsl(355, 93%, calc(46% + 16%));
-            --secondary-HIGHLIGHT: hsl(0, 0%, 83%);
-            --secondary-h: 0;
-            --secondary-s: 0%;
-            --secondary-l: 83%;
-            --secondary: hsl(var(--secondary-h), var(--secondary-s), var(--secondary-l));
-            --secondary-dark: hsl(0, 0%, calc(83% - 8%));
-            --secondary-light: hsl(0, 0%, calc(83% + 16%));
-            --dark: #131313;
-            --light: #f1f3f6;
-            --text-on-dark: #939393;
-            --text-on-light: #444;
-            --transparent-on-dark: rgba(255, 255, 255, 0.8);
-            --white: #ffffff;
-            --black: #000000;
-            --transition-fast: 0.2s all;
-            --transition-medium: 0.3s all;
-            --transition-slow: 0.4s all;
-            --font-primary: "Inter", sans-serif;
-            --font-heading: "Mulish", sans-serif;
-            --weight-light: 300;
-            --weight-regular: 400;
-            --weight-bold: 800;
-            --border-radius: 8px;
-            --bs-blue: #0d6efd;
-            --bs-indigo: #6610f2;
-            --bs-purple: #6f42c1;
-            --bs-pink: #d63384;
-            --bs-red: #dc3545;
-            --bs-orange: #fd7e14;
-            --bs-yellow: #ffc107;
-            --bs-green: #198754;
-            --bs-teal: #20c997;
-            --bs-cyan: #0dcaf0;
-            --bs-white: #fff;
-            --bs-gray: #6c757d;
-            --bs-gray-dark: #343a40;
-            --bs-primary: #0d6efd;
-            --bs-secondary: #6c757d;
-            --bs-success: #198754;
-            --bs-info: #0dcaf0;
-            --bs-warning: #ffc107;
-            --bs-danger: #dc3545;
-            --bs-light: #f8f9fa;
-            --bs-dark: #212529;
-            --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-            --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-            --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
-        }
-
-        /* Custom Section Styles */
-        section {
-            padding: 3.75rem 0;
-        }
-
-        /* Nový kontejner pro sekce */
-        .container {
-            width: 70%;
-            margin: 0 auto;
-        }
-
-        /* Responzivní design */
         @media (max-width: 768px) {
-            #intro h1 {
-                font-size: 36px;
-            }
-
-            #intro p {
-                font-size: 16px;
-            }
-
-            .btn-container {
-                flex-direction: column;
-                align-items: center;
+            header {
+                flex-wrap: wrap;
             }
 
             nav ul {
                 flex-direction: column;
-                gap: 10px;
+                display: none;
             }
 
-            nav ul li {
-                margin: 10px 0;
+            nav.active ul {
+                display: flex;
             }
 
-            .container {
-                width: 90%;
+            .hamburger {
+                cursor: pointer;
+                font-size: 24px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigační menu -->
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#onas">O nás</a></li>
-                <li><a href="#galerie">Galerie</a></li>
-                <li><a href="#kontakty">Kontakty</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+    <img src="images/logo3d.png" alt="Logo">
+    <nav>
+        <div class="hamburger">☰</div>
+        <ul>
+            <li><a href="#onas">O nás</a></li>
+            <li><a href="#galerie">Galerie</a></li>
+            <li><a href="#kontakty">Kontakty</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <!-- Úvodní sekce -->
-    <section id="intro">
-        <div class="container">
-            <h1>Pizzerie San Marino</h1>
-            <div class="btn-container">
-                <a href="https://pizzeriesanmarino.kestolu.cz/#/sort:58" class="btn">Objednat online</a>
-                <a href="tel:+420604633373" class="btn"><i class="fas fa-phone-alt"></i> Zavolejte nám</a>
-            </div>
-        </div>
-    </section>
+<section id="intro">
+    <div id="slider">
+        <img src="images/sanmarino.jpg" alt="San Marino">
+        <img src="images/burgry.jpg" alt="Burgry">
+        <img src="images/menu.jpg" alt="Menu">
+    </div>
+    <h1>Pizzerie San Marino</h1>
+</section>
 
     <!-- Sekce O nás -->
     <section id="onas">
@@ -294,6 +174,26 @@
             <p>E-mail: <a href="mailto:sanmarino@kladno.cz">sanmarino@kladno.cz</a></p>
         </div>
     </section>
+
+<script>
+    const images = document.querySelectorAll('#slider img');
+    let currentIndex = 0;
+
+    function showNextImage() {
+        images[currentIndex].style.display = 'none';
+        currentIndex = (currentIndex + 1) % images.length;
+        images[currentIndex].style.display = 'block';
+    }
+
+    setInterval(showNextImage, 3000);
+
+    const hamburger = document.querySelector('.hamburger');
+    const nav = document.querySelector('nav');
+
+    hamburger.addEventListener('click', () => {
+        nav.classList.toggle('active');
+    });
+</script>
 
 </body>
 </html>
