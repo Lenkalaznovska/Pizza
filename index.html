@@ -436,11 +436,12 @@
     </footer>
 
 <script>
-    // Slider automatické posouvání
+    // ------------------------------ SLIDER ------------------------------
     let slideIndex = 0;
     const slidesContainer = document.querySelector('.slides');
     const totalSlides = slidesContainer.children.length;
 
+    // Funkce pro zobrazení dalšího slide
     function showNextSlide() {
         slideIndex = (slideIndex + 1) % totalSlides;
         const offset = -slideIndex * 100; // Posun o šířku 100% na další slide
@@ -450,6 +451,7 @@
     // Automatické posouvání každých 5 sekund
     setInterval(showNextSlide, 5000);
 
+    // Funkce pro zobrazení konkrétního slide
     function showSlide(index) {
         slideIndex = index;
         const offset = -slideIndex * 100;
@@ -467,29 +469,30 @@
         showSlide(slideIndex);
     });
 
-// Hamburger menu
-function toggleMenu() {
-    var menu = document.querySelector('nav');
-    menu.classList.toggle('active');
-    var hamburger = document.querySelector('.hamburger');
-    hamburger.classList.toggle('active');
-}
+    // ------------------------------ HAMBURGER MENU ------------------------------
+    function toggleMenu() {
+        var menu = document.querySelector('nav');
+        menu.classList.toggle('active');
+        var hamburger = document.querySelector('.hamburger');
+        hamburger.classList.toggle('active');
+    }
 
-const hamburger = document.querySelector('.hamburger');
-const nav = document.querySelector('nav ul');
+    const hamburger = document.querySelector('.hamburger');
+    const nav = document.querySelector('nav ul');
 
-// Funkce pro přepnutí třídy aktivního menu
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    nav.classList.toggle('active');
-});
+    // Funkce pro přepnutí třídy aktivního menu
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        nav.classList.toggle('active');
+    });
 
-    // Galerie slider
+    // ------------------------------ GALERIE SLIDER ------------------------------
     let galleryIndex = 0;
     const gallerySlider = document.querySelector('.gallery-slider');
     const gallerySlides = document.querySelectorAll('.gallery-slide');
     const galleryTotal = gallerySlides.length;
 
+    // Funkce pro zobrazení galerie
     function showGallerySlide(index) {
         gallerySlider.style.transform = `translateX(-${index * 100}%)`;
     }
