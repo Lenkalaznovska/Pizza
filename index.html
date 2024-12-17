@@ -87,74 +87,97 @@
         }
 
         /* Animace pro efekt spadnutí */
-@keyframes drop-down {
-    0% {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-/* Aplikace animace na nadpis */
-h1, .buttons a {
-    animation: drop-down 1s ease-out forwards;
-    opacity: 0;
-}
-
-/* Zpoždění pro nadpis a tlačítka */
-h1 {
-    animation-delay: 0.5s; /* Nadpis spadne první */
-}
-
-.buttons a {
-    animation-delay: 1s; /* Tlačítka spadnou s menším zpožděním */
-    animation-duration: 1s; /* Doba trvání animace pro tlačítka */
-    display: inline-block;
-    margin: 5px;
-    text-decoration: none;
-    background-color: #e63946;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.buttons a:hover {
-    background-color: #d62839;
-    transform: scale(1.05);
-}
-
-        @media (max-width: 768px) {
-            .hamburger {
-                display: flex;
-                flex-direction: column;
-                position: absolute;
-                top: 15px;
-                right: 20px;
+        @keyframes drop-down {
+            0% {
+                transform: translateY(-100%);
+                opacity: 0;
             }
-
-            nav ul {
-                display: none;
-                flex-direction: column;
-                background-color: #333;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                width: 100%;
+            100% {
+                transform: translateY(0);
+                opacity: 1;
             }
+        }
 
-            nav ul.active {
-                display: flex;
-            }
+        /* Aplikace animace na nadpis */
+        h1, .buttons a {
+            animation: drop-down 1s ease-out forwards;
+            opacity: 0;
+        }
 
-            nav ul li {
-                margin: 10px 0;
-                text-align: center;
-            }
+        /* Zpoždění pro nadpis a tlačítka */
+        h1 {
+            animation-delay: 0.5s; /* Nadpis spadne první */
+        }
+
+        .buttons a {
+            animation-delay: 1s; /* Tlačítka spadnou s menším zpožděním */
+            animation-duration: 1s; /* Doba trvání animace pro tlačítka */
+            display: inline-block;
+            margin: 5px;
+            text-decoration: none;
+            background-color: #e63946;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .buttons a:hover {
+            background-color: #d62839;
+            transform: scale(1.05);
+        }
+
+        /* Zpomalte přechod pro slider */
+        .slider {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 4s ease-in-out;  /* Zpomaleno na 4s */
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .slide h1 {
+            font-size: 50px;
+            color: #fff;
+            text-shadow: 2px 2px 5px #000;
+            margin-bottom: 20px;
+            text-align: center; /* Zarovnání nadpisu na střed */
+        }
+
+        .buttons a {
+            display: inline-block;
+            background-color: #e63946;
+            color: #fff;
+            font-weight: bold;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .buttons a:hover {
+            background-color: #d62839;
+            transform: scale(1.05);
         }
 
         /* Sekce O nás a Kontakt */
@@ -164,11 +187,6 @@ h1 {
             margin: 20px 0;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
-            width: 70%;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0;
-            animation: slide-in 1s ease-out forwards;
         }
 
         section h2 {
@@ -194,18 +212,6 @@ h1 {
         section a:hover {
             text-decoration: underline;
         }
-
-        /* Animace pro vjezd karet */
-@keyframes slide-in {
-    0% {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
     </style>
 </head>
 <body>
@@ -257,21 +263,25 @@ h1 {
 
     <!-- Sekce O nás -->
     <section id="onas">
-        <h2>O nás</h2>
-        <p>Od roku 1994 děláme pizzu jinak – originálně a netradičně. Italskou klasiku u nás nehledejte! Naše pizza je originál – pečená ve formě, s bohatou dávkou ingrediencí a zapečeným sýrem na povrchu, který vytváří křupavý okraj. Naše pizza je sytá a chuťově bohatá, což z ní dělá víc než jen pizzu.</p>
-        <p>Vybírejte z 56 druhů pizzy, nebo si sestavte svou vlastní!</p>
-        <p>Čekají na vás také šťavnaté burgry, zapečené těstoviny a čerstvé saláty a další dobroty!</p>
-        <p>Pizzu nabízíme ve čtyřech velikostech: Dětské menu (18 cm), Malá (24 cm), Velká (28 cm), Maxi (40 cm)</p>
+        <div class="container">
+            <h2>O nás</h2>
+            <p>Od roku 1994 děláme pizzu jinak – originálně a netradičně. Italskou klasiku u nás nehledejte! Naše pizza je originál – pečená ve formě, s bohatou dávkou ingrediencí a zapečeným sýrem na povrchu, který vytváří křupavý okraj. Naše pizza je sytá a chuťově bohatá, což z ní dělá víc než jen pizzu.</p>
+            <p>Vybírejte z 56 druhů pizzy, nebo si sestavte svou vlastní!</p>
+            <p>Čekají na vás také šťavnaté burgry, zapečené těstoviny a čerstvé saláty a další dobroty!</p>
+            <p>Pizzu nabízíme ve čtyřech velikostech: Dětské menu (18 cm), Malá (24 cm), Velká (28 cm), Maxi (40 cm)</p>
+        </div>
     </section>
 
     <!-- Kontakt sekce -->
     <section id="kontakty">
-        <h2>Kontakt</h2>
-        <p>Pizzerie San Marino</p>
-        <p>Adresa: Obránců míru 2721, 27201 Kladno</p>
-        <p>Mobil: <a href="tel:+420604633373">+420 604 633 373</a></p>
-        <p>Telefon: +420 312 686 996</p>
-        <p>E-mail: <a href="mailto:sanmarino@kladno.cz">sanmarino@kladno.cz</a></p>
+        <div class="container">
+            <h2>Kontakt</h2>
+            <p>Pizzerie San Marino</p>
+            <p>Adresa: Obránců míru 2721, 27201 Kladno</p>
+            <p>Mobil: <a href="tel:+420604633373">+420 604 633 373</a></p>
+            <p>Telefon: +420 312 686 996</p>
+            <p>E-mail: <a href="mailto:sanmarino@kladno.cz">sanmarino@kladno.cz</a></p>
+        </div>
     </section>
 
     <!-- Skript pro hamburger menu a slider -->
@@ -289,7 +299,7 @@ h1 {
             slides.style.transform = `translateX(-${index * 100}%)`;
         }
 
-        setInterval(showSlide, 3000);
+        setInterval(showSlide, 4000);  // Zpoždění pro přechod na další obrázek (4s)
     </script>
 </body>
 </html>
