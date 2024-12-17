@@ -49,7 +49,7 @@
             display: flex;
             justify-content: center;
             flex: 1;
-            margin-left: -20px; /* Posunuto více do leva */
+            margin-left: -40px; /* Posunuto o 20px více doleva */
         }
 
         nav ul {
@@ -119,11 +119,6 @@
             margin-bottom: 20px;
         }
 
-        /* Zmenšení obrázků o 15px */
-        .slider .slide {
-            height: calc(500px - 15px); /* Zmenší výšku o 15px */
-        }
-
         .buttons a {
             display: inline-block;
             background-color: #e63946;
@@ -157,58 +152,46 @@
             color: #e63946;
         }
 
-        section p {
-            margin-bottom: 15px;
-            font-size: 16px;
-            line-height: 1.6;
-            text-align: center;
-        }
-
-        section a {
-            color: #e63946;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        section a:hover {
-            text-decoration: underline;
-        }
-
-        /* Stínování kolem karet */
-        .card {
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            margin: 10px auto;
-            border-radius: 8px;
-            background-color: #fff;
-            text-align: center;
-            width: 70%; /* Nastavení šířky na 70% */
-        }
-
-        /* Galerie */
+        /* Galerie slider */
         .gallery {
-            display: flex;
-            overflow: hidden;
-            width: 100%;
             position: relative;
-        }
-
-        .gallery img {
-            width: 250px;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 8px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .gallery img:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            height: 300px;
         }
 
         .gallery-slider {
             display: flex;
             transition: transform 0.5s ease;
+        }
+
+        .gallery-slide {
+            min-width: 100%;
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .gallery-buttons {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .gallery-buttons button {
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            font-size: 20px;
+            padding: 10px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .gallery-buttons button:hover {
+            background: rgba(0, 0, 0, 0.8);
         }
 
         /* Responzivní design */
@@ -389,7 +372,7 @@
         if (slideIndex >= slides.length) slideIndex = 0;
         const newTransformValue = -slideIndex * 100;
         document.querySelector('.gallery').style.transform = `translateX(${newTransformValue}%)`;
-    }
+    }   
 </script>
 </body>
 </html>
