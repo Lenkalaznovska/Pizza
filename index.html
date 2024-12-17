@@ -435,66 +435,73 @@
         </div>
     </footer>
 
-    <script>
-        let slideIndex = 0;
-        const slidesContainer = document.querySelector('.slides');
-        const totalSlides = slidesContainer.children.length;
+<script>
+    // Slider automatické posouvání
+    let slideIndex = 0;
+    const slidesContainer = document.querySelector('.slides');
+    const totalSlides = slidesContainer.children.length;
 
-        function showNextSlide() {
-            slideIndex = (slideIndex + 1) % totalSlides;
-            const offset = -slideIndex * 100;
-            slidesContainer.style.transform = `translateX(${offset}%)`;
-        }
+    function showNextSlide() {
+        slideIndex = (slideIndex + 1) % totalSlides;
+        const offset = -slideIndex * 100; // Posun o šířku 100% na další slide
+        slidesContainer.style.transform = `translateX(${offset}%)`;
+    }
 
-        setInterval(showNextSlide, 5000);
+    // Automatické posouvání každých 5 sekund
+    setInterval(showNextSlide, 5000);
 
-        function showSlide(index) {
-            slideIndex = index;
-            const offset = -slideIndex * 100;
-            slidesContainer.style.transform = `translateX(${offset}%)`;
-        }
+    function showSlide(index) {
+        slideIndex = index;
+        const offset = -slideIndex * 100;
+        slidesContainer.style.transform = `translateX(${offset}%)`;
+    }
 
-        document.getElementById('slider-prev').addEventListener('click', () => {
-            slideIndex = (slideIndex - 1 + totalSlides) % totalSlides;
-            showSlide(slideIndex);
-        });
+    // Manuální posouvání pro slider
+    document.getElementById('slider-prev').addEventListener('click', () => {
+        slideIndex = (slideIndex - 1 + totalSlides) % totalSlides;
+        showSlide(slideIndex);
+    });
 
-        document.getElementById('slider-next').addEventListener('click', () => {
-            slideIndex = (slideIndex + 1) % totalSlides;
-            showSlide(slideIndex);
-        });
+    document.getElementById('slider-next').addEventListener('click', () => {
+        slideIndex = (slideIndex + 1) % totalSlides;
+        showSlide(slideIndex);
+    });
 
-        const hamburger = document.querySelector('.hamburger');
-        const nav = document.querySelector('nav ul');
+    // Hamburger menu
+    const hamburger = document.querySelector('.hamburger');
+    const nav = document.querySelector('nav ul');
 
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            nav.classList.toggle('active');
-        });
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        nav.classList.toggle('active');
+    });
 
-        let galleryIndex = 0;
-        const gallerySlider = document.querySelector('.gallery-slider');
-        const gallerySlides = document.querySelectorAll('.gallery-slide');
-        const galleryTotal = gallerySlides.length;
+    // Galerie slider
+    let galleryIndex = 0;
+    const gallerySlider = document.querySelector('.gallery-slider');
+    const gallerySlides = document.querySelectorAll('.gallery-slide');
+    const galleryTotal = gallerySlides.length;
 
-        function showGallerySlide(index) {
-            gallerySlider.style.transform = `translateX(-${index * 100}%)`;
-        }
+    function showGallerySlide(index) {
+        gallerySlider.style.transform = `translateX(-${index * 100}%)`;
+    }
 
-        setInterval(() => {
-            galleryIndex = (galleryIndex + 1) % galleryTotal;
-            showGallerySlide(galleryIndex);
-        }, 5000);
+    // Automatické posouvání galerie
+    setInterval(() => {
+        galleryIndex = (galleryIndex + 1) % galleryTotal;
+        showGallerySlide(galleryIndex);
+    }, 5000);
 
-        document.getElementById('gallery-prev').addEventListener('click', () => {
-            galleryIndex = (galleryIndex - 1 + galleryTotal) % galleryTotal;
-            showGallerySlide(galleryIndex);
-        });
+    // Manuální posouvání pro galerii
+    document.getElementById('gallery-prev').addEventListener('click', () => {
+        galleryIndex = (galleryIndex - 1 + galleryTotal) % galleryTotal;
+        showGallerySlide(galleryIndex);
+    });
 
-        document.getElementById('gallery-next').addEventListener('click', () => {
-            galleryIndex = (galleryIndex + 1) % galleryTotal;
-            showGallerySlide(galleryIndex);
-        });
-    </script>
+    document.getElementById('gallery-next').addEventListener('click', () => {
+        galleryIndex = (galleryIndex + 1) % galleryTotal;
+        showGallerySlide(galleryIndex);
+    });
+</script>
 </body>
 </html>
