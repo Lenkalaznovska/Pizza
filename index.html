@@ -73,39 +73,42 @@ nav ul li a:hover {
     color: #e63946;
 }
 
-/* Hamburger Menu */
+/* Hamburger tlačítko */
 .hamburger {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    cursor: pointer;
-    z-index: 20; /* Aby bylo nad menu */
+    position: fixed; /* Fixované na obrazovce */
+    top: 20px; /* Umístění odshora */
+    left: 20px; /* Umístění odleva */
+    width: 35px; /* Šířka tlačítka */
+    height: 30px; /* Výška tlačítka */
+    display: flex; /* Flexbox pro uspořádání pruhů */
+    flex-direction: column; /* Pruhy se skládají pod sebe */
+    justify-content: space-between; /* Rovnoměrné mezery mezi pruhy */
+    cursor: pointer; /* Změna kurzoru na ruku */
+    z-index: 100; /* Překryje ostatní prvky */
 }
 
-    .hamburger span {
-    width: 100%;
-    height: 4px;
-    background-color: #333;
-    transition: all 0.3s ease-in-out;
+/* Pruhy hamburgeru */
+.hamburger span {
+    width: 100%; /* Šířka pruhů podle tlačítka */
+    height: 4px; /* Tloušťka pruhů */
+    background-color: #333; /* Barva pruhů */
+    border-radius: 2px; /* Zaoblení rohů */
+    transition: all 0.3s ease-in-out; /* Plynulý přechod */
 }
 
-/* Aktivní stav hamburgeru (např. X animace) */
+/* Aktivní stav hamburgeru */
 .hamburger.active span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
 }
 
 .hamburger.active span:nth-child(2) {
-    opacity: 0;
+    opacity: 0; /* Skrytí prostředního pruhu */
 }
 
 .hamburger.active span:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
 }
+
 
 /* Slider */
 .slider {
