@@ -219,8 +219,8 @@ section p {
 }
 
 .gallery-slide {
-    min-width: 100%; /* Jeden obrázek na šířku */
-    height: 300px;
+    min-width: 200px; /* Zmenšíme obrázky na malé karty vedle sebe */
+    height: 150px;
     background-size: cover;
     background-position: center;
     border-radius: 15px; /* Zaoblení rohů obrázků */
@@ -266,38 +266,14 @@ section p {
 }
 
 /* Responsiveness */
-@media (min-width: 769px) {
-    .gallery-slide {
-        min-width: 100%; /* Jeden obrázek na šířku */
-    }
-}
-
 @media (max-width: 768px) {
     .gallery-buttons {
-        display: flex; /* Zobrazit šipky na mobilních zařízeních */
-    }
-}
-
-/* Responsiveness */
-@media (max-width: 768px) {
-    .gallery-slider {
-        gap: 10px;
+        display: flex; /* Zobrazí šipky na mobilních zařízeních */
     }
 
     .gallery-slide {
-        flex: 1 0 100%; /* Full-width slides for smaller screens */
-        height: 250px;
-    }
-
-    .gallery-buttons {
-        display: none; /* Hide navigation buttons on small devices */
-    }
-}
-
-/* Responsiveness - Adjustments for gallery items and buttons */
-@media (max-width: 768px) {
-    .gallery-buttons {
-        display: none; /* Hide arrows on smaller screens */
+        min-width: 80%; /* Na mobilu zobrazíme širší obrázky */
+        height: 150px;
     }
 }
     
