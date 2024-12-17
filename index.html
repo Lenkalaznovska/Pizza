@@ -86,6 +86,48 @@
             transition: transform 0.3s ease;
         }
 
+        /* Animace pro efekt spadnutí */
+@keyframes drop-down {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Aplikace animace na nadpis */
+h1, .buttons a {
+    animation: drop-down 1s ease-out forwards;
+    opacity: 0;
+}
+
+/* Zpoždění pro nadpis a tlačítka */
+h1 {
+    animation-delay: 0.5s; /* Nadpis spadne první */
+}
+
+.buttons a {
+    animation-delay: 1s; /* Tlačítka spadnou s menším zpožděním */
+    animation-duration: 1s; /* Doba trvání animace pro tlačítka */
+    display: inline-block;
+    margin: 5px;
+    text-decoration: none;
+    background-color: #e63946;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.buttons a:hover {
+    background-color: #d62839;
+    transform: scale(1.05);
+}
+
         @media (max-width: 768px) {
             .hamburger {
                 display: flex;
