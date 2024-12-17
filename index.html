@@ -205,66 +205,65 @@ section p {
     color: #ff4500;
 }
 
-/* Gallery styles */
-.gallery {
-    position: relative;
-    margin: 20px 0;
-    overflow: hidden;
-    width: 100%;
-}
+    /* Gallery styles */
+    .gallery {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+    }
 
-.gallery-slider {
-    display: flex;
-    transition: transform 0.5s ease;
-}
+    .gallery-slider {
+        display: flex;
+        transition: transform 0.5s ease;
+    }
 
-.gallery-slide {
-    min-width: 33%; /* Show multiple smaller images */
-    height: 500px;
-    background-size: cover;
-    background-position: center;
-    border-radius: 15px;
-    margin: 0 10px;
-}
-
-.gallery-buttons {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    z-index: 10;
-    transform: translateY(-50%);
-}
-
-.gallery-buttons button {
-    background: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    border: none;
-    font-size: 30px;
-    padding: 10px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-}
-
-.gallery-buttons button:hover {
-    background: rgba(0, 0, 0, 0.8);
-}
-
-/* Responsive Design for smaller screens */
-@media (max-width: 768px) {
     .gallery-slide {
-        min-width: 100%; /* Show one image at a time on mobile */
-        height: 250px; /* Adjust height for mobile */
+        min-width: 23%; /* Show 4 smaller images */
+        height: 250px; /* Adjust height as needed */
+        background-size: cover;
+        background-position: center;
+        border-radius: 15px;
+        margin: 0 10px;
     }
 
     .gallery-buttons {
+        position: absolute;
+        top: 50%;
+        width: 100%;
         display: flex;
+        justify-content: space-between;
+        z-index: 10;
+        transform: translateY(-50%);
     }
-}
+
+    .gallery-buttons button {
+        background: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        border: none;
+        font-size: 30px;
+        padding: 10px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+    }
+
+    .gallery-buttons button:hover {
+        background: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Responsive Design for smaller screens */
+    @media (max-width: 768px) {
+        .gallery-slide {
+            min-width: 100%; /* Show one image at a time on mobile */
+            height: 250px; /* Adjust height for mobile */
+        }
+
+        .gallery-buttons {
+            display: flex;
+        }
+    }
 
 /* Responsive Design */
 @media (max-width: 768px) {
