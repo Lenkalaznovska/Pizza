@@ -30,8 +30,14 @@
             align-items: center;
         }
 
+        header img {
+            width: 100px;
+        }
+
         nav {
             display: flex;
+            justify-content: center;
+            flex-grow: 1;
         }
 
         nav ul {
@@ -102,46 +108,12 @@
             background-position: center;
         }
 
-        /* Úvodní sekce */
         #intro h1 {
             font-size: 50px;
             text-shadow: 2px 2px 5px #000;
             color: #fff;
             text-align: center;
             margin: 20px 0;
-        }
-
-        /* Karty s efektem */
-        .card {
-            background: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 8px;
-            padding: 20px;
-            margin: 20px;
-            text-align: center;
-            opacity: 0;
-            transform: translateY(50px);
-            animation: slideIn 1s forwards;
-        }
-
-        .card:hover {
-            animation: breathing 1.5s infinite;
-        }
-
-        @keyframes slideIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes breathing {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
         }
 
         /* Responzivní design */
@@ -155,7 +127,7 @@
 <body>
     <!-- Header -->
     <header>
-        <h1>Pizzerie San Marino</h1>
+        <img src="images/logo3D.png" alt="Pizzerie San Marino Logo">
         <div class="hamburger" onclick="toggleMenu()">
             <div></div>
             <div></div>
