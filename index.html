@@ -642,17 +642,19 @@ if (totalSlides > 0) {
 
 // ------------------------------ HAMBURGER MENU ------------------------------
 function toggleMenu() {
-    var menu = document.querySelector('nav');
-    menu.classList.toggle('active');
-    var hamburger = document.querySelector('.hamburger');
-    hamburger.classList.toggle('active');
+    const menu = document.querySelector('nav');
+    menu.classList.toggle('active'); // Toggle the 'active' class on the menu
+    const hamburger = document.querySelector('.hamburger');
+    hamburger.classList.toggle('active'); // Toggle the 'active' class on the hamburger icon
 }
 
 const hamburger = document.querySelector('.hamburger');
 const nav = document.querySelector('nav ul');
 
-// Function to toggle active menu class
-hamburger.addEventListener('click', toggleMenu);
+// Ensure hamburger click event is added
+if (hamburger) {
+    hamburger.addEventListener('click', toggleMenu);
+}
 
 // ------------------------------ GALLERY FOR DESKTOP AND MOBILE ------------------------------
 
@@ -714,13 +716,24 @@ function scrollGalleryPrev() {
 window.addEventListener('resize', handleGallerySlider);
 
 // Initialize gallery display on page load
-document.addEventListener('DOMContentLoaded', handleGallerySlider);
+document.addEventListener('DOMContentLoaded', () => {
+    handleGallerySlider();
+});
 
 // ------------------------------ GALLERY NAVIGATION ------------------------------
 
 // Event listeners for gallery navigation arrows
-document.getElementById('gallery-prev')?.addEventListener('click', scrollGalleryPrev);
-document.getElementById('gallery-next')?.addEventListener('click', scrollGalleryNext);
+const galleryPrevButton = document.getElementById('gallery-prev');
+const galleryNextButton = document.getElementById('gallery-next');
+
+// Ensure the gallery navigation arrows are functional
+if (galleryPrevButton) {
+    galleryPrevButton.addEventListener('click', scrollGalleryPrev);
+}
+
+if (galleryNextButton) {
+    galleryNextButton.addEventListener('click', scrollGalleryNext);
+}
 
 </script>
 </body>
