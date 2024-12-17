@@ -576,95 +576,87 @@ footer {
     </footer>
 
 <script>
-    // ------------------------------ SLIDER ------------------------------
-    let slideIndex = 0;
-    const slidesContainer = document.querySelector('.slides');
-    const totalSlides = slidesContainer.children.length;
+ // ------------------------------ SLIDER ------------------------------
+let slideIndex = 0;
+const slidesContainer = document.querySelector('.slides');
+const totalSlides = slidesContainer ? slidesContainer.children.length : 0;
 
-    // Funkce pro zobrazení dalšího slide
-    function showNextSlide() {
-        slideIndex = (slideIndex + 1) % totalSlides;
-        const offset = -slideIndex * 100; // Posun o šířku 100% na další slide
-        slidesContainer.style.transform = `translateX(${offset}%)`;
-    }
+function updateSlidePosition() {
+    const offset = -slideIndex * 100;
+    slidesContainer.style.transform = `translateX(${offset}%)`;
+}
 
-    // Automatické posouvání každých 5 sekund
+function showNextSlide() {
+    slideIndex = (slideIndex + 1) % totalSlides;
+    updateSlidePosition();
+}
+
+function showPreviousSlide() {
+    slideIndex = (slideIndex - 1 + totalSlides) % totalSlides;
+    updateSlidePosition();
+}
+
+document.getElementById('slider-prev')?.addEventListener('click', showPreviousSlide);
+document.getElementById('slider-next')?.addEventListener('click', showNextSlide);
+
+// Auto-scroll every 5 seconds
+if (totalSlides > 0) {
     setInterval(showNextSlide, 5000);
+}
 
-    // Funkce pro zobrazení konkrétního slide
-    function showSlide(index) {
-        slideIndex = index;
-        const offset = -slideIndex * 100;
-        slidesContainer.style.transform = `translateX(${offset}%)`;
-    }
-
-    // Manuální posouvání pro slider
-    document.getElementById('slider-prev').addEventListener('click', () => {
-        slideIndex = (slideIndex - 1 + totalSlides) % totalSlides;
-        showSlide(slideIndex);
-    });
-
-    document.getElementById('slider-next').addEventListener('click', () => {
-        slideIndex = (slideIndex + 1) % totalSlides;
-        showSlide(slideIndex);
-    });
-
-    // ------------------------------ HAMBURGER MENU ------------------------------
-    function toggleMenu() {
-        var menu = document.querySelector('nav');
-        menu.classList.toggle('active');
-        var hamburger = document.querySelector('.hamburger');
-        hamburger.classList.toggle('active');
-    }
-
+// ------------------------------ HAMBURGER MENU ------------------------------
+function toggleMenu() {
+    const menu = document.querySelector('nav');
     const hamburger = document.querySelector('.hamburger');
-    const nav = document.querySelector('nav ul');
+    menu?.classList.toggle('active');
+    hamburger?.classList.toggle('active');
+}
 
-    // Funkce pro přepnutí třídy aktivního menu
-    hamburger.addEventListener('click', toggleMenu);
+document.querySelector('.hamburger')?.addEventListener('click', toggleMenu);
 
-    // ------------------------------ GALERIE SLIDER ------------------------------
-// JavaScript pro manuální posouvání obrázků pomocí šipek
-document.getElementById('gallery-prev').addEventListener('click', function() {
-    let gallerySlider = document.querySelector('.gallery-slider');
-    let firstSlide = gallerySlider.querySelector('.gallery-slide');
-    gallerySlider.appendChild(firstSlide); // Přesune první obrázek na konec
-    gallerySlider.style.transition = 'none'; // Okamžité přepnutí, bez přechodového efektu
-    gallerySlider.style.transform = 'translateX(0)';
-    setTimeout(() => {
-        gallerySlider.style.transition = 'transform 0.5s ease'; // Přechodový efekt
-    }, 0);
-});
-
-document.getElementById('gallery-next').addEventListener('click', function() {
-    let gallerySlider = document.querySelector('.gallery-slider');
-    let firstSlide = gallerySlider.querySelector('.gallery-slide');
-    gallerySlider.style.transition = 'none'; // Okamžité přepnutí, bez přechodového efektu
-    gallerySlider.style.transform = 'translateX(-100%)';
-    setTimeout(() => {
-        gallerySlider.appendChild(firstSlide); // Přesune první obrázek na konec
-        gallerySlider.style.transition = 'transform 0.5s ease'; // Přechodový efekt
-        gallerySlider.style.transform = 'translateX(0)';
-    }, 500);
-});
-
-    // ------------------------------ ADAPTIVNÍ DESIGN ------------------------------
-    // Zajistí, že obrázky a texty budou správně reagovat na různé velikosti obrazovek
-    window.addEventListener('resize', () => {
-        adjustLayout();
-    });
-
-    function adjustLayout() {
-        // Příklad, jak přizpůsobit velikost textů nebo obrázků pro menší obrazovky
-        if (window.innerWidth < 768) {
-            document.body.style.fontSize = '14px'; // Změní velikost textu pro menší obrazovky
-        } else {
-            document.body.style.fontSize = '16px'; // Zpět na výchozí velikost
-        }
+// Close menu when clicking outside
+document.addEventListener('click', (event) => {
+    const menu = document.querySelector('nav');
+    const hamburger = document.querySelector('.hamburger');
+    if (menu?.classList.contains('active') && !menu.contains(event.target) && !hamburger.contains(event.target)) {
+        menu.classList.remove('active');
+        hamburger.classList.remove('active');
     }
+});
 
-    adjustLayout(); // Inicializuje přizpůsobení při načtení stránky
+// ------------------------------ GALERIE SLIDER ------------------------------
+const gallerySlider = document.querySelector('.gallery-slider');
+const slides = document.querySelectorAll('.gallery-slide');
 
+function shiftGallery(direction) {
+    if (!gallerySlider) return;
+    const firstSlide = gallerySlider.querySelector('.gallery-slide');
+    const lastSlide = gallerySlider.lastElementChild;
+
+    gallerySlider.style.transition = 'none';
+    gallerySlider.style.transform = direction === 'next' ? 'translateX(-100%)' : 'translateX(0)';
+    setTimeout(() => {
+        if (direction === 'next') {
+            gallerySlider.appendChild(firstSlide);
+        } else {
+            gallerySlider.insertBefore(lastSlide, firstSlide);
+        }
+        gallerySlider.style.transition = 'transform 0.5s ease';
+        gallerySlider.style.transform = 'translateX(0)';
+    }, 0);
+}
+
+document.getElementById('gallery-prev')?.addEventListener('click', () => shiftGallery('prev'));
+document.getElementById('gallery-next')?.addEventListener('click', () => shiftGallery('next'));
+
+// ------------------------------ ADAPTIVE DESIGN ------------------------------
+function adjustLayout() {
+    const fontSize = window.innerWidth < 768 ? '14px' : '16px';
+    document.body.style.fontSize = fontSize;
+}
+
+window.addEventListener('resize', adjustLayout);
+adjustLayout();
 </script>
 </body>
 </html>
