@@ -658,7 +658,7 @@ footer {
         </div>
     </footer>
 
-<script>
+    <script>
 document.addEventListener("DOMContentLoaded", function () {
     // Hamburger Menu
     const hamburger = document.querySelector(".hamburger");
@@ -676,20 +676,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function showSlides() {
         slideIndex = (slideIndex + 1) % totalSlides; // Cyklické přepínání slide
-        slides.style.transform = translateX(-${slideIndex * 100}%);
+        slides.style.transform = `translateX(-${slideIndex * 100}%)`;
     }
 
     setInterval(showSlides, 5000); // Automatická změna slide každých 5 sekund
 
-    // Gallery Slider
+    // Gallery Slider (Cyklení)
     const gallerySlider = document.querySelector(".gallery-slider");
     const gallerySlides = document.querySelectorAll(".gallery-slide");
     const galleryButtons = document.querySelectorAll(".gallery-buttons button");
     let galleryIndex = 0;
 
     function showGallerySlide(index) {
-        gallerySlider.style.transform = translateX(-${index * (gallerySlides[0].clientWidth + 20)}px);
+        gallerySlider.style.transform = `translateX(-${index * (gallerySlides[0].clientWidth + 20)}px)`;
     }
+
+    function cycleGallery() {
+        galleryIndex = (galleryIndex + 1) % gallerySlides.length; // Cyklický posun
+        showGallerySlide(galleryIndex);
+    }
+
+    setInterval(cycleGallery, 4000); // Automatické posouvání galerie
 
     galleryButtons.forEach((button, index) => {
         button.addEventListener("click", function () {
@@ -732,7 +739,7 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("scroll", checkVisibility);
     checkVisibility(); // Zkontrolovat při načtení stránky
 });
+</script>
 
-    </script>
 </body>
 </html>
