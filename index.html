@@ -602,21 +602,25 @@ let slideIndex = 0;
 const slidesContainer = document.querySelector('.slides');
 const totalSlides = slidesContainer ? slidesContainer.children.length : 0;
 
+// Update the position of the slides container to show the current slide
 function updateSlidePosition() {
     const offset = -slideIndex * 100;
     slidesContainer.style.transform = `translateX(${offset}%)`;
 }
 
+// Show the next slide
 function showNextSlide() {
     slideIndex = (slideIndex + 1) % totalSlides;
     updateSlidePosition();
 }
 
+// Show the previous slide
 function showPreviousSlide() {
     slideIndex = (slideIndex - 1 + totalSlides) % totalSlides;
     updateSlidePosition();
 }
 
+// Add event listeners for the slider navigation buttons
 document.getElementById('slider-prev')?.addEventListener('click', showPreviousSlide);
 document.getElementById('slider-next')?.addEventListener('click', showNextSlide);
 
@@ -626,80 +630,56 @@ if (totalSlides > 0) {
 }
 
 // ------------------------------ HAMBURGER MENU ------------------------------
+// Toggle the visibility of the hamburger menu
 function toggleMenu() {
-    const menu = document.querySelector('nav');
+    const nav = document.querySelector('nav');
     const hamburger = document.querySelector('.hamburger');
-    if (menu && hamburger) {
-        menu.classList.toggle('active');
+    if (nav && hamburger) {
+        nav.classList.toggle('active');
         hamburger.classList.toggle('active');
     }
 }
-    function toggleMenu() {
-    const nav = document.querySelector('nav');
-    nav.classList.toggle('active');
-    
-    const hamburger = document.querySelector('.hamburger');
-    hamburger.classList.toggle('active');
-}
 
+// Add event listener to the hamburger menu to toggle visibility
 document.querySelector('.hamburger')?.addEventListener('click', toggleMenu);
 
-// Close menu when clicking outside
+// Close the menu if clicking outside
 document.addEventListener('click', (event) => {
-    const menu = document.querySelector('nav');
+    const nav = document.querySelector('nav');
     const hamburger = document.querySelector('.hamburger');
-    if (menu?.classList.contains('active') && !menu.contains(event.target) && !hamburger.contains(event.target)) {
-        menu.classList.remove('active');
+    if (nav?.classList.contains('active') && !nav.contains(event.target) && !hamburger.contains(event.target)) {
+        nav.classList.remove('active');
         hamburger.classList.remove('active');
     }
 });
 
-// ------------------------------ GALERIE SLIDER ------------------------------
-const gallerySlider = document.querySelector('.gallery-slider');
-const slides = document.querySelectorAll('.gallery-slide');
+// ------------------------------ GALLERY FOR DESKTOP AND MOBILE ------------------------------
 
-function shiftGallery(direction) {
-    if (!gallerySlider) return;
-    const firstSlide = gallerySlider.querySelector('.gallery-slide');
-    const lastSlide = gallerySlider.lastElementChild;
+// Function to handle the visibility of images based on screen size
+function handleGallerySlider() {
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const isMobile = window.innerWidth <= 768;
 
-    gallerySlider.style.transition = 'none';
-    gallerySlider.style.transform = direction === 'next' ? 'translateX(-100%)' : 'translateX(0)';
-    setTimeout(() => {
-        if (direction === 'next') {
-            gallerySlider.appendChild(firstSlide);
-        } else {
-            gallerySlider.insertBefore(lastSlide, firstSlide);
-        }
-        gallerySlider.style.transition = 'transform 0.5s ease';
-        gallerySlider.style.transform = 'translateX(0)';
-    }, 0);
-}
-
-document.getElementById('gallery-prev')?.addEventListener('click', () => shiftGallery('prev'));
-document.getElementById('gallery-next')?.addEventListener('click', () => shiftGallery('next'));
-
-// ------------------------------ ADAPTIVE DESIGN ------------------------------
-function adjustLayout() {
-    const fontSize = window.innerWidth < 768 ? '14px' : '16px';
-    document.body.style.fontSize = fontSize;
-
-    // Hide arrows on small screens
-    if (window.innerWidth < 768) {
-        document.getElementById('slider-prev')?.style.display = 'none';
-        document.getElementById('slider-next')?.style.display = 'none';
-        document.getElementById('gallery-prev')?.style.display = 'none';
-        document.getElementById('gallery-next')?.style.display = 'none';
+    // For mobile, show only one image at a time
+    if (isMobile) {
+        galleryItems.forEach((item, index) => {
+            item.style.width = '100%'; // Ensure each item takes full width
+        });
     } else {
-        document.getElementById('slider-prev')?.style.display = 'block';
-        document.getElementById('slider-next')?.style.display = 'block';
-        document.getElementById('gallery-prev')?.style.display = 'block';
-        document.getElementById('gallery-next')?.style.display = 'block';
+        galleryItems.forEach((item, index) => {
+            item.style.width = '20%'; // On desktop, show multiple images at once
+        });
     }
+
+    // Re-adjust the position of the slides based on the screen size
+    updateSlidePosition();
 }
 
-window.addEventListener('resize', adjustLayout);
-adjustLayout();
+// Listen for window resize events to adjust the gallery slider
+window.addEventListener('resize', handleGallerySlider);
+
+// Initialize the gallery slider when the page loads
+handleGallerySlider();
 </script>
     
 </body>
