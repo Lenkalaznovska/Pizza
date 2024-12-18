@@ -663,9 +663,11 @@ footer {
         </div>
     </footer>
 
-    <script>
+// JavaScript pro interaktivní funkce na stránce
+<script>
 document.addEventListener("DOMContentLoaded", function () {
     // Hamburger Menu
+    // Otevírání a zavírání navigace při kliknutí na hamburger menu
     const hamburger = document.querySelector(".hamburger");
     const nav = document.querySelector("nav");
 
@@ -675,6 +677,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Slider (Hlavní sekce)
+    // Automatické přepínání hlavních sliderů každých 5 sekund
     let slideIndex = 0;
     const slides = document.querySelector(".slides");
     const totalSlides = document.querySelectorAll(".slide").length;
@@ -684,9 +687,10 @@ document.addEventListener("DOMContentLoaded", function () {
         slides.style.transform = `translateX(-${slideIndex * 100}%)`;
     }
 
-    setInterval(showSlides, 5000); // Automatická změna slide každých 5 sekund
+    setInterval(showSlides, 5000);
 
-    // Gallery Slider (Cyklení)
+    // Gallery Slider
+    // Posouvání galerijních obrázků s tlačítky a automatickým cyklením
     const gallerySlider = document.querySelector(".gallery-slider");
     const gallerySlides = document.querySelectorAll(".gallery-slide");
     const galleryButtons = document.querySelectorAll(".gallery-buttons button");
@@ -701,7 +705,7 @@ document.addEventListener("DOMContentLoaded", function () {
         showGallerySlide(galleryIndex);
     }
 
-    setInterval(cycleGallery, 4000); // Automatické posouvání galerie
+    setInterval(cycleGallery, 4000);
 
     galleryButtons.forEach((button, index) => {
         button.addEventListener("click", function () {
@@ -711,6 +715,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Scrollovací tlačítko
+    // Zobrazení tlačítka pro návrat na začátek stránky při scrollování
     const scrollButton = document.querySelector(".scroll-to-top");
 
     window.addEventListener("scroll", function () {
@@ -729,6 +734,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Animace sekcí při scrollování
+    // Přidání animace sekcím při jejich zobrazení na obrazovce
     const sections = document.querySelectorAll(".animate-on-scroll");
 
     function checkVisibility() {
@@ -742,9 +748,33 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     window.addEventListener("scroll", checkVisibility);
-    checkVisibility(); // Zkontrolovat při načtení stránky
+    checkVisibility();
+
+    // Dodatečný Slider (Hlavní sekce)
+    // Další slider s ručním ovládáním a automatickým přepínáním
+    const secondarySlides = document.getElementById("slides");
+    const slideCount = secondarySlides.children.length;
+    let currentIndex = 0;
+
+    function updateSlider() {
+        secondarySlides.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    document.getElementById("next-btn").addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % slideCount;
+        updateSlider();
+    });
+
+    document.getElementById("prev-btn").addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+        updateSlider();
+    });
+
+    setInterval(() => {
+        currentIndex = (currentIndex + 1) % slideCount;
+        updateSlider();
+    }, 5000);
 });
 </script>
-
 </body>
 </html>
