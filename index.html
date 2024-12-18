@@ -667,7 +667,6 @@ footer {
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     // Hamburger Menu Adjustment
-    // Move the hamburger menu up by 5px
     const hamburger = document.querySelector(".hamburger");
     const nav = document.querySelector("nav");
 
@@ -675,7 +674,7 @@ document.addEventListener("DOMContentLoaded", function () {
         nav.classList.toggle("active");
         hamburger.classList.toggle("active");
         if (nav.classList.contains("active")) {
-            nav.style.top = "15px"; // Adjusted to move it 5px higher
+            nav.style.top = "15px"; // Move hamburger menu 5px higher
         } else {
             nav.style.top = ""; // Reset position when menu is closed
         }
@@ -693,7 +692,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     setInterval(showSlides, 5000);
 
-    // Gallery Slider
+    // Gallery Slider with proper side arrows for both desktop and mobile
     const gallerySlider = document.querySelector(".gallery-slider");
     const gallerySlides = document.querySelectorAll(".gallery-slide");
     const galleryButtons = document.querySelectorAll(".gallery-buttons button");
@@ -708,7 +707,7 @@ document.addEventListener("DOMContentLoaded", function () {
         gallerySlider.style.transform = `translateX(-${galleryIndex * (gallerySlides[0].clientWidth + 20)}px)`;
     }
 
-    // Remove unnecessary arrows under the images
+    // Remove extra arrows under the images
     const arrowsUnderImages = document.querySelectorAll(".gallery-buttons");
     arrowsUnderImages.forEach(button => button.style.display = "none");
 
@@ -722,9 +721,11 @@ document.addEventListener("DOMContentLoaded", function () {
     leftArrow.classList.add("gallery-arrow", "left-arrow");
     rightArrow.classList.add("gallery-arrow", "right-arrow");
 
+    // Position arrows on the sides of the images
     gallerySlider.parentElement.appendChild(leftArrow);
     gallerySlider.parentElement.appendChild(rightArrow);
 
+    // Add event listeners for the arrows
     leftArrow.addEventListener("click", () => {
         showGallerySlide(galleryIndex - 1);
     });
@@ -732,6 +733,13 @@ document.addEventListener("DOMContentLoaded", function () {
     rightArrow.addEventListener("click", () => {
         showGallerySlide(galleryIndex + 1);
     });
+
+    // Ensure cycling works (no white gap)
+    function cycleGallery() {
+        showGallerySlide(galleryIndex + 1);
+    }
+
+    setInterval(cycleGallery, 4000);
 
     // Scroll to Top Button
     const scrollButton = document.querySelector(".scroll-to-top");
