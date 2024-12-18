@@ -667,7 +667,7 @@ footer {
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     // Hamburger Menu
-    // Otevírání a zavírání navigace při kliknutí na hamburger menu
+    // Adjust the hamburger menu's position by 5px upwards
     const hamburger = document.querySelector(".hamburger");
     const nav = document.querySelector("nav");
 
@@ -675,38 +675,36 @@ document.addEventListener("DOMContentLoaded", function () {
         nav.classList.toggle("active");
         hamburger.classList.toggle("active");
         if (nav.classList.contains("active")) {
-            nav.style.top = "20px"; // Posun menu o 20px nahoru
+            nav.style.top = "15px"; // Adjusted to 15px from the top (5px up)
         } else {
-            nav.style.top = ""; // Reset pozice při zavření menu
+            nav.style.top = ""; // Reset position when menu is closed
         }
     });
 
-    // Slider (Hlavní sekce)
-    // Automatické přepínání hlavních sliderů každých 5 sekund
+    // Slider (Main Section)
     let slideIndex = 0;
     const slides = document.querySelector(".slides");
     const totalSlides = document.querySelectorAll(".slide").length;
 
     function showSlides() {
-        slideIndex = (slideIndex + 1) % totalSlides; // Cyklické přepínání slide
+        slideIndex = (slideIndex + 1) % totalSlides;
         slides.style.transform = `translateX(-${slideIndex * 100}%)`;
     }
 
     setInterval(showSlides, 5000);
 
     // Gallery Slider
-    // Posouvání galerijních obrázků s tlačítky, zaoblením a automatickým cyklením
     const gallerySlider = document.querySelector(".gallery-slider");
     const gallerySlides = document.querySelectorAll(".gallery-slide");
     const galleryButtons = document.querySelectorAll(".gallery-buttons button");
     let galleryIndex = 0;
 
     gallerySlides.forEach(slide => {
-        slide.style.borderRadius = "10px"; // Zaoblení obrázků
+        slide.style.borderRadius = "10px"; // Rounded corners for gallery images
     });
 
     function showGallerySlide(index) {
-        galleryIndex = (index + gallerySlides.length) % gallerySlides.length; // Cyklení bez bílé mezery
+        galleryIndex = (index + gallerySlides.length) % gallerySlides.length;
         gallerySlider.style.transform = `translateX(-${galleryIndex * (gallerySlides[0].clientWidth + 20)}px)`;
     }
 
@@ -723,7 +721,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Přidání šipek pro všechna zařízení
+    // Side Arrows for Gallery on Both Desktop and Mobile
     const leftArrow = document.createElement("button");
     const rightArrow = document.createElement("button");
 
@@ -744,8 +742,7 @@ document.addEventListener("DOMContentLoaded", function () {
         showGallerySlide(galleryIndex + 1);
     });
 
-    // Scrollovací tlačítko
-    // Zobrazení tlačítka pro návrat na začátek stránky při scrollování
+    // Scroll to Top Button
     const scrollButton = document.querySelector(".scroll-to-top");
 
     window.addEventListener("scroll", function () {
@@ -763,8 +760,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Animace sekcí při scrollování
-    // Přidání animace sekcím při jejich zobrazení na obrazovce
+    // Section Animations on Scroll
     const sections = document.querySelectorAll(".animate-on-scroll");
 
     function checkVisibility() {
@@ -780,8 +776,7 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("scroll", checkVisibility);
     checkVisibility();
 
-    // Dodatečný Slider (Hlavní sekce)
-    // Další slider s ručním ovládáním a automatickým přepínáním
+    // Secondary Slider with Manual Control and Auto-Transition
     const secondarySlides = document.getElementById("slides");
     const slideCount = secondarySlides.children.length;
     let currentIndex = 0;
