@@ -674,7 +674,7 @@ document.addEventListener("DOMContentLoaded", function () {
         nav.classList.toggle("active");
         hamburger.classList.toggle("active");
         if (nav.classList.contains("active")) {
-            nav.style.top = "15px"; // Move hamburger menu 5px higher
+            nav.style.top = "24px"; // Move hamburger menu 4px down
         } else {
             nav.style.top = ""; // Reset position when menu is closed
         }
@@ -692,10 +692,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     setInterval(showSlides, 5000);
 
-    // Gallery Slider with proper side arrows for both desktop and mobile
+    // Gallery Slider (Automatic cycling of images with no white space)
     const gallerySlider = document.querySelector(".gallery-slider");
     const gallerySlides = document.querySelectorAll(".gallery-slide");
-    const galleryButtons = document.querySelectorAll(".gallery-buttons button");
     let galleryIndex = 0;
 
     gallerySlides.forEach(slide => {
@@ -703,38 +702,15 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     function showGallerySlide(index) {
-        galleryIndex = (index + gallerySlides.length) % gallerySlides.length; // Cycle images without blank space
+        galleryIndex = (index + gallerySlides.length) % gallerySlides.length; // Ensure cycling without white space
         gallerySlider.style.transform = `translateX(-${galleryIndex * (gallerySlides[0].clientWidth + 20)}px)`;
     }
 
-    // Remove extra arrows under the images
+    // Remove arrows (left and right) under the images
     const arrowsUnderImages = document.querySelectorAll(".gallery-buttons");
     arrowsUnderImages.forEach(button => button.style.display = "none");
 
-    // Add side arrows for gallery (left and right) for both desktop and mobile
-    const leftArrow = document.createElement("button");
-    const rightArrow = document.createElement("button");
-
-    leftArrow.textContent = "◀";
-    rightArrow.textContent = "▶";
-
-    leftArrow.classList.add("gallery-arrow", "left-arrow");
-    rightArrow.classList.add("gallery-arrow", "right-arrow");
-
-    // Position arrows on the sides of the images
-    gallerySlider.parentElement.appendChild(leftArrow);
-    gallerySlider.parentElement.appendChild(rightArrow);
-
-    // Add event listeners for the arrows
-    leftArrow.addEventListener("click", () => {
-        showGallerySlide(galleryIndex - 1);
-    });
-
-    rightArrow.addEventListener("click", () => {
-        showGallerySlide(galleryIndex + 1);
-    });
-
-    // Ensure cycling works (no white gap)
+    // Automatically cycle images every 4 seconds
     function cycleGallery() {
         showGallerySlide(galleryIndex + 1);
     }
