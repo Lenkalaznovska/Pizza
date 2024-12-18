@@ -783,6 +783,22 @@ document.addEventListener("DOMContentLoaded", function () {
         currentIndex = (currentIndex + 1) % slideCount;
         updateSlider();
     }, 5000);
+
+    // Gallery Carousel Manual Controls for Desktop (optional)
+    const galleryPrevButton = document.querySelector(".gallery-prev");
+    const galleryNextButton = document.querySelector(".gallery-next");
+
+    if (galleryPrevButton && galleryNextButton) {
+        galleryPrevButton.addEventListener("click", () => {
+            galleryIndex = (galleryIndex - 1 + gallerySlides.length) % gallerySlides.length;
+            showGallerySlide(galleryIndex);
+        });
+
+        galleryNextButton.addEventListener("click", () => {
+            galleryIndex = (galleryIndex + 1) % gallerySlides.length;
+            showGallerySlide(galleryIndex);
+        });
+    }
 });
 </script>
 </body>
