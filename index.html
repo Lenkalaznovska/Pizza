@@ -616,6 +616,23 @@ footer {
 <section id="kontakty">
     <div class="container">
         <div class="card-container">
+            <!-- Otevírací a rozvozová doba karta -->
+            <div class="card">
+                <h3>Otevírací a rozvozová doba</h3>
+                <p><strong>Pondělí:</strong> ZAVŘENO</p>
+                <p><strong>Úterý:</strong> 11:00 - 21:15</p>
+                <p><strong>Středa:</strong> 11:00 - 21:15</p>
+                <p><strong>Čtvrtek:</strong> 11:00 - 21:15</p>
+                <p><strong>Pátek:</strong> 11:00 - 21:15</p>
+                <p><strong>Sobota:</strong> 11:00 - 21:15</p>
+                <p><strong>Neděle:</strong> 11:00 - 21:15</p>
+            </div>
+            <!-- Kudy k nám karta -->
+            <div class="card">
+                <h3>Kudy k nám</h3>
+                <!-- Mapový odkaz -->
+                <iframe width="640" height="420" src="https://frame.mapy.cz/zakladni?x=14.1267168917&y=50.1338058083&z=17&source=firm&id=293070&widgetFirmy=293070" style="border: none;" frameborder="0"></iframe>
+            </div>
             <!-- Kontakt karta -->
             <div class="card">
                 <h3>Kontakt</h3>
@@ -634,23 +651,6 @@ footer {
                         <strong>pizzakladno</strong>
                     </a>
                 </div>
-            </div>
-            <!-- Otevírací a rozvozová doba karta -->
-            <div class="card">
-                <h3>Otevírací a rozvozová doba</h3>
-                <p><strong>Pondělí:</strong> ZAVŘENO</p>
-                <p><strong>Úterý:</strong> 11:00 - 21:15</p>
-                <p><strong>Středa:</strong> 11:00 - 21:15</p>
-                <p><strong>Čtvrtek:</strong> 11:00 - 21:15</p>
-                <p><strong>Pátek:</strong> 11:00 - 21:15</p>
-                <p><strong>Sobota:</strong> 11:00 - 21:15</p>
-                <p><strong>Neděle:</strong> 11:00 - 21:15</p>
-            </div>
-            <!-- Kudy k nám karta -->
-            <div class="card">
-                <h3>Kudy k nám</h3>
-                <!-- Mapový odkaz -->
-                <iframe width="640" height="420" src="https://frame.mapy.cz/zakladni?x=14.1267168917&y=50.1338058083&z=17&source=firm&id=293070&widgetFirmy=293070" style="border: none;" frameborder="0"></iframe>
             </div>
         </div>
     </div>
@@ -674,25 +674,26 @@ document.addEventListener("DOMContentLoaded", function () {
         nav.classList.toggle("active");
         hamburger.classList.toggle("active");
         if (nav.classList.contains("active")) {
-            nav.style.top = "24px"; // Move hamburger menu 4px down
+            nav.style.top = "29px"; // Move hamburger menu 5px down, anchored below the nav bar
         } else {
             nav.style.top = ""; // Reset position when menu is closed
         }
     });
 
-    // Slider (Main Section)
+    // Slider (Main Section) - Ensure images cycle smoothly
     let slideIndex = 0;
     const slides = document.querySelector(".slides");
     const totalSlides = document.querySelectorAll(".slide").length;
 
     function showSlides() {
-        slideIndex = (slideIndex + 1) % totalSlides; // Cycle through slides
+        slideIndex = (slideIndex + 1) % totalSlides; // Cycle through slides smoothly
+        slides.style.transition = "transform 0.5s ease-in-out"; // Smooth transition for slide movement
         slides.style.transform = `translateX(-${slideIndex * 100}%)`;
     }
 
     setInterval(showSlides, 5000);
 
-    // Gallery Slider (Automatic cycling of images with no white space)
+    // Gallery Carousel: Make the images cycle without gaps and in a continuous loop
     const gallerySlider = document.querySelector(".gallery-slider");
     const gallerySlides = document.querySelectorAll(".gallery-slide");
     let galleryIndex = 0;
@@ -702,13 +703,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     function showGallerySlide(index) {
-        galleryIndex = (index + gallerySlides.length) % gallerySlides.length; // Ensure cycling without white space
+        // Adjust index to ensure infinite loop without white space
+        galleryIndex = (index + gallerySlides.length) % gallerySlides.length;
+        gallerySlider.style.transition = "transform 0.5s ease-in-out"; // Smooth transition for gallery
         gallerySlider.style.transform = `translateX(-${galleryIndex * (gallerySlides[0].clientWidth + 20)}px)`;
     }
-
-    // Remove arrows (left and right) under the images
-    const arrowsUnderImages = document.querySelectorAll(".gallery-buttons");
-    arrowsUnderImages.forEach(button => button.style.display = "none");
 
     // Automatically cycle images every 4 seconds
     function cycleGallery() {
@@ -716,6 +715,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     setInterval(cycleGallery, 4000);
+
+    // Gallery Manual Controls (prev/next buttons)
+    const galleryButtons = document.querySelectorAll(".gallery-buttons button");
+
+    galleryButtons.forEach((button, index) => {
+        button.addEventListener("click", function () {
+            galleryIndex += index === 0 ? -1 : 1;
+            showGallerySlide(galleryIndex);
+        });
+    });
 
     // Scroll to Top Button
     const scrollButton = document.querySelector(".scroll-to-top");
