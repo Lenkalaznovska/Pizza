@@ -268,56 +268,47 @@ section p {
     overflow: hidden;
 }
 
-.gallery-slider {
-    display: flex;
-    transition: transform 0.5s ease;
+/* Desktop gallery layout (2 rows, 3 images each) */
+@media (min-width: 769px) {
+    .gallery-slider {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 images per row */
+        grid-gap: 20px;
+        transition: transform 0.5s ease;
+    }
+
+    .gallery-slide {
+        height: 250px; /* Adjust height as needed */
+        background-size: cover;
+        background-position: center;
+        border-radius: 15px;
+        transition: transform 0.3s ease;
+    }
+
+    .gallery-slide:hover {
+        transform: translateY(-10px); /* Lift effect on hover */
+    }
+
+    .gallery-buttons {
+        display: none; /* Hide buttons for desktop */
+    }
 }
 
-.gallery-slide {
-    min-width: 23%; /* Show 4 smaller images */
-    height: 250px; /* Adjust height as needed */
-    background-size: cover;
-    background-position: center;
-    border-radius: 15px;
-    margin: 0 10px;
-}
-
-.gallery-buttons {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    z-index: 10;
-    transform: translateY(-50%);
-}
-
-.gallery-buttons button {
-    background: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    border: none;
-    font-size: 30px;
-    padding: 10px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-}
-
-.gallery-buttons button:hover {
-    background: rgba(0, 0, 0, 0.8);
-}
-
-/* Responsive Design for smaller screens */
+/* Mobile layout (one image per row) */
 @media (max-width: 768px) {
+    .gallery-slider {
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.5s ease;
+    }
+
     .gallery-slide {
         min-width: 100%; /* Show one image at a time on mobile */
         height: 250px; /* Adjust height for mobile */
     }
 
     .gallery-buttons {
-        display: none;
+        display: flex; /* Show navigation buttons on mobile */
     }
 }
 
