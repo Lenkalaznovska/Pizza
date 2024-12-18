@@ -268,47 +268,56 @@ section p {
     overflow: hidden;
 }
 
-/* Desktop gallery layout (2 rows, 3 images each) */
-@media (min-width: 769px) {
-    .gallery-slider {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr); /* 3 images per row */
-        grid-gap: 20px;
-        transition: transform 0.5s ease;
-    }
-
-    .gallery-slide {
-        height: 250px; /* Adjust height as needed */
-        background-size: cover;
-        background-position: center;
-        border-radius: 15px;
-        transition: transform 0.3s ease;
-    }
-
-    .gallery-slide:hover {
-        transform: translateY(-10px); /* Lift effect on hover */
-    }
-
-    .gallery-buttons {
-        display: none; /* Hide buttons for desktop */
-    }
+.gallery-slider {
+    display: flex;
+    transition: transform 0.5s ease;
 }
 
-/* Mobile layout (one image per row) */
-@media (max-width: 768px) {
-    .gallery-slider {
-        display: flex;
-        flex-direction: column;
-        transition: transform 0.5s ease;
-    }
+.gallery-slide {
+    min-width: 23%; /* Show 4 smaller images */
+    height: 250px; /* Adjust height as needed */
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    margin: 0 10px;
+}
 
+.gallery-buttons {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    z-index: 10;
+    transform: translateY(-50%);
+}
+
+.gallery-buttons button {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    font-size: 30px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.gallery-buttons button:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
     .gallery-slide {
         min-width: 100%; /* Show one image at a time on mobile */
         height: 250px; /* Adjust height for mobile */
     }
 
     .gallery-buttons {
-        display: flex; /* Show navigation buttons on mobile */
+        display: none;
     }
 }
 
@@ -679,7 +688,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function showSlides() {
         slideIndex = (slideIndex + 1) % totalSlides; // Cycle through slides smoothly
         slides.style.transition = "transform 0.5s ease-in-out"; // Smooth transition for slide movement
-        slides.style.transform = `translateX(-${slideIndex * 100}%)`;
+        slides.style.transform = translateX(-${slideIndex * 100}%);
     }
 
     setInterval(showSlides, 5000);
@@ -697,7 +706,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Adjust index to ensure infinite loop without white space
         galleryIndex = (index + gallerySlides.length) % gallerySlides.length;
         gallerySlider.style.transition = "transform 0.5s ease-in-out"; // Smooth transition for gallery
-        gallerySlider.style.transform = `translateX(-${galleryIndex * (gallerySlides[0].clientWidth + 20)}px)`;
+        gallerySlider.style.transform = translateX(-${galleryIndex * (gallerySlides[0].clientWidth + 20)}px);
     }
 
     // Automatically cycle images every 4 seconds
@@ -757,7 +766,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let currentIndex = 0;
 
     function updateSlider() {
-        secondarySlides.style.transform = `translateX(-${currentIndex * 100}%)`;
+        secondarySlides.style.transform = translateX(-${currentIndex * 100}%);
     }
 
     document.getElementById("next-btn").addEventListener("click", () => {
