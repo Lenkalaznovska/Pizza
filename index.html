@@ -690,29 +690,56 @@ document.addEventListener("DOMContentLoaded", function () {
     setInterval(showSlides, 5000);
 
     // Gallery Slider
-    // Posouvání galerijních obrázků s tlačítky a automatickým cyklením
+    // Posouvání galerijních obrázků s tlačítky, zaoblením a automatickým cyklením
     const gallerySlider = document.querySelector(".gallery-slider");
     const gallerySlides = document.querySelectorAll(".gallery-slide");
     const galleryButtons = document.querySelectorAll(".gallery-buttons button");
     let galleryIndex = 0;
 
+    gallerySlides.forEach(slide => {
+        slide.style.borderRadius = "10px"; // Zaoblení obrázků
+    });
+
     function showGallerySlide(index) {
-        gallerySlider.style.transform = `translateX(-${index * (gallerySlides[0].clientWidth + 20)}px)`;
+        galleryIndex = (index + gallerySlides.length) % gallerySlides.length; // Cyklení bez bílé mezery
+        gallerySlider.style.transform = `translateX(-${galleryIndex * (gallerySlides[0].clientWidth + 20)}px)`;
     }
 
     function cycleGallery() {
-        galleryIndex = (galleryIndex + 1) % gallerySlides.length; // Cyklický posun
-        showGallerySlide(galleryIndex);
+        showGallerySlide(galleryIndex + 1);
     }
 
     setInterval(cycleGallery, 4000);
 
     galleryButtons.forEach((button, index) => {
         button.addEventListener("click", function () {
-            galleryIndex = Math.max(0, Math.min(gallerySlides.length - 1, galleryIndex + (index === 0 ? -1 : 1)));
+            galleryIndex += index === 0 ? -1 : 1;
             showGallerySlide(galleryIndex);
         });
     });
+
+    // Přidání šipek pro mobilní zařízení
+    if (window.innerWidth <= 768) {
+        const leftArrow = document.createElement("button");
+        const rightArrow = document.createElement("button");
+
+        leftArrow.textContent = "◀";
+        rightArrow.textContent = "▶";
+
+        leftArrow.classList.add("gallery-arrow", "left-arrow");
+        rightArrow.classList.add("gallery-arrow", "right-arrow");
+
+        gallerySlider.parentElement.appendChild(leftArrow);
+        gallerySlider.parentElement.appendChild(rightArrow);
+
+        leftArrow.addEventListener("click", () => {
+            showGallerySlide(galleryIndex - 1);
+        });
+
+        rightArrow.addEventListener("click", () => {
+            showGallerySlide(galleryIndex + 1);
+        });
+    }
 
     // Scrollovací tlačítko
     // Zobrazení tlačítka pro návrat na začátek stránky při scrollování
