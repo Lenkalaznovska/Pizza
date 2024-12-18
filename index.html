@@ -225,7 +225,7 @@ section p {
 }
 
 /* Recenze */
-  .recenze-section {
+.recenze-section {
         margin: 40px 0;
         padding: 20px;
         background-color: #f9f9f9;
@@ -379,56 +379,6 @@ section p {
         position: absolute;
     }
 
-    nav.active {
-        display: flex;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        flex-direction: column;
-        background-color: #333;
-        padding: 10px;
-        text-align: center;
-    }
-
-    nav ul {
-        flex-direction: column;
-    }
-    
-    .gallery-buttons {
-        display: none;
-    }
-
-    .gallery-slide {
-        min-width: 100%; /* Na mobilu zobrazíme širší obrázek */
-        height: 250px;
-    }
-}
-    
-/* Responsive Design */
-@media (max-width: 768px) {
-    nav {
-        display: none;
-    }
-
-    .hamburger {
-        display: flex;
-    }
-
-    .hamburger.active div:nth-child(1) {
-        transform: rotate(-45deg);
-        position: absolute;
-    }
-
-    .hamburger.active div:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.active div:nth-child(3) {
-        transform: rotate(45deg);
-        position: absolute;
-    }
-
     nav ul {
         position: absolute;
         top: 70px;
@@ -451,122 +401,17 @@ section p {
     nav.active {
         display: flex;
     }
-}
 
-/* Styly pro sekci Kontakty */
-#kontakty {
-    background-color: #f9f9f9; /* Světle šedé pozadí pro kontrast */
-    padding: 40px 0;
-    text-align: center;
-}
+    .gallery-slide {
+        min-width: 100%;
+        height: 250px;
+    }
 
-#kontakty h2 {
-    font-size: 2.5rem;
-    color: #2c3e50;
-    margin-bottom: 20px;
-}
-
-/* Kontejner pro karty */
-.card-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap; /* Zajistí, že karty se přizpůsobí na menších obrazovkách */
-}
-
-/* Styl jednotlivých karet */
-.card {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Přidání stínování */
-    width: calc(33.33% - 20px); /* Každá karta zabírá třetinu šířky */
-    text-align: center; /* Zarovnání obsahu na střed */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efekt při najetí myší */
-}
-
-.card:hover {
-    transform: translateY(-5px); /* Mírné nadzvednutí karty */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Zesílení stínování */
-}
-
-/* Styl nadpisů v kartách */
-.card h3 {
-    font-size: 1.6rem;
-    color: #2c3e50;
-    margin-bottom: 15px;
-    text-align: center; /* Zarovnání nadpisů na střed */
-}
-
-/* Text v kartách */
-.card p {
-    font-size: 1.1rem;
-    color: #555;
-    margin-bottom: 10px;
-}
-
-/* Odkazy na kontakt */
-.contact-link {
-    color: #3498db;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.contact-link:hover {
-    color: #2980b9;
-    text-decoration: underline;
-}
-
-/* Sociální odkazy */
-.social-links a {
-    display: inline-flex;
-    align-items: center;
-    margin: 10px 0;
-    color: #555;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.social-links a img {
-    margin-right: 10px;
-}
-
-.social-links a:hover {
-    color: #3498db;
-}
-
-/* Mapový iframe */
-.card iframe {
-    width: 100%;
-    height: 300px; /* Nastavení výšky mapy */
-    margin-top: 20px;
-    border-radius: 8px; /* Zaoblení rohů mapy */
-    border: none;
-}
-
-/* Responzivita pro tablety */
-@media (max-width: 768px) {
-    .card {
-        width: calc(50% - 20px); /* Na menších obrazovkách zabírají karty polovinu šířky */
+    .gallery-buttons {
+        display: none;
     }
 }
-
-/* Responzivita pro mobily */
-@media (max-width: 480px) {
-    .card {
-        width: 100%; /* Na mobilních zařízeních zabírá každá karta celou šířku */
-    }
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px 0;
-    background-color: #333;
-    color: #fff;
-}
-</style>
-    
+    </style>
 </head>
 <body>
     <!-- Header -->
