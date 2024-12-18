@@ -674,6 +674,11 @@ document.addEventListener("DOMContentLoaded", function () {
     hamburger.addEventListener("click", function () {
         nav.classList.toggle("active");
         hamburger.classList.toggle("active");
+        if (nav.classList.contains("active")) {
+            nav.style.top = "20px"; // Posun menu o 20px nahoru
+        } else {
+            nav.style.top = ""; // Reset pozice při zavření menu
+        }
     });
 
     // Slider (Hlavní sekce)
@@ -718,28 +723,26 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Přidání šipek pro mobilní zařízení
-    if (window.innerWidth <= 768) {
-        const leftArrow = document.createElement("button");
-        const rightArrow = document.createElement("button");
+    // Přidání šipek pro všechna zařízení
+    const leftArrow = document.createElement("button");
+    const rightArrow = document.createElement("button");
 
-        leftArrow.textContent = "◀";
-        rightArrow.textContent = "▶";
+    leftArrow.textContent = "◀";
+    rightArrow.textContent = "▶";
 
-        leftArrow.classList.add("gallery-arrow", "left-arrow");
-        rightArrow.classList.add("gallery-arrow", "right-arrow");
+    leftArrow.classList.add("gallery-arrow", "left-arrow");
+    rightArrow.classList.add("gallery-arrow", "right-arrow");
 
-        gallerySlider.parentElement.appendChild(leftArrow);
-        gallerySlider.parentElement.appendChild(rightArrow);
+    gallerySlider.parentElement.appendChild(leftArrow);
+    gallerySlider.parentElement.appendChild(rightArrow);
 
-        leftArrow.addEventListener("click", () => {
-            showGallerySlide(galleryIndex - 1);
-        });
+    leftArrow.addEventListener("click", () => {
+        showGallerySlide(galleryIndex - 1);
+    });
 
-        rightArrow.addEventListener("click", () => {
-            showGallerySlide(galleryIndex + 1);
-        });
-    }
+    rightArrow.addEventListener("click", () => {
+        showGallerySlide(galleryIndex + 1);
+    });
 
     // Scrollovací tlačítko
     // Zobrazení tlačítka pro návrat na začátek stránky při scrollování
