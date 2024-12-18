@@ -224,6 +224,40 @@ section p {
     line-height: 1.6;
 }
 
+/* Recenze */
+    .recenze-section {
+        margin: 40px 0;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+    }
+    .section-title {
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+    .reviews-container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+    .review-widget,
+    .yext-widget {
+        max-width: 200px;
+        text-align: center;
+    }
+    .review-img {
+        max-width: 100%;
+        height: auto;
+    }
+    .yext-widget script {
+        width: 100%;
+        max-width: 200px;
+    }
+
 /* Contact section styles */
 #kontakty .container p {
     margin-bottom: 10px;
@@ -590,12 +624,20 @@ footer {
         <p>Čekají na vás také šťavnaté burgry, zapečené těstoviny a čerstvé saláty a další dobroty!</p>
         <p>Pizzu nabízíme ve čtyřech velikostech: Dětské menu (18 cm), Malá (24 cm), Velká (28 cm), Maxi (40 cm)</p>
     </div>
-        <div class="widget-container" style="text-align: center; margin-top: 20px;">
-<a href="https://www.firmy.cz/detail/293070-pizzerie-san-marino-kladno.html#hodnoceni" target="_blank" rel="noopener"><img src="https://www.firmy.cz/img-stars/light-293070.svg" alt="Pizzerie San Marino na Firmy.cz" /></a>
-        </a>
+</section>
+
+    <section class="recenze-section">
+    <h2 class="section-title">Recenze</h2>
+    <div class="reviews-container">
+        <div class="review-widget">
+            <a href="https://www.firmy.cz/detail/293070-pizzerie-san-marino-kladno.html#hodnoceni" target="_blank" rel="noopener">
+                <img src="https://www.firmy.cz/img-stars/light-293070.svg" alt="Pizzerie San Marino na Firmy.cz" class="review-img" />
+            </a>
+        </div>
+        <div class="yext-widget">
+            <script type="text/javascript" src="//sites.yext.com/347665-reviews.js"></script>
+        </div>
     </div>
-    <!-- Yext Reviews Script -->
-    <script type="text/javascript" src="//sites.yext.com/347665-reviews.js"></script>
 </section>
 
 <section id="galerie">
