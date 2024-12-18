@@ -666,8 +666,8 @@ footer {
 // JavaScript pro interaktivní funkce na stránce
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-    // Hamburger Menu
-    // Adjust the hamburger menu's position by 5px upwards
+    // Hamburger Menu Adjustment
+    // Move the hamburger menu up by 5px
     const hamburger = document.querySelector(".hamburger");
     const nav = document.querySelector("nav");
 
@@ -675,7 +675,7 @@ document.addEventListener("DOMContentLoaded", function () {
         nav.classList.toggle("active");
         hamburger.classList.toggle("active");
         if (nav.classList.contains("active")) {
-            nav.style.top = "15px"; // Adjusted to 15px from the top (5px up)
+            nav.style.top = "15px"; // Adjusted to move it 5px higher
         } else {
             nav.style.top = ""; // Reset position when menu is closed
         }
@@ -687,7 +687,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const totalSlides = document.querySelectorAll(".slide").length;
 
     function showSlides() {
-        slideIndex = (slideIndex + 1) % totalSlides;
+        slideIndex = (slideIndex + 1) % totalSlides; // Cycle through slides
         slides.style.transform = `translateX(-${slideIndex * 100}%)`;
     }
 
@@ -704,24 +704,15 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     function showGallerySlide(index) {
-        galleryIndex = (index + gallerySlides.length) % gallerySlides.length;
+        galleryIndex = (index + gallerySlides.length) % gallerySlides.length; // Cycle images without blank space
         gallerySlider.style.transform = `translateX(-${galleryIndex * (gallerySlides[0].clientWidth + 20)}px)`;
     }
 
-    function cycleGallery() {
-        showGallerySlide(galleryIndex + 1);
-    }
+    // Remove unnecessary arrows under the images
+    const arrowsUnderImages = document.querySelectorAll(".gallery-buttons");
+    arrowsUnderImages.forEach(button => button.style.display = "none");
 
-    setInterval(cycleGallery, 4000);
-
-    galleryButtons.forEach((button, index) => {
-        button.addEventListener("click", function () {
-            galleryIndex += index === 0 ? -1 : 1;
-            showGallerySlide(galleryIndex);
-        });
-    });
-
-    // Side Arrows for Gallery on Both Desktop and Mobile
+    // Add side arrows for gallery (left and right) for both desktop and mobile
     const leftArrow = document.createElement("button");
     const rightArrow = document.createElement("button");
 
