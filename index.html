@@ -721,7 +721,11 @@ document.addEventListener("DOMContentLoaded", function () {
         hamburger.classList.toggle("active");
 
         // Ukotvení menu pod navigační lištou, pokud je menu aktivní
-        navMenu.style.top = navMenu.classList.contains("active") ? `${hamburger.offsetHeight}px` : "";
+        if (navMenu.classList.contains("active")) {
+            navMenu.style.top = `${hamburger.offsetHeight + 5}px`; // Added margin to avoid overlapping
+        } else {
+            navMenu.style.top = ""; // Reset top positioning when inactive
+        }
     });
 
     // Gallery Carousel
@@ -749,7 +753,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (galleryIndex === updatedSlides.length - 1) {
             galleryIndex = 1; // Přeskočení na první reálný obrázek
         } else if (galleryIndex === 0) {
-            galleryIndex = gallerySlides.length; // Přeskočení na poslední reálný obrázek
+            galleryIndex = updatedSlides.length - 2; // Přeskočení na poslední reálný obrázek
         }
         gallerySlider.style.transform = `translateX(-${galleryIndex * slideWidth}px)`;
         isTransitioning = false;
