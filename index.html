@@ -732,50 +732,64 @@ document.addEventListener("DOMContentLoaded", function () {
     const gallerySlider = document.querySelector(".gallery-slider");
     const gallerySlides = Array.from(document.querySelectorAll(".gallery-slide"));
     let galleryIndex = 1; // Start na prvním klonu
+    let isTransitioning = false;
 
     // Clone slides for seamless looping
     const firstClone = gallerySlides[0].cloneNode(true);
     const lastClone = gallerySlides[gallerySlides.length - 1].cloneNode(true);
+    firstClone.classList.add("clone");
+    lastClone.classList.add("clone");
+
     gallerySlider.appendChild(firstClone);
     gallerySlider.insertBefore(lastClone, gallerySlides[0]);
 
     const updatedSlides = document.querySelectorAll(".gallery-slider .gallery-slide");
-    const slideWidth = gallerySlides[0].clientWidth;
+    const slideWidth = gallerySlides[0].offsetWidth; // Dynamická šířka obrázku
 
-    gallerySlider.style.transform = `translateX(-${galleryIndex * slideWidth}px)`; // Nastavení počáteční pozice
+    gallerySlider.style.transform = `translateX(-${galleryIndex * slideWidth}px)`; // Startovací pozice
 
-    function showGallerySlide(index) {
-        gallerySlider.style.transition = "transform 0.5s ease-in-out";
-        gallerySlider.style.transform = `translateX(-${index * slideWidth}px)`;
-
-        gallerySlider.addEventListener("transitionend", () => {
-            if (updatedSlides[index] === firstClone) {
-                gallerySlider.style.transition = "none";
-                galleryIndex = 1;
-                gallerySlider.style.transform = `translateX(-${galleryIndex * slideWidth}px)`;
-            } else if (updatedSlides[index] === lastClone) {
-                gallerySlider.style.transition = "none";
-                galleryIndex = gallerySlides.length;
-                gallerySlider.style.transform = `translateX(-${galleryIndex * slideWidth}px)`;
-            }
-        });
+    function updateCarouselPosition() {
+        gallerySlider.style.transition = "none";
+        if (galleryIndex === updatedSlides.length - 1) {
+            galleryIndex = 1; // Přeskočení na první reálný obrázek
+        } else if (galleryIndex === 0) {
+            galleryIndex = gallerySlides.length; // Přeskočení na poslední reálný obrázek
+        }
+        gallerySlider.style.transform = `translateX(-${galleryIndex * slideWidth}px)`;
+        isTransitioning = false;
     }
+
+    function moveToSlide(index) {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        gallerySlider.style.transition = "transform 0.5s ease-in-out";
+        galleryIndex = index;
+        gallerySlider.style.transform = `translateX(-${galleryIndex * slideWidth}px)`;
+    }
+
+    function cycleGallery() {
+        moveToSlide(galleryIndex + 1);
+    }
+
+    gallerySlider.addEventListener("transitionend", updateCarouselPosition);
 
     // Automatický cyklus každé 4 sekundy
-    function cycleGallery() {
-        galleryIndex++;
-        showGallerySlide(galleryIndex);
-    }
+    const interval = setInterval(cycleGallery, 4000);
 
-    setInterval(cycleGallery, 4000);
+    // Změna velikosti pro responzivní design
+    window.addEventListener("resize", () => {
+        const newSlideWidth = gallerySlides[0].offsetWidth;
+        gallerySlider.style.transition = "none";
+        gallerySlider.style.transform = `translateX(-${galleryIndex * newSlideWidth}px)`;
+    });
 
     // Manual Controls
     const galleryButtons = document.querySelectorAll(".gallery-buttons button");
 
-    galleryButtons.forEach((button, index) => {
+    galleryButtons.forEach((button, direction) => {
         button.addEventListener("click", function () {
-            galleryIndex += index === 0 ? -1 : 1;
-            showGallerySlide(galleryIndex);
+            clearInterval(interval); // Zastaví automatický cyklus při ručním ovládání
+            moveToSlide(galleryIndex + (direction === 0 ? -1 : 1));
         });
     });
 
