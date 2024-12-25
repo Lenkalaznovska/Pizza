@@ -657,63 +657,61 @@ footer {
     </div>
 </footer>
 <script>
-    // Hamburger Menu Toggle
-    const hamburger = document.querySelector('.hamburger');
-    const nav = document.querySelector('nav');
+// Hamburger Menu Toggle
+const hamburger = document.querySelector('.hamburger');
+const nav = document.querySelector('nav');
 
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        nav.classList.toggle('active');
-    });
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    nav.classList.toggle('active');
+});
 
-    // Automatický slider
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.slider .slide');
-    const totalSlides = slides.length;
+// Slider
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slider .slide');
+const totalSlides = slides.length;
 
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % totalSlides; // Posun na další slide (cyklicky)
-        updateSliderPosition();
-    }
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides; // Posun na další slide (cyklicky)
+    updateSliderPosition();
+}
 
-    function updateSliderPosition() {
-        const newTransformValue = `translateX(-${currentSlide * 100}%)`;
-        document.querySelector('.slides').style.transform = newTransformValue;
-    }
+function updateSliderPosition() {
+    const newTransformValue = `translateX(-${currentSlide * 100}%)`;
+    document.querySelector('.slides').style.transform = newTransformValue;
+}
 
-    // Automatické posouvání každých 4 sekundy
-    setInterval(nextSlide, 4000);
+// Automatické posouvání každých 4 sekundy
+setInterval(nextSlide, 4000);
 
-  // Funkce pro posun galerie
-    let currentIndex = 0; // Počáteční index
-    const gallerySlides = document.querySelectorAll('.gallery-slide');
-    const totalSlides = gallerySlides.length;
+// Galerie (Karusel)
+let currentIndex = 0; // Počáteční index obrázku
+const gallerySlides = document.querySelectorAll('.gallery-slide');
+const totalGallerySlides = gallerySlides.length;
 
-    // Posun na další obrázek
-    function moveGallery(direction) {
-        currentIndex = (currentIndex + direction + totalSlides) % totalSlides; // Cyklický posun
-        updateGalleryPosition();
-    }
+function moveGallery(direction) {
+    currentIndex = (currentIndex + direction + totalGallerySlides) % totalGallerySlides; // Cyklický posun
+    updateGalleryPosition();
+}
 
-    // Aktualizace pozice galerie
-    function updateGalleryPosition() {
-        const newTransformValue = `translateX(-${currentIndex * 100}%)`;
-        document.querySelector('.gallery-slider').style.transform = newTransformValue;
-    }
+function updateGalleryPosition() {
+    const newTransformValue = `translateX(-${currentIndex * 100}%)`;
+    document.querySelector('.gallery-slider').style.transform = newTransformValue;
+}
 
-    // Přiřazení událostí pro tlačítka
-    document.getElementById('gallery-prev').addEventListener('click', function() {
-        moveGallery(-1); // Posun vlevo
-    });
+// Přiřazení událostí pro tlačítka
+document.getElementById('gallery-prev').addEventListener('click', function() {
+    moveGallery(-1); // Posun vlevo
+});
 
-    document.getElementById('gallery-next').addEventListener('click', function() {
-        moveGallery(1); // Posun vpravo
-    });
+document.getElementById('gallery-next').addEventListener('click', function() {
+    moveGallery(1); // Posun vpravo
+});
 
-    // Automatické posouvání každých 4 sekundy (volitelné)
-    setInterval(() => {
-        moveGallery(1); // Automatické přepnutí na další obrázek
-    }, 4000); // Každých 4 sekund
+// Automatické posouvání každých 4 sekundy (volitelné)
+setInterval(() => {
+    moveGallery(1); // Automatické přepnutí na další obrázek
+}, 4000); // Každých 4 sekundy
 </script>
 </body>
 </html>
