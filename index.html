@@ -715,65 +715,55 @@ document.addEventListener("DOMContentLoaded", function () {
     // Hamburger Menu Adjustment
     const hamburger = document.querySelector(".hamburger");
     const nav = document.querySelector("nav");
+    const navMenu = document.querySelector(".nav-menu");
 
     hamburger.addEventListener("click", function () {
-        nav.classList.toggle("active");
+        navMenu.classList.toggle("active");
         hamburger.classList.toggle("active");
-        if (nav.classList.contains("active")) {
-            nav.style.top = "60px"; // Navigace pod lištou
+
+        if (navMenu.classList.contains("active")) {
+            navMenu.style.top = `${nav.offsetHeight}px`; // Ukotvení přímo pod navigační lištou
         } else {
-            nav.style.top = ""; // Reset pozice
+            navMenu.style.top = ""; // Reset pozice při zavření
         }
     });
-
-    // Main Section Slider (Smooth Cycling)
-    let slideIndex = 0;
-    const slides = document.querySelector(".slides");
-    const totalSlides = document.querySelectorAll(".slide").length;
-
-    function showSlides() {
-        slideIndex = (slideIndex + 1) % totalSlides;
-        slides.style.transition = "transform 0.5s ease-in-out";
-        slides.style.transform = `translateX(-${slideIndex * 100}%)`;
-    }
-
-    setInterval(showSlides, 5000);
 
     // Gallery Carousel
     const gallerySlider = document.querySelector(".gallery-slider");
     const gallerySlides = document.querySelectorAll(".gallery-slide");
-    let galleryIndex = 0;
+    let galleryIndex = 1; // Start na prvním klonu
 
-    // Clone slides for infinite looping
+    // Clone slides for seamless looping
     const firstClone = gallerySlides[0].cloneNode(true);
     const lastClone = gallerySlides[gallerySlides.length - 1].cloneNode(true);
     gallerySlider.appendChild(firstClone);
     gallerySlider.insertBefore(lastClone, gallerySlides[0]);
 
-    function showGallerySlide(index) {
-        galleryIndex = index;
-        gallerySlider.style.transition = "transform 0.5s ease-in-out";
-        gallerySlider.style.transform = `translateX(-${galleryIndex * (gallerySlides[0].clientWidth + 20)}px)`;
+    const slideWidth = gallerySlides[0].clientWidth + 20; // Šířka snímků včetně mezery
+    gallerySlider.style.transform = `translateX(-${galleryIndex * slideWidth}px)`; // Nastavení počáteční pozice
 
-        // Reset to start or end for seamless looping
-        if (galleryIndex === gallerySlides.length + 1) {
-            setTimeout(() => {
+    function showGallerySlide(index) {
+        gallerySlider.style.transition = "transform 0.5s ease-in-out";
+        gallerySlider.style.transform = `translateX(-${index * slideWidth}px)`;
+
+        // Reset při dosažení klonů
+        gallerySlider.addEventListener("transitionend", () => {
+            if (index === gallerySlides.length + 1) {
                 gallerySlider.style.transition = "none";
                 galleryIndex = 1;
-                gallerySlider.style.transform = `translateX(-${galleryIndex * (gallerySlides[0].clientWidth + 20)}px)`;
-            }, 500);
-        } else if (galleryIndex === 0) {
-            setTimeout(() => {
+                gallerySlider.style.transform = `translateX(-${galleryIndex * slideWidth}px)`;
+            } else if (index === 0) {
                 gallerySlider.style.transition = "none";
                 galleryIndex = gallerySlides.length;
-                gallerySlider.style.transform = `translateX(-${galleryIndex * (gallerySlides[0].clientWidth + 20)}px)`;
-            }, 500);
-        }
+                gallerySlider.style.transform = `translateX(-${galleryIndex * slideWidth}px)`;
+            }
+        });
     }
 
-    // Automatically cycle images every 4 seconds
+    // Automatický cyklus každé 4 sekundy
     function cycleGallery() {
-        showGallerySlide(galleryIndex + 1);
+        galleryIndex++;
+        showGallerySlide(galleryIndex);
     }
 
     setInterval(cycleGallery, 4000);
