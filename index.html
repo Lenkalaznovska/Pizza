@@ -346,7 +346,7 @@ section p {
 
 .gallery-slider {
     display: flex;
-    transition: transform 0.5s ease;
+    transition: transform 0.4s ease;
 }
 
 .gallery-slide {
@@ -394,19 +394,6 @@ section p {
 
     .gallery-buttons {
         display: none;
-    }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
- 
-    .gallery-buttons {
-        display: none;
-    }
-
-    .gallery-slide {
-        min-width: 100%; /* Na mobilu zobrazíme širší obrázek */
-        height: 250px;
     }
 }
     
@@ -723,10 +710,10 @@ footer {
         moveGallery(1); // Posun vpravo
     });
 
-    // Automatické posouvání každých 5 sekund (volitelné)
+    // Automatické posouvání každých 4 sekund (volitelné)
     setInterval(() => {
         moveGallery(1); // Automatické přepnutí na další obrázek
-    }, 4000); // Každých 5 sekund
+    }, 4000); // Každých 4 sekund
 </script>
 </body>
 </html>
