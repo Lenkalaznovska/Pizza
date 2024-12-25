@@ -15,10 +15,12 @@
     box-sizing: border-box;
 }
 
+/* Body */
 body {
     font-family: Arial, sans-serif;
     background: #f4f4f4;
     color: #333;
+    line-height: 1.6;
 }
 
 /* Container */
@@ -45,7 +47,7 @@ header {
     height: 60px;
 }
 
-/* Styl pro navigační menu */
+/* Navigation menu */
 .nav-menu {
     display: flex;
     justify-content: center;
@@ -63,7 +65,7 @@ header {
 
 .nav-menu.active {
     display: block;
-    top: 60px; /* Výška pro zobrazení pod hamburgerem */
+    top: 60px;
 }
 
 .nav-menu li {
@@ -82,7 +84,7 @@ header {
     color: #f0a500;
 }
 
-/* Tlačítko pro hamburger menu */
+/* Hamburger menu */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -100,7 +102,7 @@ header {
     border-radius: 2px;
 }
 
-/* Zobrazení hamburgeru na mobilních zařízeních */
+/* Display hamburger menu on small screens */
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
@@ -132,7 +134,7 @@ header {
         color: #fff;
     }
 }
-    
+
 /* Slider */
 .slider {
     position: relative;
@@ -199,7 +201,6 @@ section:hover {
     transform: translateY(-5px);
 }
 
-/* Headings inside sections */
 section h2 {
     font-size: 32px;
     margin-bottom: 20px;
@@ -215,74 +216,82 @@ section p {
     line-height: 1.6;
 }
 
-/* Recenze */
-  .recenze-section {
-        margin: 40px 0;
-        padding: 20px;
-        border-radius: 8px;
-    }
-    .section-title {
-        text-align: center;
-        font-size: 24px;
-        font-weight: bold;
-        margin-bottom: 20px;
-    }
-    .reviews-container {
-        display: flex;
-        justify-content: center; /* Align items at the center */
-        align-items: center;
-        gap: 10px; /* Reduce the gap between the widgets */
-        flex-wrap: wrap;
-    }
-    .review-widget,
-    .yext-widget {
-        max-width: 300px;
-        text-align: center;
-    }
-    .review-img {
-        max-width: 100%;
-        height: auto;
-    }
-    .yext-widget script {
-        width: 100%;
-        max-width: 300px;
-    }
+/* Contact section */
+#kontakty {
+    background-color: #f9f9f9;
+    padding: 40px 0;
+    text-align: center;
+}
 
-/* Contact section styles */
-#kontakty .container p {
+#kontakty h2 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+/* Card container */
+.card-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Individual cards */
+.card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: calc(33.33% - 20px);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card h3 {
+    font-size: 1.6rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.card p {
+    font-size: 1.1rem;
+    color: #555;
     margin-bottom: 10px;
 }
 
-/* Links for phone and email */
+/* Links and social icons */
 .contact-link {
-    color: #e63946;
+    color: #3498db;
     text-decoration: none;
     font-weight: bold;
 }
 
 .contact-link:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    margin: 10px 0;
+    color: #555;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-/* Social icon styles */
-.social-icons a {
-    margin: 0 15px;
-    transition: transform 0.3s ease, color 0.3s ease;
+.social-links a img {
+    margin-right: 10px;
 }
 
-.social-icons a img {
-    width: 35px;
-    height: 35px;
-    vertical-align: middle;
-    transition: transform 0.3s ease;
-}
-
-.social-icons a:hover img {
-    transform: scale(1.2);
-}
-
-.social-icons a:hover {
-    color: #ff4500;
+.social-links a:hover {
+    color: #3498db;
 }
 
 /* Gallery styles */
@@ -298,8 +307,8 @@ section p {
 }
 
 .gallery-slide {
-    min-width: 23%; /* Show 4 smaller images */
-    height: 250px; /* Adjust height as needed */
+    min-width: 23%;
+    height: 250px;
     background-size: cover;
     background-position: center;
     border-radius: 15px;
@@ -336,69 +345,16 @@ section p {
 /* Responsive Design for smaller screens */
 @media (max-width: 768px) {
     .gallery-slide {
-        min-width: 100%; /* Show one image at a time on mobile */
-        height: 250px; /* Adjust height for mobile */
-    }
-
-    .gallery-buttons {
-        display: none;
-    }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    nav {
-        display: none;
-    }
-
-    .hamburger {
-        display: flex;
-    }
-
-    .hamburger.active div:nth-child(1) {
-        transform: rotate(-45deg);
-        position: absolute;
-    }
-
-    .hamburger.active div:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.active div:nth-child(3) {
-        transform: rotate(45deg);
-        position: absolute;
-    }
-
-    nav.active {
-        display: flex;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        flex-direction: column;
-        background-color: #333;
-        padding: 10px;
-        text-align: center;
-    }
-
-    nav ul {
-        flex-direction: column;
-    }
-    
-    .gallery-buttons {
-        display: none;
-    }
-
-    .gallery-slide {
-        min-width: 100%; /* Na mobilu zobrazíme širší obrázek */
+        min-width: 100%;
         height: 250px;
     }
-}
-    
-/* Responsive Design */
-@media (max-width: 768px) {
-    nav {
+
+    .gallery-buttons {
         display: none;
+    }
+
+    .card {
+        width: calc(50% - 20px);
     }
 
     .hamburger {
@@ -443,118 +399,6 @@ section p {
     }
 }
 
-/* Styly pro sekci Kontakty */
-#kontakty {
-    background-color: #f9f9f9; /* Světle šedé pozadí pro kontrast */
-    padding: 40px 0;
-    text-align: center;
-}
-
-#kontakty h2 {
-    font-size: 2.5rem;
-    color: #2c3e50;
-    margin-bottom: 20px;
-}
-
-/* Kontejner pro karty */
-.card-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap; /* Zajistí, že karty se přizpůsobí na menších obrazovkách */
-}
-
-/* Styl jednotlivých karet */
-.card {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Přidání stínování */
-    width: calc(33.33% - 20px); /* Každá karta zabírá třetinu šířky */
-    text-align: center; /* Zarovnání obsahu na střed */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efekt při najetí myší */
-}
-
-.card:hover {
-    transform: translateY(-5px); /* Mírné nadzvednutí karty */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Zesílení stínování */
-}
-
-/* Styl nadpisů v kartách */
-.card h3 {
-    font-size: 1.6rem;
-    color: #2c3e50;
-    margin-bottom: 15px;
-    text-align: center; /* Zarovnání nadpisů na střed */
-}
-
-/* Text v kartách */
-.card p {
-    font-size: 1.1rem;
-    color: #555;
-    margin-bottom: 10px;
-}
-
-/* Odkazy na kontakt */
-.contact-link {
-    color: #3498db;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.contact-link:hover {
-    color: #2980b9;
-    text-decoration: underline;
-}
-
-/* Sociální odkazy */
-.social-links a {
-    display: inline-flex;
-    align-items: center;
-    margin: 10px 0;
-    color: #555;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.social-links a img {
-    margin-right: 10px;
-}
-
-.social-links a:hover {
-    color: #3498db;
-}
-
-/* Mapový iframe */
-.card iframe {
-    width: 100%;
-    height: 300px; /* Nastavení výšky mapy */
-    margin-top: 20px;
-    border-radius: 8px; /* Zaoblení rohů mapy */
-    border: none;
-}
-
-/* Responzivita pro tablety */
-@media (max-width: 768px) {
-    .card {
-        width: calc(50% - 20px); /* Na menších obrazovkách zabírají karty polovinu šířky */
-    }
-}
-
-/* Responzivita pro mobily */
-@media (max-width: 480px) {
-    .card {
-        width: 100%; /* Na mobilních zařízeních zabírá každá karta celou šířku */
-    }
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px 0;
-    background-color: #333;
-    color: #fff;
-}
 </style>
     
 </head>
