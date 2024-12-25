@@ -98,10 +98,11 @@ nav ul li a:hover {
         flex-direction: column;
         align-items: center;
         position: absolute;
-        padding-top: 20px;
+        top: 0; /* Zarovná menu těsně pod navigační lištu */
         left: 0;
         width: 100%;
         background-color: #333; /* Kontrastní pozadí */
+        padding: 0; /* Odstranění horního paddingu */
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Přidání stínu */
     }
 
@@ -112,6 +113,10 @@ nav ul li a:hover {
     nav ul {
         flex-direction: column;
         text-align: center;
+    }
+
+    nav ul li {
+        margin: 10px 0; /* Odsazení mezi položkami */
     }
 
     nav ul li a {
