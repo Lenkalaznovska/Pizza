@@ -684,14 +684,14 @@ footer {
     // Automatické posouvání každých 4 sekundy
     setInterval(nextSlide, 4000);
 
-    // Funkce pro posun galerie
+  // Funkce pro posun galerie
     let currentIndex = 0; // Počáteční index
     const gallerySlides = document.querySelectorAll('.gallery-slide');
-    const totalSlidesGallery = gallerySlides.length;
+    const totalSlides = gallerySlides.length;
 
     // Posun na další obrázek
     function moveGallery(direction) {
-        currentIndex = (currentIndex + direction + totalSlidesGallery) % totalSlidesGallery; // Cyklický posun
+        currentIndex = (currentIndex + direction + totalSlides) % totalSlides; // Cyklický posun
         updateGalleryPosition();
     }
 
@@ -710,7 +710,7 @@ footer {
         moveGallery(1); // Posun vpravo
     });
 
-    // Automatické posouvání každých 4 sekund (volitelné)
+    // Automatické posouvání každých 4 sekundy (volitelné)
     setInterval(() => {
         moveGallery(1); // Automatické přepnutí na další obrázek
     }, 4000); // Každých 4 sekund
