@@ -711,7 +711,6 @@ footer {
 </footer>
 
 <script>
-<script>
 document.addEventListener("DOMContentLoaded", function () {
     // Hamburger Menu Adjustment
     const hamburger = document.querySelector(".hamburger");
@@ -723,7 +722,7 @@ document.addEventListener("DOMContentLoaded", function () {
         hamburger.classList.toggle("active");
 
         if (navMenu.classList.contains("active")) {
-            navMenu.style.top = ${nav.offsetHeight}px; // Ukotvení přímo pod navigační lištou
+            navMenu.style.top = `${nav.offsetHeight}px`; // Ukotvení přímo pod navigační lištou
         } else {
             navMenu.style.top = ""; // Reset pozice při zavření
         }
@@ -731,7 +730,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Gallery Carousel
     const gallerySlider = document.querySelector(".gallery-slider");
-    const gallerySlides = document.querySelectorAll(".gallery-slide");
+    const gallerySlides = Array.from(document.querySelectorAll(".gallery-slide"));
     let galleryIndex = 1; // Start na prvním klonu
 
     // Clone slides for seamless looping
@@ -740,23 +739,24 @@ document.addEventListener("DOMContentLoaded", function () {
     gallerySlider.appendChild(firstClone);
     gallerySlider.insertBefore(lastClone, gallerySlides[0]);
 
-    const slideWidth = gallerySlides[0].clientWidth + 20; // Šířka snímků včetně mezery
-    gallerySlider.style.transform = translateX(-${galleryIndex * slideWidth}px); // Nastavení počáteční pozice
+    const updatedSlides = document.querySelectorAll(".gallery-slider .gallery-slide");
+    const slideWidth = gallerySlides[0].clientWidth;
+
+    gallerySlider.style.transform = `translateX(-${galleryIndex * slideWidth}px)`; // Nastavení počáteční pozice
 
     function showGallerySlide(index) {
         gallerySlider.style.transition = "transform 0.5s ease-in-out";
-        gallerySlider.style.transform = translateX(-${index * slideWidth}px);
+        gallerySlider.style.transform = `translateX(-${index * slideWidth}px)`;
 
-        // Reset při dosažení klonů
         gallerySlider.addEventListener("transitionend", () => {
-            if (index === gallerySlides.length + 1) {
+            if (updatedSlides[index] === firstClone) {
                 gallerySlider.style.transition = "none";
                 galleryIndex = 1;
-                gallerySlider.style.transform = translateX(-${galleryIndex * slideWidth}px);
-            } else if (index === 0) {
+                gallerySlider.style.transform = `translateX(-${galleryIndex * slideWidth}px)`;
+            } else if (updatedSlides[index] === lastClone) {
                 gallerySlider.style.transition = "none";
                 galleryIndex = gallerySlides.length;
-                gallerySlider.style.transform = translateX(-${galleryIndex * slideWidth}px);
+                gallerySlider.style.transform = `translateX(-${galleryIndex * slideWidth}px)`;
             }
         });
     }
