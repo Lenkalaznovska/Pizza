@@ -666,7 +666,7 @@ footer {
         nav.classList.toggle('active');
     });
 
-    // Automatický Slider
+    // Automatický slider
     let currentSlide = 0;
     const slides = document.querySelectorAll('.slider .slide');
     const totalSlides = slides.length;
@@ -687,11 +687,11 @@ footer {
     // Funkce pro posun galerie
     let currentIndex = 0; // Počáteční index
     const gallerySlides = document.querySelectorAll('.gallery-slide');
-    const totalSlides = gallerySlides.length;
+    const totalSlidesGallery = gallerySlides.length;
 
     // Posun na další obrázek
     function moveGallery(direction) {
-        currentIndex = (currentIndex + direction + totalSlides) % totalSlides; // Cyklický posun
+        currentIndex = (currentIndex + direction + totalSlidesGallery) % totalSlidesGallery; // Cyklický posun
         updateGalleryPosition();
     }
 
