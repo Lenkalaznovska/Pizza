@@ -710,108 +710,134 @@ footer {
         <p>&copy; 2024 Pizzerie San Marino. Všechna práva vyhrazena.</p>
     </div>
 </footer>
+
     <script>
-    document.addEventListener("DOMContentLoaded", function () {
-    // Hamburger Menu Adjustment
-    const hamburger = document.querySelector(".hamburger");
-    const nav = document.querySelector("nav");
-    const navMenu = document.querySelector(".nav-menu");
+document.addEventListener("DOMContentLoaded", function () {
+  // Hamburger Menu Adjustment
+  const hamburger = document.querySelector(".hamburger");
+  const nav = document.querySelector("nav");
+  const navMenu = document.querySelector(".nav-menu");
+  const menuIcon = document.querySelector(".menu-icon i");
 
-    hamburger.addEventListener("click", function () {
-        navMenu.classList.toggle("active");
-        hamburger.classList.toggle("active");
+  // Toggle navigation menu
+  hamburger.addEventListener("click", function () {
+    navMenu.classList.toggle("active");
+    hamburger.classList.toggle("active");
 
-        if (navMenu.classList.contains("active")) {
-            navMenu.style.top = `${nav.offsetHeight}px`; // Ukotvení přímo pod navigační lištou
-        } else {
-            navMenu.style.top = ""; // Reset pozice při zavření
-        }
-    });
-
-    // Gallery Carousel
-    const gallerySlider = document.querySelector(".gallery-slider");
-    const gallerySlides = document.querySelectorAll(".gallery-slide");
-    let galleryIndex = 1; // Start na prvním klonu
-
-    // Clone slides for seamless looping
-    const firstClone = gallerySlides[0].cloneNode(true);
-    const lastClone = gallerySlides[gallerySlides.length - 1].cloneNode(true);
-    gallerySlider.appendChild(firstClone);
-    gallerySlider.insertBefore(lastClone, gallerySlides[0]);
-
-    const slideWidth = gallerySlides[0].clientWidth + 20; // Šířka snímků včetně mezery
-    gallerySlider.style.transform = `translateX(-${galleryIndex * slideWidth}px)`; // Nastavení počáteční pozice
-
-    function showGallerySlide(index) {
-        gallerySlider.style.transition = "transform 0.5s ease-in-out";
-        gallerySlider.style.transform = `translateX(-${index * slideWidth}px)`;
-
-        // Reset při dosažení klonů
-        gallerySlider.addEventListener("transitionend", () => {
-            if (index === gallerySlides.length + 1) {
-                gallerySlider.style.transition = "none";
-                galleryIndex = 1;
-                gallerySlider.style.transform = `translateX(-${galleryIndex * slideWidth}px)`;
-            } else if (index === 0) {
-                gallerySlider.style.transition = "none";
-                galleryIndex = gallerySlides.length;
-                gallerySlider.style.transform = `translateX(-${galleryIndex * slideWidth}px)`;
-            }
-        });
+    if (navMenu.classList.contains("active")) {
+      navMenu.style.top = `${nav.offsetHeight}px`; // Position below the navigation bar
+    } else {
+      navMenu.style.top = ""; // Reset position on close
     }
+  });
 
-    // Automatický cyklus každé 4 sekundy
-    function cycleGallery() {
-        galleryIndex++;
-        showGallerySlide(galleryIndex);
+  // Toggle the icon in mobile view
+  menuIcon.addEventListener("click", () => {
+    if (nav.classList.contains("open")) {
+      nav.classList.remove("open");
+      menuIcon.classList.remove("fa-xmark");
+      menuIcon.classList.add("fa-bars");
+    } else {
+      nav.classList.add("open");
+      menuIcon.classList.remove("fa-bars");
+      menuIcon.classList.add("fa-xmark");
     }
+  });
 
-    setInterval(cycleGallery, 4000);
+  // Gallery Carousel
+  const gallerySlider = document.querySelector(".gallery-slider");
+  const gallerySlides = document.querySelectorAll(".gallery-slide");
+  let galleryIndex = 1; // Start at the first clone
 
-    // Manual Controls
-    const galleryButtons = document.querySelectorAll(".gallery-buttons button");
+  // Clone slides for seamless looping
+  const firstClone = gallerySlides[0].cloneNode(true);
+  const lastClone = gallerySlides[gallerySlides.length - 1].cloneNode(true);
+  gallerySlider.appendChild(firstClone);
+  gallerySlider.insertBefore(lastClone, gallerySlides[0]);
 
-    galleryButtons.forEach((button, index) => {
-        button.addEventListener("click", function () {
-            galleryIndex += index === 0 ? -1 : 1;
-            showGallerySlide(galleryIndex);
-        });
+  const slideWidth = gallerySlides[0].clientWidth + 20; // Slide width including spacing
+  gallerySlider.style.transform = `translateX(-${galleryIndex * slideWidth}px)`; // Set initial position
+
+  function showGallerySlide(index) {
+    gallerySlider.style.transition = "transform 0.5s ease-in-out";
+    gallerySlider.style.transform = `translateX(-${index * slideWidth}px)`;
+
+    // Reset when reaching the cloned slides
+    gallerySlider.addEventListener("transitionend", () => {
+      if (index === gallerySlides.length + 1) {
+        gallerySlider.style.transition = "none";
+        galleryIndex = 1;
+        gallerySlider.style.transform = `translateX(-${galleryIndex * slideWidth}px)`;
+      } else if (index === 0) {
+        gallerySlider.style.transition = "none";
+        galleryIndex = gallerySlides.length;
+        gallerySlider.style.transform = `translateX(-${galleryIndex * slideWidth}px)`;
+      }
     });
+  }
 
-    // Scroll to Top Button
-    const scrollButton = document.querySelector(".scroll-to-top");
+  // Auto cycle every 4 seconds
+  function cycleGallery() {
+    galleryIndex++;
+    showGallerySlide(galleryIndex);
+  }
 
-    window.addEventListener("scroll", function () {
-        if (window.scrollY > 300) {
-            scrollButton.classList.add("visible");
-        } else {
-            scrollButton.classList.remove("visible");
-        }
+  setInterval(cycleGallery, 4000);
+
+  // Manual Controls
+  const galleryButtons = document.querySelectorAll(".gallery-buttons button");
+
+  galleryButtons.forEach((button, index) => {
+    button.addEventListener("click", function () {
+      galleryIndex += index === 0 ? -1 : 1;
+      showGallerySlide(galleryIndex);
     });
+  });
 
-    scrollButton.addEventListener("click", function () {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-        });
-    });
+  // Scroll to Top Button
+  const scrollButton = document.querySelector(".scroll-to-top");
 
-    // Section Animations on Scroll
-    const sections = document.querySelectorAll(".animate-on-scroll");
-
-    function checkVisibility() {
-        const triggerHeight = window.innerHeight * 0.8;
-        sections.forEach((section) => {
-            const sectionTop = section.getBoundingClientRect().top;
-            if (sectionTop < triggerHeight) {
-                section.classList.add("visible");
-            }
-        });
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 300) {
+      scrollButton.classList.add("visible");
+    } else {
+      scrollButton.classList.remove("visible");
     }
+  });
 
-    window.addEventListener("scroll", checkVisibility);
-    checkVisibility();
+  scrollButton.addEventListener("click", function () {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+
+  // Section Animations on Scroll
+  const sections = document.querySelectorAll(".animate-on-scroll");
+
+  function checkVisibility() {
+    const triggerHeight = window.innerHeight * 0.8;
+    sections.forEach((section) => {
+      const sectionTop = section.getBoundingClientRect().top;
+      if (sectionTop < triggerHeight) {
+        section.classList.add("visible");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", checkVisibility);
+  checkVisibility();
+
+  // Add an event listener for window resizing to handle mobile menu behavior
+  window.addEventListener("resize", function () {
+    if (window.innerWidth > 600) {
+      nav.classList.remove("open");
+      menuIcon.classList.remove("fa-xmark");
+      menuIcon.classList.add("fa-bars");
+    }
+  });
 });
 </script>
+
 </body>
 </html>
