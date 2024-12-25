@@ -697,27 +697,36 @@ footer {
     // Automatické posouvání každých 4 sekundy
     setInterval(nextSlide, 4000);
 
-    // Gallery Carousel (cyklický karusel)
-    let currentIndex = 0;
-    const carouselItems = document.querySelectorAll('.carousel-item');
-    const totalItems = carouselItems.length;
+    // Funkce pro posun galerie
+    let currentIndex = 0; // Počáteční index
+    const gallerySlides = document.querySelectorAll('.gallery-slide');
+    const totalSlides = gallerySlides.length;
 
-    // Funkce pro posun karuselu
-    function moveCarousel(direction) {
-        currentIndex = (currentIndex + direction + totalItems) % totalItems; // Cyklický posun
-        updateCarouselPosition();
+    // Posun na další obrázek
+    function moveGallery(direction) {
+        currentIndex = (currentIndex + direction + totalSlides) % totalSlides; // Cyklický posun
+        updateGalleryPosition();
     }
 
-    // Funkce pro nastavení pozice karuselu
-    function updateCarouselPosition() {
+    // Aktualizace pozice galerie
+    function updateGalleryPosition() {
         const newTransformValue = `translateX(-${currentIndex * 100}%)`;
-        document.querySelector('.carousel-container').style.transform = newTransformValue;
+        document.querySelector('.gallery-slider').style.transform = newTransformValue;
     }
+
+    // Přiřazení událostí pro tlačítka
+    document.getElementById('gallery-prev').addEventListener('click', function() {
+        moveGallery(-1); // Posun vlevo
+    });
+
+    document.getElementById('gallery-next').addEventListener('click', function() {
+        moveGallery(1); // Posun vpravo
+    });
 
     // Automatické posouvání každých 5 sekund (volitelné)
     setInterval(() => {
-        moveCarousel(1); // Automatické přepnutí na další obrázek
-    }, 4000); // Každých 4 sekund
+        moveGallery(1); // Automatické přepnutí na další obrázek
+    }, 4000); // Každých 5 sekund
 </script>
 </body>
 </html>
