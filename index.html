@@ -74,29 +74,8 @@ header {
     color: #e63946; /* červená barva na hover */
 }
 
-/* Hamburger menu */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 30px;
-    height: 25px;
-    cursor: pointer;
-}
-
-.hamburger div {
-    width: 25px;
-    height: 4px;
-    background-color: #fff;
-    border-radius: 2px;
-}
-
 /* Display hamburger menu on small screens */
 @media (max-width: 768px) {
-    .hamburger {
-        display: flex;
-    }
 
     .nav-menu {
         display: none;
@@ -124,21 +103,6 @@ header {
         font-size: 22px;
         color: #fff;
     }
-
-    .hamburger.active div:nth-child(1) {
-        transform: rotate(-45deg);
-        position: absolute;
-    }
-
-    .hamburger.active div:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.active div:nth-child(3) {
-        transform: rotate(45deg);
-        position: absolute;
-    }
-}
 
 /* Slider */
 .slider {
