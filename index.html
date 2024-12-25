@@ -50,43 +50,37 @@ nav {
     display: flex;
     flex: 1;
     justify-content: center;
-    position: absolute; /* Ukotví nav na přesnou pozici */
-    top: 0; /* Zarovná přesně pod navigační lištu */
-    left: 0;
-    width: 100%;
-    background-color: #333; /* Kontrastní pozadí */
-    padding: 0; /* Odstraní padding */
-    margin: 0; /* Odstraní margin */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Přidání stínu */
-    outline: 2px solid red; /* Dočasná diagnostická linka */
+    position: relative;
+    left: -80px;
 }
 
 nav ul {
     display: flex;
-    flex-direction: column;
     list-style: none;
-    margin: 0; /* Odstraní margin */
-    padding: 0; /* Odstraní padding */
 }
 
 nav ul li {
-    margin: 10px 0; /* Odsazení mezi položkami */
+    margin: 0 20px;
 }
 
 nav ul li a {
-    font-size: 20px;
-    color: #fff; /* Bílé písmo */
-    font-weight: bold; /* Tučné písmo */
-    text-transform: none; /* Ponechá text normální, první písmeno velké */
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #e63946;
 }
 
 /* Hamburger Menu */
 .hamburger {
-    display: flex;
+    display: none;
     flex-direction: column;
     cursor: pointer;
     z-index: 15;
-    outline: 2px solid blue; /* Dočasná diagnostická linka */
 }
 
 .hamburger div {
@@ -101,9 +95,38 @@ nav ul li a {
 @media (max-width: 768px) {
     nav {
         display: none;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 0; /* Zarovná menu těsně pod navigační lištu */
+        left: 0;
+        width: 100%;
+        background-color: #333; /* Kontrastní pozadí */
+        padding: 0; /* Odstranění horního paddingu */
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Přidání stínu */
     }
 
     nav.active {
+        display: flex;
+    }
+
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul li {
+        margin: 10px 0; /* Odsazení mezi položkami */
+    }
+
+    nav ul li a {
+        font-size: 20px;
+        color: #fff; /* Bílé písmo */
+        font-weight: bold; /* Tučné písmo */
+        text-transform: none; /* Ponechá text normální, první písmeno velké */
+    }
+
+    .hamburger {
         display: flex;
     }
 
