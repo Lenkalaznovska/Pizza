@@ -679,7 +679,7 @@ footer {
         nav.classList.toggle('active');
     });
 
-    // Automatický slider
+    // Automatický Slider
     let currentSlide = 0;
     const slides = document.querySelectorAll('.slider .slide');
     const totalSlides = slides.length;
@@ -694,8 +694,30 @@ footer {
         document.querySelector('.slides').style.transform = newTransformValue;
     }
 
-    // Automatické posouvání každých 4 sekund
+    // Automatické posouvání každých 4 sekundy
     setInterval(nextSlide, 4000);
+
+    // Gallery Carousel (cyklický karusel)
+    let currentIndex = 0;
+    const carouselItems = document.querySelectorAll('.carousel-item');
+    const totalItems = carouselItems.length;
+
+    // Funkce pro posun karuselu
+    function moveCarousel(direction) {
+        currentIndex = (currentIndex + direction + totalItems) % totalItems; // Cyklický posun
+        updateCarouselPosition();
+    }
+
+    // Funkce pro nastavení pozice karuselu
+    function updateCarouselPosition() {
+        const newTransformValue = `translateX(-${currentIndex * 100}%)`;
+        document.querySelector('.carousel-container').style.transform = newTransformValue;
+    }
+
+    // Automatické posouvání každých 5 sekund (volitelné)
+    setInterval(() => {
+        moveCarousel(1); // Automatické přepnutí na další obrázek
+    }, 4000); // Každých 4 sekund
 </script>
 </body>
 </html>
