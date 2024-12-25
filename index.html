@@ -45,20 +45,47 @@ header {
     height: 60px;
 }
 
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    color: #333;
+}
+
+/* Container */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo */
+.logo img {
+    height: 60px;
+}
+
 /* Navigation Menu */
 nav {
     display: flex;
-    justify-content: center; /* Zarovnání menu na střed */
+    justify-content: center; /* Zarovnání položek na střed horizontálně */
+    align-items: center; /* Zarovnání položek na střed vertikálně */
     flex-grow: 1;
-    position: absolute;
-    top: 100%; /* Přímé navázání na navigační lištu */
-    left: 0;
-    width: 100%;
-    background-color: #333;
-    bottom: -25px;
-    margin: 0;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 10;
 }
 
 nav ul {
@@ -89,7 +116,6 @@ nav ul li a:hover {
     display: none;
     flex-direction: column;
     cursor: pointer;
-    z-index: 15;
 }
 
 .hamburger div {
@@ -114,7 +140,6 @@ nav ul li a:hover {
         padding: 0;
         margin: 0;
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        z-index: 10;
     }
 
     nav.active {
