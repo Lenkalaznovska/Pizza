@@ -679,7 +679,7 @@ footer {
         nav.classList.toggle('active');
     });
 
-    // Slider - Automatické posouvání obrázků
+    // Automatický slider
     let currentSlide = 0;
     const slides = document.querySelectorAll('.slider .slide');
     const totalSlides = slides.length;
@@ -691,7 +691,7 @@ footer {
 
     function updateSliderPosition() {
         const newTransformValue = `translateX(-${currentSlide * 100}%)`;
-        document.querySelector('.slider').style.transform = newTransformValue;
+        document.querySelector('.slides').style.transform = newTransformValue;
     }
 
     // Automatické posouvání každých 5 sekund
