@@ -720,39 +720,55 @@ document.addEventListener("DOMContentLoaded", function () {
         nav.classList.toggle("active");
         hamburger.classList.toggle("active");
         if (nav.classList.contains("active")) {
-            nav.style.top = "29px"; // Move hamburger menu 5px down, anchored below the nav bar
+            nav.style.top = "60px"; // Navigace pod lištou
         } else {
-            nav.style.top = ""; // Reset position when menu is closed
+            nav.style.top = ""; // Reset pozice
         }
     });
 
-    // Slider (Main Section) - Ensure images cycle smoothly
+    // Main Section Slider (Smooth Cycling)
     let slideIndex = 0;
     const slides = document.querySelector(".slides");
     const totalSlides = document.querySelectorAll(".slide").length;
 
     function showSlides() {
-        slideIndex = (slideIndex + 1) % totalSlides; // Cycle through slides smoothly
-        slides.style.transition = "transform 0.5s ease-in-out"; // Smooth transition for slide movement
+        slideIndex = (slideIndex + 1) % totalSlides;
+        slides.style.transition = "transform 0.5s ease-in-out";
         slides.style.transform = `translateX(-${slideIndex * 100}%)`;
     }
 
     setInterval(showSlides, 5000);
 
-    // Gallery Carousel: Make the images cycle without gaps and in a continuous loop
+    // Gallery Carousel
     const gallerySlider = document.querySelector(".gallery-slider");
     const gallerySlides = document.querySelectorAll(".gallery-slide");
     let galleryIndex = 0;
 
-    gallerySlides.forEach(slide => {
-        slide.style.borderRadius = "10px"; // Rounded corners for gallery images
-    });
+    // Clone slides for infinite looping
+    const firstClone = gallerySlides[0].cloneNode(true);
+    const lastClone = gallerySlides[gallerySlides.length - 1].cloneNode(true);
+    gallerySlider.appendChild(firstClone);
+    gallerySlider.insertBefore(lastClone, gallerySlides[0]);
 
     function showGallerySlide(index) {
-        // Adjust index to ensure infinite loop without white space
-        galleryIndex = (index + gallerySlides.length) % gallerySlides.length;
-        gallerySlider.style.transition = "transform 0.5s ease-in-out"; // Smooth transition for gallery
+        galleryIndex = index;
+        gallerySlider.style.transition = "transform 0.5s ease-in-out";
         gallerySlider.style.transform = `translateX(-${galleryIndex * (gallerySlides[0].clientWidth + 20)}px)`;
+
+        // Reset to start or end for seamless looping
+        if (galleryIndex === gallerySlides.length + 1) {
+            setTimeout(() => {
+                gallerySlider.style.transition = "none";
+                galleryIndex = 1;
+                gallerySlider.style.transform = `translateX(-${galleryIndex * (gallerySlides[0].clientWidth + 20)}px)`;
+            }, 500);
+        } else if (galleryIndex === 0) {
+            setTimeout(() => {
+                gallerySlider.style.transition = "none";
+                galleryIndex = gallerySlides.length;
+                gallerySlider.style.transform = `translateX(-${galleryIndex * (gallerySlides[0].clientWidth + 20)}px)`;
+            }, 500);
+        }
     }
 
     // Automatically cycle images every 4 seconds
@@ -762,7 +778,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     setInterval(cycleGallery, 4000);
 
-    // Gallery Manual Controls (prev/next buttons)
+    // Manual Controls
     const galleryButtons = document.querySelectorAll(".gallery-buttons button");
 
     galleryButtons.forEach((button, index) => {
@@ -805,46 +821,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.addEventListener("scroll", checkVisibility);
     checkVisibility();
-
-    // Secondary Slider with Manual Control and Auto-Transition
-    const secondarySlides = document.getElementById("slides");
-    const slideCount = secondarySlides.children.length;
-    let currentIndex = 0;
-
-    function updateSlider() {
-        secondarySlides.style.transform = `translateX(-${currentIndex * 100}%)`;
-    }
-
-    document.getElementById("next-btn").addEventListener("click", () => {
-        currentIndex = (currentIndex + 1) % slideCount;
-        updateSlider();
-    });
-
-    document.getElementById("prev-btn").addEventListener("click", () => {
-        currentIndex = (currentIndex - 1 + slideCount) % slideCount;
-        updateSlider();
-    });
-
-    setInterval(() => {
-        currentIndex = (currentIndex + 1) % slideCount;
-        updateSlider();
-    }, 5000);
-
-    // Gallery Carousel Manual Controls for Desktop (optional)
-    const galleryPrevButton = document.querySelector(".gallery-prev");
-    const galleryNextButton = document.querySelector(".gallery-next");
-
-    if (galleryPrevButton && galleryNextButton) {
-        galleryPrevButton.addEventListener("click", () => {
-            galleryIndex = (galleryIndex - 1 + gallerySlides.length) % gallerySlides.length;
-            showGallerySlide(galleryIndex);
-        });
-
-        galleryNextButton.addEventListener("click", () => {
-            galleryIndex = (galleryIndex + 1) % gallerySlides.length;
-            showGallerySlide(galleryIndex);
-        });
-    }
 });
 </script>
 </body>
