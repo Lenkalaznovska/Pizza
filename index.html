@@ -15,12 +15,10 @@
     box-sizing: border-box;
 }
 
-/* Body */
 body {
     font-family: Arial, sans-serif;
     background: #f4f4f4;
     color: #333;
-    line-height: 1.6;
 }
 
 /* Container */
@@ -47,62 +45,98 @@ header {
     height: 60px;
 }
 
-/* Navigation menu */
-.nav-menu {
+/* Navigation Menu */
+nav {
     display: flex;
+    flex: 1;
     justify-content: center;
-    align-items: center;
-    list-style: none;
-    padding: 20px 0;
-    background-color: #333;
-    position: relative;
 }
 
-.nav-menu li {
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
     margin: 0 20px;
 }
 
-.nav-menu a {
-    text-decoration: none;
+nav ul li a {
     color: #fff;
-    font-size: 20px;  /* zvětšené písmo */
+    text-decoration: none;
+    font-size: 18px;
     font-weight: bold;
-    transition: color 0.3s;
+    transition: color 0.3s ease;
 }
 
-.nav-menu a:hover {
-    color: #e63946; /* červená barva na hover */
+nav ul li a:hover {
+    color: #e63946;
 }
 
-/* Display hamburger menu on small screens */
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 15;
+}
+
+.hamburger div {
+    background-color: #fff;
+    height: 3px;
+    width: 25px;
+    margin: 4px 0;
+    transition: 0.3s ease;
+}
+
+/* Mobile Styles */
 @media (max-width: 768px) {
-
-    .nav-menu {
+    nav {
         display: none;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(0, 0, 0, 0.9);
         flex-direction: column;
-        justify-content: center;
         align-items: center;
-        z-index: 100;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        padding: 10px;
+        z-index: 10;
     }
 
-    .nav-menu.active {
+    nav.active {
         display: flex;
     }
 
-    .nav-menu li {
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul li {
         margin: 15px 0;
     }
 
-    .nav-menu a {
-        font-size: 22px;
-        color: #fff;
+    nav ul li a {
+        font-size: 20px;
     }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hamburger.active div:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .hamburger.active div:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active div:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
 
 /* Slider */
 .slider {
@@ -129,10 +163,29 @@ header {
 }
 
 .slide h1 {
+    position: sticky;
     font-size: 50px;
     color: #fff;
     text-shadow: 2px 2px 5px #000;
     margin-bottom: 20px;
+}
+
+.buttons a {
+    position: sticky;
+    display: inline-block;
+    background-color: #e63946;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.buttons a:hover {
+    background-color: #d62839;
+    transform: scale(1.05);
 }
 
 /* Section styles (About, Gallery, Contact) */
@@ -151,10 +204,12 @@ section:hover {
     transform: translateY(-5px);
 }
 
+/* Headings inside sections */
 section h2 {
     font-size: 32px;
     margin-bottom: 20px;
-    color: #e63946; /* červená barva nadpisu */
+    color: #e63946;
+    font-family: 'Arial', sans-serif;
     font-weight: bold;
 }
 
@@ -165,106 +220,75 @@ section p {
     line-height: 1.6;
 }
 
-/* Contact section */
-#kontakty {
-    background-color: #f9f9f9;
-    padding: 40px 0;
-    text-align: center;
-}
+/* Recenze */
+  .recenze-section {
+        margin: 40px 0;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+    }
+    .section-title {
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+    .reviews-container {
+        display: flex;
+        justify-content: center; /* Align items at the center */
+        align-items: center;
+        gap: 10px; /* Reduce the gap between the widgets */
+        flex-wrap: wrap;
+    }
+    .review-widget,
+    .yext-widget {
+        max-width: 300px;
+        text-align: center;
+    }
+    .review-img {
+        max-width: 100%;
+        height: auto;
+    }
+    .yext-widget script {
+        width: 100%;
+        max-width: 300px;
+    }
 
-#kontakty h2 {
-    font-size: 2.5rem;
-    color: #2c3e50;
-    margin-bottom: 20px;
-}
-
-#kontakty iframe {
-    width: 100%;
-    max-width: 100%;
-    height: 300px;
-    border: 0;
-    border-radius: 8px;
-}
-
-/* Footer */
-footer {
-    background-color: #333;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    font-weight: bold;  /* tučné písmo ve footeru */
-}
-
-footer p {
-    font-size: 16px;
-}
-
-/* Card container */
-.card-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-/* Individual cards */
-.card {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: calc(33.33% - 20px);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-.card h3 {
-    font-size: 1.6rem;
-    color: #2c3e50;
-    margin-bottom: 15px;
-}
-
-.card p {
-    font-size: 1.1rem;
-    color: #555;
+/* Contact section styles */
+#kontakty .container p {
     margin-bottom: 10px;
 }
 
-/* Links and social icons */
+/* Links for phone and email */
 .contact-link {
-    color: #3498db;
+    color: #e63946;
     text-decoration: none;
     font-weight: bold;
 }
 
 .contact-link:hover {
-    color: #2980b9;
-    text-decoration: underline;
-}
-
-.social-links a {
-    display: inline-flex;
-    align-items: center;
-    margin: 10px 0;
-    color: #555;
     text-decoration: none;
-    transition: color 0.3s ease;
 }
 
-.social-links a img {
-    margin-right: 10px;
+/* Social icon styles */
+.social-icons a {
+    margin: 0 15px;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.social-links a:hover {
-    color: #3498db;
+.social-icons a img {
+    width: 35px;
+    height: 35px;
+    vertical-align: middle;
+    transition: transform 0.3s ease;
+}
+
+.social-icons a:hover img {
+    transform: scale(1.2);
+}
+
+.social-icons a:hover {
+    color: #ff4500;
 }
 
 /* Gallery styles */
@@ -280,8 +304,8 @@ footer p {
 }
 
 .gallery-slide {
-    min-width: 23%;
-    height: 250px;
+    min-width: 23%; /* Show 4 smaller images */
+    height: 250px; /* Adjust height as needed */
     background-size: cover;
     background-position: center;
     border-radius: 15px;
@@ -318,48 +342,23 @@ footer p {
 /* Responsive Design for smaller screens */
 @media (max-width: 768px) {
     .gallery-slide {
-        min-width: 100%;
-        height: 250px;
+        min-width: 100%; /* Show one image at a time on mobile */
+        height: 250px; /* Adjust height for mobile */
     }
 
     .gallery-buttons {
         display: none;
     }
+}
 
-    .card {
-        width: calc(100% - 20px);  /* karty na celou šířku */
-        margin-bottom: 20px;
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        display: none;
     }
 
     .hamburger {
         display: flex;
-    }
-
-    .nav-menu {
-        display: none;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(0, 0, 0, 0.9);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        z-index: 100;
-    }
-
-    .nav-menu.active {
-        display: flex;
-    }
-
-    .nav-menu li {
-        margin: 15px 0;
-    }
-
-    .nav-menu a {
-        font-size: 22px;
-        color: #fff;
     }
 
     .hamburger.active div:nth-child(1) {
@@ -375,6 +374,192 @@ footer p {
         transform: rotate(45deg);
         position: absolute;
     }
+
+    nav.active {
+        display: flex;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background-color: #333;
+        padding: 10px;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+    
+    .gallery-buttons {
+        display: none;
+    }
+
+    .gallery-slide {
+        min-width: 100%; /* Na mobilu zobrazíme širší obrázek */
+        height: 250px;
+    }
+}
+    
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hamburger.active div:nth-child(1) {
+        transform: rotate(-45deg);
+        position: absolute;
+    }
+
+    .hamburger.active div:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active div:nth-child(3) {
+        transform: rotate(45deg);
+        position: absolute;
+    }
+
+    nav ul {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background-color: #333;
+        padding: 10px;
+        text-align: center;
+    }
+
+    nav ul li {
+        margin: 15px 0;
+    }
+
+    nav ul li a {
+        font-size: 22px;
+    }
+
+    nav.active {
+        display: flex;
+    }
+}
+
+/* Styly pro sekci Kontakty */
+#kontakty {
+    background-color: #f9f9f9; /* Světle šedé pozadí pro kontrast */
+    padding: 40px 0;
+    text-align: center;
+}
+
+#kontakty h2 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+/* Kontejner pro karty */
+.card-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap; /* Zajistí, že karty se přizpůsobí na menších obrazovkách */
+}
+
+/* Styl jednotlivých karet */
+.card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Přidání stínování */
+    width: calc(33.33% - 20px); /* Každá karta zabírá třetinu šířky */
+    text-align: center; /* Zarovnání obsahu na střed */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efekt při najetí myší */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Mírné nadzvednutí karty */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Zesílení stínování */
+}
+
+/* Styl nadpisů v kartách */
+.card h3 {
+    font-size: 1.6rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    text-align: center; /* Zarovnání nadpisů na střed */
+}
+
+/* Text v kartách */
+.card p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Odkazy na kontakt */
+.contact-link {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-link:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+/* Sociální odkazy */
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    margin: 10px 0;
+    color: #555;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-links a img {
+    margin-right: 10px;
+}
+
+.social-links a:hover {
+    color: #3498db;
+}
+
+/* Mapový iframe */
+.card iframe {
+    width: 100%;
+    height: 300px; /* Nastavení výšky mapy */
+    margin-top: 20px;
+    border-radius: 8px; /* Zaoblení rohů mapy */
+    border: none;
+}
+
+/* Responzivita pro tablety */
+@media (max-width: 768px) {
+    .card {
+        width: calc(50% - 20px); /* Na menších obrazovkách zabírají karty polovinu šířky */
+    }
+}
+
+/* Responzivita pro mobily */
+@media (max-width: 480px) {
+    .card {
+        width: 100%; /* Na mobilních zařízeních zabírá každá karta celou šířku */
+    }
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #333;
+    color: #fff;
 }
 </style>
     
