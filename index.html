@@ -559,7 +559,7 @@ section p {
 footer {
     font-weight: bold;
     text-align: center;
-    padding: 20px 0;
+    padding: 25px 0;
     background-color: #333;
     color: #fff;
 }
@@ -706,8 +706,18 @@ footer {
 
 <footer>
     <div class="container">
-        <p>&copy; 2024 Pizzerie San Marino. Všechna práva vyhrazena.</p>
+        <p>&copy; 2025 Pizzerie San Marino. Všechna práva vyhrazena.</p>
     </div>
 </footer>
+        <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('nav');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
