@@ -711,14 +711,22 @@ footer {
 </footer>
 
 <script>
+<script>
 document.addEventListener("DOMContentLoaded", function () {
     // Hamburger Menu Adjustment
     const hamburger = document.querySelector(".hamburger");
+    const nav = document.querySelector("nav");
     const navMenu = document.querySelector(".nav-menu");
 
     hamburger.addEventListener("click", function () {
         navMenu.classList.toggle("active");
         hamburger.classList.toggle("active");
+
+        if (navMenu.classList.contains("active")) {
+            navMenu.style.top = ${nav.offsetHeight}px; // Ukotvení přímo pod navigační lištou
+        } else {
+            navMenu.style.top = ""; // Reset pozice při zavření
+        }
     });
 
     // Gallery Carousel
@@ -732,23 +740,23 @@ document.addEventListener("DOMContentLoaded", function () {
     gallerySlider.appendChild(firstClone);
     gallerySlider.insertBefore(lastClone, gallerySlides[0]);
 
-    const slideWidth = gallerySlides[0].clientWidth; // Šířka snímků bez mezery
-    gallerySlider.style.transform = `translateX(-${galleryIndex * slideWidth}px)`; // Nastavení počáteční pozice
+    const slideWidth = gallerySlides[0].clientWidth + 20; // Šířka snímků včetně mezery
+    gallerySlider.style.transform = translateX(-${galleryIndex * slideWidth}px); // Nastavení počáteční pozice
 
     function showGallerySlide(index) {
         gallerySlider.style.transition = "transform 0.5s ease-in-out";
-        gallerySlider.style.transform = `translateX(-${index * slideWidth}px)`;
+        gallerySlider.style.transform = translateX(-${index * slideWidth}px);
 
         // Reset při dosažení klonů
         gallerySlider.addEventListener("transitionend", () => {
             if (index === gallerySlides.length + 1) {
                 gallerySlider.style.transition = "none";
                 galleryIndex = 1;
-                gallerySlider.style.transform = `translateX(-${galleryIndex * slideWidth}px)`;
+                gallerySlider.style.transform = translateX(-${galleryIndex * slideWidth}px);
             } else if (index === 0) {
                 gallerySlider.style.transition = "none";
                 galleryIndex = gallerySlides.length;
-                gallerySlider.style.transform = `translateX(-${galleryIndex * slideWidth}px)`;
+                gallerySlider.style.transform = translateX(-${galleryIndex * slideWidth}px);
             }
         });
     }
