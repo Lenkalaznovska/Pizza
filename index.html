@@ -668,25 +668,38 @@ function updateSliderPosition() {
 // Automatické posouvání každých 4 sekundy
 setInterval(nextSlide, 4000);
 
-// Funkce pro automatické posouvání obrázků na mobilních zařízeních
-if (window.innerWidth <= 768) {
-  const gallery = document.querySelector('.gallery');
-  const images = gallery.querySelectorAll('img');
-  let currentIndex = 0;
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const galleryContainer = document.querySelector('.gallery');
+    const galleryImages = document.querySelectorAll('.gallery img');
+    
+    // Pro mobilní zařízení nastavíme posouvání obrázků po jednom
+    if (window.innerWidth <= 768) {
+      galleryContainer.style.display = 'flex';
+      galleryContainer.style.flexDirection = 'row';
+      galleryContainer.style.width = '100%';
+      
+      // Skrýt všechny obrázky kromě prvního
+      galleryImages.forEach((img, index) => {
+        if (index > 0) {
+          img.style.display = 'none'; // Skrytí všech obrázků kromě prvního
+        }
+      });
 
-  setInterval(() => {
-    // Skrýt všechny obrázky
-    images.forEach((img, index) => {
-      img.style.display = 'none';
-    });
+      let currentIndex = 0;
 
-    // Zobrazit aktuální obrázek
-    images[currentIndex].style.display = 'block';
+      function moveToNextImage() {
+        // Skrýt aktuální obrázek a zobrazit další
+        galleryImages[currentIndex].style.display = 'none';
+        
+        currentIndex = (currentIndex + 1) % galleryImages.length; // Posun na další obrázek
 
-    // Přejít na další obrázek (posunout o 1)
-    currentIndex = (currentIndex + 1) % images.length;
-  }, 4000); // Posun každý 4 sekundy (4000ms)
-}
+        galleryImages[currentIndex].style.display = 'block'; // Zobrazit nový obrázek
+      }
+
+      setInterval(moveToNextImage, 4000); // Posouvání obrázků každé 4 sekundy
+    }
+  });
 </script>
 </body>
 </html>
