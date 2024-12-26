@@ -340,24 +340,32 @@ section p {
 /* Gallery styles */
 .gallery {
     position: relative;
-    width: 100%;
     overflow: hidden;
+    max-width: 100%;
 }
 
-.gallery-slider {
+/* Desktop layout: 3x2 grid */
+.gallery-row {
     display: flex;
-    transition: transform 0.4s ease;
+    justify-content: space-between;
+    margin-bottom: 20px;
 }
 
 .gallery-slide {
-    min-width: 23%; /* Show 4 smaller images */
-    height: 250px; /* Adjust height as needed */
+    width: 32%; /* Three images per row */
+    height: 200px; /* Adjust as needed */
     background-size: cover;
     background-position: center;
-    border-radius: 15px;
-    margin: 0 10px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
 }
 
+/* Hover effect */
+.gallery-slide:hover {
+    transform: scale(1.1);
+}
+
+/* Navigation buttons */
 .gallery-buttons {
     position: absolute;
     top: 50%;
@@ -385,15 +393,22 @@ section p {
     background: rgba(0, 0, 0, 0.8);
 }
 
-/* Responsive Design for smaller screens */
+/* Mobile layout: single image slider */
 @media (max-width: 768px) {
+    .gallery-row {
+        display: flex;
+        flex-wrap: nowrap;
+        transform: translateX(0);
+        transition: transform 0.4s ease;
+    }
+
     .gallery-slide {
-        min-width: 100%; /* Show one image at a time on mobile */
-        height: 250px; /* Adjust height for mobile */
+        width: 100%; /* Single image visible */
+        margin: 0;
     }
 
     .gallery-buttons {
-        display: none;
+        display: block;
     }
 }
     
