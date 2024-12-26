@@ -352,8 +352,8 @@ h2 {
 }
 
 .gallery img {
-  width: calc(25% - 15px); /* 4 obrázky na řádek na větších obrazovkách (snížení šířky) */
-  height: 200px; /* Stanovení výšky obrázků pro PC a tablet */
+  width: calc(33.333% - 20px); /* 3 obrázky na řádek na větších obrazovkách */
+  margin-bottom: 10px; /* Mezera mezi obrázky ve sloupci */
   object-fit: cover; /* Obrázky se vyplní do kontejneru bez deformace */
   border-radius: 12px; /* Zaoblené rohy obrázků */
   transition: transform 0.3s, box-shadow 0.3s; /* Efekt při najetí */
@@ -368,17 +368,16 @@ h2 {
 /* Responsivní styl pro střední obrazovky (tablety) */
 @media (max-width: 1024px) {
   .gallery img {
-    width: calc(33.333% - 15px); /* 3 obrázky na řádek pro obrazovky do 1024px */
-    height: 180px; /* Mírně menší výška pro tablety */
+    width: calc(50% - 20px); /* 2 obrázky na řádek pro obrazovky do 1024px */
   }
 }
 
 /* Responsivní styl pro malé obrazovky (mobilní telefony) */
 @media (max-width: 768px) {
   .gallery img {
-    width: calc(100% - 15px); /* 1 obrázek na řádek pro obrazovky do 768px */
-    height: 200px; /* Pevná výška pro obrázky na mobilu */
-    object-fit: cover; /* Obrázky se vyplní do kontejneru bez deformace */
+    width: 100%; /* 1 obrázek na řádek pro obrazovky do 768px */
+    height: 250px; /* Stanovení stejné výšky pro obrázky na mobilu */
+    object-fit: cover; /* Ujistíme se, že obrázky budou zachovávat poměr stran bez deformace */
   }
 }
     
