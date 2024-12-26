@@ -6,713 +6,222 @@
     <title>Pizzerie San Marino</title>
     <link rel="icon" href="images/favicon.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-<style>
-/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background: #f4f4f4;
-    color: #333;
-}
-
-/* Container */
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* Header */
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    z-index: 10;
-}
-
-/* Logo */
-.logo img {
-    height: 60px;
-}
-
-/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background: #f4f4f4;
-    color: #333;
-}
-
-/* Container */
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* Header */
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* Logo */
-.logo img {
-    height: 60px;
-}
-
-/* Navigation Menu */
-nav {
-    display: flex;
-    justify-content: center; /* Zarovnání položek na střed horizontálně */
-    align-items: center; /* Zarovnání položek na střed vertikálně */
-    flex-grow: 1;
-}
-
-nav ul {
-    display: flex; /* Horizontální zobrazení položek */
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-/* Posunutí položek na desktopu */
-@media (min-width: 769px) {
-    nav ul {
-        transform: translateX(-80px); /* Posunutí celé navigace o 80px doleva */
-    }
-}
-
-nav ul li {
-    margin: 0 20px;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-    color: #e63946;
-}
-
-/* Hamburger Menu */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-}
-
-.hamburger div {
-    background-color: #fff;
-    height: 3px;
-    width: 25px;
-    margin: 4px 0;
-    transition: 0.3s ease;
-}
-
-/* Mobile Styles */
-@media (max-width: 768px) {
-    nav {
-        display: none; /* Skrytí navigačního menu na mobilu */
-        flex-direction: column; /* Vertikální zobrazení pro mobilní zařízení */
-        align-items: center;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: #333;
-        padding: 0;
-        margin: 0;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    nav.active {
-        display: flex; /* Zobrazení menu po aktivaci */
-    }
-
-    nav ul {
-        flex-direction: column; /* Vertikální zobrazení položek */
-        text-align: center;
-    }
-
-    nav ul li {
-        margin: 10px 0; /* Odsazení mezi položkami */
-    }
-
-    nav ul li a {
-        font-size: 20px;
-        color: #fff;
-        font-weight: bold;
-    }
-
-    .hamburger {
-        display: flex;
-    }
-
-    .hamburger.active div:nth-child(1) {
-        transform: rotate(-45deg) translate(-5px, 6px);
-    }
-
-    .hamburger.active div:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.active div:nth-child(3) {
-        transform: rotate(45deg) translate(-5px, -6px);
-    }
-}
-    
-/* Slider */
-.slider {
-    position: relative;
-    overflow: hidden;
-    height: 500px;
-}
-
-.slides {
-    display: flex;
-    transition: transform 1s ease;
-}
-
-.slide {
-    min-width: 100%;
-    height: 500px;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.slide h1 {
-    position: sticky;
-    font-size: 50px;
-    color: #fff;
-    text-shadow: 2px 2px 5px #000;
-    margin-bottom: 20px;
-}
-
-.buttons a {
-    position: sticky;
-    display: inline-block;
-    background-color: #e63946;
-    color: #fff;
-    font-weight: bold;
-    padding: 10px 20px;
-    margin: 5px;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.buttons a:hover {
-    background-color: #d62839;
-    transform: scale(1.05);
-}
-
-/* Section styles (About, Gallery, Contact) */
-section {
-    background: #fff;
-    padding: 40px 20px;
-    margin: 20px 0;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    text-align: center;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-section:hover {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    transform: translateY(-5px);
-}
-
-/* Headings inside sections */
-section h2 {
-    font-size: 32px;
-    margin-bottom: 20px;
-    color: #e63946;
-    font-family: 'Arial', sans-serif;
-    font-weight: bold;
-}
-
-/* Text inside sections */
-section p {
-    font-size: 16px;
-    color: #333;
-    line-height: 1.6;
-}
-
-/* Recenze */
-  .recenze-section {
-        margin: 40px 0;
-        padding: 20px;
-        border-radius: 8px;
-    }
-    .section-title {
-        text-align: center;
-        font-size: 24px;
-        font-weight: bold;
-        margin-bottom: 20px;
-    }
-    .reviews-container {
-        display: flex;
-        justify-content: center; /* Align items at the center */
-        align-items: center;
-        gap: 10px; /* Reduce the gap between the widgets */
-        flex-wrap: wrap;
-    }
-    .review-widget,
-    .yext-widget {
-        max-width: 300px;
-        text-align: center;
-    }
-    .review-img {
-        max-width: 100%;
-        height: auto;
-    }
-    .yext-widget script {
-        width: 100%;
-        max-width: 300px;
-    }
-
-/* Contact section styles */
-#kontakty .container p {
-    margin-bottom: 10px;
-}
-
-/* Links for phone and email */
-.contact-link {
-    color: #e63946;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.contact-link:hover {
-    text-decoration: none;
-}
-
-/* Social icon styles */
-.social-icons a {
-    margin: 0 15px;
-    transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.social-icons a img {
-    width: 35px;
-    height: 35px;
-    vertical-align: middle;
-    transition: transform 0.3s ease;
-}
-
-.social-icons a:hover img {
-    transform: scale(1.2);
-}
-
-.social-icons a:hover {
-    color: #ff4500;
-}
-
-/* Základní styl pro galerii */
-h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* Style pro galerii */
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px; /* Mezery mezi obrázky */
-}
-
-.gallery img {
-  width: calc(33.333% - 20px); /* 3 obrázky na řádek na větších obrazovkách */
-  margin-bottom: 10px; /* Mezera mezi obrázky ve sloupci */
-  object-fit: cover; /* Obrázky se vyplní do kontejneru bez deformace */
-  border-radius: 12px; /* Zaoblené rohy obrázků */
-  transition: transform 0.3s, box-shadow 0.3s; /* Efekt při najetí */
-}
-
-/* Efekt při najetí na obrázek (zoom a stín) */
-.gallery img:hover {
-  transform: scale(1.05); /* Mírné zvětšení obrázku */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stín kolem obrázku */
-}
-
-/* Responsivní styl pro střední obrazovky (tablety) */
-@media (max-width: 1024px) {
-  .gallery img {
-    width: calc(50% - 20px); /* 2 obrázky na řádek pro obrazovky do 1024px */
-  }
-}
-
-/* Responsivní styl pro malé obrazovky (mobilní telefony) */
-@media (max-width: 768px) {
-  .gallery {
-    display: flex;
-    flex-wrap: nowrap; /* Zamezíme zalamování do více řádků */
-    justify-content: center;
-    gap: 10px; /* Mezery mezi obrázky */
-    overflow: hidden; /* Zajistí, že obrázky mimo zobrazený prostor budou skryté */
-    width: 100%;
-  }
-
-  .gallery img {
-    width: 100%; /* Obrázky na mobilu zabírají celý prostor */
-    height: 265px; /* Fixní výška pro všechny obrázky */
-    object-fit: cover; /* Obrázky se přizpůsobí do boxu bez deformace */
-  }
-
-  /* Skrýt všechny obrázky kromě prvního na mobilu */
-  .gallery img {
-    display: none;
-  }
-  
-  .gallery img:first-child {
-    display: block;
-  }
-}
-    
-/* Styly pro sekci Kontakty */
-#kontakty {
-    background-color: #f9f9f9; /* Světle šedé pozadí pro kontrast */
-    padding: 40px 0;
-    text-align: center;
-}
-
-#kontakty h2 {
-    font-size: 2.5rem;
-    color: #2c3e50;
-    margin-bottom: 20px;
-}
-
-/* Kontejner pro karty */
-.card-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap; /* Zajistí, že karty se přizpůsobí na menších obrazovkách */
-}
-
-/* Styl jednotlivých karet */
-.card {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Přidání stínování */
-    width: calc(33.33% - 20px); /* Každá karta zabírá třetinu šířky */
-    text-align: center; /* Zarovnání obsahu na střed */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efekt při najetí myší */
-}
-
-.card:hover {
-    transform: translateY(-5px); /* Mírné nadzvednutí karty */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Zesílení stínování */
-}
-
-/* Styl nadpisů v kartách */
-.card h3 {
-    font-size: 1.6rem;
-    color: #2c3e50;
-    margin-bottom: 15px;
-    text-align: center; /* Zarovnání nadpisů na střed */
-}
-
-/* Text v kartách */
-.card p {
-    font-size: 1.1rem;
-    color: #555;
-    margin-bottom: 10px;
-}
-
-/* Odkazy na kontakt */
-.contact-link {
-    color: #3498db;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.contact-link:hover {
-    color: #2980b9;
-    text-decoration: underline;
-}
-
-/* Sociální odkazy */
-.social-links a {
-    display: inline-flex;
-    align-items: center;
-    margin: 10px 0;
-    color: #555;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.social-links a img {
-    margin-right: 10px;
-}
-
-.social-links a:hover {
-    color: #3498db;
-}
-
-/* Mapový iframe */
-.card iframe {
-    width: 100%;
-    height: 300px; /* Nastavení výšky mapy */
-    margin-top: 20px;
-    border-radius: 8px; /* Zaoblení rohů mapy */
-    border: none;
-}
-
-/* Responzivita pro tablety */
-@media (max-width: 768px) {
-    .card {
-        width: calc(50% - 20px); /* Na menších obrazovkách zabírají karty polovinu šířky */
-    }
-}
-
-/* Responzivita pro mobily */
-@media (max-width: 480px) {
-    .card {
-        width: 100%; /* Na mobilních zařízeních zabírá každá karta celou šířku */
-    }
-}
-
-/* Footer */
-footer {
-    font-weight: bold;
-    text-align: center;
-    padding: 10px 0;
-    background-color: #333;
-    color: #fff;
-}
-</style>
-    
+    <style>
+        /* Základní reset a stylování */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden; /* Zabránění horizontálnímu posouvání */
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 1000; /* Zajištění, že header bude nad ostatními prvky */
+        }
+
+        header .logo img {
+            max-height: 50px;
+        }
+
+        /* Navigation Menu */
+        nav {
+            display: flex;
+            justify-content: center; /* Zarovnání položek na střed horizontálně */
+            align-items: center; /* Zarovnání položek na střed vertikálně */
+            flex-grow: 1;
+        }
+
+        nav ul {
+            display: flex; /* Horizontální zobrazení položek */
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Posunutí položek na desktopu */
+        @media (min-width: 769px) {
+            nav ul {
+                transform: translateX(-80px); /* Posunutí celé navigace o 80px doleva */
+            }
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #e63946;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            background-color: #fff;
+            height: 3px;
+            width: 25px;
+            margin: 4px 0;
+            transition: 0.3s ease;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            nav {
+                display: none; /* Skrytí navigačního menu na mobilu */
+                flex-direction: column; /* Vertikální zobrazení pro mobilní zařízení */
+                align-items: center;
+                position: absolute;
+                top: 60px; /* Posunutí pod header */
+                left: 0;
+                width: 100%;
+                background-color: #333;
+                padding: 0;
+                margin: 0;
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+                z-index: 999; /* Zajištění, že menu bude nad ostatními prvky */
+            }
+
+            nav.active {
+                display: flex; /* Zobrazení menu po aktivaci */
+            }
+
+            nav ul {
+                flex-direction: column; /* Vertikální zobrazení položek */
+                text-align: center;
+            }
+
+            nav ul li {
+                margin: 10px 0; /* Odsazení mezi položkami */
+            }
+
+            nav ul li a {
+                font-size: 20px;
+                color: #fff;
+                font-weight: bold;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger.active div:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+
+            .hamburger.active div:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active div:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+        }
+
+        .container {
+            max-width: 2100px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            color: #f8b400;
+        }
+
+        /* Sekce Online objednávky */
+        #objednavky {
+            width: 100vw; /* Celá šířka okna */
+            height: 100vh; /* Celá výška okna */
+            margin: 0;
+            padding: 0;
+        }
+
+        #objednavky .container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #objednavky iframe {
+            width: 100%;
+            height: 100%;
+            border: none; /* Odstranění okraje */
+        }
+
+        @media (max-width: 768px) {
+            #objednavky {
+                height: calc(100vh - 60px); /* Úprava výšky pro mobilní zařízení */
+            }
+
+            #objednavky .container {
+                height: 100%;
+            }
+
+            #objednavky iframe {
+                height: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
-<header>
-    <div class="logo">
-        <img src="images/logo3D.png" alt="Logo Pizzerie San Marino">
-    </div>
-    <nav>
-        <ul>
-            <li><a href="#onas">O nás</a></li>
-            <li><a href="eshop.html">E-shop</a></li> <!-- Přesměrování na novou stránku -->
-            <li><a href="#galerie">Galerie</a></li>
-            <li><a href="#kontakty">Kontakt</a></li>
-        </ul>
-    </nav>
-    <div class="hamburger" onclick="toggleMenu()">
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
-</header>
-
-    <!-- Slider -->
-    <div class="slider">
-        <div class="slides">
-            <div class="slide" style="background-image: url('images/sanmarino.jpg');">
-                <h1>Pizzerie San Marino</h1>
-                <div class="buttons">
-                    <a href="https://pizzeriesanmarino.kestolu.cz/#/sort:0"><i class="fas fa-shopping-cart"></i> Objednat online</a>
-                    <a href="tel:+420604633373"><i class="fas fa-phone"></i> Zavolat</a>
-                </div>
-            </div>
-            <div class="slide" style="background-image: url('images/VEČER.jpg');">
-                <h1>Pizzerie San Marino</h1>
-                <div class="buttons">
-                    <a href="https://pizzeriesanmarino.kestolu.cz/#/sort:0"><i class="fas fa-shopping-cart"></i> Objednat online</a>
-                    <a href="tel:+420604633373"><i class="fas fa-phone"></i> Zavolat</a>
-                </div>
-            </div>
-            <div class="slide" style="background-image: url('images/menu.jpg');">
-                <h1>Pizzerie San Marino</h1>
-                <div class="buttons">
-                    <a href="https://pizzeriesanmarino.kestolu.cz/#/sort:0"><i class="fas fa-shopping-cart"></i> Objednat online</a>
-                    <a href="tel:+420604633373"><i class="fas fa-phone"></i> Zavolat</a>
-                </div>
-            </div>
+    <header>
+        <div class="logo">
+            <img src="images/logo3D.png" alt="Logo Pizzerie San Marino">
         </div>
-    </div>
-
-<!-- Sekce O nás -->
-<section id="onas">
-    <div class="container">
-        <h2>O nás</h2>
-        <p>Od roku 1994 děláme pizzu jinak – originálně a netradičně. Italskou klasiku u nás nehledejte! Naše pizza je originál – pečená ve formě, s bohatou dávkou ingrediencí a zapečeným sýrem na povrchu, který vytváří křupavý okraj. Naše pizza je sytá a chuťově bohatá, což z ní dělá víc než jen pizzu.</p>
-        <p>Vybírejte z 56 druhů pizzy, nebo si sestavte svou vlastní!</p>
-        <p>Čekají na vás také šťavnaté burgry, zapečené těstoviny a čerstvé saláty a další dobroty!</p>
-        <p>Pizzu nabízíme ve čtyřech velikostech: Dětské menu (18 cm), Malá (24 cm), Velká (28 cm), Maxi (40 cm)</p>
-    </div>
-</section>
-
-    <section class="recenze-section">
-    <div class="container">
-    <h2 class="section-title">Recenze</h2>
-    <div class="reviews-container">
-        <div class="review-widget">
-            <a href="https://www.firmy.cz/detail/293070-pizzerie-san-marino-kladno.html#hodnoceni" target="_blank" rel="noopener">
-                <img src="https://www.firmy.cz/img-stars/light-293070.svg" alt="Pizzerie San Marino na Firmy.cz" class="review-img" />
-            </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Domů</a></li>
+                <li><a href="index.html#onas">O nás</a></li>
+                <li><a href="index.html#galerie">Galerie</a></li>
+                <li><a href="index.html#kontakty">Kontakt</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
-        <div class="yext-widget">
-            <script type="text/javascript" src="//sites.yext.com/347665-reviews.js"></script>
+    </header>
+
+    <!-- Sekce Online objednávky -->
+    <section id="objednavky">
+        <div class="container">
+            <iframe src="https://pizzeriesanmarino.kestolu.cz/#/sort:0" 
+                    frameborder="0" 
+                    title="Objednávkový rámec"></iframe>
         </div>
-        </div>
-    </div>
-</section>
+    </section>
 
-<section id="galerie">
-    <div class="container">
-        <h2>Galerie</h2>
-        <div class="gallery">
-            <img src="images/VEČER.jpg" alt="Večer">
-            <img src="images/menu.jpg" alt="Menu">
-            <img src="images/Burgry.jpg" alt="Burgry">
-            <img src="images/sanmarino.jpg" alt="San Marino">
-            <img src="images/Omáčky.jpg" alt="Omáčky">
-            <img src="images/Popkorn.jpg" alt="Popkorn">
-        </div>
-    </div>
-</section>
-    
-<!-- Kontakt sekce -->
-<section id="kontakty">
-    <div class="container">
-        <div class="card-container">
-            <!-- Otevírací a rozvozová doba karta -->
-            <div class="card">
-                <h3>Otevírací a rozvozová doba</h3>
-                <p><strong>Pondělí:</strong> ZAVŘENO</p>
-                <p><strong>Úterý:</strong> 11:00 - 21:15</p>
-                <p><strong>Středa:</strong> 11:00 - 21:15</p>
-                <p><strong>Čtvrtek:</strong> 11:00 - 21:15</p>
-                <p><strong>Pátek:</strong> 11:00 - 21:15</p>
-                <p><strong>Sobota:</strong> 11:00 - 21:15</p>
-                <p><strong>Neděle:</strong> 11:00 - 21:15</p>
-            </div>
-            <!-- Kudy k nám karta -->
-            <div class="card">
-                <h3>Kudy k nám</h3>
-                <!-- Mapový odkaz -->
-                <iframe width="640" height="420" src="https://frame.mapy.cz/zakladni?x=14.1267168917&y=50.1338058083&z=17&source=firm&id=293070&widgetFirmy=293070" style="border: none;" frameborder="0"></iframe>
-            </div>
-            <!-- Kontakt karta -->
-            <div class="card">
-                <h3>Kontakt</h3>
-                <p>Pizzerie San Marino</p>
-                <p>Adresa: Obránců míru 2721, 27201 Kladno</p>
-                <p>Mobil: <a href="tel:+420604633373" class="contact-link">+420 604 633 373</a></p>
-                <p>Telefon: +420 312 686 996</p>
-                <p>E-mail: <a href="mailto:sanmarino@kladno.cz" class="contact-link">sanmarino@kladno.cz</a></p>
-                <div class="social-links">
-                    <a href="https://www.facebook.com/profile.php?id=100095016576324" target="_blank">
-                        <img alt="Facebook ikona" height="24" src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="24" />
-                        <strong>San Marino Kladno</strong>
-                    </a><br>
-                    <a href="https://www.instagram.com/pizzakladno/" target="_blank">
-                        <img alt="Instagram ikona" height="24" src="https://cdn-icons-png.flaticon.com/512/733/733558.png" width="24" />
-                        <strong>pizzakladno</strong>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('nav');
 
-<footer>
-    <div class="container">
-        <p>&copy; 2025 Pizzerie San Marino. Všechna práva vyhrazena.</p>
-    </div>
-</footer>
-<script>
-// Hamburger Menu Toggle
-const hamburger = document.querySelector('.hamburger');
-const nav = document.querySelector('nav');
-
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    nav.classList.toggle('active');
-});
-
-// Slider
-let currentSlide = 0;
-const slides = document.querySelectorAll('.slider .slide');
-const totalSlides = slides.length;
-
-function nextSlide() {
-    currentSlide = (currentSlide + 1) % totalSlides; // Posun na další slide (cyklicky)
-    updateSliderPosition();
-}
-
-function updateSliderPosition() {
-    const newTransformValue = `translateX(-${currentSlide * 100}%)`;
-    document.querySelector('.slides').style.transform = newTransformValue;
-}
-
-// Automatické posouvání každých 4 sekundy
-setInterval(nextSlide, 4000);
-
-// Galerie
- document.addEventListener('DOMContentLoaded', function () {
-    const galleryContainer = document.querySelector('.gallery');
-    const galleryImages = document.querySelectorAll('.gallery img');
-    
-    // Pokud je šířka obrazovky menší nebo rovná 768px, nastavíme mobilní režim
-    if (window.innerWidth <= 768) {
-      // Skrytí všech obrázků kromě prvního
-      galleryImages.forEach((img, index) => {
-        if (index > 0) {
-          img.style.display = 'none';
-        }
-      });
-
-      let currentIndex = 0;
-
-      // Funkce pro posun na další obrázek
-      function moveToNextImage() {
-        // Skrytí aktuálního obrázku
-        galleryImages[currentIndex].style.display = 'none';
-
-        // Posun na další obrázek
-        currentIndex = (currentIndex + 1) % galleryImages.length;
-
-        // Zobrazení dalšího obrázku
-        galleryImages[currentIndex].style.display = 'block';
-      }
-
-      // Automatické posouvání obrázků každé 3 sekundy
-      setInterval(moveToNextImage, 3000);
-    }
-  });
-</script>
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
