@@ -696,29 +696,39 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalSlides = gallerySlides.length;
 
     // Inicializace: posuneme se na první skutečný snímek
-    gallerySlider.style.transform = `translateX(-${currentIndex * (slideWidth + 20)}px)`;
+    gallerySlider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
 
     function moveGallery(direction) {
         currentIndex += direction;
         gallerySlider.style.transition = 'transform 0.4s ease-in-out';
-        gallerySlider.style.transform = `translateX(-${currentIndex * (slideWidth + 20)}px)`;
+        gallerySlider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
 
         gallerySlider.addEventListener('transitionend', () => {
             if (currentIndex === 0) {
                 currentIndex = totalSlides - 2; // Poslední skutečný snímek
                 gallerySlider.style.transition = 'none';
-                gallerySlider.style.transform = `translateX(-${currentIndex * (slideWidth + 20)}px)`;
+                gallerySlider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
             } else if (currentIndex === totalSlides - 1) {
                 currentIndex = 1; // První skutečný snímek
                 gallerySlider.style.transition = 'none';
-                gallerySlider.style.transform = `translateX(-${currentIndex * (slideWidth + 20)}px)`;
+                gallerySlider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
             }
         });
     }
 
-    // Přidání posluchačů událostí na tlačítka
+    // Přiřazení událostí pro manuální ovládání
     prevButton.addEventListener('click', () => moveGallery(-1));
     nextButton.addEventListener('click', () => moveGallery(1));
+
+    // Automatické posouvání
+    const autoScrollInterval = setInterval(() => {
+        moveGallery(1);
+    }, 4000);
+
+    // Zastavení automatického posouvání při najetí myší
+    document.querySelector('.gallery').addEventListener('mouseenter', () => {
+        clearInterval(autoScrollInterval);
+    });
 });
 </script>
 </body>
