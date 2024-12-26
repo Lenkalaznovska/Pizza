@@ -703,26 +703,6 @@ function updateSliderPosition() {
 
 // Automatické posouvání každých 4 sekundy
 setInterval(nextSlide, 4000);
-
-// Galerie
-document.addEventListener('DOMContentLoaded', () => {
-    const galleryRows = document.querySelectorAll('.gallery-row');
-    const prevButton = document.getElementById('gallery-prev');
-    const nextButton = document.getElementById('gallery-next');
-    let currentIndex = 0;
-
-    function moveGallery(direction) {
-        const row = galleryRows[0]; // First row is used for mobile layout
-        const totalSlides = row.children.length;
-        currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
-
-        const transformValue = `translateX(-${currentIndex * 100}%)`;
-        row.style.transform = transformValue;
-    }
-
-    prevButton.addEventListener('click', () => moveGallery(-1));
-    nextButton.addEventListener('click', () => moveGallery(1));
-});
 </script>
 </body>
 </html>
