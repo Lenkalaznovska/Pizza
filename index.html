@@ -346,16 +346,17 @@ h2 {
 /* Style pro galerii */
 .gallery {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap; /* Zamezíme zalamování do více řádků */
   justify-content: center;
   gap: 10px; /* Mezery mezi obrázky */
-  overflow: hidden; /* Zajistí, že při posouvání nebudou vidět žádné přebytečné obrázky */
+  overflow: hidden; /* Zajistí, že obrázky mimo zobrazený prostor budou skryté */
+  width: 100%;
 }
 
 .gallery img {
-  width: calc(33.333% - 20px); /* 3 obrázky na řádek na větších obrazovkách */
-  margin-bottom: 10px; /* Mezera mezi obrázky ve sloupci */
-  object-fit: cover; /* Obrázky se vyplní do kontejneru bez deformace */
+  width: 100%; /* Obrázky na mobilu zabírají celý prostor */
+  height: 265px; /* Stanovení stejné výšky pro obrázky */
+  object-fit: cover; /* Obrázky se přizpůsobí do boxu bez deformace */
   border-radius: 12px; /* Zaoblené rohy obrázků */
   transition: transform 0.3s, box-shadow 0.3s; /* Efekt při najetí */
 }
@@ -366,24 +367,11 @@ h2 {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stín kolem obrázku */
 }
 
-/* Responsivní styl pro střední obrazovky (tablety) */
-@media (max-width: 1024px) {
-  .gallery img {
-    width: calc(50% - 20px); /* 2 obrázky na řádek pro obrazovky do 1024px */
-  }
-}
-
 /* Responsivní styl pro malé obrazovky (mobilní telefony) */
 @media (max-width: 768px) {
-  .gallery {
-    display: flex;
-    flex-direction: row; /* Zajistí, že obrázky budou vedle sebe, ale jen jeden obrázek bude vidět najednou */
-  }
-
   .gallery img {
-    width: 100%; /* 1 obrázek na řádek pro obrazovky do 768px */
-    height: 265px; /* Stanovení stejné výšky pro obrázky na mobilu */
-    object-fit: cover; /* Ujistíme se, že obrázky budou zachovávat poměr stran bez deformace */
+    width: 100%; /* 1 obrázek na řádek pro mobilní zařízení */
+    height: 265px; /* Fixní výška pro všechny obrázky */
   }
 }
     
@@ -668,36 +656,36 @@ function updateSliderPosition() {
 // Automatické posouvání každých 4 sekundy
 setInterval(nextSlide, 4000);
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
+// Galerie
+ document.addEventListener('DOMContentLoaded', function () {
     const galleryContainer = document.querySelector('.gallery');
     const galleryImages = document.querySelectorAll('.gallery img');
     
-    // Pro mobilní zařízení nastavíme posouvání obrázků po jednom
+    // Pokud je šířka obrazovky menší nebo rovná 768px, nastavíme mobilní režim
     if (window.innerWidth <= 768) {
-      galleryContainer.style.display = 'flex';
-      galleryContainer.style.flexDirection = 'row';
-      galleryContainer.style.width = '100%';
-      
-      // Skrýt všechny obrázky kromě prvního
+      // Skrytí všech obrázků kromě prvního
       galleryImages.forEach((img, index) => {
         if (index > 0) {
-          img.style.display = 'none'; // Skrytí všech obrázků kromě prvního
+          img.style.display = 'none';
         }
       });
 
       let currentIndex = 0;
 
+      // Funkce pro posun na další obrázek
       function moveToNextImage() {
-        // Skrýt aktuální obrázek a zobrazit další
+        // Skrytí aktuálního obrázku
         galleryImages[currentIndex].style.display = 'none';
-        
-        currentIndex = (currentIndex + 1) % galleryImages.length; // Posun na další obrázek
 
-        galleryImages[currentIndex].style.display = 'block'; // Zobrazit nový obrázek
+        // Posun na další obrázek
+        currentIndex = (currentIndex + 1) % galleryImages.length;
+
+        // Zobrazení dalšího obrázku
+        galleryImages[currentIndex].style.display = 'block';
       }
 
-      setInterval(moveToNextImage, 4000); // Posouvání obrázků každé 4 sekundy
+      // Automatické posouvání obrázků každé 3 sekundy
+      setInterval(moveToNextImage, 3000);
     }
   });
 </script>
