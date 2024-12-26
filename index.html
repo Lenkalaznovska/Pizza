@@ -346,17 +346,15 @@ h2 {
 /* Style pro galerii */
 .gallery {
   display: flex;
-  flex-wrap: nowrap; /* Zamezíme zalamování do více řádků */
+  flex-wrap: wrap;
   justify-content: center;
   gap: 10px; /* Mezery mezi obrázky */
-  overflow: hidden; /* Zajistí, že obrázky mimo zobrazený prostor budou skryté */
-  width: 100%;
 }
 
 .gallery img {
-  width: 100%; /* Obrázky na mobilu zabírají celý prostor */
-  height: 265px; /* Stanovení stejné výšky pro obrázky */
-  object-fit: cover; /* Obrázky se přizpůsobí do boxu bez deformace */
+  width: calc(33.333% - 20px); /* 3 obrázky na řádek na větších obrazovkách */
+  margin-bottom: 10px; /* Mezera mezi obrázky ve sloupci */
+  object-fit: cover; /* Obrázky se vyplní do kontejneru bez deformace */
   border-radius: 12px; /* Zaoblené rohy obrázků */
   transition: transform 0.3s, box-shadow 0.3s; /* Efekt při najetí */
 }
@@ -367,11 +365,37 @@ h2 {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stín kolem obrázku */
 }
 
+/* Responsivní styl pro střední obrazovky (tablety) */
+@media (max-width: 1024px) {
+  .gallery img {
+    width: calc(50% - 20px); /* 2 obrázky na řádek pro obrazovky do 1024px */
+  }
+}
+
 /* Responsivní styl pro malé obrazovky (mobilní telefony) */
 @media (max-width: 768px) {
+  .gallery {
+    display: flex;
+    flex-wrap: nowrap; /* Zamezíme zalamování do více řádků */
+    justify-content: center;
+    gap: 10px; /* Mezery mezi obrázky */
+    overflow: hidden; /* Zajistí, že obrázky mimo zobrazený prostor budou skryté */
+    width: 100%;
+  }
+
   .gallery img {
-    width: 100%; /* 1 obrázek na řádek pro mobilní zařízení */
+    width: 100%; /* Obrázky na mobilu zabírají celý prostor */
     height: 265px; /* Fixní výška pro všechny obrázky */
+    object-fit: cover; /* Obrázky se přizpůsobí do boxu bez deformace */
+  }
+
+  /* Skrýt všechny obrázky kromě prvního na mobilu */
+  .gallery img {
+    display: none;
+  }
+  
+  .gallery img:first-child {
+    display: block;
   }
 }
     
