@@ -376,6 +376,7 @@ h2 {
 @media (max-width: 768px) {
   .gallery img {
     width: calc(100% - 20px); /* 1 obrázek na řádek pro obrazovky do 768px */
+    margin-bottom: 10px; /* Zmenšení mezery pod obrázkem na mobilu */
   }
 }
     
@@ -659,6 +660,26 @@ function updateSliderPosition() {
 
 // Automatické posouvání každých 4 sekundy
 setInterval(nextSlide, 4000);
+
+// Funkce pro automatické posouvání obrázků na mobilních zařízeních
+if (window.innerWidth <= 768) {
+  const gallery = document.querySelector('.gallery');
+  const images = gallery.querySelectorAll('img');
+  let currentIndex = 0;
+
+  setInterval(() => {
+    // Skrýt všechny obrázky
+    images.forEach((img, index) => {
+      img.style.display = 'none';
+    });
+
+    // Zobrazit aktuální obrázek
+    images[currentIndex].style.display = 'block';
+
+    // Přejít na další obrázek (posunout o 1)
+    currentIndex = (currentIndex + 1) % images.length;
+  }, 4000); // Posun každý 4 sekundy (4000ms)
+}
 </script>
 </body>
 </html>
