@@ -691,48 +691,40 @@ function updateSliderPosition() {
 setInterval(nextSlide, 4000);
 
 // Galerie (Karusel)
-let currentIndex = 1; // Startujeme na prvním skutečném snímku
-const gallerySlider = document.querySelector('.gallery-slider');
-const gallerySlides = document.querySelectorAll('.gallery-slide');
-const totalSlides = gallerySlides.length;
-const slideWidth = gallerySlides[0].offsetWidth;
-const slideMargin = parseInt(getComputedStyle(gallerySlides[0]).marginRight) * 2;
+document.addEventListener('DOMContentLoaded', () => {
+    const gallerySlider = document.querySelector('.gallery-slider');
+    const gallerySlides = document.querySelectorAll('.gallery-slide');
+    const prevButton = document.getElementById('gallery-prev');
+    const nextButton = document.getElementById('gallery-next');
 
-// Inicializace – posuneme se na první skutečný snímek
-gallerySlider.style.transform = `translateX(-${(slideWidth + slideMargin) * currentIndex}px)`;
+    let currentIndex = 1; // Začínáme na prvním skutečném snímku
+    const slideWidth = gallerySlides[0].offsetWidth;
+    const totalSlides = gallerySlides.length;
 
-// Posun vpravo/vlevo
-function moveGallery(direction) {
-    currentIndex += direction;
-    gallerySlider.style.transition = "transform 0.4s ease";
-    gallerySlider.style.transform = `translateX(-${(slideWidth + slideMargin) * currentIndex}px)`;
+    // Inicializace: posuneme se na první skutečný snímek
+    gallerySlider.style.transform = `translateX(-${currentIndex * (slideWidth + 20)}px)`;
 
-    // Přechod na první/poslední snímek po dokončení animace
-    gallerySlider.addEventListener('transitionend', () => {
-        if (currentIndex === 0) {
-            currentIndex = totalSlides - 2; // Poslední skutečný snímek
-            gallerySlider.style.transition = "none"; // Žádná animace
-            gallerySlider.style.transform = `translateX(-${(slideWidth + slideMargin) * currentIndex}px)`;
-        } else if (currentIndex === totalSlides - 1) {
-            currentIndex = 1; // První skutečný snímek
-            gallerySlider.style.transition = "none";
-            gallerySlider.style.transform = `translateX(-${(slideWidth + slideMargin) * currentIndex}px)`;
-        }
-    });
-}
+    function moveGallery(direction) {
+        currentIndex += direction;
+        gallerySlider.style.transition = 'transform 0.4s ease-in-out';
+        gallerySlider.style.transform = `translateX(-${currentIndex * (slideWidth + 20)}px)`;
 
-// Přiřazení událostí
-document.getElementById('gallery-prev').addEventListener('click', () => moveGallery(-1));
-document.getElementById('gallery-next').addEventListener('click', () => moveGallery(1));
+        gallerySlider.addEventListener('transitionend', () => {
+            if (currentIndex === 0) {
+                currentIndex = totalSlides - 2; // Poslední skutečný snímek
+                gallerySlider.style.transition = 'none';
+                gallerySlider.style.transform = `translateX(-${currentIndex * (slideWidth + 20)}px)`;
+            } else if (currentIndex === totalSlides - 1) {
+                currentIndex = 1; // První skutečný snímek
+                gallerySlider.style.transition = 'none';
+                gallerySlider.style.transform = `translateX(-${currentIndex * (slideWidth + 20)}px)`;
+            }
+        });
+    }
 
-// Automatické posouvání
-const autoScrollInterval = setInterval(() => {
-    moveGallery(1);
-}, 4000);
-
-// Zastavení automatického posouvání při interakci uživatele
-document.querySelector('.gallery').addEventListener('mouseenter', () => {
-    clearInterval(autoScrollInterval);
+    // Přidání posluchačů událostí na tlačítka
+    prevButton.addEventListener('click', () => moveGallery(-1));
+    nextButton.addEventListener('click', () => moveGallery(1));
 });
 </script>
 </body>
