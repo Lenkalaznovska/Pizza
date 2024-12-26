@@ -699,51 +699,24 @@ function updateSliderPosition() {
 // Automatické posouvání každých 4 sekundy
 setInterval(nextSlide, 4000);
 
-// Galerie (Karusel)
+// Galerie
 document.addEventListener('DOMContentLoaded', () => {
-    const gallerySlider = document.querySelector('.gallery-slider');
-    const gallerySlides = document.querySelectorAll('.gallery-slide');
+    const galleryRows = document.querySelectorAll('.gallery-row');
     const prevButton = document.getElementById('gallery-prev');
     const nextButton = document.getElementById('gallery-next');
-
-    let currentIndex = 1; // Začínáme na prvním skutečném snímku
-    const slideWidth = gallerySlides[0].offsetWidth;
-    const totalSlides = gallerySlides.length;
-
-    // Inicializace: posuneme se na první skutečný snímek
-    gallerySlider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    let currentIndex = 0;
 
     function moveGallery(direction) {
-        currentIndex += direction;
-        gallerySlider.style.transition = 'transform 0.4s ease-in-out';
-        gallerySlider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        const row = galleryRows[0]; // First row is used for mobile layout
+        const totalSlides = row.children.length;
+        currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
 
-        gallerySlider.addEventListener('transitionend', () => {
-            if (currentIndex === 0) {
-                currentIndex = totalSlides - 2; // Poslední skutečný snímek
-                gallerySlider.style.transition = 'none';
-                gallerySlider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-            } else if (currentIndex === totalSlides - 1) {
-                currentIndex = 1; // První skutečný snímek
-                gallerySlider.style.transition = 'none';
-                gallerySlider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-            }
-        });
+        const transformValue = `translateX(-${currentIndex * 100}%)`;
+        row.style.transform = transformValue;
     }
 
-    // Přiřazení událostí pro manuální ovládání
     prevButton.addEventListener('click', () => moveGallery(-1));
     nextButton.addEventListener('click', () => moveGallery(1));
-
-    // Automatické posouvání
-    const autoScrollInterval = setInterval(() => {
-        moveGallery(1);
-    }, 4000);
-
-    // Zastavení automatického posouvání při najetí myší
-    document.querySelector('.gallery').addEventListener('mouseenter', () => {
-        clearInterval(autoScrollInterval);
-    });
 });
 </script>
 </body>
