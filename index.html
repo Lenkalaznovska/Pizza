@@ -357,8 +357,8 @@ h2 {
 .gallery-desktop .gallery-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 obrázky na řádek */
-    grid-column-gap: 10px; /* Mezera mezi sloupci */
-    gap: 10px; /* Mezera mezi řádky */
+    grid-column-gap: 20px; /* Mezera mezi sloupci */
+    gap: 20px; /* Mezera mezi řádky */
 }
 
 .gallery-slide {
@@ -391,17 +391,20 @@ h2 {
         width: 100%;
         overflow: hidden;
         position: relative;
+        gap: 10px; /* Mezera mezi obrázky na mobilu */
+        scroll-snap-type: x mandatory; /* Posouvání po jednotlivých obrázcích */
+        scroll-behavior: smooth;
     }
 
     .gallery-mobile .gallery-slide {
         width: 100%;
         height: 300px;
         flex-shrink: 0;
+        scroll-snap-align: start; /* Každý obrázek se bude "chytat" na začátku */
     }
 
     /* Automatické posouvání obrázků */
     .gallery-mobile {
-        display: flex;
         animation: slide 12s infinite;
     }
 
