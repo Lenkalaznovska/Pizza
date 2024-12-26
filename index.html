@@ -337,94 +337,72 @@ section p {
     color: #ff4500;
 }
 
-/* Kontejner galerie */
-.gallery {
-    width: 100%;
-    margin: auto;
+/* Základní styl pro galerii */
+#galerie {
+    padding: 40px 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h2 {
     text-align: center;
+    margin-bottom: 20px;
 }
 
-/* Desktop layout: 2 řádky, 3 obrázky na řádek */
-.gallery-desktop {
-    display: flex;
-    flex-direction: column;
-    gap: 20px; /* Mezera mezi řádky */
-}
-
-.gallery-row {
-    display: flex;
-    justify-content: space-between;
+/* Desktop: Zobrazení dvou řádků a tří obrázků na řádek */
+.gallery-desktop .gallery-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
 }
 
 .gallery-slide {
-    width: 32%; /* Tři obrázky na řádek */
-    height: 200px; /* Výška obrázku */
     background-size: cover;
     background-position: center;
-    border-radius: 10px;
+    height: 300px;
 }
 
-/* Hover efekt pro desktop */
-.gallery-slide:hover {
-    transform: scale(1.05);
-}
-
-/* Mobile layout: Slider s šipkami */
-.gallery {
+/* Mobilní zařízení: Zobrazení jednoho obrázku na každém posuvu */
+.gallery-mobile {
     display: none;
-    position: relative;
-    overflow: hidden;
 }
 
-.gallery-slider {
-    display: flex;
-    transition: transform 0.4s ease;
-}
-
-.gallery-buttons {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    transform: translateY(-50%);
-}
-
-.gallery-buttons button {
-    background: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    border: none;
-    font-size: 30px;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-}
-
-.gallery-buttons button:hover {
-    background: rgba(0, 0, 0, 0.8);
-}
-
-/* Responsive Design */
 @media (max-width: 768px) {
-    /* Zobrazí pouze mobilní verzi a skryje desktop */
+    /* Na mobilu se zobrazuje pouze jedna řada s obrázky */
     .gallery-desktop {
         display: none;
     }
 
-    .gallery {
+    .gallery-mobile {
         display: block;
-    }
-
-    .gallery-slider {
-        display: flex;
         width: 100%;
+        overflow: hidden;
+        position: relative;
     }
 
-    .gallery-slide {
-        width: 100%; /* Jeden obrázek na šířku */
-        height: 250px; /* Výška obrázku na mobilu */
+    .gallery-mobile .gallery-slide {
+        width: 100%;
+        height: 300px;
+        flex-shrink: 0;
+    }
+
+    /* Automatické posouvání obrázků */
+    .gallery-mobile {
+        display: flex;
+        animation: slide 18s infinite;
+    }
+
+    @keyframes slide {
+        0% { transform: translateX(0); }
+        20% { transform: translateX(-100%); }
+        40% { transform: translateX(-200%); }
+        60% { transform: translateX(-300%); }
+        80% { transform: translateX(-400%); }
+        100% { transform: translateX(-500%); }
     }
 }
     
@@ -634,6 +612,15 @@ footer {
                     <div class="gallery-slide" style="background-image: url('images/Omáčky.jpg');"></div>
                     <div class="gallery-slide" style="background-image: url('images/Popkorn.jpg');"></div>
                 </div>
+            </div>
+            <!-- Mobilní zařízení: Zobrazení jednoho obrázku na každém posuvu -->
+            <div class="gallery-mobile">
+                <div class="gallery-slide" style="background-image: url('images/VEČER.jpg');"></div>
+                <div class="gallery-slide" style="background-image: url('images/menu.jpg');"></div>
+                <div class="gallery-slide" style="background-image: url('images/Burgry.jpg');"></div>
+                <div class="gallery-slide" style="background-image: url('images/sanmarino.jpg');"></div>
+                <div class="gallery-slide" style="background-image: url('images/Omáčky.jpg');"></div>
+                <div class="gallery-slide" style="background-image: url('images/Popkorn.jpg');"></div>
             </div>
         </div>
     </div>
