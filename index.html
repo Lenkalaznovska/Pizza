@@ -362,10 +362,9 @@ section p {
     background-size: cover;
     background-position: center;
     border-radius: 10px;
-    transition: transform 0.3s ease;
 }
 
-/* Hover efekt */
+/* Hover efekt pro desktop */
 .gallery-slide:hover {
     transform: scale(1.05);
 }
@@ -409,8 +408,9 @@ section p {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    /* Zobrazí pouze mobilní verzi a skryje desktop */
     .gallery-desktop {
-        display: none; /* Skrýt desktop layout na mobilu */
+        display: none;
     }
 
     .gallery-mobile {
