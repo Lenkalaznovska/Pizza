@@ -348,12 +348,12 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px; /* Mezery mezi obrázky */
+  gap: 10px; /* Mezery mezi obrázky */
 }
 
 .gallery img {
   width: calc(33.333% - 20px); /* 3 obrázky na řádek na větších obrazovkách */
-  margin-bottom: 20px; /* Mezera mezi obrázky ve sloupci */
+  margin-bottom: 10px; /* Mezera mezi obrázky ve sloupci */
   object-fit: cover; /* Obrázky se vyplní do kontejneru bez deformace */
   border-radius: 12px; /* Zaoblené rohy obrázků */
   transition: transform 0.3s, box-shadow 0.3s; /* Efekt při najetí */
@@ -376,7 +376,7 @@ h2 {
 @media (max-width: 768px) {
   .gallery img {
     width: calc(100% - 20px); /* 1 obrázek na řádek pro obrazovky do 768px */
-    margin-bottom: 10px; /* Zmenšení mezery pod obrázkem na mobilu */
+    margin-bottom: 5px; /* Zmenšení mezery pod obrázkem na mobilu */
   }
 }
     
