@@ -356,8 +356,9 @@ h2 {
 /* Desktop: Zobrazení dvou řádků a tří obrázků na řádek */
 .gallery-desktop .gallery-row {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px; /* Volný prostor mezi obrázky */
+    grid-template-columns: repeat(3, 1fr); /* 3 obrázky na řádek */
+    grid-column-gap: 10px; /* Mezera mezi sloupci */
+    gap: 10px; /* Mezera mezi řádky */
 }
 
 .gallery-slide {
@@ -390,7 +391,6 @@ h2 {
         width: 100%;
         overflow: hidden;
         position: relative;
-        gap: 10px; /* Mezera mezi obrázky na mobilu */
     }
 
     .gallery-mobile .gallery-slide {
