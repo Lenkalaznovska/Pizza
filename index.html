@@ -357,13 +357,20 @@ h2 {
 .gallery-desktop .gallery-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 20px; /* Volný prostor mezi obrázky */
 }
 
 .gallery-slide {
     background-size: cover;
     background-position: center;
     height: 300px;
+    position: relative;
+    transition: transform 0.3s ease; /* Přidání efektu pro hover */
+}
+
+/* Hover efekt pro zvětšení obrázku */
+.gallery-slide:hover {
+    transform: scale(1.1); /* Zvětšení obrázku */
 }
 
 /* Na mobilu se zobrazuje pouze galerie pro mobilní zařízení */
