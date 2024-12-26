@@ -338,85 +338,45 @@ section p {
 }
 
 /* Základní styl pro galerii */
-#galerie {
-    padding: 40px 0;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
 h2 {
     text-align: center;
     margin-bottom: 20px;
 }
 
-/* Desktop: Zobrazení dvou řádků a tří obrázků na řádek */
-.gallery-desktop .gallery-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 obrázky na řádek */
-    grid-column-gap: 10px; /* Mezera mezi sloupci */
-    grid-row-gap: 10px; /* Mezera mezi řádky */
+/* Style pro galerii */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* Mezery mezi obrázky */
 }
 
-.gallery-slide {
-    background-size: cover;
-    background-position: center;
-    height: 300px;
-    position: relative;
-    transition: transform 0.2s ease; /* Menší efekt pro hover */
+.gallery img {
+  width: calc(33.333% - 20px); /* 3 obrázky na řádek na větších obrazovkách */
+  margin-bottom: 20px; /* Mezera mezi obrázky ve sloupci */
+  object-fit: cover; /* Obrázky se vyplní do kontejneru bez deformace */
+  border-radius: 12px; /* Zaoblené rohy obrázků */
+  transition: transform 0.3s, box-shadow 0.3s; /* Efekt při najetí */
 }
 
-/* Menší hover efekt pro zvětšení obrázku */
-.gallery-slide:hover {
-    transform: scale(1.05); /* Zvětšení obrázku o 5% */
+/* Efekt při najetí na obrázek (zoom a stín) */
+.gallery img:hover {
+  transform: scale(1.05); /* Mírné zvětšení obrázku */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stín kolem obrázku */
 }
 
-/* Na mobilu se zobrazuje pouze galerie pro mobilní zařízení */
-.gallery-mobile {
-    display: none; /* Výchozí stav: skrytý na desktopu */
+/* Responsivní styl pro střední obrazovky (tablety) */
+@media (max-width: 1024px) {
+  .gallery img {
+    width: calc(50% - 20px); /* 2 obrázky na řádek pro obrazovky do 1024px */
+  }
 }
 
-/* Mobilní zařízení: Zobrazení galerie na mobilních zařízeních */
+/* Responsivní styl pro malé obrazovky (mobilní telefony) */
 @media (max-width: 768px) {
-    /* Na mobilu se zobrazí galerie pro mobilní zařízení a skryje galerie pro desktop */
-    .gallery-desktop {
-        display: none; /* Skrytí desktopové verze */
-    }
-
-    .gallery-mobile {
-        display: flex; /* Zobrazení mobilní verze */
-        width: 100%;
-        overflow: hidden;
-        position: relative;
-        gap: 10px; /* Mezera mezi obrázky na mobilu */
-        scroll-snap-type: x mandatory; /* Posouvání po jednotlivých obrázcích */
-        scroll-behavior: smooth;
-    }
-
-    .gallery-mobile .gallery-slide {
-        width: 100%;
-        height: 300px;
-        flex-shrink: 0;
-        scroll-snap-align: start; /* Každý obrázek se bude "chytat" na začátku */
-    }
-
-    /* Automatické posouvání obrázků */
-    .gallery-mobile {
-        animation: slide 12s infinite;
-    }
-
-    @keyframes slide {
-        0% { transform: translateX(0); }
-        16% { transform: translateX(-100%); }
-        33% { transform: translateX(-200%); }
-        50% { transform: translateX(-300%); }
-        66% { transform: translateX(-400%); }
-        83% { transform: translateX(-500%); }
-        100% { transform: translateX(-600%); }
-    }
+  .gallery img {
+    width: calc(100% - 20px); /* 1 obrázek na řádek pro obrazovky do 768px */
+  }
 }
     
 /* Styly pro sekci Kontakty */
