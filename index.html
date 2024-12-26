@@ -349,6 +349,7 @@ h2 {
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px; /* Mezery mezi obrázky */
+  overflow: hidden; /* Zajistí, že při posouvání nebudou vidět žádné přebytečné obrázky */
 }
 
 .gallery img {
@@ -374,6 +375,11 @@ h2 {
 
 /* Responsivní styl pro malé obrazovky (mobilní telefony) */
 @media (max-width: 768px) {
+  .gallery {
+    display: flex;
+    flex-direction: row; /* Zajistí, že obrázky budou vedle sebe, ale jen jeden obrázek bude vidět najednou */
+  }
+
   .gallery img {
     width: 100%; /* 1 obrázek na řádek pro obrazovky do 768px */
     height: 265px; /* Stanovení stejné výšky pro obrázky na mobilu */
