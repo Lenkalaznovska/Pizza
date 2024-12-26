@@ -366,19 +366,20 @@ h2 {
     height: 300px;
 }
 
-/* Mobilní zařízení: Zobrazení jednoho obrázku na každém posuvu */
+/* Na mobilu se zobrazuje pouze galerie pro mobilní zařízení */
 .gallery-mobile {
-    display: none;
+    display: none; /* Výchozí stav: skrytý na desktopu */
 }
 
+/* Mobilní zařízení: Zobrazení galerie na mobilních zařízeních */
 @media (max-width: 768px) {
-    /* Na mobilu se zobrazuje pouze jedna řada s obrázky */
+    /* Na mobilu se zobrazí galerie pro mobilní zařízení a skryje galerie pro desktop */
     .gallery-desktop {
-        display: none;
+        display: none; /* Skrytí desktopové verze */
     }
 
     .gallery-mobile {
-        display: block;
+        display: flex; /* Zobrazení mobilní verze */
         width: 100%;
         overflow: hidden;
         position: relative;
