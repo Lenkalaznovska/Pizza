@@ -365,12 +365,12 @@ h2 {
     background-position: center;
     height: 300px;
     position: relative;
-    transition: transform 0.3s ease; /* Přidání efektu pro hover */
+    transition: transform 0.2s ease; /* Menší efekt pro hover */
 }
 
-/* Hover efekt pro zvětšení obrázku */
+/* Menší hover efekt pro zvětšení obrázku */
 .gallery-slide:hover {
-    transform: scale(1.1); /* Zvětšení obrázku */
+    transform: scale(1.05); /* Zvětšení obrázku o 5% */
 }
 
 /* Na mobilu se zobrazuje pouze galerie pro mobilní zařízení */
@@ -390,6 +390,7 @@ h2 {
         width: 100%;
         overflow: hidden;
         position: relative;
+        gap: 10px; /* Mezera mezi obrázky na mobilu */
     }
 
     .gallery-mobile .gallery-slide {
@@ -401,16 +402,17 @@ h2 {
     /* Automatické posouvání obrázků */
     .gallery-mobile {
         display: flex;
-        animation: slide 18s infinite;
+        animation: slide 12s infinite;
     }
 
     @keyframes slide {
         0% { transform: translateX(0); }
-        20% { transform: translateX(-100%); }
-        40% { transform: translateX(-200%); }
-        60% { transform: translateX(-300%); }
-        80% { transform: translateX(-400%); }
-        100% { transform: translateX(-500%); }
+        16% { transform: translateX(-100%); }
+        33% { transform: translateX(-200%); }
+        50% { transform: translateX(-300%); }
+        66% { transform: translateX(-400%); }
+        83% { transform: translateX(-500%); }
+        100% { transform: translateX(-600%); }
     }
 }
     
