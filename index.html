@@ -353,7 +353,7 @@ h2 {
 
 .gallery img {
   width: calc(33.333% - 20px); /* 3 obrázky na řádek na větších obrazovkách */
-  margin-bottom: 10px; /* Mezera mezi obrázky ve sloupci */
+  margin-bottom: 5px; /* Mezera mezi obrázky ve sloupci */
   object-fit: cover; /* Obrázky se vyplní do kontejneru bez deformace */
   border-radius: 12px; /* Zaoblené rohy obrázků */
   transition: transform 0.3s, box-shadow 0.3s; /* Efekt při najetí */
@@ -375,8 +375,9 @@ h2 {
 /* Responsivní styl pro malé obrazovky (mobilní telefony) */
 @media (max-width: 768px) {
   .gallery img {
-    width: calc(100% - 20px); /* 1 obrázek na řádek pro obrazovky do 768px */
-    margin-bottom: 5px; /* Zmenšení mezery pod obrázkem na mobilu */
+    width: 100%; /* 1 obrázek na řádek pro obrazovky do 768px */
+    height: 300px; /* Stanovení stejné výšky pro obrázky na mobilu */
+    object-fit: cover; /* Ujistíme se, že obrázky budou zachovávat poměr stran bez deformace */
   }
 }
     
