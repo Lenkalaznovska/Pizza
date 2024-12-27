@@ -14,10 +14,21 @@
     box-sizing: border-box;
 }
 
+/* Root Colors */
+:root {
+    --color-light-gray: #EAEAEA; /* Světlý elegantní betonový odstín */
+    --color-dark-gray: #333; /* Tmavší šedá pro texty a kontrast */
+    --color-accent: #e63946; /* Akcentní červená pro hover efekty */
+    --color-white: #fff; /* Bílé pro texty a pozadí */
+    --color-text-gray: #D6D6D6; /* Světle šedý text pro pozadí */
+    --color-light-background: #f4f4f4; /* Světle šedé pozadí pro tělo */
+}
+
+/* Body */
 body {
     font-family: Arial, sans-serif;
-    background: #f4f4f4;
-    color: #D6D6D6;
+    background: var(--color-light-background);
+    color: var(--color-text-gray);
 }
 
 /* Container */
