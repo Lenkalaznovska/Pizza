@@ -229,10 +229,10 @@ nav ul li a:hover {
        
 /* Section styles (About, Gallery, Contact) */
 section {
-    background: #fff;
+    background: var(--background-color);
     padding: 40px 20px;
     margin: 20px 0;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px var(--shadow-color);
     border-radius: 8px;
     text-align: center;
     transition: box-shadow 0.3s ease, transform 0.3s ease;
@@ -247,50 +247,54 @@ section:hover {
 section h2 {
     font-size: 32px;
     margin-bottom: 20px;
-    color: #e63946;
-    font-family: 'Arial', sans-serif;
+    color: var(--primary-color);
     font-weight: bold;
 }
 
 /* Text inside sections */
 section p {
     font-size: 16px;
-    color: #333;
+    color: var(--text-color);
     line-height: 1.6;
 }
 
 /* Recenze */
-  .recenze-section {
-        margin: 40px 0;
-        padding: 20px;
-        border-radius: 8px;
-    }
-    .section-title {
-        text-align: center;
-        font-size: 24px;
-        font-weight: bold;
-        margin-bottom: 20px;
-    }
-    .reviews-container {
-        display: flex;
-        justify-content: center; /* Align items at the center */
-        align-items: center;
-        gap: 10px; /* Reduce the gap between the widgets */
-        flex-wrap: wrap;
-    }
-    .review-widget,
-    .yext-widget {
-        max-width: 300px;
-        text-align: center;
-    }
-    .review-img {
-        max-width: 100%;
-        height: auto;
-    }
-    .yext-widget script {
-        width: 100%;
-        max-width: 300px;
-    }
+.recenze-section {
+    margin: 40px 0;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.reviews-container {
+    display: flex;
+    justify-content: center; /* Align items at the center */
+    align-items: center;
+    gap: 10px; /* Reduce the gap between the widgets */
+    flex-wrap: wrap;
+}
+
+.review-widget,
+.yext-widget {
+    max-width: 300px;
+    text-align: center;
+}
+
+.review-img {
+    max-width: 100%;
+    height: auto;
+}
+
+.yext-widget script {
+    width: 100%;
+    max-width: 300px;
+}
 
 /* Contact section styles */
 #kontakty .container p {
@@ -299,7 +303,7 @@ section p {
 
 /* Links for phone and email */
 .contact-link {
-    color: #e63946;
+    color: var(--primary-color);
     text-decoration: none;
     font-weight: bold;
 }
@@ -326,7 +330,7 @@ section p {
 }
 
 .social-icons a:hover {
-    color: #ff4500;
+    color: var(--hover-color);
 }
 
 /* Základní styl pro galerii */
@@ -337,58 +341,58 @@ h2 {
 
 /* Style pro galerii */
 .gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px; /* Mezery mezi obrázky */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px; /* Mezery mezi obrázky */
 }
 
 .gallery img {
-  width: calc(33.333% - 20px); /* 3 obrázky na řádek na větších obrazovkách */
-  margin-bottom: 10px; /* Mezera mezi obrázky ve sloupci */
-  object-fit: cover; /* Obrázky se vyplní do kontejneru bez deformace */
-  border-radius: 12px; /* Zaoblené rohy obrázků */
-  transition: transform 0.3s, box-shadow 0.3s; /* Efekt při najetí */
+    width: calc(33.333% - 20px); /* 3 obrázky na řádek na větších obrazovkách */
+    margin-bottom: 10px; /* Mezera mezi obrázky ve sloupci */
+    object-fit: cover; /* Obrázky se vyplní do kontejneru bez deformace */
+    border-radius: 12px; /* Zaoblené rohy obrázků */
+    transition: transform 0.3s, box-shadow 0.3s; /* Efekt při najetí */
 }
 
 /* Efekt při najetí na obrázek (zoom a stín) */
 .gallery img:hover {
-  transform: scale(1.05); /* Mírné zvětšení obrázku */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stín kolem obrázku */
+    transform: scale(1.05); /* Mírné zvětšení obrázku */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stín kolem obrázku */
 }
 
 /* Responsivní styl pro střední obrazovky (tablety) */
 @media (max-width: 1024px) {
-  .gallery img {
-    width: calc(50% - 20px); /* 2 obrázky na řádek pro obrazovky do 1024px */
-  }
+    .gallery img {
+        width: calc(50% - 20px); /* 2 obrázky na řádek pro obrazovky do 1024px */
+    }
 }
 
 /* Responsivní styl pro malé obrazovky (mobilní telefony) */
 @media (max-width: 768px) {
-  .gallery {
-    display: flex;
-    flex-wrap: nowrap; /* Zamezíme zalamování do více řádků */
-    justify-content: center;
-    gap: 10px; /* Mezery mezi obrázky */
-    overflow: hidden; /* Zajistí, že obrázky mimo zobrazený prostor budou skryté */
-    width: 100%;
-  }
+    .gallery {
+        display: flex;
+        flex-wrap: nowrap; /* Zamezíme zalamování do více řádků */
+        justify-content: center;
+        gap: 10px; /* Mezery mezi obrázky */
+        overflow: hidden; /* Zajistí, že obrázky mimo zobrazený prostor budou skryté */
+        width: 100%;
+    }
 
-  .gallery img {
-    width: 100%; /* Obrázky na mobilu zabírají celý prostor */
-    height: 265px; /* Fixní výška pro všechny obrázky */
-    object-fit: cover; /* Obrázky se přizpůsobí do boxu bez deformace */
-  }
+    .gallery img {
+        width: 100%; /* Obrázky na mobilu zabírají celý prostor */
+        height: 265px; /* Fixní výška pro všechny obrázky */
+        object-fit: cover; /* Obrázky se přizpůsobí do boxu bez deformace */
+    }
 
-  /* Skrýt všechny obrázky kromě prvního na mobilu */
-  .gallery img {
-    display: none;
-  }
+    /* Skrýt všechny obrázky kromě prvního na mobilu */
+    .gallery img {
+        display: none;
+    }
   
-  .gallery img:first-child {
-    display: block;
-  }
+    .gallery img:first-child {
+        display: block;
+    }
 }
     
 /* Styly pro sekci Kontakty */
