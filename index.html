@@ -249,44 +249,45 @@ section p {
     line-height: 1.6;
 }
 
-/* Recenze */
-.recenze-section {
-    margin: 40px 0;
-    padding: 20px;
-    border-radius: 8px;
-}
-.section-title {
-    text-align: center;
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-.reviews-container {
-    display: flex;
-    justify-content: center; /* Align items at the center */
-    align-items: stretch; /* Stretch items to the same height */
-    gap: 10px; /* Reduce the gap between the widgets */
-    flex-wrap: wrap;
-}
-.review-widget,
-.yext-widget {
-    max-width: 300px;
-    text-align: center;
-    display: flex;
-    flex-direction: column; /* Ensure vertical alignment */
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally */
-    min-height: 120px; /* Ensure consistent height */
-}
-.review-img {
-    max-width: 100%;
-    height: auto;
-}
-.yext-widget script {
-    width: 100%;
-    max-width: 300px;
-}
-
+        /* Recenze */
+        .recenze-section {
+            margin: 40px 0;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .reviews-container {
+            display: flex;
+            justify-content: center; /* Align items at the center */
+            align-items: flex-start; /* Align items to the top */
+            gap: 10px; /* Reduce the gap between the widgets */
+            flex-wrap: wrap;
+        }
+        .review-widget,
+        .yext-widget {
+            max-width: 300px;
+            text-align: center;
+            display: flex;
+            flex-direction: column; /* Ensure vertical alignment */
+            justify-content: space-between; /* Distribute content evenly */
+            align-items: center;
+            min-height: 180px; /* Set consistent minimum height */
+            box-sizing: border-box; /* Ensure padding doesn't affect dimensions */
+        }
+        .review-img {
+            max-width: 100%;
+            height: auto;
+        }
+        .yext-widget script {
+            width: 100%;
+            max-width: 300px;
+        }
+        
 /* Links for phone and email */
 .contact-link {
     color: #e63946;
