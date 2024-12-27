@@ -626,28 +626,26 @@ function updateSliderPosition() {
 // Automatické posouvání každých 4 sekundy
 setInterval(nextSlide, 4000);
 // Galerie
- document.addEventListener('DOMContentLoaded', function () {
+  document.addEventListener('DOMContentLoaded', function () {
     const galleryContainer = document.querySelector('.gallery');
     const galleryImages = document.querySelectorAll('.gallery img');
     
     // Pokud je šířka obrazovky menší nebo rovná 768px, nastavíme mobilní režim
     if (window.innerWidth <= 768) {
-      // Skrytí všech obrázků kromě prvního
-      galleryImages.forEach((img, index) => {
-        if (index > 0) {
-          img.style.display = 'none';
-        }
-      });
       let currentIndex = 0;
+
       // Funkce pro posun na další obrázek
       function moveToNextImage() {
         // Skrytí aktuálního obrázku
         galleryImages[currentIndex].style.display = 'none';
+
         // Posun na další obrázek
         currentIndex = (currentIndex + 1) % galleryImages.length;
+
         // Zobrazení dalšího obrázku
         galleryImages[currentIndex].style.display = 'block';
       }
+
       // Automatické posouvání obrázků každé 3 sekundy
       setInterval(moveToNextImage, 3000);
     }
