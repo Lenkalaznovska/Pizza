@@ -40,16 +40,19 @@ body {
     padding: 20px;
 }
 
-/* Header */
+/* Navigační lišta */
 header {
-    background-color: transparent; /* Transparentní pozadí */
+    background-color: rgba(128, 128, 128, 0.4); /* Jemně betonová transparentnost */
     color: var(--text-color);
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
+    position: fixed; /* Fixní pozice, aby zůstala nahoře */
+    top: 0;
+    width: 100%;
     z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Jemný stín */
 }
 
 /* Logo */
