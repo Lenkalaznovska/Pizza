@@ -169,6 +169,7 @@ nav ul li a:hover {
 .slides {
     display: flex;
     transition: transform 1s ease;
+    height: 100%;
 }
 
 .slide {
@@ -176,13 +177,18 @@ nav ul li a:hover {
     height: 500px;
     background-size: cover;
     background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
 }
 
-.slide h1 {
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10; /* Zajišťuje, že obsah je nad slidery */
+}
+
+.content h1 {
     font-size: 50px;
     color: #fff;
     text-shadow: 2px 2px 5px #000;
@@ -190,11 +196,8 @@ nav ul li a:hover {
 }
 
 .buttons {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
     display: flex;
+    justify-content: center;
     gap: 10px;
 }
 
@@ -517,19 +520,16 @@ footer {
 <!-- Slider -->
 <div class="slider">
     <div class="slides">
-        <div class="slide" style="background-image: url('images/sanmarino.jpg');">
-            <h1>Pizzerie San Marino</h1>
-        </div>
-        <div class="slide" style="background-image: url('images/VEČER.jpg');">
-            <h1>Pizzerie San Marino</h1>
-        </div>
-        <div class="slide" style="background-image: url('images/menu.jpg');">
-            <h1>Pizzerie San Marino</h1>
-        </div>
+        <div class="slide" style="background-image: url('images/sanmarino.jpg');"></div>
+        <div class="slide" style="background-image: url('images/VEČER.jpg');"></div>
+        <div class="slide" style="background-image: url('images/menu.jpg');"></div>
     </div>
-    <div class="buttons">
-        <a href="https://lenkalaznovska.github.io/Pizza/eshop.html"><i class="fas fa-shopping-cart"></i> Objednat online</a>
-        <a href="tel:+420604633373"><i class="fas fa-phone"></i> Zavolat</a>
+    <div class="content">
+        <h1>Pizzerie San Marino</h1>
+        <div class="buttons">
+            <a href="https://lenkalaznovska.github.io/Pizza/eshop.html"><i class="fas fa-shopping-cart"></i> Objednat online</a>
+            <a href="tel:+420604633373"><i class="fas fa-phone"></i> Zavolat</a>
+        </div>
     </div>
 </div>
     
