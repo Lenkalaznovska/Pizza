@@ -31,111 +31,119 @@
             max-height: 50px;
         }
 
-        /* Navigation Menu */
-        nav {
-            display: flex;
-            justify-content: center; /* Zarovnání položek na střed horizontálně */
-            align-items: center; /* Zarovnání položek na střed vertikálně */
-            flex-grow: 1;
-        }
+/* Navigation Menu */
+nav {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center; /* Vertikální zarovnání obsahu */
+    position: absolute;
+    top: 50%; /* Nastavení středu */
+    left: 0;
+    transform: translateY(-50%); /* Posunutí vzhledem ke středu */
+    width: 100%;
+    background-color: transparent; /* Odstranění pozadí */
+    padding: 0; /* Odstranění mezer */
+    margin: 0;
+    z-index: 10;
+    box-shadow: none; /* Odstranění stínu, pokud není potřeba */
+}
 
-        nav ul {
-            display: flex; /* Horizontální zobrazení položek */
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
+nav ul {
+    display: flex; /* Zachování horizontálního zobrazení pro desktop */
+    flex-direction: row;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: transparent; /* Odstranění pozadí seznamu */
+}
 
-        /* Posunutí položek na desktopu */
-        @media (min-width: 769px) {
-            nav ul {
-                transform: translateX(-80px); /* Posunutí celé navigace o 80px doleva */
-            }
-        }
+nav ul li {
+    margin: 0 20px; /* Mezera mezi položkami menu */
+    padding: 0; /* Odstranění přebytečného prostoru */
+}
 
-        nav ul li {
-            margin: 0 20px;
-        }
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
 
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
+nav ul li a:hover {
+    color: #e63946;
+}
 
-        nav ul li a:hover {
-            color: #e63946;
-        }
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 15;
+}
 
-        /* Hamburger Menu */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
+.hamburger div {
+    background-color: #fff;
+    height: 3px;
+    width: 25px;
+    margin: 4px 0;
+    transition: 0.3s ease;
+}
 
-        .hamburger div {
-            background-color: #fff;
-            height: 3px;
-            width: 25px;
-            margin: 4px 0;
-            transition: 0.3s ease;
-        }
+/* Mobile Styles */
+@media (max-width: 768px) {
+    nav {
+        display: none;
+        flex-direction: column; /* Pro mobilní zařízení */
+        align-items: center;
+        position: absolute;
+        top: 100%; /* Přímé navázání na navigační lištu */
+        left: 0;
+        width: 100%;
+        background-color: #333; /* Kontrastní pozadí */
+        padding: 0; /* Odstranění přebytečného místa */
+        margin: 0;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 10;
+    }
 
-        /* Mobile Styles */
-        @media (max-width: 768px) {
-            nav {
-                display: none; /* Skrytí navigačního menu na mobilu */
-                flex-direction: column; /* Vertikální zobrazení pro mobilní zařízení */
-                align-items: center;
-                position: absolute;
-                top: 60px; /* Posunutí pod header */
-                left: 0;
-                width: 100%;
-                background-color: #333;
-                padding: 0;
-                margin: 0;
-                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-                z-index: 999; /* Zajištění, že menu bude nad ostatními prvky */
-            }
+    nav.active {
+        display: flex;
+    }
 
-            nav.active {
-                display: flex; /* Zobrazení menu po aktivaci */
-            }
+    nav ul {
+        flex-direction: column; /* Vertikální zobrazení pro mobilní zařízení */
+        text-align: center;
+    }
 
-            nav ul {
-                flex-direction: column; /* Vertikální zobrazení položek */
-                text-align: center;
-            }
+    nav ul li {
+        margin: 10px 0; /* Odsazení mezi položkami */
+    }
 
-            nav ul li {
-                margin: 10px 0; /* Odsazení mezi položkami */
-            }
+    nav ul li a {
+        font-size: 20px;
+        color: #fff;
+        font-weight: bold; /* Tučné písmo */
+        text-transform: none; /* Pouze první písmeno velké */
+    }
 
-            nav ul li a {
-                font-size: 20px;
-                color: #fff;
-                font-weight: bold;
-            }
+    .hamburger {
+        display: flex;
+    }
 
-            .hamburger {
-                display: flex;
-            }
+    .hamburger.active div:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
 
-            .hamburger.active div:nth-child(1) {
-                transform: rotate(-45deg) translate(-5px, 6px);
-            }
+    .hamburger.active div:nth-child(2) {
+        opacity: 0;
+    }
 
-            .hamburger.active div:nth-child(2) {
-                opacity: 0;
-            }
-
-            .hamburger.active div:nth-child(3) {
-                transform: rotate(45deg) translate(-5px, -6px);
-            }
-        }
+    .hamburger.active div:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
 
         .container {
             max-width: 2100px;
