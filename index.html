@@ -55,11 +55,11 @@ nav {
     left: 0;
     transform: translateY(-50%); /* Posunutí vzhledem ke středu */
     width: 100%;
-    background-color: #333; /* Kontrastní pozadí */
+    background-color: transparent; /* Odstranění pozadí */
     padding: 0; /* Odstranění mezer */
     margin: 0;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 10;
+    box-shadow: none; /* Odstranění stínu, pokud není potřeba */
 }
 
 nav ul {
@@ -68,10 +68,12 @@ nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
+    background-color: transparent; /* Odstranění pozadí seznamu */
 }
 
 nav ul li {
-    margin: 0 20px;
+    margin: 0 20px; /* Mezera mezi položkami menu */
+    padding: 0; /* Odstranění přebytečného prostoru */
 }
 
 nav ul li a {
@@ -155,6 +157,7 @@ nav ul li a:hover {
         transform: rotate(45deg) translate(-5px, -6px);
     }
 }
+
     
 /* Slider */
 .slider {
