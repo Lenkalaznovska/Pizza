@@ -123,16 +123,14 @@ nav ul li a:hover {
     background: none; /* Odstranění pozadí */
 }
 
-/* Hamburger Menu */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    z-index: 15;
-    position: fixed; /* Fixed position to keep it visible */
-    top: 100px; /* Position hamburger menu directly below the navigation bar */
-    right: 20px;
-    padding: 10px;
+.hamburger-menu {
+    position: absolute;
+    top: 100%; /* Posunutí pod navigační lištu */
+    left: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
 }
 
 .hamburger div {
@@ -250,10 +248,12 @@ nav ul li a:hover {
     margin-bottom: 20px;
 }
 
+/* Upravené tlačítka */
 .buttons {
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    flex-direction: column; /* Tlačítka pod sebe */
+    align-items: center;    /* Zarovnání na střed */
+    gap: 20px;              /* Mezera mezi tlačítky */
 }
 
 .buttons a {
@@ -261,15 +261,15 @@ nav ul li a:hover {
     background-color: var(--primary-color);
     color: #fff;
     font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 15px 25px;     /* Větší vnitřní odsazení */
+    border-radius: 8px;     /* Kulaté rohy */
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .buttons a:hover {
     background-color: #d62839;
-    transform: scale(1.05);
+    transform: scale(1.1); /* Výraznější efekt zvětšení */
 }
        
 /* Section styles (About, Gallery, Contact) */
@@ -589,8 +589,8 @@ footer {
     <div class="content">
         <h1>Pizzerie San Marino</h1>
         <div class="buttons">
-            <a href="https://lenkalaznovska.github.io/Pizza/eshop.html"><i class="fas fa-shopping-cart"></i> Objednat online</a>
-            <a href="tel:+420604633373"><i class="fas fa-phone"></i> Zavolat</a>
+            <a href="https://lenkalaznovska.github.io/Pizza/eshop.html" class="order-button"><i class="fas fa-shopping-cart"></i> Objednat online</a>
+            <a href="tel:+420604633373" class="order-button"><i class="fas fa-phone"></i> Zavolat</a>
         </div>
     </div>
 </div>
