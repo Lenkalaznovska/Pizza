@@ -57,19 +57,21 @@ header {
 
 /* Logo */
 .logo {
-    position: absolute;
-    right: 52%;
-    transform: translateX(50%);
+    position: relative; /* Změněno z absolute na relative */
     z-index: 15;
-    border: 3px solid white; /* Bílý rámeček */
-    background-color: transparent; /* Průhledné pozadí */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Jemný stín pro zvýraznění */
+    border: 3px solid white;
+    background-color: transparent;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 20% 0 0 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 /* Logo obrázek */
 .logo img {
-    height: var(--logo-size); /* Velikost loga */
-    display: block; /* Odstranění výchozího odsazení obrázku */
+    height: var(--logo-size);
+    display: block;
 }
 
 /* Navigation Menu */
