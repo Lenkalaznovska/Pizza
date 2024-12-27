@@ -394,17 +394,17 @@ h2 {
         display: block;
     }
 }
-    
+
 /* Styly pro sekci Kontakty */
 #kontakty {
-    background-color: #f9f9f9; /* Světle šedé pozadí pro kontrast */
+    background-color: var(--light-bg-color); /* Použití světle šedé barvy */
     padding: 40px 0;
     text-align: center;
 }
 
 #kontakty h2 {
     font-size: 2.5rem;
-    color: #2c3e50;
+    color: var(--accent-color); /* Použití tmavě šedé barvy pro nadpis */
     margin-bottom: 20px;
 }
 
@@ -418,44 +418,43 @@ h2 {
 
 /* Styl jednotlivých karet */
 .card {
-    background-color: #fff;
+    background-color: var(--card-bg-color); /* Pozadí karty */
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Přidání stínování */
+    box-shadow: 0 4px 8px var(--shadow-color); /* Stínování karty */
     width: calc(33.33% - 20px); /* Každá karta zabírá třetinu šířky */
-    text-align: center; /* Zarovnání obsahu na střed */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efekt při najetí myší */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-5px); /* Mírné nadzvednutí karty */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Zesílení stínování */
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px var(--shadow-hover-color); /* Zesílení stínu při hover */
 }
 
 /* Styl nadpisů v kartách */
 .card h3 {
     font-size: 1.6rem;
-    color: #2c3e50;
+    color: var(--accent-color); /* Použití tmavě šedé barvy pro nadpisy */
     margin-bottom: 15px;
-    text-align: center; /* Zarovnání nadpisů na střed */
 }
 
 /* Text v kartách */
 .card p {
     font-size: 1.1rem;
-    color: #555;
+    color: var(--text-color); /* Použití šedé barvy pro text */
     margin-bottom: 10px;
 }
 
 /* Odkazy na kontakt */
 .contact-link {
-    color: #3498db;
+    color: var(--primary-color); /* Použití modré barvy pro odkazy */
     text-decoration: none;
     font-weight: bold;
 }
 
 .contact-link:hover {
-    color: #2980b9;
+    color: var(--secondary-color); /* Použití tmavší modré pro hover */
     text-decoration: underline;
 }
 
@@ -464,7 +463,7 @@ h2 {
     display: inline-flex;
     align-items: center;
     margin: 10px 0;
-    color: #555;
+    color: var(--text-color); /* Použití šedé pro text */
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -474,29 +473,29 @@ h2 {
 }
 
 .social-links a:hover {
-    color: #3498db;
+    color: var(--primary-color); /* Použití modré pro hover */
 }
 
 /* Mapový iframe */
 .card iframe {
     width: 100%;
-    height: 300px; /* Nastavení výšky mapy */
+    height: 300px; /* Výška mapy */
     margin-top: 20px;
-    border-radius: 8px; /* Zaoblení rohů mapy */
+    border-radius: 8px;
     border: none;
 }
 
 /* Responzivita pro tablety */
 @media (max-width: 768px) {
     .card {
-        width: calc(50% - 20px); /* Na menších obrazovkách zabírají karty polovinu šířky */
+        width: calc(50% - 20px); /* Karty zabírají polovinu šířky na tabletech */
     }
 }
 
 /* Responzivita pro mobily */
 @media (max-width: 480px) {
     .card {
-        width: 100%; /* Na mobilních zařízeních zabírá každá karta celou šířku */
+        width: 100%; /* Karty zabírají celou šířku na mobilních zařízeních */
     }
 }
 
@@ -505,9 +504,10 @@ footer {
     font-weight: bold;
     text-align: center;
     padding: 10px 0;
-    background-color: #333;
-    color: #fff;
+    background-color: var(--footer-bg-color); /* Použití tmavé barvy pro pozadí patičky */
+    color: var(--footer-text-color); /* Použití bílé barvy pro text v patičce */
 }
+    
 </style>
     
 </head>
