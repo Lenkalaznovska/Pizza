@@ -303,25 +303,23 @@ section p {
     text-decoration: none;
 }
 
-/* Social icon styles */
-.social-icons a {
-    margin: 0 15px;
-    transition: transform 0.3s ease, color 0.3s ease;
+/* Sociální sítě */
+.social-icons {
+    position: absolute;
+    left: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .social-icons a img {
-    width: 35px;
-    height: 35px;
-    vertical-align: middle;
-    transition: transform 0.3s ease;
+    width: var(--icon-size);
+    height: var(--icon-size);
+    transition: transform var(--transition-speed);
 }
 
 .social-icons a:hover img {
     transform: scale(1.2);
-}
-
-.social-icons a:hover {
-    color: #ff4500;
 }
 
 /* Základní styl pro galerii */
