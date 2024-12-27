@@ -177,28 +177,33 @@ nav ul li a:hover {
     background-size: cover;
     background-position: center;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
 
 .slide h1 {
-    position: sticky;
     font-size: 50px;
     color: #fff;
     text-shadow: 2px 2px 5px #000;
     margin-bottom: 20px;
 }
 
+.buttons {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
 .buttons a {
-    position: sticky;
     display: inline-block;
     background-color: #e63946;
     color: #fff;
     font-weight: bold;
     padding: 10px 20px;
-    margin: 5px;
     border-radius: 5px;
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.2s ease;
@@ -208,7 +213,7 @@ nav ul li a:hover {
     background-color: #d62839;
     transform: scale(1.05);
 }
-
+       
 /* Section styles (About, Gallery, Contact) */
 section {
     background: #fff;
@@ -509,32 +514,25 @@ footer {
         </div>
     </header>
 
-   <!-- Slider -->
-    <div class="slider">
-        <div class="slides">
-            <div class="slide" style="background-image: url('images/sanmarino.jpg');">
-                <h1>Pizzerie San Marino</h1>
-                <div class="buttons">
-                    <a href="eshop.html><i class="fas fa-shopping-cart"></i> Objednat online</a>
-                    <a href="tel:+420604633373"><i class="fas fa-phone"></i> Zavolat</a>
-                </div>
-            </div>
-            <div class="slide" style="background-image: url('images/VEČER.jpg');">
-                <h1>Pizzerie San Marino</h1>
-                <div class="buttons">
-                    <a href="eshop.html"><i class="fas fa-shopping-cart"></i> Objednat online</a>
-                    <a href="tel:+420604633373"><i class="fas fa-phone"></i> Zavolat</a>
-                </div>
-            </div>
-            <div class="slide" style="background-image: url('images/menu.jpg');">
-                <h1>Pizzerie San Marino</h1>
-                <div class="buttons">
-                    <a href="eshop.html"><i class="fas fa-shopping-cart"></i> Objednat online</a>
-                    <a href="tel:+420604633373"><i class="fas fa-phone"></i> Zavolat</a>
-                </div>
-            </div>
+<!-- Slider -->
+<div class="slider">
+    <div class="slides">
+        <div class="slide" style="background-image: url('images/sanmarino.jpg');">
+            <h1>Pizzerie San Marino</h1>
+        </div>
+        <div class="slide" style="background-image: url('images/VEČER.jpg');">
+            <h1>Pizzerie San Marino</h1>
+        </div>
+        <div class="slide" style="background-image: url('images/menu.jpg');">
+            <h1>Pizzerie San Marino</h1>
         </div>
     </div>
+    <div class="buttons">
+        <a href="https://lenkalaznovska.github.io/Pizza/eshop.html"><i class="fas fa-shopping-cart"></i> Objednat online</a>
+        <a href="tel:+420604633373"><i class="fas fa-phone"></i> Zavolat</a>
+    </div>
+</div>
+    
 <!-- Sekce O nás -->
 <section id="onas">
     <div class="container">
