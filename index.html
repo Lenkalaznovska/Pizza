@@ -7,7 +7,7 @@
     <link rel="icon" href="images/favicon.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <style>
+<style>
 :root {
     --primary-color: #e63946;
     --secondary-color: #333;
@@ -122,6 +122,80 @@ nav ul li a:hover {
 .nav-links li, .social-icons a {
     background: none; /* Odstranění pozadí */
 }
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 15;
+    position: fixed; /* Ukotvení na začátku stránky */
+    top: 100px; /* Posunuto dolů pod navigační lištu */
+    right: 20px; /* Umístění hamburger menu 20px od pravého okraje */
+    padding: 10px;
+}
+
+.hamburger div {
+    background-color: #fff;
+    height: 3px;
+    width: 25px;
+    margin: 4px 0;
+    transition: 0.3s ease;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    /* Centrum loga a ikon sociálních sítí - posunutí loga víc doprava */
+    .logo {
+        right: 62%;
+    }
+
+    /* Centrum ikon sociálních sítí */
+    .social-icons {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    nav {
+        display: none;
+        flex-direction: column; /* Pro mobilní zařízení */
+        align-items: center;
+        position: absolute;
+        top: 0; /* Ukotvení na začátku stránky */
+        left: 0;
+        width: 100%;
+        background-color: #333; /* Kontrastní pozadí */
+        padding: 0;
+        margin: 0;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 10;
+        transform: translateY(-100%); /* Počáteční skrytí menu nad obrazovkou */
+        transition: transform 0.3s ease-in-out; /* Plynulý přechod pro vyjetí */
+    }
+
+    nav.active {
+        display: flex;
+        transform: translateY(60px); /* Posunuti menu dolů pod navigační lištu */
+    }
+
+    nav ul {
+        flex-direction: column; /* Vertikální zobrazení pro mobilní zařízení */
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav ul li {
+        margin: 5px 0; /* Zmenšení mezery mezi položkami */
+    }
+
+    nav ul li a {
+        font-size: 20px;
+        color: #fff;
+        font-weight: bold;
+        text-transform: none;
+    }
 
     /* Posunutí hamburger menu dolů při zobrazení */
     .hamburger {
