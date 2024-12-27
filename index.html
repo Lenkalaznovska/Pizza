@@ -52,8 +52,15 @@ header {
 }
 
 /* Logo */
+.logo {
+    position: absolute;
+    left: 50%; /* Umístění do středu */
+    transform: translateX(-50%);
+    z-index: 15;
+}
+
 .logo img {
-    height: 60px;
+    height: var(--logo-size);
 }
 
 /* Navigation Menu */
