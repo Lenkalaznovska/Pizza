@@ -145,8 +145,15 @@ nav ul li a:hover {
 
 /* Mobile Styles */
 @media (max-width: 768px) {
-    /* Centrum loga a ikon sociálních sítí */
-    .logo, .social-icons {
+    /* Centrum loga a ikon sociálních sítí - posunutí loga víc doprava */
+    .logo {
+        display: flex;
+        justify-content: flex-end; /* Posunutí loga více doprava */
+        width: 100%;
+    }
+
+    /* Centrum ikon sociálních sítí */
+    .social-icons {
         display: flex;
         justify-content: center;
         width: 100%;
@@ -171,7 +178,7 @@ nav ul li a:hover {
 
     nav.active {
         display: flex;
-        transform: translateY(0); /* Vyjetí dolů */
+        transform: translateY(60px); /* Posunuti menu dolů pod navigační lištu */
     }
 
     nav ul {
