@@ -95,6 +95,27 @@ nav ul li a:hover {
     color: var(--primary-color);
 }
 
+.nav-links, .social-icons {
+    background: none; /* Odstranění pozadí */
+    color: inherit;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links li a, .social-icons a img {
+    background: none; /* Odstranění pozadí */
+    color: inherit;
+}
+
+.nav-links li a:hover, .social-icons a:hover img {
+    background: none; /* Zajištění průhlednosti při hover */
+}
+
+/* Reset pro další možné konflikty */
+.nav-links li, .social-icons a {
+    background: none; /* Odstranění pozadí */
+}
+
 /* Hamburger Menu */
 .hamburger {
     display: none;
