@@ -129,9 +129,9 @@ nav ul li a:hover {
     flex-direction: column;
     cursor: pointer;
     z-index: 15;
-    position: fixed; /* Ukotvení na začátku stránky */
-    top: 100px; /* Posunuto dolů pod navigační lištu */
-    right: 20px; /* Umístění hamburger menu 20px od pravého okraje */
+    position: fixed; /* Fixed position to keep it visible */
+    top: 100px; /* Position hamburger menu directly below the navigation bar */
+    right: 20px;
     padding: 10px;
 }
 
@@ -145,12 +145,10 @@ nav ul li a:hover {
 
 /* Mobile Styles */
 @media (max-width: 768px) {
-    /* Centrum loga a ikon sociálních sítí - posunutí loga víc doprava */
     .logo {
-        right: 62%;
+        right: 62%; /* Adjust logo position */
     }
 
-    /* Centrum ikon sociálních sítí */
     .social-icons {
         display: flex;
         justify-content: center;
@@ -159,50 +157,49 @@ nav ul li a:hover {
 
     nav {
         display: none;
-        flex-direction: column; /* Pro mobilní zařízení */
+        flex-direction: column; /* Stack the menu vertically on mobile */
         align-items: center;
         position: absolute;
-        top: 0; /* Ukotvení na začátku stránky */
+        top: 0;
         left: 0;
         width: 100%;
-        background-color: #333; /* Kontrastní pozadí */
+        background-color: #333;
         padding: 0;
         margin: 0;
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         z-index: 10;
-        transform: translateY(-100%); /* Počáteční skrytí menu nad obrazovkou */
-        transition: transform 0.3s ease-in-out; /* Plynulý přechod pro vyjetí */
+        transform: translateY(-100%); /* Initially hidden above the screen */
+        transition: transform 0.3s ease-in-out;
     }
 
     nav.active {
         display: flex;
-        transform: translateY(60px); /* Posunuti menu dolů pod navigační lištu */
+        transform: translateY(60px); /* Move menu down below the navbar */
     }
 
     nav ul {
-        flex-direction: column; /* Vertikální zobrazení pro mobilní zařízení */
+        flex-direction: column; /* Align menu items vertically */
         text-align: center;
         margin: 0;
         padding: 0;
     }
 
     nav ul li {
-        margin: 5px 0; /* Zmenšení mezery mezi položkami */
+        margin: 5px 0;
     }
 
     nav ul li a {
         font-size: 20px;
         color: #fff;
         font-weight: bold;
-        text-transform: none;
     }
 
-    /* Posunutí hamburger menu dolů při zobrazení */
+    /* Hamburger menu positioning */
     .hamburger {
         display: flex;
-        position: fixed; /* Udržení hamburger menu na pevném místě */
-        top: 20px; /* Nad navigační lištou */
-        right: 20px; /* Na pravé straně */
+        position: fixed;
+        top: 100px; /* Positioned right below the navigation bar */
+        right: 20px;
     }
 
     .hamburger.active div:nth-child(1) {
@@ -216,8 +213,7 @@ nav ul li a:hover {
     .hamburger.active div:nth-child(3) {
         transform: rotate(45deg) translate(-5px, -6px);
     }
-}
-
+    
 /* Slider */
 .slider {
     position: relative;
