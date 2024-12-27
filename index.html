@@ -306,77 +306,66 @@ section p {
     color: #ff4500;
 }
 
-/* Gallery styles */
+/* Základní styl pro galerii */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Style pro galerii */
 .gallery {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px; /* Mezery mezi obrázky */
 }
 
-.gallery-slider {
-    display: flex;
-    transition: transform 0.5s ease;
+.gallery img {
+  width: calc(33.333% - 20px); /* 3 obrázky na řádek na větších obrazovkách */
+  margin-bottom: 10px; /* Mezera mezi obrázky ve sloupci */
+  object-fit: cover; /* Obrázky se vyplní do kontejneru bez deformace */
+  border-radius: 12px; /* Zaoblené rohy obrázků */
+  transition: transform 0.3s, box-shadow 0.3s; /* Efekt při najetí */
 }
 
-.gallery-slide {
-    min-width: 23%; /* Show 4 smaller images */
-    height: 250px; /* Adjust height as needed */
-    background-size: cover;
-    background-position: center;
-    border-radius: 15px;
-    margin: 0 10px;
+/* Efekt při najetí na obrázek (zoom a stín) */
+.gallery img:hover {
+  transform: scale(1.05); /* Mírné zvětšení obrázku */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stín kolem obrázku */
 }
 
-.gallery-buttons {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    z-index: 10;
-    transform: translateY(-50%);
+/* Responsivní styl pro střední obrazovky (tablety) */
+@media (max-width: 1024px) {
+  .gallery img {
+    width: calc(50% - 20px); /* 2 obrázky na řádek pro obrazovky do 1024px */
+  }
 }
 
-.gallery-buttons button {
-    background: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    border: none;
-    font-size: 30px;
-    padding: 10px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-}
-
-.gallery-buttons button:hover {
-    background: rgba(0, 0, 0, 0.8);
-}
-
-/* Responsive Design for smaller screens */
+/* Responsivní styl pro malé obrazovky (mobilní telefony) */
 @media (max-width: 768px) {
-    .gallery-slide {
-        min-width: 100%; /* Show one image at a time on mobile */
-        height: 250px; /* Adjust height for mobile */
-    }
+  .gallery {
+    display: flex;
+    flex-wrap: nowrap; /* Zamezíme zalamování do více řádků */
+    justify-content: center;
+    gap: 10px; /* Mezery mezi obrázky */
+    overflow: hidden; /* Zajistí, že obrázky mimo zobrazený prostor budou skryté */
+    width: 100%;
+  }
 
-    .gallery-buttons {
-        display: none;
-    }
-}
+  .gallery img {
+    width: 100%; /* Obrázky na mobilu zabírají celý prostor */
+    height: 265px; /* Fixní výška pro všechny obrázky */
+    object-fit: cover; /* Obrázky se přizpůsobí do boxu bez deformace */
+  }
 
-/* Responsive Design */
-@media (max-width: 768px) {
- 
-    .gallery-buttons {
-        display: none;
-    }
-
-    .gallery-slide {
-        min-width: 100%; /* Na mobilu zobrazíme širší obrázek */
-        height: 250px;
-    }
+  /* Skrýt všechny obrázky kromě prvního na mobilu */
+  .gallery img {
+    display: none;
+  }
+  
+  .gallery img:first-child {
+    display: block;
+  }
 }
     
 /* Styly pro sekci Kontakty */
