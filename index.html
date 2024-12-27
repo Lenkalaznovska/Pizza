@@ -123,81 +123,12 @@ nav ul li a:hover {
     background: none; /* Odstranění pozadí */
 }
 
-.hamburger-menu {
-    position: absolute;
-    top: 100%; /* Posunutí pod navigační lištu */
-    left: 0;
-    width: 100%;
-    background-color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 10;
-}
-
-.hamburger div {
-    background-color: #fff;
-    height: 3px;
-    width: 25px;
-    margin: 4px 0;
-    transition: 0.3s ease;
-}
-
-/* Mobile Styles */
-@media (max-width: 768px) {
-    .logo {
-        right: 62%; /* Adjust logo position */
-    }
-
-    .social-icons {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-    }
-
-    nav {
-        display: none;
-        flex-direction: column; /* Stack the menu vertically on mobile */
-        align-items: center;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background-color: #333;
-        padding: 0;
-        margin: 0;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        z-index: 10;
-        transform: translateY(-100%); /* Initially hidden above the screen */
-        transition: transform 0.3s ease-in-out;
-    }
-
-    nav.active {
-        display: flex;
-        transform: translateY(60px); /* Move menu down below the navbar */
-    }
-
-    nav ul {
-        flex-direction: column; /* Align menu items vertically */
-        text-align: center;
-        margin: 0;
-        padding: 0;
-    }
-
-    nav ul li {
-        margin: 5px 0;
-    }
-
-    nav ul li a {
-        font-size: 20px;
-        color: #fff;
-        font-weight: bold;
-    }
-
-    /* Hamburger menu positioning */
+    /* Posunutí hamburger menu dolů při zobrazení */
     .hamburger {
         display: flex;
-        position: fixed;
-        top: 100px; /* Positioned right below the navigation bar */
-        right: 20px;
+        position: fixed; /* Udržení hamburger menu na pevném místě */
+        top: 20px; /* Nad navigační lištou */
+        right: 20px; /* Na pravé straně */
     }
 
     .hamburger.active div:nth-child(1) {
@@ -211,7 +142,8 @@ nav ul li a:hover {
     .hamburger.active div:nth-child(3) {
         transform: rotate(45deg) translate(-5px, -6px);
     }
-    
+}
+
 /* Slider */
 .slider {
     position: relative;
@@ -248,12 +180,10 @@ nav ul li a:hover {
     margin-bottom: 20px;
 }
 
-/* Upravené tlačítka */
 .buttons {
     display: flex;
-    flex-direction: column; /* Tlačítka pod sebe */
-    align-items: center;    /* Zarovnání na střed */
-    gap: 20px;              /* Mezera mezi tlačítky */
+    justify-content: center;
+    gap: 20px;
 }
 
 .buttons a {
@@ -261,15 +191,15 @@ nav ul li a:hover {
     background-color: var(--primary-color);
     color: #fff;
     font-weight: bold;
-    padding: 15px 25px;     /* Větší vnitřní odsazení */
-    border-radius: 8px;     /* Kulaté rohy */
+    padding: 10px 20px;
+    border-radius: 5px;
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .buttons a:hover {
     background-color: #d62839;
-    transform: scale(1.1); /* Výraznější efekt zvětšení */
+    transform: scale(1.05);
 }
        
 /* Section styles (About, Gallery, Contact) */
