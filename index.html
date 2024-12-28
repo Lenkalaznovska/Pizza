@@ -258,7 +258,7 @@ nav ul li a:hover {
     border-radius: 5px;
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    animation: asym-shake 2s infinite ease-in-out; /* Asymmetrical shaking */
+    animation: shake-interval 4s infinite; /* Shake with pauses */
 }
 
 .buttons a:hover {
@@ -266,31 +266,25 @@ nav ul li a:hover {
     transform: scale(1.05);
 }
 
-/* Keyframes for asymmetrical shaking */
-@keyframes asym-shake {
-    0% {
-        transform: rotate(0deg);
+/* Keyframes for dynamic shaking with pauses */
+@keyframes shake-interval {
+    0%, 90% {
+        transform: none; /* No shaking, resting phase */
     }
-    15% {
-        transform: rotate(2deg) translateX(1px);
+    91%, 92% {
+        transform: rotate(-2deg);
     }
-    30% {
-        transform: rotate(-2deg) translateY(1px);
+    93%, 94% {
+        transform: rotate(2deg);
     }
-    45% {
-        transform: rotate(1deg) translateX(-1px);
+    95%, 96% {
+        transform: rotate(-1deg);
     }
-    60% {
-        transform: rotate(-1deg) translateY(-1px);
+    97%, 98% {
+        transform: rotate(1deg);
     }
-    75% {
-        transform: rotate(2deg) translateX(2px);
-    }
-    90% {
-        transform: rotate(-2deg) translateY(2px);
-    }
-    100% {
-        transform: rotate(0deg);
+    99%, 100% {
+        transform: none; /* Back to rest */
     }
 }
        
