@@ -263,12 +263,30 @@ nav ul li a:hover {
     border-radius: 5px;
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.2s ease;
+    animation: shake 2s infinite ease-in-out; /* Add shake animation */
 }
 
 .buttons a:hover {
     background-color: #d62839;
     transform: scale(1.05);
 }
+
+/* Keyframes for the shaking animation */
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    75% {
+        transform: translateX(-5px);
+    }
+}
+
        
 /* Section styles (About, Gallery, Contact) */
 section {
