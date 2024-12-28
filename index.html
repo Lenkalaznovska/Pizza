@@ -158,42 +158,37 @@ nav ul li a:hover {
         flex-direction: column; /* Pro mobilní zařízení */
         align-items: center;
         position: absolute;
-        top: 0; /* Ukotvení na začátku stránky */
+        top: 100%; /* Přímé navázání na navigační lištu */
         left: 0;
         width: 100%;
         background-color: #333; /* Kontrastní pozadí */
-        padding: 0;
+        padding: 0; /* Odstranění přebytečného místa */
         margin: 0;
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         z-index: 10;
-        transform: translateY(-100%); /* Počáteční skrytí menu nad obrazovkou */
-        transition: transform 0.3s ease-in-out; /* Plynulý přechod pro vyjetí */
     }
 
     nav.active {
         display: flex;
-        transform: translateY(60px); /* Posunuti menu dolů pod navigační lištu */
     }
 
     nav ul {
         flex-direction: column; /* Vertikální zobrazení pro mobilní zařízení */
         text-align: center;
-        margin: 0;
-        padding: 0;
     }
 
     nav ul li {
-        margin: 5px 0; /* Zmenšení mezery mezi položkami */
+        margin: 10px 0; /* Odsazení mezi položkami */
     }
 
     nav ul li a {
         font-size: 20px;
         color: #fff;
-        font-weight: bold;
-        text-transform: none;
+        font-weight: bold; /* Tučné písmo */
+        text-transform: none; /* Pouze první písmeno velké */
     }
 
-   .hamburger {
+    .hamburger {
         display: flex;
     }
 
