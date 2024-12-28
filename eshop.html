@@ -44,7 +44,7 @@ body {
 header {
     background-color: rgba(128, 128, 128, 0.3); /* Jemná průhlednost */
     color: var(--text-color);
-    height: 50px; /* Výška lišty */
+    height: 100px; /* Nová výška lišty */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -204,38 +204,41 @@ nav ul li a:hover {
         transform: rotate(45deg) translate(-5px, -6px);
     }
 }
-    .container {
-        max-width: var(--container-max-width);
-        margin: 0 auto;
-    }
 
-    h2 {
-        color: var(--secondary-color);
-    }
+.container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+}
 
-    /* Sekce Online objednávky */
-    #objednavky {
-        width: 100vw; /* Celá šířka okna */
-        height: 100vh; /* Celá výška okna */
-        margin: 0;
-        padding: 0;
-    }
+h2 {
+    color: var(--secondary-color);
+}
 
-    #objednavky .container {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+/* Sekce Online objednávky */
+#objednavky {
+    width: 100vw; /* Celá šířka okna */
+    height: 100vh; /* Celá výška okna */
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: 105px; /* Posunutí iframe o 105px dolů */
+}
 
-    #objednavky iframe {
-        width: 100%;
-        height: 100%;
-        border: none; /* Odstranění okraje */
-    }
+#objednavky .container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#objednavky iframe {
+    width: 100%;
+    height: 100%;
+    border: none; /* Odstranění okraje */
+}
 </style>
-    
+
 </head>
 <body>
 <header>
@@ -261,7 +264,7 @@ nav ul li a:hover {
             <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram ikona" width="24" height="24">
         </a>
     </div>
-        <div class="hamburger" onclick="toggleMenu()">
+    <div class="hamburger" onclick="toggleMenu()">
         <div></div>
         <div></div>
         <div></div>
