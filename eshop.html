@@ -8,29 +8,37 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 <style>
-    /* Definice proměnných v root */
-    :root {
-        --primary-color: #333; /* Hlavní barva */
-        --secondary-color: #f8b400; /* Sekundární barva */
-        --text-color: #333; /* Barva textu */
-        --background-color: #fff; /* Barva pozadí */
-        --highlight-color: #e63946; /* Zvýraznění (hover, aktivní prvky) */
-        --font-family: 'Arial', sans-serif; /* Výchozí font */
-        --container-max-width: 2100px; /* Maximální šířka obsahu */
-        --transition-speed: 0.3s; /* Rychlost přechodu */
-        --logo-size: 60px; /* Velikost loga */
-        --icon-size: 30px; /* Velikost ikon */
-        --menu-gap: 220px; /* Mezera mezi položkami menu */
-    }
+:root {
+    --primary-color: #e63946;
+    --secondary-color: #333;
+    --text-color: #ffffff;
+    --background-color: #f4f4f4;
+    --font-family: Arial, sans-serif;
+    --transition-speed: 0.3s;
+    --logo-size: 60px;
+    --icon-size: 30px;
+    --menu-gap: 220px;
+}
 
-    /* Základní reset a stylování */
-    body {
-        margin: 0;
-        font-family: var(--font-family);
-        line-height: 1.6;
-        color: var(--text-color);
-        overflow-x: hidden; /* Zabránění horizontálnímu posouvání */
-    }
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Container */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
 
     header {
         background-color: var(--primary-color);
