@@ -205,6 +205,22 @@ nav ul li a:hover {
     }
 }
 
+/* Sociální ikony */
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icons a img {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    transition: transform var(--transition-speed);
+}
+
+.social-icons a:hover img {
+    transform: scale(1.2);
+}
+    
 .container {
     max-width: var(--container-max-width);
     margin: 0 auto;
