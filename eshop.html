@@ -6,176 +6,189 @@
     <title>Pizzerie San Marino</title>
     <link rel="icon" href="images/favicon.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* Základní reset a stylování */
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            overflow-x: hidden; /* Zabránění horizontálnímu posouvání */
-        }
 
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-            z-index: 1000; /* Zajištění, že header bude nad ostatními prvky */
-        }
-
-        header .logo img {
-            max-height: 50px;
-        }
-
-/* Navigation Menu */
-nav {
-    display: flex;
-    flex: 1;
-    justify-content: center;
-    align-items: center; /* Vertikální zarovnání obsahu */
-    position: absolute;
-    top: 50%; /* Nastavení středu */
-    left: 0;
-    transform: translateY(-50%); /* Posunutí vzhledem ke středu */
-    width: 100%;
-    background-color: transparent; /* Odstranění pozadí */
-    padding: 0; /* Odstranění mezer */
-    margin: 0;
-    z-index: 10;
-    box-shadow: none; /* Odstranění stínu, pokud není potřeba */
-}
-
-nav ul {
-    display: flex; /* Zachování horizontálního zobrazení pro desktop */
-    flex-direction: row;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    background-color: transparent; /* Odstranění pozadí seznamu */
-}
-
-nav ul li {
-    margin: 0 20px; /* Mezera mezi položkami menu */
-    padding: 0; /* Odstranění přebytečného prostoru */
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-    color: #e63946;
-}
-
-/* Hamburger Menu */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    z-index: 15;
-}
-
-.hamburger div {
-    background-color: #fff;
-    height: 3px;
-    width: 25px;
-    margin: 4px 0;
-    transition: 0.3s ease;
-}
-
-/* Mobile Styles */
-@media (max-width: 768px) {
-    nav {
-        display: none;
-        flex-direction: column; /* Pro mobilní zařízení */
-        align-items: center;
-        position: absolute;
-        top: 100%; /* Přímé navázání na navigační lištu */
-        left: 0;
-        width: 100%;
-        background-color: #333; /* Kontrastní pozadí */
-        padding: 0; /* Odstranění přebytečného místa */
-        margin: 0;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        z-index: 10;
+<style>
+    /* Definice proměnných v root */
+    :root {
+        --primary-color: #333; /* Hlavní barva */
+        --secondary-color: #f8b400; /* Sekundární barva */
+        --text-color: #333; /* Barva textu */
+        --background-color: #fff; /* Barva pozadí */
+        --highlight-color: #e63946; /* Zvýraznění (hover, aktivní prvky) */
+        --font-family: 'Arial', sans-serif; /* Výchozí font */
+        --container-max-width: 2100px; /* Maximální šířka obsahu */
     }
 
-    nav.active {
+    /* Základní reset a stylování */
+    body {
+        margin: 0;
+        font-family: var(--font-family);
+        line-height: 1.6;
+        color: var(--text-color);
+        overflow-x: hidden; /* Zabránění horizontálnímu posouvání */
+    }
+
+    header {
+        background-color: var(--primary-color);
+        color: #fff;
+        padding: 10px 20px;
         display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        z-index: 1000; /* Zajištění, že header bude nad ostatními prvky */
+    }
+
+    header .logo img {
+        max-height: 50px;
+    }
+
+    /* Navigation Menu */
+    nav {
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        align-items: center; /* Vertikální zarovnání obsahu */
+        position: absolute;
+        top: 50%; /* Nastavení středu */
+        left: 0;
+        transform: translateY(-50%); /* Posunutí vzhledem ke středu */
+        width: 100%;
+        background-color: transparent; /* Odstranění pozadí */
+        padding: 0; /* Odstranění mezer */
+        margin: 0;
+        z-index: 10;
+        box-shadow: none; /* Odstranění stínu, pokud není potřeba */
     }
 
     nav ul {
-        flex-direction: column; /* Vertikální zobrazení pro mobilní zařízení */
-        text-align: center;
+        display: flex; /* Zachování horizontálního zobrazení pro desktop */
+        flex-direction: row;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        background-color: transparent; /* Odstranění pozadí seznamu */
     }
 
     nav ul li {
-        margin: 10px 0; /* Odsazení mezi položkami */
+        margin: 0 20px; /* Mezera mezi položkami menu */
+        padding: 0; /* Odstranění přebytečného prostoru */
     }
 
     nav ul li a {
-        font-size: 20px;
         color: #fff;
-        font-weight: bold; /* Tučné písmo */
-        text-transform: none; /* Pouze první písmeno velké */
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        transition: color 0.3s ease;
     }
 
+    nav ul li a:hover {
+        color: var(--highlight-color);
+    }
+
+    /* Hamburger Menu */
     .hamburger {
-        display: flex;
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        z-index: 15;
     }
 
-    .hamburger.active div:nth-child(1) {
-        transform: rotate(-45deg) translate(-5px, 6px);
+    .hamburger div {
+        background-color: #fff;
+        height: 3px;
+        width: 25px;
+        margin: 4px 0;
+        transition: 0.3s ease;
     }
 
-    .hamburger.active div:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.active div:nth-child(3) {
-        transform: rotate(45deg) translate(-5px, -6px);
-    }
-}
-
-        .container {
-            max-width: 2100px;
-            margin: 0 auto;
-        }
-
-        h2 {
-            color: #f8b400;
-        }
-
-        /* Sekce Online objednávky */
-        #objednavky {
-            width: 100vw; /* Celá šířka okna */
-            height: 100vh; /* Celá výška okna */
-            margin: 0;
-            padding: 0;
-        }
-
-        #objednavky .container {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+        nav {
+            display: none;
+            flex-direction: column; /* Pro mobilní zařízení */
             align-items: center;
+            position: absolute;
+            top: 100%; /* Přímé navázání na navigační lištu */
+            left: 0;
+            width: 100%;
+            background-color: var(--primary-color); /* Kontrastní pozadí */
+            padding: 0; /* Odstranění přebytečného místa */
+            margin: 0;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 10;
         }
 
-        #objednavky iframe {
-            width: 100%;
-            height: 100%;
-            border: none; /* Odstranění okraje */
+        nav.active {
+            display: flex;
         }
-    </style>
+
+        nav ul {
+            flex-direction: column; /* Vertikální zobrazení pro mobilní zařízení */
+            text-align: center;
+        }
+
+        nav ul li {
+            margin: 10px 0; /* Odsazení mezi položkami */
+        }
+
+        nav ul li a {
+            font-size: 20px;
+            color: #fff;
+            font-weight: bold; /* Tučné písmo */
+            text-transform: none; /* Pouze první písmeno velké */
+        }
+
+        .hamburger {
+            display: flex;
+        }
+
+        .hamburger.active div:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger.active div:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active div:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+    }
+
+    .container {
+        max-width: var(--container-max-width);
+        margin: 0 auto;
+    }
+
+    h2 {
+        color: var(--secondary-color);
+    }
+
+    /* Sekce Online objednávky */
+    #objednavky {
+        width: 100vw; /* Celá šířka okna */
+        height: 100vh; /* Celá výška okna */
+        margin: 0;
+        padding: 0;
+    }
+
+    #objednavky .container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #objednavky iframe {
+        width: 100%;
+        height: 100%;
+        border: none; /* Odstranění okraje */
+    }
+</style>
+    
 </head>
 <body>
     <!-- Header -->
