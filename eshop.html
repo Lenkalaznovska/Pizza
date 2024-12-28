@@ -75,120 +75,135 @@ header {
     display: block;
 }
 
-    /* Navigation Menu */
-    nav {
+ /* Navigation Menu */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    background-color: transparent;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: var(--menu-gap);
+}
+
+nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color var(--transition-speed) ease;
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+.nav-links, .social-icons {
+    background: none; /* Odstranění pozadí */
+    color: inherit;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links li a, .social-icons a img {
+    background: none; /* Odstranění pozadí */
+    color: inherit;
+}
+
+.nav-links li a:hover, .social-icons a:hover img {
+    background: none; /* Zajištění průhlednosti při hover */
+}
+
+/* Reset pro další možné konflikty */
+.nav-links li, .social-icons a {
+    background: none; /* Odstranění pozadí */
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 15;
+}
+
+.hamburger div {
+    background-color: #fff;
+    height: 3px;
+    width: 25px;
+    margin: 4px 0;
+    transition: 0.3s ease;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    /* Centrum loga a ikon sociálních sítí - posunutí loga víc doprava */
+    .logo {
+        right: 62%;
+    }
+
+    /* Centrum ikon sociálních sítí */
+    .social-icons {
         display: flex;
-        flex: 1;
         justify-content: center;
-        align-items: center; /* Vertikální zarovnání obsahu */
-        position: absolute;
-        top: 50%; /* Nastavení středu */
-        left: 0;
-        transform: translateY(-50%); /* Posunutí vzhledem ke středu */
         width: 100%;
-        background-color: transparent; /* Odstranění pozadí */
-        padding: 0; /* Odstranění mezer */
+    }
+
+    nav {
+        display: none;
+        flex-direction: column; /* Pro mobilní zařízení */
+        align-items: center;
+        position: absolute;
+        top: 100%; /* Přímé navázání na navigační lištu */
+        left: 0;
+        width: 100%;
+        background-color: #333; /* Kontrastní pozadí */
+        padding: 0; /* Odstranění přebytečného místa */
         margin: 0;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         z-index: 10;
-        box-shadow: none; /* Odstranění stínu, pokud není potřeba */
+    }
+
+    nav.active {
+        display: flex;
     }
 
     nav ul {
-        display: flex; /* Zachování horizontálního zobrazení pro desktop */
-        flex-direction: row;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        background-color: transparent; /* Odstranění pozadí seznamu */
+        flex-direction: column; /* Vertikální zobrazení pro mobilní zařízení */
+        text-align: center;
     }
 
     nav ul li {
-        margin: 0 var(--menu-gap);
-        padding: 0; /* Odstranění přebytečného prostoru */
+        margin: 10px 0; /* Odsazení mezi položkami */
     }
 
     nav ul li a {
+        font-size: 20px;
         color: #fff;
-        text-decoration: none;
-        font-size: 18px;
-        font-weight: bold;
-        transition: color var(--transition-speed) ease;
+        font-weight: bold; /* Tučné písmo */
+        text-transform: none; /* Pouze první písmeno velké */
     }
 
-    nav ul li a:hover {
-        color: var(--highlight-color);
-    }
-
-    /* Hamburger Menu */
     .hamburger {
-        display: none;
-        flex-direction: column;
-        cursor: pointer;
-        z-index: 15;
+        display: flex;
     }
 
-    .hamburger div {
-        background-color: #fff;
-        height: 3px;
-        width: 25px;
-        margin: 4px 0;
-        transition: var(--transition-speed) ease;
+    .hamburger.active div:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
     }
 
-    /* Mobile Styles */
-    @media (max-width: 768px) {
-        nav {
-            display: none;
-            flex-direction: column; /* Pro mobilní zařízení */
-            align-items: center;
-            position: absolute;
-            top: 100%; /* Přímé navázání na navigační lištu */
-            left: 0;
-            width: 100%;
-            background-color: var(--primary-color); /* Kontrastní pozadí */
-            padding: 0; /* Odstranění přebytečného místa */
-            margin: 0;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            z-index: 10;
-        }
-
-        nav.active {
-            display: flex;
-        }
-
-        nav ul {
-            flex-direction: column; /* Vertikální zobrazení pro mobilní zařízení */
-            text-align: center;
-        }
-
-        nav ul li {
-            margin: 10px 0; /* Odsazení mezi položkami */
-        }
-
-        nav ul li a {
-            font-size: 20px;
-            color: #fff;
-            font-weight: bold; /* Tučné písmo */
-            text-transform: none; /* Pouze první písmeno velké */
-        }
-
-        .hamburger {
-            display: flex;
-        }
-
-        .hamburger.active div:nth-child(1) {
-            transform: rotate(-45deg) translate(-5px, 6px);
-        }
-
-        .hamburger.active div:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active div:nth-child(3) {
-            transform: rotate(45deg) translate(-5px, -6px);
-        }
+    .hamburger.active div:nth-child(2) {
+        opacity: 0;
     }
 
+    .hamburger.active div:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
     .container {
         max-width: var(--container-max-width);
         margin: 0 auto;
