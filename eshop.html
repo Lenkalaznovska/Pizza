@@ -17,6 +17,10 @@
         --highlight-color: #e63946; /* Zvýraznění (hover, aktivní prvky) */
         --font-family: 'Arial', sans-serif; /* Výchozí font */
         --container-max-width: 2100px; /* Maximální šířka obsahu */
+        --transition-speed: 0.3s; /* Rychlost přechodu */
+        --logo-size: 60px; /* Velikost loga */
+        --icon-size: 30px; /* Velikost ikon */
+        --menu-gap: 220px; /* Mezera mezi položkami menu */
     }
 
     /* Základní reset a stylování */
@@ -40,7 +44,7 @@
     }
 
     header .logo img {
-        max-height: 50px;
+        max-height: var(--logo-size);
     }
 
     /* Navigation Menu */
@@ -71,7 +75,7 @@
     }
 
     nav ul li {
-        margin: 0 20px; /* Mezera mezi položkami menu */
+        margin: 0 var(--menu-gap);
         padding: 0; /* Odstranění přebytečného prostoru */
     }
 
@@ -80,7 +84,7 @@
         text-decoration: none;
         font-size: 18px;
         font-weight: bold;
-        transition: color 0.3s ease;
+        transition: color var(--transition-speed) ease;
     }
 
     nav ul li a:hover {
@@ -100,7 +104,7 @@
         height: 3px;
         width: 25px;
         margin: 4px 0;
-        transition: 0.3s ease;
+        transition: var(--transition-speed) ease;
     }
 
     /* Mobile Styles */
