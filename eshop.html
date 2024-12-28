@@ -63,8 +63,7 @@ header {
 .logo {
     position: absolute;
     z-index: 15;
-    left: 50%; /* Centrum loga */
-    transform: translateX(-50%); /* Oprava pro centrování */
+    right: 48%;
     border: 2px solid white;
     background-color: transparent;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -74,18 +73,10 @@ header {
     align-items: center;
 }
 
-/* Logo */
-.logo {
-    position: absolute;
-    z-index: 15;
-    right: 48%;
-    border: 2px solid white;
-    background-color: transparent;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 10% 0 10% 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Logo obrázek */
+.logo img {
+    height: var(--logo-size);
+    display: block;
 }
 
 /* Navigační menu */
