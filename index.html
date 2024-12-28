@@ -258,7 +258,7 @@ nav ul li a:hover {
     border-radius: 5px;
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    animation: bounce 2s infinite ease-in-out; /* Add bounce animation */
+    animation: asym-shake 2s infinite ease-in-out; /* Asymmetrical shaking */
 }
 
 .buttons a:hover {
@@ -266,22 +266,33 @@ nav ul li a:hover {
     transform: scale(1.05);
 }
 
-/* Keyframes for the bouncing animation */
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0); /* Original position */
+/* Keyframes for asymmetrical shaking */
+@keyframes asym-shake {
+    0% {
+        transform: rotate(0deg);
     }
-    25% {
-        transform: translateY(-5px); /* Move up */
+    15% {
+        transform: rotate(2deg) translateX(1px);
     }
-    50% {
-        transform: translateY(5px); /* Move down */
+    30% {
+        transform: rotate(-2deg) translateY(1px);
+    }
+    45% {
+        transform: rotate(1deg) translateX(-1px);
+    }
+    60% {
+        transform: rotate(-1deg) translateY(-1px);
     }
     75% {
-        transform: translateY(-5px); /* Move up again */
+        transform: rotate(2deg) translateX(2px);
+    }
+    90% {
+        transform: rotate(-2deg) translateY(2px);
+    }
+    100% {
+        transform: rotate(0deg);
     }
 }
-
        
 /* Section styles (About, Gallery, Contact) */
 section {
