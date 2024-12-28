@@ -40,20 +40,40 @@ body {
     padding: 20px;
 }
 
-    header {
-        background-color: var(--primary-color);
-        color: #fff;
-        padding: 10px 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: relative;
-        z-index: 1000; /* Zajištění, že header bude nad ostatními prvky */
-    }
+/* Navigační lišta */
+header {
+    background-color: rgba(128, 128, 128, 0.3); /* Jemná průhlednost */
+    color: var(--text-color);
+    height: 100px; /* Výška lišty */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
-    header .logo img {
-        max-height: var(--logo-size);
-    }
+/* Logo */
+.logo {
+    position: absolute;
+    z-index: 15;
+    right: 48%;
+    border: 2px solid white;
+    background-color: transparent;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10% 0 10% 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Logo obrázek */
+.logo img {
+    height: var(--logo-size);
+    display: block;
+}
 
     /* Navigation Menu */
     nav {
