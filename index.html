@@ -364,44 +364,63 @@ section p {
     line-height: 1.6;
 }
 
-        /* Recenze */
-        .recenze-section {
-            margin: 40px 0;
-            padding: 20px;
-            border-radius: 8px;
-        }
-        .section-title {
-            text-align: center;
-            font-size: 32px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-        .reviews-container {
-            display: flex;
-            justify-content: center; /* Align items at the center */
-            align-items: flex-start; /* Align items to the top */
-            gap: 10px; /* Reduce the gap between the widgets */
-            flex-wrap: wrap;
-        }
-        .review-widget,
-        .yext-widget {
-            max-width: 300px;
-            text-align: center;
-            display: flex;
-            flex-direction: column; /* Ensure vertical alignment */
-            justify-content: space-between; /* Distribute content evenly */
-            align-items: center;
-            min-height: 180px; /* Set consistent minimum height */
-            box-sizing: border-box; /* Ensure padding doesn't affect dimensions */
-        }
-        .review-img {
-            max-width: 100%;
-            height: auto;
-        }
-        .yext-widget script {
-            width: 100%;
-            max-width: 300px;
-        }
+    /* Recenze */
+.recenze-section {
+    margin: 40px 0;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.reviews-container {
+    display: flex;
+    justify-content: center; /* Center items */
+    align-items: flex-start; /* Align items to the top */
+    gap: 10px; /* Snížení mezery mezi widgety */
+    flex-wrap: wrap;
+}
+
+.review-widget,
+.yext-widget {
+    max-width: 300px;
+    text-align: center;
+    display: flex;
+    flex-direction: column; /* Zajistí vertikální zarovnání */
+    justify-content: space-between; /* Rovnoměrně distribuuje obsah */
+    align-items: center;
+    min-height: 180px; /* Nastavení konzistentní minimální výšky */
+    box-sizing: border-box; /* Zajistí, že padding neovlivní rozměry */
+}
+
+.review-img {
+    max-width: 100%;
+    height: auto;
+}
+
+.yext-widget script {
+    width: 100%;
+    max-width: 300px;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .reviews-container {
+        flex-direction: column; /* Zobrazit widgety pod sebou */
+        gap: 15px; /* Menší mezery mezi widgety */
+    }
+
+    .review-widget,
+    .yext-widget {
+        max-width: 100%; /* Zajistit, že widgety budou mít šířku 100% */
+        min-height: auto; /* Možnost automatického přizpůsobení výšky */
+    }
+}
         
 /* Links for phone and email */
 .contact-link {
