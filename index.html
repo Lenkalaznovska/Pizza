@@ -118,39 +118,21 @@ nav ul li a:hover {
     background: none; /* Zajištění průhlednosti při hover */
 }
 
-/* Reset pro další možné konflikty */
 .nav-links li, .social-icons a {
     background: none; /* Odstranění pozadí */
 }
 
-/* Hamburger Menu */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    z-index: 15;
-}
-
-.hamburger div {
-    background-color: #fff;
-    height: 3px;
-    width: 25px;
-    margin: 4px 0;
-    transition: 0.3s ease;
-}
-
-/* Mobile Styles */
+/* Mobile Styles - změny pro mobilní verze */
 @media (max-width: 768px) {
     /* Centrum loga a ikon sociálních sítí - posunutí loga víc doprava */
     .logo {
         right: 62%;
     }
 
-    /* Centrum ikon sociálních sítí */
+    /* Social Icons - Posunutí na pravou stranu */
     .social-icons {
-        display: flex;
-        justify-content: center;
-        width: 100%;
+        margin-left: auto; /* Posun ikon doprava */
+        padding-right: 20px; /* Přidání odsazení */
     }
 
     nav {
@@ -175,10 +157,11 @@ nav ul li a:hover {
     nav ul {
         flex-direction: column; /* Vertikální zobrazení pro mobilní zařízení */
         text-align: center;
+        padding: 0; /* Odstranění paddingů */
     }
 
     nav ul li {
-        margin: 10px 0; /* Odsazení mezi položkami */
+        margin: 8px 0; /* Snížení mezery mezi položkami */
     }
 
     nav ul li a {
