@@ -81,7 +81,14 @@ nav {
     justify-content: center;
     align-items: center;
     flex: 1;
-    background-color: transparent;
+    background-color: #333; /* Barva pozadí navigační lišty */
+    position: fixed; /* Ukotvení navigační lišty */
+    top: 0;
+    left: 0;
+    width: 100%; /* Navigace pokrývá celou šířku */
+    z-index: 100; /* Navigace bude vždy nahoře */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Jemný stín pod lištou */
+    padding: 10px 0; /* Vnitřní odsazení */
 }
 
 nav ul {
@@ -129,6 +136,8 @@ nav ul li a:hover {
     flex-direction: column;
     cursor: pointer;
     z-index: 15;
+    position: relative;
+    left: 5px; /* Posunutí hamburgeru o 5px k levé straně */
 }
 
 .hamburger div {
@@ -137,6 +146,11 @@ nav ul li a:hover {
     width: 25px;
     margin: 4px 0;
     transition: 0.3s ease;
+}
+
+/* Posunutí ikon sociálních sítí o 15px k levé straně */
+.social-icons {
+    margin-left: 15px; /* Posunutí o 15px k levé straně */
 }
 
 /* Mobile Styles */
@@ -151,6 +165,7 @@ nav ul li a:hover {
         display: flex;
         justify-content: center;
         width: 100%;
+        margin-left: 15px; /* Posunutí o 15px k levé straně */
     }
 
     nav {
@@ -162,7 +177,7 @@ nav ul li a:hover {
         left: 0;
         width: 100%;
         background-color: #333; /* Kontrastní pozadí */
-        padding: 0; /* Odstranění přebytečného místa */
+        padding: 10px 0; /* Odsazení uvnitř menu */
         margin: 0;
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         z-index: 10;
@@ -178,7 +193,7 @@ nav ul li a:hover {
     }
 
     nav ul li {
-        margin: 10px 0; /* Odsazení mezi položkami */
+        margin: 5px 0; /* Zmenšené odsazení mezi položkami */
     }
 
     nav ul li a {
