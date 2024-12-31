@@ -364,11 +364,15 @@ section p {
     line-height: 1.6;
 }
 
-    /* Recenze */
+/* Recenze */
 .recenze-section {
     margin: 40px 0;
     padding: 20px;
     border-radius: 8px;
+    display: flex;
+    flex-direction: column; /* Vertikální zobrazení pro celý kontejner */
+    align-items: center; /* Vycentrování na střed */
+    justify-content: center; /* Vycentrování na střed */
 }
 
 .section-title {
@@ -380,10 +384,11 @@ section p {
 
 .reviews-container {
     display: flex;
-    justify-content: center; /* Center items */
-    align-items: flex-start; /* Align items to the top */
-    gap: 10px; /* Snížení mezery mezi widgety */
+    justify-content: center; /* Centrum položek horizontálně */
+    align-items: center; /* Centrum položek vertikálně */
+    gap: 5px; /* Zmenšení mezery mezi widgety */
     flex-wrap: wrap;
+    width: 100%; /* Zajistíme, že bude mít šířku celého kontejneru */
 }
 
 .review-widget,
@@ -392,9 +397,9 @@ section p {
     text-align: center;
     display: flex;
     flex-direction: column; /* Zajistí vertikální zarovnání */
-    justify-content: space-between; /* Rovnoměrně distribuuje obsah */
+    justify-content: space-between; /* Rovnoměrné rozložení obsahu */
     align-items: center;
-    min-height: 180px; /* Nastavení konzistentní minimální výšky */
+    min-height: 180px; /* Minimální výška widgetu */
     box-sizing: border-box; /* Zajistí, že padding neovlivní rozměry */
 }
 
