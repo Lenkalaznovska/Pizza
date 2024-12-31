@@ -218,29 +218,6 @@ nav ul li a:hover {
     }
 }
 
-/* Ukotvení navigační lišty, aby text byl pod ní při scrollování */
-header {
-    background-color: rgba(128, 128, 128, 0.3); /* Jemná průhlednost */
-    color: var(--text-color);
-    height: 100px; /* Zvýšená výška navigační lišty */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    width: 100%; /* Zmenšení šířky navigační lišty na 80% šířky stránky */
-    left: 50%;
-    transform: translateX(-50%); /* Centrovat navigační lištu na stránku */
-    z-index: 10;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 0 10px; /* Aby se obsah lišty přizpůsobil */
-}
-
-/* Udržení obsahu pod navigační lištou */
-body {
-    padding-top: 100px; /* Zajištění, že obsah není zakryt navigační lištou */
-}
-
 /* Sociální ikony */
 .social-icons {
     display: flex;
