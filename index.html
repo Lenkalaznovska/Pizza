@@ -90,6 +90,7 @@ nav {
 nav ul {
     display: flex;
     list-style: none;
+    gap: var(--menu-gap);
 }
 
 nav ul li a {
@@ -151,7 +152,6 @@ nav ul li a:hover {
     /* Centrum ikon sociálních sítí */
     .social-icons {
         display: flex;
-        padding-left: 40px;
         justify-content: center;
         width: 100%;
     }
@@ -176,8 +176,9 @@ nav ul li a:hover {
     }
 
     nav ul {
-        flex-direction: column; /* Vertical menu for mobile */
+        flex-direction: column; /* Vertikální zobrazení pro mobilní zařízení */
         text-align: center;
+    }
 
     nav ul li {
         margin: 10px 0; /* Odsazení mezi položkami */
