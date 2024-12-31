@@ -81,7 +81,14 @@ nav {
     justify-content: center;
     align-items: center;
     flex: 1;
-    background-color: transparent;
+    background-color: #333; /* Barva pozadí navigační lišty */
+    position: fixed; /* Ukotvení navigační lišty */
+    top: 0;
+    left: 0;
+    width: 100%; /* Navigace pokrývá celou šířku */
+    z-index: 100; /* Navigace bude vždy nahoře */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Jemný stín pod lištou */
+    padding: 10px 0; /* Vnitřní odsazení */
 }
 
 nav ul {
@@ -143,7 +150,7 @@ nav ul li a:hover {
 
 /* Posunutí ikon sociálních sítí o 15px k levé straně */
 .social-icons {
-    margin-right: 25px; /* Posunutí o 15px k levé straně */
+    margin-left: 25px; /* Posunutí o 15px k levé straně */
 }
 
 /* Mobile Styles */
