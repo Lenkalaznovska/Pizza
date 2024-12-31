@@ -78,26 +78,6 @@ header {
     padding: 0 10px; /* Aby se obsah lišty přizpůsobil */
 }
 
-/* Logo */
-.logo {
-    position: absolute;
-    z-index: 15;
-    right: 48%;
-    border: 2px solid white;
-    background-color: transparent;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 10% 0 10% 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Logo obrázek */
-.logo img {
-    height: var(--logo-size);
-    display: block;
-}
-
 /* Navigation Menu */
 nav {
     display: flex;
@@ -110,7 +90,6 @@ nav {
 nav ul {
     display: flex;
     list-style: none;
-    gap: var(--menu-gap);
 }
 
 nav ul li a {
@@ -199,7 +178,6 @@ nav ul li a:hover {
     nav ul {
         flex-direction: column; /* Vertical menu for mobile */
         text-align: center;
-        gap: 10px; /* Reduced gap between items */
 
     nav ul li {
         margin: 10px 0; /* Odsazení mezi položkami */
