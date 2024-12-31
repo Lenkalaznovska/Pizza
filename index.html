@@ -76,7 +76,6 @@ header {
 }
 
 /* Navigation Menu */
-/* Navigation Menu */
 nav {
     display: flex;
     justify-content: center;
@@ -142,28 +141,19 @@ nav ul li a:hover {
 
 /* Mobile Styles */
 @media (max-width: 768px) {
-    /* Logo posunuté více vlevo */
+    /* Centrum loga a ikon sociálních sítí - posunutí loga víc doprava */
     .logo {
-        margin-left: 10px; /* Menší mezera pro logo */
+        right: 62%;
     }
 
-    /* Ikony sociálních sítí ve středu celé stránky */
+    /* Centrum ikon sociálních sítí */
     .social-icons {
         display: flex;
-        justify-content: center;
+        justify-content: flex-end;  /* Align icons to the right */
         width: 100%;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%); /* Vycentrování ikonek */
+        margin-right: 20px;  /* Shift icons 20px to the right */
     }
 
-    /* Hamburger Menu - posun vpravo */
-    .hamburger {
-        margin-right: 10px; /* Posun hamburgeru do pravého rohu */
-        display: flex;
-    }
-
-    /* Centrum navigace a odstranění velkých paddingů mezi položkami */
     nav {
         display: none;
         flex-direction: column; /* Pro mobilní zařízení */
@@ -186,11 +176,12 @@ nav ul li a:hover {
     nav ul {
         flex-direction: column; /* Vertikální zobrazení pro mobilní zařízení */
         text-align: center;
-        padding: 0; /* Odstranění paddingů */
+        padding: 0;  /* Remove extra padding in the menu */
     }
 
     nav ul li {
-        margin: 5px 0; /* Méně mezery mezi položkami */
+        margin: 10px 0; /* Odsazení mezi položkami */
+        padding: 0;  /* Remove padding from list items */
     }
 
     nav ul li a {
@@ -198,6 +189,10 @@ nav ul li a:hover {
         color: #fff;
         font-weight: bold; /* Tučné písmo */
         text-transform: none; /* Pouze první písmeno velké */
+    }
+
+    .hamburger {
+        display: flex;
     }
 
     .hamburger.active div:nth-child(1) {
