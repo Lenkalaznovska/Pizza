@@ -80,22 +80,19 @@ header {
     display: block;
 }
 
-/* Navigační menu */
+/* Navigation Menu */
 nav {
     display: flex;
     justify-content: center;
     align-items: center;
     flex: 1;
     background-color: transparent;
-    width: 100%; /* Zajištění, že menu je stejně široké jako iframe */
 }
 
 nav ul {
     display: flex;
     list-style: none;
     gap: var(--menu-gap);
-    width: 100%;
-    justify-content: center;
 }
 
 nav ul li a {
@@ -126,12 +123,19 @@ nav ul li a:hover {
     background: none; /* Zajištění průhlednosti při hover */
 }
 
+/* Reset pro další možné konflikty */
+.nav-links li, .social-icons a {
+    background: none; /* Odstranění pozadí */
+}
+
 /* Hamburger Menu */
 .hamburger {
     display: none;
     flex-direction: column;
     cursor: pointer;
     z-index: 15;
+    position: relative; /* Nastaveno pro posunutí */
+    left: 5px; /* Posun o 5px k levé straně */
 }
 
 .hamburger div {
@@ -142,12 +146,16 @@ nav ul li a:hover {
     transition: 0.3s ease;
 }
 
-/* Responzivní úpravy pro mobilní zařízení */
+/* Ikony sociálních sítí - posun o 15px k levé straně */
+.social-icons {
+    margin-left: 15px; /* Posunutí o 15px k levé straně */
+}
+
+/* Mobile Styles */
 @media (max-width: 768px) {
     /* Centrum loga a ikon sociálních sítí - posunutí loga víc doprava */
     .logo {
-        left: 50%;
-        transform: translateX(-50%);
+        right: 62%;
     }
 
     /* Centrum ikon sociálních sítí */
@@ -155,16 +163,7 @@ nav ul li a:hover {
         display: flex;
         justify-content: center;
         width: 100%;
-    }
-
-    header {
-        width: 100%; /* Pro mobilní zařízení zmenšíme šířku navigační lišty */
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    #objednavky iframe {
-        width: 90%; /* Zajistí, že iframe bude stejně široký jako navigační lišta */
+        margin-left: 15px; /* Posunutí o 15px k levé straně */
     }
 
     nav {
@@ -217,6 +216,29 @@ nav ul li a:hover {
     .hamburger.active div:nth-child(3) {
         transform: rotate(45deg) translate(-5px, -6px);
     }
+}
+
+/* Ukotvení navigační lišty, aby text byl pod ní při scrollování */
+header {
+    background-color: rgba(128, 128, 128, 0.3); /* Jemná průhlednost */
+    color: var(--text-color);
+    height: 100px; /* Zvýšená výška navigační lišty */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%; /* Zmenšení šířky navigační lišty na 80% šířky stránky */
+    left: 50%;
+    transform: translateX(-50%); /* Centrovat navigační lištu na stránku */
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 0 10px; /* Aby se obsah lišty přizpůsobil */
+}
+
+/* Udržení obsahu pod navigační lištou */
+body {
+    padding-top: 100px; /* Zajištění, že obsah není zakryt navigační lištou */
 }
 
 /* Sociální ikony */
