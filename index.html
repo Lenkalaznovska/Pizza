@@ -412,18 +412,18 @@ section ul {
 section ul li {
     margin-bottom: 15px; /* Mezera mezi položkami */
     position: relative;
-    padding-left: 5px; /* Zmenšení prostoru pro šipku */
+    padding-left: 20px; /* Mírně zvětšit prostor pro šipku */
     font-size: 18px;
     color: #333; /* Barva textu */
     font-weight: normal;
-    text-align: center; /* Text v položkách zarovnaný na střed */
+    text-align: left; /* Text v položkách zarovnaný vlevo */
 }
 
 /* Šipky vedle textu */
 section ul li::before {
     content: "➤"; /* Šipka jako odrážka */
     position: absolute;
-    left: 0;
+    left: 0; /* Posun šipky přímo k levé straně */
     color: #e63946; /* Červená barva šipky ladí s nadpisy */
     font-size: 20px; /* Velikost šipky */
     font-weight: bold;
