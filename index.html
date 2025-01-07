@@ -412,23 +412,21 @@ section ul {
 section ul li {
     margin-bottom: 15px; /* Mezera mezi položkami */
     position: relative;
-    padding-left: 25px; /* Větší prostor pro šipku a text (5px mezi šipkou a textem) */
+    display: flex; /* Použití flexboxu pro zarovnání šipky a textu */
+    align-items: center; /* Vertikální zarovnání šipky a textu */
     font-size: 18px;
     color: #333; /* Barva textu */
     font-weight: normal;
-    text-align: center; /* Text zarovnaný na střed */
+    text-align: left; /* Zarovnání textu vlevo */
 }
 
 /* Šipky vedle textu */
 section ul li::before {
     content: "➤"; /* Šipka jako odrážka */
-    position: absolute;
-    left: 0; /* Šipka přímo u levé strany */
     color: #e63946; /* Červená barva šipky ladí s nadpisy */
     font-size: 20px; /* Velikost šipky */
     font-weight: bold;
-    top: 50%; /* Vertikální zarovnání šipky k textu */
-    transform: translateY(-50%); /* Dokonalé vertikální vycentrování */
+    margin-right: 5px; /* Mezera mezi šipkou a textem */
 }
 
 /* Zvýrazněný text (strong) */
