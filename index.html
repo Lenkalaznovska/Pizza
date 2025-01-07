@@ -419,7 +419,7 @@ section ul li {
     text-align: center; /* Text v položkách zarovnaný na střed */
 }
 
-/* Šipky ladící s textem */
+/* Šipky vedle textu */
 section ul li::before {
     content: "➤"; /* Šipka jako odrážka */
     position: absolute;
@@ -427,6 +427,8 @@ section ul li::before {
     color: #e63946; /* Červená barva šipky ladí s nadpisy */
     font-size: 20px; /* Velikost šipky */
     font-weight: bold;
+    top: 50%; /* Vertikální zarovnání šipky k textu */
+    transform: translateY(-50%); /* Dokonalé vertikální vycentrování */
 }
 
 /* Zvýrazněný text (strong) */
@@ -434,25 +436,6 @@ section p strong,
 section ul li strong {
     color: #e63946; /* Shodná barva jako nadpisy */
     font-weight: bold;
-}
-
-/* Tlačítka */
-section button {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #e63946;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-section button:hover {
-    background-color: #d62828; /* Ztmavená červená při najetí */
 }
 
 /* Recenze */
