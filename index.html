@@ -363,22 +363,6 @@ nav ul li a:hover {
     }
 }
        
-/* Obecné stylování sekcí */
-section {
-    background: #fff;
-    padding: 40px 20px;
-    margin: 20px 0;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    text-align: center; /* Zarovnání textu na střed */
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-section:hover {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    transform: translateY(-5px);
-}
-
 /* Nadpisy uvnitř sekcí */
 section h2 {
     font-size: 36px;
@@ -397,6 +381,9 @@ section p {
     margin: 15px 0;
     text-align: justify; /* Zarovnání textu do bloku */
     margin-bottom: 15px; /* Mezera mezi odstavci */
+    max-width: 900px; /* Maximální šířka pro lepší čitelnost */
+    margin-left: auto; /* Vycentrování sekce */
+    margin-right: auto; /* Vycentrování sekce */
 }
 
 /* Seznamy (ul) */
@@ -404,8 +391,10 @@ section ul {
     margin: 20px auto;
     padding: 0;
     list-style-type: none;
-    text-align: left; /* Seznamy zarovnané na střed */
+    text-align: left; /* Seznamy zarovnané vlevo */
     max-width: 750px; /* Omezení šířky seznamů */
+    margin-left: auto; /* Vycentrování seznamu */
+    margin-right: auto; /* Vycentrování seznamu */
 }
 
 section ul li {
