@@ -370,7 +370,7 @@ section {
     margin: 20px 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    text-align: center; /* Zarovnání textu na střed */
+    text-align: center;
     transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
@@ -383,7 +383,7 @@ section:hover {
 section h2 {
     font-size: 32px;
     margin-bottom: 20px;
-    color: #e63946; /* výrazná červená barva */
+    color: #e63946;
     font-family: 'Arial', sans-serif;
     font-weight: bold;
 }
@@ -394,46 +394,49 @@ section p {
     color: #333;
     line-height: 1.6;
     margin: 10px 0;
-    text-align: center; /* Zarovnání na střed */
+    text-align: center;
 }
 
 /* Stylování seznamů (ul) */
 section ul {
-    margin: 20px auto; /* Vertikální mezera a zarovnání na střed */
-    padding: 0; /* Odstranění standardního odsazení */
-    list-style-type: none; /* Skryje standardní odrážky */
-    text-align: left; /* Zarovnání na levou stranu pro lepší čitelnost */
+    margin: 20px auto;
+    padding: 0;
+    list-style-type: none;
+    text-align: left;
 }
 
 /* Položky v seznamu (li) */
 section ul li {
-    margin-bottom: 10px; /* Mezera mezi položkami */
+    margin-bottom: 10px;
     position: relative;
-    padding-left: 25px; /* Prostor pro vlastní odrážku */
+    padding-left: 35px; /* Prostor pro novou odrážku */
+    font-size: 18px;
+    font-weight: normal;
 }
 
+/* Nová stylizace pro šipky */
 section ul li::before {
-    content: "➤"; /* Vlastní odrážka (šipka) */
+    content: "▶"; /* Nová šipka jako odrážka */
     position: absolute;
-    left: 0;
-    color: #e63946; /* Barva odrážky */
-    font-size: 18px;
+    left: 10px; /* Upravená pozice šipky */
+    color: #f1a3a3; /* Jemnější červená */
+    font-size: 20px; /* Velikost šipky */
     font-weight: bold;
 }
 
 /* Zvýrazněný text (strong) */
 section p strong,
 section ul li strong {
-    color: #e63946; /* Shodná barva jako nadpisy */
+    color: #e63946;
     font-weight: bold;
 }
 
-/* Tlačítka (volitelné) */
+/* Tlačítka */
 section button {
     display: inline-block;
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: #e63946; /* Barva tlačítka */
+    background-color: #e63946;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -444,7 +447,7 @@ section button {
 }
 
 section button:hover {
-    background-color: #d62828; /* Ztmavená červená při najetí */
+    background-color: #d62828;
 }
 
 /* Recenze */
