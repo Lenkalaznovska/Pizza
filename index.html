@@ -363,7 +363,7 @@ nav ul li a:hover {
     }
 }
        
-/* Section styles (About, Gallery, Contact) */
+/* Obecné stylování sekcí */
 section {
     background: #fff;
     padding: 40px 20px;
@@ -379,20 +379,63 @@ section:hover {
     transform: translateY(-5px);
 }
 
-/* Headings inside sections */
+/* Nadpisy uvnitř sekcí */
 section h2 {
     font-size: 32px;
     margin-bottom: 20px;
-    color: #e63946;
+    color: #e63946; /* výrazná červená barva */
     font-family: 'Arial', sans-serif;
     font-weight: bold;
 }
 
-/* Text inside sections */
+/* Odstavce uvnitř sekcí */
 section p {
     font-size: 16px;
     color: #333;
     line-height: 1.6;
+    margin: 10px 0;
+}
+
+/* Stylování seznamů (ul) */
+section ul {
+    margin: 20px 0;
+    padding-left: 40px; /* Odsazení pro odrážky */
+    list-style-type: disc; /* Klasické odrážky */
+    color: #333; /* Barva textu seznamu */
+    font-size: 16px;
+    line-height: 1.6; /* Pohodlné čtení textu */
+    text-align: left; /* Zarovnání doleva pro přehlednost */
+}
+
+/* Položky v seznamu (li) */
+section ul li {
+    margin-bottom: 10px; /* Mezera mezi položkami */
+}
+
+/* Zvýrazněný text (strong) */
+section p strong,
+section ul li strong {
+    color: #e63946; /* Shodná barva jako nadpisy */
+    font-weight: bold;
+}
+
+/* Obecné pro tlačítka (pokud by bylo potřeba) */
+section button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #e63946; /* Barva tlačítka */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+section button:hover {
+    background-color: #d62828; /* Ztmavená červená při najetí */
 }
 
 /* Recenze */
