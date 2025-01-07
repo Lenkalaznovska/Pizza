@@ -374,6 +374,7 @@ section {
     transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
+/* Efekt při najetí myší na sekci */
 section:hover {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     transform: translateY(-5px);
@@ -386,6 +387,7 @@ section h2 {
     color: #e63946; /* Výrazná červená barva */
     font-family: 'Arial', sans-serif;
     font-weight: bold;
+    text-align: center; /* Zarovnání nadpisu na střed */
 }
 
 /* Odstavce uvnitř sekcí */
@@ -403,8 +405,6 @@ section ul {
     padding: 0;
     list-style-type: none;
     text-align: center; /* Seznamy zarovnané na střed */
-    margin-left: auto;
-    margin-right: auto;
 }
 
 /* Položky v seznamu (li) */
@@ -412,11 +412,12 @@ section ul li {
     margin-bottom: 15px; /* Mezera mezi položkami */
     position: relative;
     display: flex; /* Použití flexboxu pro zarovnání šipky a textu */
+    justify-content: center; /* Zarovnání položek seznamu na střed */
     align-items: center; /* Vertikální zarovnání šipky a textu */
     font-size: 18px;
     color: #333; /* Barva textu */
     font-weight: normal;
-    text-align: left; /* Zarovnání textu vlevo */
+    text-align: center; /* Zarovnání textu na střed */
 }
 
 /* Zvýrazněný text (strong) */
