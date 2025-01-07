@@ -402,24 +402,28 @@ section ul {
     margin: 20px auto;
     padding: 0;
     list-style-type: none;
-    text-align: center; /* Seznamy jsou vycentrovány */
+    text-align: left; /* Seznamy jsou zarovnané na levé straně pro lepší čitelnost */
+    max-width: 800px; /* Max šířka pro lepší čitelnost */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Položky v seznamu (li) */
 section ul li {
-    margin-bottom: 10px;
+    margin-bottom: 15px; /* Mezera mezi položkami */
     position: relative;
     padding-left: 35px; /* Prostor pro vlastní odrážku */
     font-size: 18px;
+    color: #333; /* Barva textu */
     font-weight: normal;
 }
 
 /* Šipky ladící s textem */
 section ul li::before {
-    content: "▶"; /* Nová šipka jako odrážka */
+    content: "➤"; /* Šipka jako odrážka */
     position: absolute;
-    left: 10px; /* Upravená pozice šipky */
-    color: #333; /* Barva šipky ladí s barvou textu */
+    left: 0;
+    color: #e63946; /* Červená barva šipky ladí s nadpisy */
     font-size: 20px; /* Velikost šipky */
     font-weight: bold;
 }
