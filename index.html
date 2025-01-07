@@ -402,7 +402,7 @@ section ul {
     margin: 20px auto; /* Vertikální mezera a zarovnání na střed */
     padding: 0; /* Odstranění standardního odsazení */
     list-style-type: none; /* Skryje standardní odrážky */
-    text-align: center; /* Zarovnání na střed */
+    text-align: left; /* Zarovnání na levou stranu pro lepší čitelnost */
 }
 
 /* Položky v seznamu (li) */
@@ -413,11 +413,12 @@ section ul li {
 }
 
 section ul li::before {
-    content: "•"; /* Vlastní odrážka (kulka) */
+    content: "➤"; /* Vlastní odrážka (šipka) */
     position: absolute;
     left: 0;
     color: #e63946; /* Barva odrážky */
     font-size: 18px;
+    font-weight: bold;
 }
 
 /* Zvýrazněný text (strong) */
@@ -763,33 +764,30 @@ footer {
     </div>
 </div>
     
-<!-- Sekce O nás -->
 <section id="onas">
     <div class="container">
         <h2>O nás</h2>
         <p><strong>Naše pizza, náš originál!</strong></p>
         <p>Zapomeňte na srovnávání – my nejsme „jen další pizzerie“. Naše pizzy jsou jedinečné a pečeme je s vášní:</p>
-        <ul>
+        <ul class="pizza-list">
             <li>Pečeme ve speciálních formách, které dodávají těstu dokonalý tvar a strukturu.</li>
             <li>Používáme poctivé kynuté těsto – nadýchané, měkké uvnitř a na okrajích křupavé.</li>
             <li>Zasypané sýrem, který tvoří bohatou vrstvu plnou chuti.</li>
             <li>Každá pizza je bohatě obložená čerstvými a kvalitními ingrediencemi.</li>
         </ul>
-        <p>Toto není jen pizza, toto je zážitek, který vás přenese do světa chutí, jaký jinde nenajdete.</p>
-        <p><strong>Již od roku 1994</strong></p>
-        <p>Kromě pizzy nabízíme i další speciality, které si zamilujete:</p>
-        <ul>
+        <p><strong>Vybírejte z 56 druhů pizzy, nebo si sestavte svou vlastní!</strong></p>
+        <p>Pizzu nabízíme ve čtyřech velikostech:</p>
+        <ul class="pizza-sizes">
+            <li>Dětská (18 cm)</li>
+            <li>Malá (24 cm)</li>
+            <li>Velká (28 cm)</li>
+            <li>Maxi (40 cm)</li>
+        </ul>
+        <p><strong>Další speciality, které si zamilujete:</strong></p>
+        <ul class="specialties-list">
             <li><strong>Burgry „Burgry jako kráva“</strong> – šťavnaté a plné chuti, které jsou legendární.</li>
             <li><strong>Zapečené těstoviny</strong> – přímo z pece.</li>
             <li><strong>Čerstvé saláty</strong> – pestré, plné vitamínů a možností přizpůsobení podle vašeho gusta.</li>
-        </ul>
-        <p><strong>Vybírejte z 56 druhů pizzy, nebo si sestavte svou vlastní!</strong></p>
-        <p>Pizzu nabízíme ve čtyřech velikostech:</p>
-        <ul>
-            <li><strong>Dětská (18 cm)</strong></li>
-            <li><strong>Malá (24 cm)</strong></li>
-            <li><strong>Velká (28 cm)</strong></li>
-            <li><strong>Maxi (40 cm)</strong></li>
         </ul>
         <p>Každé jídlo připravujeme s láskou a péčí. Přijďte ochutnat a zažít nezapomenutelný gurmánský zážitek!</p>
     </div>
