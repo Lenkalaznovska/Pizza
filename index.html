@@ -370,7 +370,7 @@ section {
     margin: 20px 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    text-align: center;
+    text-align: center; /* Zarovnání textu na střed */
     transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
@@ -394,22 +394,30 @@ section p {
     color: #333;
     line-height: 1.6;
     margin: 10px 0;
+    text-align: center; /* Zarovnání na střed */
 }
 
 /* Stylování seznamů (ul) */
 section ul {
-    margin: 20px 0;
-    padding-left: 40px; /* Odsazení pro odrážky */
-    list-style-type: disc; /* Klasické odrážky */
-    color: #333; /* Barva textu seznamu */
-    font-size: 16px;
-    line-height: 1.6; /* Pohodlné čtení textu */
-    text-align: left; /* Zarovnání doleva pro přehlednost */
+    margin: 20px auto; /* Vertikální mezera a zarovnání na střed */
+    padding: 0; /* Odstranění standardního odsazení */
+    list-style-type: none; /* Skryje standardní odrážky */
+    text-align: center; /* Zarovnání na střed */
 }
 
 /* Položky v seznamu (li) */
 section ul li {
     margin-bottom: 10px; /* Mezera mezi položkami */
+    position: relative;
+    padding-left: 25px; /* Prostor pro vlastní odrážku */
+}
+
+section ul li::before {
+    content: "•"; /* Vlastní odrážka (kulka) */
+    position: absolute;
+    left: 0;
+    color: #e63946; /* Barva odrážky */
+    font-size: 18px;
 }
 
 /* Zvýrazněný text (strong) */
@@ -419,7 +427,7 @@ section ul li strong {
     font-weight: bold;
 }
 
-/* Obecné pro tlačítka (pokud by bylo potřeba) */
+/* Tlačítka (volitelné) */
 section button {
     display: inline-block;
     margin-top: 20px;
