@@ -374,7 +374,6 @@ section {
     transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-/* Efekt při najetí myší na sekci */
 section:hover {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     transform: translateY(-5px);
@@ -382,7 +381,7 @@ section:hover {
 
 /* Nadpisy uvnitř sekcí */
 section h2 {
-    font-size: 32px;
+    font-size: 36px;
     margin-bottom: 20px;
     color: #e63946; /* Výrazná červená barva */
     font-family: 'Arial', sans-serif;
@@ -392,32 +391,30 @@ section h2 {
 
 /* Odstavce uvnitř sekcí */
 section p {
-    font-size: 16px;
+    font-size: 18px;
     color: #333;
-    line-height: 1.6;
-    margin: 10px 0;
+    line-height: 1.8;
+    margin: 15px 0;
     text-align: center; /* Zarovnání textu na střed */
 }
 
-/* Stylování seznamů (ul) */
+/* Seznamy (ul) */
 section ul {
     margin: 20px auto;
     padding: 0;
     list-style-type: none;
-    text-align: center; /* Seznamy zarovnané na střed */
+    text-align: left; /* Seznamy zarovnané na střed */
+    max-width: 800px; /* Omezení šířky seznamů */
 }
 
-/* Položky v seznamu (li) */
 section ul li {
-    margin-bottom: 15px; /* Mezera mezi položkami */
+    margin-bottom: 10px; /* Mezera mezi položkami */
     position: relative;
-    display: flex; /* Použití flexboxu pro zarovnání šipky a textu */
-    justify-content: center; /* Zarovnání položek seznamu na střed */
-    align-items: center; /* Vertikální zarovnání šipky a textu */
     font-size: 18px;
-    color: #333; /* Barva textu */
+    color: #333;
     font-weight: normal;
-    text-align: center; /* Zarovnání textu na střed */
+    padding-left: 30px; /* Přidání odsazení pro položky seznamu */
+    line-height: 1.5;
 }
 
 /* Zvýrazněný text (strong) */
