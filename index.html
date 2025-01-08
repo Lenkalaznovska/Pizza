@@ -859,6 +859,19 @@ function updateSliderPosition() {
     const newTransformValue = `translateX(-${currentSlide * 100}%)`;
     document.querySelector('.slides').style.transform = newTransformValue;
 }
+
+    // Ztmavení navigační lišty
+    document.addEventListener("scroll", () => {
+        const header = document.querySelector("header");
+        const mainImage = document.querySelector(".main-image");
+
+        if (window.scrollY > mainImage.offsetHeight) {
+            header.classList.add("scrolled");
+        } else {
+            header.classList.remove("scrolled");
+        }
+    });
+    
 // Automatické posouvání každých 4 sekundy
 setInterval(nextSlide, 4000);
 // Galerie
