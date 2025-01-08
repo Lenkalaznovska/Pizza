@@ -72,8 +72,25 @@ header {
 }
 
 /* Logo */
+.logo {
+    position: absolute;
+    z-index: 15;
+    right: 48%; /* Posunuto doprava o 48%, nyní posuneme o 20px víc vlevo */
+    border: 2px solid white;
+    background-color: transparent;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10% 0 10% 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px; /* Upravíme padding pro správné orámování */
+    box-sizing: border-box; /* Aby padding neovlivňoval šířku a výšku */
+}
+
+/* Logo obrázek */
 .logo img {
-    height: 60px;
+    height: var(--logo-size);
+    display: block;
 }
 
 /* Navigation Menu */
@@ -126,6 +143,10 @@ nav ul li a:hover {
     flex-direction: column;
     cursor: pointer;
     z-index: 15;
+    position: fixed; /* Ukotvení na začátku stránky */
+    top: 80px; /* Posunuto dolů pod navigační lištu */
+    right: 20px; /* Umístění hamburger menu 20px od pravého okraje */
+    padding: 10px;
 }
 
 .hamburger div {
@@ -143,7 +164,7 @@ nav ul li a:hover {
         flex-direction: column; /* Pro mobilní zařízení */
         align-items: center;
         position: absolute;
-        top: 100%; /* Přímé navázání na navigační lištu */
+         top: 0;
         left: 0;
         width: 100%;
         background-color: #333; /* Kontrastní pozadí */
@@ -152,6 +173,19 @@ nav ul li a:hover {
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         z-index: 10;
     }
+
+    /* Centrum loga a ikon sociálních sítí - posunutí loga o 20px víc vlevo */
+    .logo {
+        right: 28%; /* Posunuto o 20px více doleva */
+    }
+
+    /* Centrum ikon sociálních sítí */
+    .social-icons {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
 
     nav.active {
         display: flex;
