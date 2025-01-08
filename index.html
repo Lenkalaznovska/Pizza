@@ -340,7 +340,7 @@ section h2 {
     margin-bottom: 20px;
     color: var(--primary-color);
     font-weight: bold;
-    text-align: center;
+    text-align: center; /* Nadpisy jsou již na střed */
 }
 
 /* Odstavce uvnitř sekcí */
@@ -349,15 +349,15 @@ section p {
     color: var(--secondary-color);
     line-height: 1.8;
     margin: 15px 0;
-    text-align: justify;
+    text-align: center; /* Text uvnitř sekcí je nyní zarovnaný na střed */
 }
-        
+
 /* Seznamy (ul) */
 section ul {
     margin: 20px auto;
     padding: 0;
     list-style-type: none;
-    text-align: left;
+    text-align: center; /* Seznamy budou zarovnané na střed */
     max-width: 750px;
 }
 
@@ -378,11 +378,12 @@ section ul li strong {
     font-weight: bold;
 }
 
+/* Efekt při najetí na sekci */
 section:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
-
+        
 /* Recenze */
 .recenze-section {
     margin: 40px 0;
