@@ -38,7 +38,8 @@
     <meta name="author" content="Pizzerie San Marino">
 </head>
 
-<style>
+    <style>
+/* Global Variables */
 :root {
     --primary-color: #e63946;
     --secondary-color: #333;
@@ -50,6 +51,7 @@
     --icon-size: 30px;
     --menu-gap: 220px;
 }
+
 
 /* Reset */
 * {
@@ -85,7 +87,6 @@ body {
     align-items: center;
 }
 
-/* Logo obrázek */
 .logo img {
     height: var(--logo-size);
     display: block;
@@ -93,20 +94,20 @@ body {
 
 /* Navigační lišta */
 header {
-    background-color: rgba(128, 128, 128, 0.3); /* Jemná průhlednost */
+    background-color: rgba(128, 128, 128, 0.3);
     color: var(--text-color);
-    height: 100px; /* Zvýšená výška navigační lišty */
+    height: 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: fixed;
     top: 0;
-    width: 100%; /* Zmenšení šířky navigační lišty na 80% šířky stránky */
+    width: 100%;
     left: 50%;
-    transform: translateX(-50%); /* Centrovat navigační lištu na stránku */
+    transform: translateX(-50%);
     z-index: 10;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 0 10px; /* Aby se obsah lišty přizpůsobil */
+    padding: 0 10px;
 }
 
 /* Navigation Menu */
@@ -137,24 +138,19 @@ nav ul li a:hover {
 }
 
 .nav-links, .social-icons {
-    background: none; /* Odstranění pozadí */
+    background: none;
     color: inherit;
     display: flex;
     align-items: center;
 }
 
 .nav-links li a, .social-icons a img {
-    background: none; /* Odstranění pozadí */
+    background: none;
     color: inherit;
 }
 
 .nav-links li a:hover, .social-icons a:hover img {
-    background: none; /* Zajištění průhlednosti při hover */
-}
-
-/* Reset pro další možné konflikty */
-.nav-links li, .social-icons a {
-    background: none; /* Odstranění pozadí */
+    background: none;
 }
 
 /* Hamburger Menu */
@@ -175,12 +171,10 @@ nav ul li a:hover {
 
 /* Mobile Styles */
 @media (max-width: 768px) {
-    /* Centrum loga a ikon sociálních sítí - posunutí loga víc doprava */
     .logo {
         right: 62%;
     }
 
-    /* Centrum ikon sociálních sítí */
     .social-icons {
         display: flex;
         justify-content: center;
@@ -190,14 +184,14 @@ nav ul li a:hover {
 
     nav {
         display: none;
-        flex-direction: column; /* Pro mobilní zařízení */
+        flex-direction: column;
         align-items: center;
         position: absolute;
-        top: 100%; /* Přímé navázání na navigační lištu */
+        top: 100%;
         left: 0;
         width: 100%;
-        background-color: #333; /* Kontrastní pozadí */
-        padding: 0; /* Odstranění přebytečného místa */
+        background-color: #333;
+        padding: 0;
         margin: 0;
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         z-index: 10;
@@ -208,20 +202,19 @@ nav ul li a:hover {
     }
 
     nav ul {
-        flex-direction: column; /* Vertikální zobrazení pro mobilní zařízení */
+        flex-direction: column;
         text-align: center;
-        gap: 15px; /* Zmenšení mezery mezi položkami */
+        gap: 15px;
     }
 
     nav ul li {
-        margin: 0; /* Odstranění odsazení mezi položkami */
+        margin: 0;
     }
 
     nav ul li a {
         font-size: 20px;
         color: #fff;
-        font-weight: bold; /* Tučné písmo */
-        text-transform: none; /* Pouze první písmeno velké */
+        font-weight: bold;
     }
 
     .hamburger {
@@ -240,12 +233,12 @@ nav ul li a:hover {
         transform: rotate(45deg) translate(-5px, -6px);
     }
 }
-    
+
 /* Slider */
 .slider {
     position: relative;
     width: 100%;
-    height: calc(100vh - 30px); /* Výška celé obrazovky minus navigační lišta */
+    height: calc(100vh - 30px);
     overflow: hidden;
 }
 
@@ -280,9 +273,9 @@ nav ul li a:hover {
 .buttons {
     display: flex;
     justify-content: center;
-    align-items: center; /* Center the buttons horizontally */
-    flex-direction: column; /* Stack the buttons vertically */
-    gap: 20px; /* Space between the buttons */
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .buttons a {
@@ -294,7 +287,7 @@ nav ul li a:hover {
     border-radius: 5px;
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    animation: shake-interval 8s infinite; /* Shorter total duration */
+    animation: shake-interval 8s infinite;
 }
 
 .buttons a:hover {
@@ -302,95 +295,53 @@ nav ul li a:hover {
     transform: scale(1.05);
 }
 
-/* Keyframes for more dynamic shaking with shorter pauses */
+/* Keyframes for dynamic shaking */
 @keyframes shake-interval {
-    0%, 20% {
-        transform: none; /* Resting phase */
+    0%, 20%, 37%, 50%, 67%, 100% {
+        transform: none;
     }
-    21%, 22% {
+    21%, 22%, 51%, 52% {
         transform: rotate(-3deg);
     }
-    23%, 24% {
+    23%, 24%, 53%, 54% {
         transform: rotate(3deg);
     }
-    25%, 26% {
+    25%, 26%, 55%, 56% {
         transform: rotate(-4deg);
     }
-    27%, 28% {
+    27%, 28%, 57%, 58% {
         transform: rotate(4deg);
     }
-    29%, 30% {
+    29%, 30%, 59%, 60% {
         transform: rotate(-2deg);
     }
-    31%, 32% {
+    31%, 32%, 61%, 62% {
         transform: rotate(2deg);
     }
-    33%, 34% {
+    33%, 34%, 63%, 64% {
         transform: rotate(-1deg);
     }
-    35%, 36% {
+    35%, 36%, 65%, 66% {
         transform: rotate(1deg);
     }
-    37%, 50% {
-        transform: none; /* Return to rest briefly */
-    }
-    51%, 52% {
-        transform: rotate(-3deg);
-    }
-    53%, 54% {
-        transform: rotate(3deg);
-    }
-    55%, 56% {
-        transform: rotate(-4deg);
-    }
-    57%, 58% {
-        transform: rotate(4deg);
-    }
-    59%, 60% {
-        transform: rotate(-2deg);
-    }
-    61%, 62% {
-        transform: rotate(2deg);
-    }
-    63%, 64% {
-        transform: rotate(-1deg);
-    }
-    65%, 66% {
-        transform: rotate(1deg);
-    }
-    67%, 100% {
-        transform: none; /* Back to rest */
-    }
-}
-       
-/* Nadpisy uvnitř sekcí */
-section h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-    color: #e63946; /* Výrazná červená barva */
-    font-family: 'Arial', sans-serif;
-    font-weight: bold;
-    text-align: center; /* Zarovnání nadpisu na střed */
 }
 
 /* Nadpisy uvnitř sekcí */
 section h2 {
     font-size: 36px;
     margin-bottom: 20px;
-    color: #e63946; /* Výrazná červená barva */
-    font-family: 'Arial', sans-serif;
+    color: var(--primary-color);
     font-weight: bold;
-    text-align: center; /* Zarovnání nadpisu na střed */
+    text-align: center;
 }
 
 /* Odstavce uvnitř sekcí */
 section p {
     font-size: 18px;
-    color: #333;
+    color: var(--secondary-color);
     line-height: 1.8;
     margin: 15px 0;
-    text-align: justify; /* Zarovnání textu do bloku */
-    margin-bottom: 15px; /* Mezera mezi odstavci */
+    text-align: justify;
 }
 
 /* Seznamy (ul) */
@@ -398,36 +349,36 @@ section ul {
     margin: 20px auto;
     padding: 0;
     list-style-type: none;
-    text-align: left; /* Seznamy zarovnané na střed */
-    max-width: 750px; /* Omezení šířky seznamů */
+    text-align: left;
+    max-width: 750px;
 }
 
 section ul li {
-    margin-bottom: 10px; /* Mezera mezi položkami */
+    margin-bottom: 10px;
     position: relative;
     font-size: 18px;
-    color: #333;
+    color: var(--secondary-color);
     font-weight: normal;
-    padding-left: 30px; /* Přidání odsazení pro položky seznamu */
+    padding-left: 30px;
     line-height: 1.5;
 }
 
 /* Zvýrazněný text (strong) */
 section p strong,
 section ul li strong {
-    color: #e63946; /* Shodná barva jako nadpisy */
+    color: var(--primary-color);
     font-weight: bold;
 }
-    
+
 /* Recenze */
 .recenze-section {
     margin: 40px 0;
     padding: 20px;
     border-radius: 8px;
     display: flex;
-    flex-direction: column; /* Vertikální zobrazení pro celý kontejner */
-    align-items: center; /* Vycentrování na střed */
-    justify-content: center; /* Vycentrování na střed */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .section-title {
@@ -439,11 +390,11 @@ section ul li strong {
 
 .reviews-container {
     display: flex;
-    justify-content: center; /* Centrum položek horizontálně */
-    align-items: center; /* Centrum položek vertikálně */
-    gap: 5px; /* Zmenšení mezery mezi widgety */
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
     flex-wrap: wrap;
-    width: 100%; /* Zajistíme, že bude mít šířku celého kontejneru */
+    width: 100%;
 }
 
 .review-widget,
@@ -451,11 +402,11 @@ section ul li strong {
     max-width: 300px;
     text-align: center;
     display: flex;
-    flex-direction: column; /* Zajistí vertikální zarovnání */
-    justify-content: space-between; /* Rovnoměrné rozložení obsahu */
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    min-height: 180px; /* Minimální výška widgetu */
-    box-sizing: border-box; /* Zajistí, že padding neovlivní rozměry */
+    min-height: 180px;
+    box-sizing: border-box;
 }
 
 .review-img {
@@ -471,20 +422,47 @@ section ul li strong {
 /* Mobile Styles */
 @media (max-width: 768px) {
     .reviews-container {
-        flex-direction: column; /* Widgety budou pod sebou */
-        gap: 5px; /* Ještě menší mezery mezi widgety */
+        flex-direction: column;
+        gap: 5px;
     }
 
     .review-widget,
     .yext-widget {
-        max-width: 100%; /* Zajistit, že widgety budou mít šířku 100% */
-        min-height: auto; /* Možnost automatického přizpůsobení výšky */
+        max-width: 100%;
+        min-height: auto;
+    }
+
+    .gallery {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        gap: 10px;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .gallery img {
+        width: 100%;
+        height: 265px;
+        object-fit: cover;
+    }
+
+    .gallery img {
+        display: none;
+    }
+  
+    .gallery img:first-child {
+        display: block;
+    }
+
+    .card {
+        width: 100%;
     }
 }
-        
+
 /* Links for phone and email */
 .contact-link {
-    color: #e63946;
+    color: var(--primary-color);
     text-decoration: none;
     font-weight: bold;
 }
@@ -493,7 +471,7 @@ section ul li strong {
     text-decoration: none;
 }
 
-/* Sociální ikony */
+/* Social icons */
 .social-icons {
     display: flex;
     gap: 10px;
@@ -509,121 +487,85 @@ section ul li strong {
     transform: scale(1.2);
 }
 
-/* Základní styl pro galerii */
+/* Gallery */
 h2 {
     text-align: center;
     margin-bottom: 20px;
 }
 
-/* Style pro galerii */
 .gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px; /* Mezery mezi obrázky */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
 }
 
 .gallery img {
-  width: calc(33.333% - 20px); /* 3 obrázky na řádek na větších obrazovkách */
-  margin-bottom: 10px; /* Mezera mezi obrázky ve sloupci */
-  object-fit: cover; /* Obrázky se vyplní do kontejneru bez deformace */
-  border-radius: 12px; /* Zaoblené rohy obrázků */
-  transition: transform 0.3s, box-shadow 0.3s; /* Efekt při najetí */
+    width: calc(33.333% - 20px);
+    margin-bottom: 10px;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
 
-/* Efekt při najetí na obrázek (zoom a stín) */
 .gallery img:hover {
-  transform: scale(1.05); /* Mírné zvětšení obrázku */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stín kolem obrázku */
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* Responsivní styl pro střední obrazovky (tablety) */
 @media (max-width: 1024px) {
-  .gallery img {
-    width: calc(50% - 20px); /* 2 obrázky na řádek pro obrazovky do 1024px */
-  }
+    .gallery img {
+        width: calc(50% - 20px);
+    }
 }
 
-/* Responsivní styl pro malé obrazovky (mobilní telefony) */
-@media (max-width: 768px) {
-  .gallery {
-    display: flex;
-    flex-wrap: nowrap; /* Zamezíme zalamování do více řádků */
-    justify-content: center;
-    gap: 10px; /* Mezery mezi obrázky */
-    overflow: hidden; /* Zajistí, že obrázky mimo zobrazený prostor budou skryté */
-    width: 100%;
-  }
-
-  .gallery img {
-    width: 100%; /* Obrázky na mobilu zabírají celý prostor */
-    height: 265px; /* Fixní výška pro všechny obrázky */
-    object-fit: cover; /* Obrázky se přizpůsobí do boxu bez deformace */
-  }
-
-  /* Skrýt všechny obrázky kromě prvního na mobilu */
-  .gallery img {
-    display: none;
-  }
-  
-  .gallery img:first-child {
-    display: block;
-  }
-}
-    
-/* Styly pro sekci Kontakty */
+/* Contact section */
 #kontakty {
-    background-color: #f9f9f9; /* Světle šedé pozadí pro kontrast */
+    background-color: var(--background-color);
     padding: 40px 0;
     text-align: center;
 }
 
 #kontakty h2 {
     font-size: 2.5rem;
-    color: #2c3e50;
+    color: var(--secondary-color);
     margin-bottom: 20px;
 }
 
-/* Kontejner pro karty */
 .card-container {
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    flex-wrap: wrap; /* Zajistí, že karty se přizpůsobí na menších obrazovkách */
+    flex-wrap: wrap;
 }
 
-/* Styl jednotlivých karet */
 .card {
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Přidání stínování */
-    width: calc(33.33% - 20px); /* Každá karta zabírá třetinu šířky */
-    text-align: center; /* Zarovnání obsahu na střed */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efekt při najetí myší */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: calc(33.33% - 20px);
+    text-align: center;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
 }
 
 .card:hover {
-    transform: translateY(-5px); /* Mírné nadzvednutí karty */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Zesílení stínování */
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Styl nadpisů v kartách */
 .card h3 {
     font-size: 1.6rem;
-    color: #2c3e50;
+    color: var(--secondary-color);
     margin-bottom: 15px;
-    text-align: center; /* Zarovnání nadpisů na střed */
 }
 
-/* Text v kartách */
 .card p {
     font-size: 1.1rem;
     color: #555;
     margin-bottom: 10px;
 }
 
-/* Odkazy na kontakt */
 .contact-link {
     color: #3498db;
     text-decoration: none;
@@ -635,14 +577,13 @@ h2 {
     text-decoration: underline;
 }
 
-/* Sociální odkazy */
 .social-links a {
     display: inline-flex;
     align-items: center;
     margin: 10px 0;
     color: #555;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color var(--transition-speed) ease;
 }
 
 .social-links a img {
@@ -653,27 +594,13 @@ h2 {
     color: #3498db;
 }
 
-/* Mapový iframe */
+/* Map iframe */
 .card iframe {
     width: 100%;
-    height: 300px; /* Nastavení výšky mapy */
+    height: 300px;
     margin-top: 20px;
-    border-radius: 8px; /* Zaoblení rohů mapy */
+    border-radius: 8px;
     border: none;
-}
-
-/* Responzivita pro tablety */
-@media (max-width: 768px) {
-    .card {
-        width: calc(50% - 20px); /* Na menších obrazovkách zabírají karty polovinu šířky */
-    }
-}
-
-/* Responzivita pro mobily */
-@media (max-width: 480px) {
-    .card {
-        width: 100%; /* Na mobilních zařízeních zabírá každá karta celou šířku */
-    }
 }
 
 /* Footer */
@@ -681,12 +608,11 @@ footer {
     font-weight: bold;
     text-align: center;
     padding: 10px 0;
-    background-color: #333;
-    color: #fff;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
 }
-        
 </style>
-    
+
 </head>
 <body>
     
