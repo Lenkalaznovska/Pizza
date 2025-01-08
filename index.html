@@ -40,15 +40,27 @@
     
 <style>
 :root {
-    --primary-color: #e63946;
-    --secondary-color: #333;
-    --text-color: #ffffff;
-    --background-color: #f4f4f4;
-    --font-family: Arial, sans-serif;
-    --transition-speed: 0.3s;
-    --logo-size: 60px;
-    --icon-size: 30px;
-    --menu-gap: 220px;
+    /* Barvy */
+    --primary-color: #e63946;       /* Primární barva */
+    --secondary-color: #333;       /* Sekundární barva */
+    --text-color: #333;            /* Barva textu */
+    --text-light-color: #ffffff;   /* Světlý text */
+    --background-color: #f4f4f4;   /* Barva pozadí */
+    --background-light: #fffbee;   /* Světlé pozadí */
+    --background-medium: #fdf3c1;  /* Střední pozadí */
+    --highlight-color: #f4c842;    /* Zvýrazňující barva */
+    --shadow-color: rgba(0, 0, 0, 0.1); /* Barva stínu */
+
+    /* Typografie */
+    --font-family: Arial, sans-serif; /* Výchozí font */
+
+    /* Rozměry */
+    --logo-size: 60px;            /* Velikost loga */
+    --icon-size: 30px;            /* Velikost ikony */
+    --menu-gap: 220px;            /* Mezery v menu */
+
+    /* Animace */
+    --transition-speed: 0.3s;     /* Rychlost přechodů */
 }
 
 /* Reset */
