@@ -330,7 +330,7 @@ nav ul li a:hover {
 section h2 {
     font-size: 36px;
     margin-bottom: 20px;
-    color: var(--primary-color);
+    color: var(--primary-color); /* Červené písmo */
     font-weight: bold;
     text-align: center;
 }
@@ -341,7 +341,7 @@ section p {
     color: var(--secondary-color);
     line-height: 1.8;
     margin: 15px 0;
-    text-align: justify;
+    text-align: center; /* Vycentrování textu */
 }
 
 /* Seznamy (ul) */
@@ -349,7 +349,7 @@ section ul {
     margin: 20px auto;
     padding: 0;
     list-style-type: none;
-    text-align: left;
+    text-align: center; /* Vycentrování seznamu */
     max-width: 750px;
 }
 
@@ -379,6 +379,7 @@ section ul li strong {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: var(--background-color); /* Stejné pozadí jako ostatní sekce */
 }
 
 .section-title {
@@ -528,7 +529,7 @@ h2 {
 
 #kontakty h2 {
     font-size: 2.5rem;
-    color: var(--secondary-color);
+    color: var(--primary-color); /* Červené písmo */
     margin-bottom: 20px;
 }
 
@@ -564,6 +565,9 @@ h2 {
     font-size: 1.1rem;
     color: #555;
     margin-bottom: 10px;
+    white-space: nowrap; /* Text na jeden řádek */
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .contact-link {
