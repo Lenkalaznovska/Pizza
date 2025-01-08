@@ -326,16 +326,6 @@ nav ul li a:hover {
     }
 }
 
-/* Styly pro všechny sekce */
-section {
-    background-color: #fff;
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
 /* Nadpisy uvnitř sekcí */
 section h2 {
     font-size: 36px;
@@ -378,6 +368,39 @@ section p strong,
 section ul li strong {
     color: var(--primary-color);
     font-weight: bold;
+}
+
+/* Sekce obecně */
+section {
+    background-color: #f8f8f8;
+    padding: 40px 20px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+}
+
+/* Seznamy zarovnané do bloku */
+section ul {
+    display: block;
+    text-align: left;
+    margin-top: 20px;
+}
+
+section ul li {
+    font-size: 18px;
+    margin-bottom: 15px;
+    padding-left: 25px;
+    position: relative;
+}
+
+/* Odrážky seznamu */
+section ul li::before {
+    content: "\2022"; /* Unicode pro odrážku */
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    padding-right: 10px;
 }
 
 /* Recenze */
