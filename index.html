@@ -52,7 +52,6 @@
     --menu-gap: 220px;
 }
 
-
 /* Reset */
 * {
     margin: 0;
@@ -370,42 +369,8 @@ section ul li strong {
     font-weight: bold;
 }
 
-/* Sekce obecně */
-section {
-    background-color: #f8f8f8;
-    padding: 40px 20px;
-    margin-bottom: 40px;
-    border-radius: 8px;
-}
-
-/* Seznamy zarovnané do bloku */
-section ul {
-    display: block;
-    text-align: left;
-    margin-top: 20px;
-}
-
-section ul li {
-    font-size: 18px;
-    margin-bottom: 15px;
-    padding-left: 25px;
-    position: relative;
-}
-
-/* Odrážky seznamu */
-section ul li::before {
-    content: "\2022"; /* Unicode pro odrážku */
-    position: absolute;
-    left: 0;
-    top: 0;
-    color: var(--primary-color);
-    font-size: 1.5rem;
-    padding-right: 10px;
-}
-
 /* Recenze */
 .recenze-section {
-    background-color: #fff;
     margin: 40px 0;
     padding: 20px;
     border-radius: 8px;
@@ -456,19 +421,19 @@ section ul li::before {
 /* Mobile Styles */
 @media (max-width: 768px) {
     .reviews-container {
-        flex-direction: column;
-        gap: 5px;
+        flex-direction: column; /* Widgets will be stacked vertically */
+        gap: 5px; /* Smaller gaps between widgets */
     }
 
     .review-widget,
     .yext-widget {
-        max-width: 100%;
-        min-height: auto;
+        max-width: 100%; /* Widgets will occupy full width */
+        min-height: auto; /* Auto height adjustment */
     }
 
     .gallery {
         display: flex;
-        flex-wrap: nowrap;
+        flex-wrap: nowrap; /* Prevent wrapping into multiple rows */
         justify-content: center;
         gap: 10px;
         overflow: hidden;
@@ -477,12 +442,12 @@ section ul li::before {
 
     .gallery img {
         width: 100%;
-        height: 265px;
-        object-fit: cover;
+        height: 265px; /* Fixed height for all images */
+        object-fit: cover; /* Maintain aspect ratio without distortion */
     }
 
     .gallery img {
-        display: none;
+        display: none; /* Hide all images except the first one */
     }
   
     .gallery img:first-child {
@@ -490,20 +455,79 @@ section ul li::before {
     }
 
     .card {
-        width: 100%;
+        width: 100%; /* Cards take full width on mobile */
     }
 }
 
-/* Kontaktní sekce */
+/* Links for phone and email */
+.contact-link {
+    color: #e63946;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-link:hover {
+    text-decoration: none;
+}
+
+/* Social icons */
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icons a img {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    transition: transform var(--transition-speed);
+}
+
+.social-icons a:hover img {
+    transform: scale(1.2);
+}
+
+/* Gallery */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.gallery img {
+    width: calc(33.333% - 20px);
+    margin-bottom: 10px;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 1024px) {
+    .gallery img {
+        width: calc(50% - 20px);
+    }
+}
+
+/* Contact section */
 #kontakty {
-    background-color: var(--background-color);
+    background-color: #f9f9f9;
     padding: 40px 0;
     text-align: center;
 }
 
 #kontakty h2 {
     font-size: 2.5rem;
-    color: var(--secondary-color);
+    color: #2c3e50;
     margin-bottom: 20px;
 }
 
@@ -521,10 +545,7 @@ section ul li::before {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: calc(33.33% - 20px);
     text-align: center;
-    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
@@ -534,7 +555,7 @@ section ul li::before {
 
 .card h3 {
     font-size: 1.6rem;
-    color: var(--secondary-color);
+    color: #2c3e50;
     margin-bottom: 15px;
 }
 
@@ -542,9 +563,6 @@ section ul li::before {
     font-size: 1.1rem;
     color: #555;
     margin-bottom: 10px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .contact-link {
@@ -564,7 +582,7 @@ section ul li::before {
     margin: 10px 0;
     color: #555;
     text-decoration: none;
-    transition: color var(--transition-speed) ease;
+    transition: color 0.3s ease;
 }
 
 .social-links a img {
@@ -578,37 +596,10 @@ section ul li::before {
 /* Map iframe */
 .card iframe {
     width: 100%;
-    height: 310px; /* Zvětšení o 10px */
+    height: 300px;
     margin-top: 20px;
     border-radius: 8px;
     border: none;
-}
-
-/* Úprava galerie pro karty */
-.gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-
-.gallery img {
-    width: calc(33.333% - 20px);
-    margin-bottom: 10px;
-    object-fit: cover;
-    border-radius: 12px;
-    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-}
-
-.gallery img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
-@media (max-width: 1024px) {
-    .gallery img {
-        width: calc(50% - 20px);
-    }
 }
 
 /* Footer */
@@ -616,8 +607,8 @@ footer {
     font-weight: bold;
     text-align: center;
     padding: 10px 0;
-    background-color: var(--secondary-color);
-    color: var(--text-color);
+    background-color: #333;
+    color: #fff;
 }
 </style>
 
