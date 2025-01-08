@@ -959,16 +959,23 @@ function updateSliderPosition() {
 }
 
     // Ztmavení navigační lišty
-    document.addEventListener("scroll", () => {
-        const header = document.querySelector("header");
-        const mainImage = document.querySelector(".main-image");
+document.addEventListener("scroll", () => {
+    const header = document.querySelector("header");
+    const mainImage = document.querySelector(".main-image");
 
-        if (window.scrollY > mainImage.offsetHeight) {
-            header.classList.add("scrolled");
-        } else {
-            header.classList.remove("scrolled");
-        }
-    });
+    if (!header || !mainImage) {
+        console.error("Header nebo Main Image nebyly nalezeny!");
+        return;
+    }
+
+    console.log("ScrollY:", window.scrollY, "OffsetHeight:", mainImage.offsetHeight);
+
+    if (window.scrollY > mainImage.offsetHeight) {
+        header.classList.add("scrolled");
+    } else {
+        header.classList.remove("scrolled");
+    }
+});
     
 // Automatické posouvání každých 4 sekundy
 setInterval(nextSlide, 4000);
