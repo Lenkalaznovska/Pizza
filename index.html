@@ -106,22 +106,18 @@ body {
 }
 
 /* Navigační lišta */
+    
 header {
-    background-color: rgba(128, 128, 128, 0.3); /* Výchozí jemná průhlednost */
-    color: var(--text-color);
-    height: 100px; /* Zvýšená výška navigační lišty */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--background-med);
+    position: sticky;
     top: 0;
-    width: 100%; /* Navigační lišta pokrývá celou šířku stránky */
-    z-index: 10;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 0 10px; /* Přizpůsobení obsahu lišty */
-    transition: background-color 0.3s ease; /* Plynulý přechod barvy */
+    z-index: 1000;
+    box-shadow: 0 4px 6px var(--shadow-color);
 }
 
+    
 header.scrolled {
     background-color: rgba(0, 0, 0, 0.7); /* Tmavší barva při scrollování */
 }
