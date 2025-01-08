@@ -326,11 +326,21 @@ nav ul li a:hover {
     }
 }
 
+/* Styly pro všechny sekce */
+section {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
 /* Nadpisy uvnitř sekcí */
 section h2 {
     font-size: 36px;
     margin-bottom: 20px;
-    color: var(--primary-color); /* Červené písmo */
+    color: var(--primary-color);
     font-weight: bold;
     text-align: center;
 }
@@ -341,7 +351,7 @@ section p {
     color: var(--secondary-color);
     line-height: 1.8;
     margin: 15px 0;
-    text-align: center; /* Vycentrování textu */
+    text-align: justify;
 }
 
 /* Seznamy (ul) */
@@ -349,7 +359,7 @@ section ul {
     margin: 20px auto;
     padding: 0;
     list-style-type: none;
-    text-align: center; /* Vycentrování seznamu */
+    text-align: left;
     max-width: 750px;
 }
 
@@ -372,6 +382,7 @@ section ul li strong {
 
 /* Recenze */
 .recenze-section {
+    background-color: #fff;
     margin: 40px 0;
     padding: 20px;
     border-radius: 8px;
@@ -379,7 +390,6 @@ section ul li strong {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: var(--background-color); /* Stejné pozadí jako ostatní sekce */
 }
 
 .section-title {
@@ -461,66 +471,7 @@ section ul li strong {
     }
 }
 
-/* Links for phone and email */
-.contact-link {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.contact-link:hover {
-    text-decoration: none;
-}
-
-/* Social icons */
-.social-icons {
-    display: flex;
-    gap: 10px;
-}
-
-.social-icons a img {
-    width: var(--icon-size);
-    height: var(--icon-size);
-    transition: transform var(--transition-speed);
-}
-
-.social-icons a:hover img {
-    transform: scale(1.2);
-}
-
-/* Gallery */
-h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-}
-
-.gallery img {
-    width: calc(33.333% - 20px);
-    margin-bottom: 10px;
-    object-fit: cover;
-    border-radius: 12px;
-    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-}
-
-.gallery img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
-@media (max-width: 1024px) {
-    .gallery img {
-        width: calc(50% - 20px);
-    }
-}
-
-/* Contact section */
+/* Kontaktní sekce */
 #kontakty {
     background-color: var(--background-color);
     padding: 40px 0;
@@ -529,7 +480,7 @@ h2 {
 
 #kontakty h2 {
     font-size: 2.5rem;
-    color: var(--primary-color); /* Červené písmo */
+    color: var(--secondary-color);
     margin-bottom: 20px;
 }
 
@@ -548,6 +499,9 @@ h2 {
     width: calc(33.33% - 20px);
     text-align: center;
     transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .card:hover {
@@ -565,9 +519,9 @@ h2 {
     font-size: 1.1rem;
     color: #555;
     margin-bottom: 10px;
-    white-space: nowrap; /* Text na jeden řádek */
-    text-overflow: ellipsis;
+    white-space: nowrap;
     overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .contact-link {
@@ -601,10 +555,37 @@ h2 {
 /* Map iframe */
 .card iframe {
     width: 100%;
-    height: 300px;
+    height: 310px; /* Zvětšení o 10px */
     margin-top: 20px;
     border-radius: 8px;
     border: none;
+}
+
+/* Úprava galerie pro karty */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.gallery img {
+    width: calc(33.333% - 20px);
+    margin-bottom: 10px;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 1024px) {
+    .gallery img {
+        width: calc(50% - 20px);
+    }
 }
 
 /* Footer */
