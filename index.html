@@ -282,14 +282,14 @@ nav ul li a:hover {
     transform: scale(1.05);
 }
        
-/* Section styles (About, Gallery, Contact) */
+/* Obecné stylování sekcí */
 section {
     background: #fff;
     padding: 40px 20px;
     margin: 20px 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    text-align: center;
+    text-align: center; /* Zarovnání textu na střed */
     transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
@@ -298,20 +298,51 @@ section:hover {
     transform: translateY(-5px);
 }
 
-/* Headings inside sections */
+/* Nadpisy uvnitř sekcí */
 section h2 {
     font-size: 32px;
     margin-bottom: 20px;
-    color: #e63946;
+    color: #e63946; /* Výrazná červená barva */
     font-family: 'Arial', sans-serif;
     font-weight: bold;
 }
 
-/* Text inside sections */
+/* Odstavce uvnitř sekcí */
 section p {
     font-size: 16px;
     color: #333;
     line-height: 1.6;
+    margin: 10px 0;
+    text-align: center; /* Zarovnání textu na střed */
+}
+
+/* Stylování seznamů (ul) */
+section ul {
+    margin: 20px auto;
+    padding: 0;
+    list-style-type: none;
+    text-align: center; /* Seznamy zarovnané na střed */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Položky v seznamu (li) */
+section ul li {
+    margin-bottom: 15px; /* Mezera mezi položkami */
+    position: relative;
+    display: flex; /* Použití flexboxu pro zarovnání šipky a textu */
+    align-items: center; /* Vertikální zarovnání šipky a textu */
+    font-size: 18px;
+    color: #333; /* Barva textu */
+    font-weight: normal;
+    text-align: left; /* Zarovnání textu vlevo */
+}
+
+/* Zvýrazněný text (strong) */
+section p strong,
+section ul li strong {
+    color: #e63946; /* Shodná barva jako nadpisy */
+    font-weight: bold;
 }
 
         /* Recenze */
