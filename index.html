@@ -39,30 +39,6 @@
 </head>
     
 <style>
-:root {
-    /* Barvy */
-    --primary-color: #e63946;       /* Primární barva */
-    --secondary-color: #333;       /* Sekundární barva */
-    --text-color: #333;            /* Barva textu */
-    --text-light-color: #ffffff;   /* Světlý text */
-    --background-color: #f4f4f4;   /* Barva pozadí */
-    --background-light: #fffbee;   /* Světlé pozadí */
-    --background-medium: #fdf3c1;  /* Střední pozadí */
-    --highlight-color: #f4c842;    /* Zvýrazňující barva */
-    --shadow-color: rgba(0, 0, 0, 0.1); /* Barva stínu */
-
-    /* Typografie */
-    --font-family: Arial, sans-serif; /* Výchozí font */
-
-    /* Rozměry */
-    --logo-size: 60px;            /* Velikost loga */
-    --icon-size: 30px;            /* Velikost ikony */
-    --menu-gap: 220px;            /* Mezery v menu */
-
-    /* Animace */
-    --transition-speed: 0.3s;     /* Rychlost přechodů */
-}
-
 /* Reset */
 * {
     margin: 0;
@@ -71,11 +47,9 @@
 }
 
 body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: var(--background-light);
-    color: var(--text-color);
-    line-height: 1.6;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    color: #D6D6D6;
 }
 
 /* Container */
@@ -85,94 +59,65 @@ body {
     padding: 20px;
 }
 
-/* Logo */
-.logo {
-    position: absolute;
-    z-index: 15;
-    right: 48%;
-    border: 2px solid white;
-    background-color: transparent;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 10% 0 10% 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Logo obrázek */
-.logo img {
-    height: var(--logo-size);
-    display: block;
-}
-
-/* Navigační lišta */ 
+/* Header */
 header {
-    text-align: center;
-    padding: 2rem;
-    background-color: var(--background-med);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 6px var(--shadow-color);
+    background-color: #333;
+    color: #D6D6D6;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 10;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 2.5rem;
-    text-shadow: 1px 1px 2px var(--shadow-color);
-}
-
-    
-header.scrolled {
-    background-color: rgba(0, 0, 0, 0.7); /* Tmavší barva při scrollování */
+/* Logo */
+.logo img {
+    height: 60px;
 }
 
 /* Navigation Menu */
 nav {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex: 1;
-    background-color: transparent;
+    justify-content: center;
+    align-items: center; /* Vertikální zarovnání obsahu */
+    position: absolute;
+    top: 50%; /* Nastavení středu */
+    left: 0;
+    transform: translateY(-50%); /* Posunutí vzhledem ke středu */
+    width: 100%;
+    background-color: transparent; /* Odstranění pozadí */
+    padding: 0; /* Odstranění mezer */
+    margin: 0;
+    z-index: 10;
+    box-shadow: none; /* Odstranění stínu, pokud není potřeba */
 }
 
 nav ul {
-    display: flex;
+    display: flex; /* Zachování horizontálního zobrazení pro desktop */
+    flex-direction: row;
     list-style: none;
-    gap: var(--menu-gap);
+    margin: 0;
+    padding: 0;
+    background-color: transparent; /* Odstranění pozadí seznamu */
+}
+
+nav ul li {
+    margin: 0 20px; /* Mezera mezi položkami menu */
+    padding: 0; /* Odstranění přebytečného prostoru */
 }
 
 nav ul li a {
-    color: var(--text-color);
+    color: #fff;
     text-decoration: none;
     font-size: 18px;
     font-weight: bold;
-    transition: color var(--transition-speed) ease;
+    transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: var(--primary-color);
-}
-
-.nav-links, .social-icons {
-    background: none; /* Odstranění pozadí */
-    color: inherit;
-    display: flex;
-    align-items: center;
-}
-
-.nav-links li a, .social-icons a img {
-    background: none; /* Odstranění pozadí */
-    color: inherit;
-}
-
-.nav-links li a:hover, .social-icons a:hover img {
-    background: none; /* Zajištění průhlednosti při hover */
-}
-
-/* Reset pro další možné konflikty */
-.nav-links li, .social-icons a {
-    background: none; /* Odstranění pozadí */
+    color: #e63946;
 }
 
 /* Hamburger Menu */
@@ -193,19 +138,6 @@ nav ul li a:hover {
 
 /* Mobile Styles */
 @media (max-width: 768px) {
-    /* Centrum loga a ikon sociálních sítí - posunutí loga víc doprava */
-    .logo {
-        right: 62%;
-    }
-
-    /* Centrum ikon sociálních sítí */
-    .social-icons {
-        display: flex;
-        justify-content: center;
-        padding-left: 40px;
-        width: 100%;
-    }
-
     nav {
         display: none;
         flex-direction: column; /* Pro mobilní zařízení */
@@ -228,11 +160,10 @@ nav ul li a:hover {
     nav ul {
         flex-direction: column; /* Vertikální zobrazení pro mobilní zařízení */
         text-align: center;
-        gap: 15px; /* Zmenšení mezery mezi položkami */
     }
 
     nav ul li {
-        margin: 0; /* Odstranění odsazení mezi položkami */
+        margin: 10px 0; /* Odsazení mezi položkami */
     }
 
     nav ul li a {
@@ -258,13 +189,12 @@ nav ul li a:hover {
         transform: rotate(45deg) translate(-5px, -6px);
     }
 }
-    
+
 /* Slider */
 .slider {
     position: relative;
-    width: 100%;
-    height: calc(100vh - 30px); /* Výška celé obrazovky minus navigační lišta */
     overflow: hidden;
+    height: 500px;
 }
 
 .slides {
@@ -275,7 +205,7 @@ nav ul li a:hover {
 
 .slide {
     min-width: 100%;
-    height: 100%;
+    height: 500px;
     background-size: cover;
     background-position: center;
 }
@@ -286,314 +216,108 @@ nav ul li a:hover {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    color: #fff;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    z-index: 10; /* Zajišťuje, že obsah je nad slidery */
 }
 
 .content h1 {
     font-size: 50px;
+    color: #fff;
+    text-shadow: 2px 2px 5px #000;
     margin-bottom: 20px;
 }
 
 .buttons {
     display: flex;
     justify-content: center;
-    align-items: center; /* Center the buttons horizontally */
-    flex-direction: column; /* Stack the buttons vertically */
-    gap: 20px; /* Space between the buttons */
+    gap: 60px;
 }
 
 .buttons a {
     display: inline-block;
-    background-color: var(--primary-color);
+    background-color: #e63946;
     color: #fff;
     font-weight: bold;
     padding: 10px 20px;
     border-radius: 5px;
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    animation: shake-interval 8s infinite; /* Shorter total duration */
 }
 
 .buttons a:hover {
     background-color: #d62839;
     transform: scale(1.05);
 }
-
-/* Keyframes for more dynamic shaking with shorter pauses */
-@keyframes shake-interval {
-    0%, 20% {
-        transform: none; /* Resting phase */
-    }
-    21%, 22% {
-        transform: rotate(-3deg);
-    }
-    23%, 24% {
-        transform: rotate(3deg);
-    }
-    25%, 26% {
-        transform: rotate(-4deg);
-    }
-    27%, 28% {
-        transform: rotate(4deg);
-    }
-    29%, 30% {
-        transform: rotate(-2deg);
-    }
-    31%, 32% {
-        transform: rotate(2deg);
-    }
-    33%, 34% {
-        transform: rotate(-1deg);
-    }
-    35%, 36% {
-        transform: rotate(1deg);
-    }
-    37%, 50% {
-        transform: none; /* Return to rest briefly */
-    }
-    51%, 52% {
-        transform: rotate(-3deg);
-    }
-    53%, 54% {
-        transform: rotate(3deg);
-    }
-    55%, 56% {
-        transform: rotate(-4deg);
-    }
-    57%, 58% {
-        transform: rotate(4deg);
-    }
-    59%, 60% {
-        transform: rotate(-2deg);
-    }
-    61%, 62% {
-        transform: rotate(2deg);
-    }
-    63%, 64% {
-        transform: rotate(-1deg);
-    }
-    65%, 66% {
-        transform: rotate(1deg);
-    }
-    67%, 100% {
-        transform: none; /* Back to rest */
-    }
-}
        
-/* Navigační lišta */
-header {
-    background-color: rgba(128, 128, 128, 0.3); /* Jemná průhlednost */
-    color: var(--text-color);
-    height: 100px; /* Zvýšená výška navigační lišty */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    left: 0; /* Upraveno pro správné umístění */
-    z-index: 10;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 0 10px;
-    transition: background-color 0.3s ease; /* Plynulá změna barvy */
-}
-
-header.scrolled {
-    background-color: rgba(0, 0, 0, 0.7); /* Ztmavení pozadí navigační lišty */
-}
-
-/* Navigation Menu */
-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-    background-color: transparent;
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-    gap: var(--menu-gap);
-}
-
-nav ul li a {
-    color: var(--text-color);
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-    transition: color var(--transition-speed) ease;
-}
-
-nav ul li a:hover {
-    color: var(--primary-color);
-}
-
-.nav-links, .social-icons {
-    background: none;
-    color: inherit;
-    display: flex;
-    align-items: center;
-}
-
-.nav-links li a, .social-icons a img {
-    background: none;
-    color: inherit;
-}
-
-.nav-links li a:hover, .social-icons a:hover img {
-    background: none;
-}
-
-.nav-links li, .social-icons a {
-    background: none;
-}
-
-/* Hamburger Menu */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    z-index: 15;
-}
-
-.hamburger div {
-    background-color: #fff;
-    height: 3px;
-    width: 25px;
-    margin: 4px 0;
-    transition: 0.3s ease;
-}
-
-/* Mobile Styles */
-@media (max-width: 768px) {
-    .logo {
-        right: 62%;
-    }
-
-    .social-icons {
-        display: flex;
-        justify-content: center;
-        padding-left: 40px;
-        width: 100%;
-    }
-
-    nav {
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: #333;
-        padding: 0;
-        margin: 0;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        z-index: 10;
-    }
-
-    nav.active {
-        display: flex;
-    }
-
-    nav ul {
-        flex-direction: column;
-        text-align: center;
-        gap: 15px;
-    }
-
-    nav ul li {
-        margin: 0;
-    }
-
-    nav ul li a {
-        font-size: 20px;
-        color: #fff;
-        font-weight: bold;
-        text-transform: none;
-    }
-
-    .hamburger {
-        display: flex;
-    }
-
-    .hamburger.active div:nth-child(1) {
-        transform: rotate(-45deg) translate(-5px, 6px);
-    }
-
-    .hamburger.active div:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.active div:nth-child(3) {
-        transform: rotate(45deg) translate(-5px, -6px);
-    }
-}
-    
-/* Recenze */
-.recenze-section {
-    margin: 40px 0;
-    padding: 20px;
+/* Section styles (About, Gallery, Contact) */
+section {
+    background: #fff;
+    padding: 40px 20px;
+    margin: 20px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    display: flex;
-    flex-direction: column; /* Vertikální zobrazení pro celý kontejner */
-    align-items: center; /* Vycentrování na střed */
-    justify-content: center; /* Vycentrování na střed */
+    text-align: center;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-.section-title {
-    text-align: center;
+section:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+/* Headings inside sections */
+section h2 {
     font-size: 32px;
-    font-weight: bold;
     margin-bottom: 20px;
+    color: #e63946;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
 }
 
-.reviews-container {
-    display: flex;
-    justify-content: center; /* Centrum položek horizontálně */
-    align-items: center; /* Centrum položek vertikálně */
-    gap: 5px; /* Zmenšení mezery mezi widgety */
-    flex-wrap: wrap;
-    width: 100%; /* Zajistíme, že bude mít šířku celého kontejneru */
+/* Text inside sections */
+section p {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
 }
 
-.review-widget,
-.yext-widget {
-    max-width: 300px;
-    text-align: center;
-    display: flex;
-    flex-direction: column; /* Zajistí vertikální zarovnání */
-    justify-content: space-between; /* Rovnoměrné rozložení obsahu */
-    align-items: center;
-    min-height: 180px; /* Minimální výška widgetu */
-    box-sizing: border-box; /* Zajistí, že padding neovlivní rozměry */
-}
-
-.review-img {
-    max-width: 100%;
-    height: auto;
-}
-
-.yext-widget script {
-    width: 100%;
-    max-width: 300px;
-}
-
-/* Mobile Styles */
-@media (max-width: 768px) {
-    .reviews-container {
-        flex-direction: column; /* Widgety budou pod sebou */
-        gap: 5px; /* Ještě menší mezery mezi widgety */
-    }
-
-    .review-widget,
-    .yext-widget {
-        max-width: 100%; /* Zajistit, že widgety budou mít šířku 100% */
-        min-height: auto; /* Možnost automatického přizpůsobení výšky */
-    }
-}
+        /* Recenze */
+        .recenze-section {
+            margin: 40px 0;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .reviews-container {
+            display: flex;
+            justify-content: center; /* Align items at the center */
+            align-items: flex-start; /* Align items to the top */
+            gap: 10px; /* Reduce the gap between the widgets */
+            flex-wrap: wrap;
+        }
+        .review-widget,
+        .yext-widget {
+            max-width: 300px;
+            text-align: center;
+            display: flex;
+            flex-direction: column; /* Ensure vertical alignment */
+            justify-content: space-between; /* Distribute content evenly */
+            align-items: center;
+            min-height: 180px; /* Set consistent minimum height */
+            box-sizing: border-box; /* Ensure padding doesn't affect dimensions */
+        }
+        .review-img {
+            max-width: 100%;
+            height: auto;
+        }
+        .yext-widget script {
+            width: 100%;
+            max-width: 300px;
+        }
         
 /* Links for phone and email */
 .contact-link {
@@ -606,20 +330,25 @@ nav ul li a:hover {
     text-decoration: none;
 }
 
-/* Sociální ikony */
-.social-icons {
-    display: flex;
-    gap: 10px;
+/* Social icon styles */
+.social-icons a {
+    margin: 0 15px;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .social-icons a img {
-    width: var(--icon-size);
-    height: var(--icon-size);
-    transition: transform var(--transition-speed);
+    width: 35px;
+    height: 35px;
+    vertical-align: middle;
+    transition: transform 0.3s ease;
 }
 
 .social-icons a:hover img {
     transform: scale(1.2);
+}
+
+.social-icons a:hover {
+    color: #ff4500;
 }
 
 /* Základní styl pro galerii */
@@ -797,7 +526,6 @@ footer {
     background-color: #333;
     color: #fff;
 }
-        
 </style>
     
 </head>
