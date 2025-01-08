@@ -706,26 +706,7 @@ function updateSliderPosition() {
     const newTransformValue = `translateX(-${currentSlide * 100}%)`;
     document.querySelector('.slides').style.transform = newTransformValue;
 }
-
-    // Ztmavení navigační lišty
-document.addEventListener("scroll", () => {
-    const header = document.querySelector("header");
-    const mainImage = document.querySelector(".main-image");
-
-    if (!header || !mainImage) {
-        console.error("Header nebo Main Image nebyly nalezeny!");
-        return;
-    }
-
-    console.log("ScrollY:", window.scrollY, "OffsetHeight:", mainImage.offsetHeight);
-
-    if (window.scrollY > mainImage.offsetHeight) {
-        header.classList.add("scrolled");
-    } else {
-        header.classList.remove("scrolled");
-    }
-});
-    
+   
 // Automatické posouvání každých 4 sekundy
 setInterval(nextSlide, 4000);
 // Galerie
