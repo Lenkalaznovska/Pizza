@@ -76,12 +76,11 @@ body {
 .logo {
     position: absolute;
     z-index: 15;
-    left: 50%;
-    transform: translateX(-50%);
+    right: 48%;
     border: 2px solid white;
     background-color: transparent;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 10%;
+    border-radius: 10% 0 10% 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -92,7 +91,7 @@ body {
     display: block;
 }
 
-/* Navigační lišta */
+/* Header */
 header {
     background-color: rgba(128, 128, 128, 0.3);
     color: var(--text-color);
@@ -103,8 +102,6 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
-    left: 50%;
-    transform: translateX(-50%);
     z-index: 10;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 0 10px;
