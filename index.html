@@ -371,7 +371,7 @@ section ul {
     margin: auto;
     padding: 0;
     list-style-type: none;
-    text-align: justify;;
+    text-align: justify;
     max-width: 500px;
 }
 
@@ -405,6 +405,16 @@ section:hover {
 
     section p {
         font-size: 1rem;
+    }
+
+    /* Zarovnání textu na střed pro mobilní zařízení */
+    section p, section ul {
+        text-align: center;
+    }
+
+    section ul {
+        padding-left: 0;
+        max-width: 100%; /* Zajistí, že seznamy nebudou omezeny na maximální šířku */
     }
 }
         
