@@ -365,17 +365,13 @@ section:hover {
     }
 }
         
-/* Recenze */
+/* Reviews Section */
 .recenze-section {
-    margin: 40px 0;
-    padding: 20px;
-    border-radius: 8px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
     justify-content: center;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    align-items: center;
 }
 
 .section-title {
@@ -396,14 +392,10 @@ section:hover {
 
 .review-widget,
 .yext-widget {
+    flex: 1 1 300px;
     max-width: 300px;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 180px;
-    box-sizing: border-box;
+    padding: 10px;
 }
 
 .review-img {
@@ -491,20 +483,19 @@ h2 {
 }
 
 .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
 }
 
 .gallery img {
-    width: calc(33.333% - 20px);
-    margin-bottom: 10px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
     object-fit: cover;
-    border-radius: 12px;
-    transition: transform 0.3s, box-shadow 0.3s;
 }
-
+    
 .gallery img:hover {
     transform: scale(1.05);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
@@ -602,12 +593,12 @@ h2 {
 
 /* Footer */
 footer {
-    font-weight: bold;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 20px;
     text-align: center;
-    padding: 10px 0;
-    background-color: #333;
-    color: #fff;
 }
+    
 </style>
 
 </head>
