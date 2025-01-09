@@ -47,8 +47,9 @@
     --background-color: #f4f4f4;
     --font-family: Arial, sans-serif;
     --transition-speed: 0.3s;
-    --icon-size: 30px;  
     --logo-size: 60px;
+    --icon-size: 30px;
+    --menu-gap: 220px;
 }
 
 /* Reset */
@@ -64,59 +65,72 @@ body {
     color: var(--text-color);
 }
 
-/* General Styles */
+/* Container */
 .container {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 15px;
+    padding: 20px;
 }
 
 /* Logo */
 .logo {
     position: absolute;
-    top: 10px;
-    left: 10px;
+    z-index: 15;
+    right: 48%;
+    border: 2px solid white;
+    background-color: transparent;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10% 0 10% 0;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
 
 .logo img {
-    max-width: 100%;
-    height: auto;
-    max-height: 50px;
+    height: var(--logo-size);
+    display: block;
 }
 
-/* Header and Navigation */
+/* Navigační lišta */
 header {
+    background-color: rgba(128, 128, 128, 0.3);
+    color: var(--text-color);
+    height: 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(128, 128, 128, 0.3);
-    padding: 10px 20px;
     position: fixed;
-    width: 100%;
-    z-index: 10;
     top: 0;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 0 10px;
 }
 
+/* Navigation Menu */
 nav {
     display: flex;
-    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    background-color: transparent;
 }
 
 nav ul {
-    list-style: none;
     display: flex;
-    gap: 20px;
+    list-style: none;
+    gap: var(--menu-gap);
 }
 
 nav ul li a {
-    text-decoration: none;
     color: var(--text-color);
+    text-decoration: none;
+    font-size: 18px;
     font-weight: bold;
+    transition: color var(--transition-speed) ease;
 }
-
 
 nav ul li a:hover {
     color: var(--primary-color);
@@ -138,23 +152,33 @@ nav ul li a:hover {
     background: none;
 }
 
-/* Mobile Navigation */
+/* Hamburger Menu */
 .hamburger {
     display: none;
     flex-direction: column;
-    gap: 5px;
+    cursor: pointer;
+    z-index: 15;
 }
 
 .hamburger div {
-    width: 25px;
+    background-color: #fff;
     height: 3px;
-    background-color: var(--text-color);
+    width: 25px;
+    margin: 4px 0;
+    transition: 0.3s ease;
 }
 
 /* Mobile Styles */
 @media (max-width: 768px) {
     .logo {
         right: 62%;
+    }
+
+    .social-icons {
+        display: flex;
+        justify-content: center;
+        padding-left: 40px;
+        width: 100%;
     }
 
     nav {
@@ -166,6 +190,10 @@ nav ul li a:hover {
         left: 0;
         width: 100%;
         background-color: #333;
+        padding: 0;
+        margin: 0;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 10;
     }
 
     nav.active {
@@ -174,12 +202,18 @@ nav ul li a:hover {
 
     nav ul {
         flex-direction: column;
-        gap: 10px;
+        text-align: center;
+        gap: 15px;
+    }
+
+    nav ul li {
+        margin: 0;
     }
 
     nav ul li a {
         font-size: 20px;
         color: #fff;
+        font-weight: bold;
     }
 
     .hamburger {
@@ -291,13 +325,12 @@ nav ul li a:hover {
     }
 }
 
-/* Sections */
 section {
-    padding: 20px;
-    margin: 20px 0;
     background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -350,29 +383,18 @@ section:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
-
-    /* Responsive Sections */
-@media (max-width: 768px) {
-    section {
-        padding: 15px;
-    }
-
-    section h2 {
-        font-size: 28px;
-    }
-
-    section p {
-        font-size: 16px;
-    }
-}
         
-/* Reviews Section */
+/* Recenze */
 .recenze-section {
+    margin: 40px 0;
+    padding: 20px;
+    border-radius: 8px;
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .section-title {
@@ -393,10 +415,14 @@ section:hover {
 
 .review-widget,
 .yext-widget {
-    flex: 1 1 300px;
     max-width: 300px;
     text-align: center;
-    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 180px;
+    box-sizing: border-box;
 }
 
 .review-img {
@@ -438,7 +464,7 @@ section:hover {
     }
 
     .gallery img {
-        height: 200px;
+        display: none; /* Hide all images except the first one */
     }
   
     .gallery img:first-child {
@@ -484,19 +510,20 @@ h2 {
 }
 
 .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
 }
 
 .gallery img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
+    width: calc(33.333% - 20px);
+    margin-bottom: 10px;
     object-fit: cover;
+    border-radius: 12px;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
-    
+
 .gallery img:hover {
     transform: scale(1.05);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
@@ -594,12 +621,12 @@ h2 {
 
 /* Footer */
 footer {
-    background-color: var(--secondary-color);
-    color: var(--text-color);
-    padding: 20px;
+    font-weight: bold;
     text-align: center;
+    padding: 10px 0;
+    background-color: #333;
+    color: #fff;
 }
-    
 </style>
 
 </head>
