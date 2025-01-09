@@ -152,6 +152,19 @@ nav ul li a:hover {
     background: none;
 }
 
+/* Navigační lišta v tmavém režimu */
+header.scrolled {
+    background-color: rgba(51, 51, 51, 0.9); /* Tmavší barva */
+    transition: background-color 0.3s ease;
+}
+
+/* Mobilní styly pro tmavou navigaci */
+@media (max-width: 768px) {
+    header.scrolled {
+        background-color: rgba(51, 51, 51, 0.9);
+    }
+}
+
 /* Hamburger Menu */
 .hamburger {
     display: none;
@@ -845,53 +858,63 @@ footer {
         <p>&copy; 2025 Pizzerie San Marino. Všechna práva vyhrazena.</p>
     </div>
 </footer>
+    
 <script>
 // Hamburger Menu Toggle
-const hamburger = document.querySelector('.hamburger');
-const nav = document.querySelector('nav');
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    nav.classList.toggle('active');
-});
-// Slider
-let currentSlide = 0;
-const slides = document.querySelectorAll('.slider .slide');
-const totalSlides = slides.length;
-function nextSlide() {
-    currentSlide = (currentSlide + 1) % totalSlides; // Posun na další slide (cyklicky)
-    updateSliderPosition();
-}
-function updateSliderPosition() {
-    const newTransformValue = `translateX(-${currentSlide * 100}%)`;
-    document.querySelector('.slides').style.transform = newTransformValue;
-}
-// Automatické posouvání každých 4 sekundy
-setInterval(nextSlide, 4000);
-// Galerie
-  document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", () => {
+    const hamburger = document.querySelector('.hamburger');
+    const nav = document.querySelector('nav');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        nav.classList.toggle('active');
+    });
+
+    // Slider
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slider .slide');
+    const slidesContainer = document.querySelector('.slides');
+    const totalSlides = slides.length;
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides; // Posun na další slide (cyklicky)
+        updateSliderPosition();
+    }
+
+    function updateSliderPosition() {
+        slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    setInterval(nextSlide, 4000); // Automatické posouvání každé 4 sekundy
+
+    // Galerie
     const galleryContainer = document.querySelector('.gallery');
     const galleryImages = document.querySelectorAll('.gallery img');
     
-    // Pokud je šířka obrazovky menší nebo rovná 768px, nastavíme mobilní režim
-    if (window.innerWidth <= 768) {
-      let currentIndex = 0;
+    if (window.innerWidth <= 768 && galleryImages.length > 0) {
+        let currentIndex = 0;
 
-      // Funkce pro posun na další obrázek
-      function moveToNextImage() {
-        // Skrytí aktuálního obrázku
-        galleryImages[currentIndex].style.display = 'none';
+        function moveToNextImage() {
+            galleryImages[currentIndex].style.display = 'none';
+            currentIndex = (currentIndex + 1) % galleryImages.length;
+            galleryImages[currentIndex].style.display = 'block';
+        }
 
-        // Posun na další obrázek
-        currentIndex = (currentIndex + 1) % galleryImages.length;
-
-        // Zobrazení dalšího obrázku
-        galleryImages[currentIndex].style.display = 'block';
-      }
-
-      // Automatické posouvání obrázků každé 4 sekundy
-      setInterval(moveToNextImage, 4000);
+        setInterval(moveToNextImage, 4000);
     }
-  });
+
+    // Ztmavení navigační lišty
+    const header = document.querySelector("header");
+    const heroSectionHeight = header.offsetHeight;
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > heroSectionHeight) {
+            header.classList.add("scrolled");
+        } else {
+            header.classList.remove("scrolled");
+        }
+    });
+});
 </script>
 </body>
 </html>
