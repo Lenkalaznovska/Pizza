@@ -199,10 +199,22 @@ nav ul li a:hover {
     }
 
     nav ul {
+        display: none;
         flex-direction: column;
         text-align: center;
-        gap: 15px;
+        gap: 10px;
+        background-color: #333;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        z-index: 10;
     }
+
+    nav.active ul {
+        display: flex;
+    }
+
 
     nav ul li {
         margin: 0;
@@ -228,6 +240,18 @@ nav ul li a:hover {
 
     .hamburger.active div:nth-child(3) {
         transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    section {
+        padding: 15px;
+    }
+
+    section h2 {
+        font-size: 20px;
+    }
+
+    section p {
+        font-size: 14px;
     }
 }
 
