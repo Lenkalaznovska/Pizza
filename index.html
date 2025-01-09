@@ -38,7 +38,7 @@
     <meta name="author" content="Pizzerie San Marino">
 </head>
 
-    <style>
+<style>
 /* Global Variables */
 :root {
     --primary-color: #e63946;
@@ -102,10 +102,7 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
-    left: 50%;
-    transform: translateX(-50%);
     z-index: 10;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 0 10px;
 }
 
@@ -115,7 +112,6 @@ nav {
     justify-content: center;
     align-items: center;
     flex: 1;
-    background-color: transparent;
 }
 
 nav ul {
@@ -174,13 +170,6 @@ nav ul li a:hover {
         right: 62%;
     }
 
-    .social-icons {
-        display: flex;
-        justify-content: center;
-        padding-left: 40px;
-        width: 100%;
-    }
-
     nav {
         display: none;
         flex-direction: column;
@@ -190,9 +179,7 @@ nav ul li a:hover {
         left: 0;
         width: 100%;
         background-color: #333;
-        padding: 0;
-        margin: 0;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
         z-index: 10;
     }
 
@@ -206,14 +193,9 @@ nav ul li a:hover {
         gap: 15px;
     }
 
-    nav ul li {
-        margin: 0;
-    }
-
     nav ul li a {
         font-size: 20px;
         color: #fff;
-        font-weight: bold;
     }
 
     .hamburger {
@@ -325,6 +307,7 @@ nav ul li a:hover {
     }
 }
 
+/* Section */
 section {
     background-color: #fff;
     padding: 20px;
@@ -382,6 +365,22 @@ section ul li strong {
 section:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+    /* Responsive Sections */
+@media (max-width: 768px) {
+    section {
+        padding: 15px;
+        margin: 15px 0;
+    }
+
+    section h2 {
+        font-size: 28px;
+    }
+
+    section p {
+        font-size: 16px;
+    }
 }
         
 /* Recenze */
