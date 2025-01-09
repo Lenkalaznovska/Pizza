@@ -91,7 +91,7 @@ body {
     display: block;
 }
 
-/* Header */
+/* Navigační lišta */
 header {
     background-color: rgba(128, 128, 128, 0.3);
     color: var(--text-color);
@@ -102,6 +102,8 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 10;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 0 10px;
@@ -199,22 +201,10 @@ nav ul li a:hover {
     }
 
     nav ul {
-        display: none;
         flex-direction: column;
         text-align: center;
-        gap: 10px;
-        background-color: #333;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        z-index: 10;
+        gap: 15px;
     }
-
-    nav.active ul {
-        display: flex;
-    }
-
 
     nav ul li {
         margin: 0;
@@ -240,18 +230,6 @@ nav ul li a:hover {
 
     .hamburger.active div:nth-child(3) {
         transform: rotate(45deg) translate(-5px, -6px);
-    }
-
-    section {
-        padding: 15px;
-    }
-
-    section h2 {
-        font-size: 20px;
-    }
-
-    section p {
-        font-size: 14px;
     }
 }
 
@@ -347,7 +325,6 @@ nav ul li a:hover {
     }
 }
 
-/* Sekce */
 section {
     background-color: #fff;
     padding: 20px;
@@ -356,20 +333,23 @@ section {
     margin: 20px 0;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-    
+
+/* Nadpisy uvnitř sekcí */
 section h2 {
-    font-size: 24px;
+    font-size: 36px;
     margin-bottom: 20px;
     color: var(--primary-color);
     font-weight: bold;
-    text-align: center;
+    text-align: center; /* Nadpisy jsou již na střed */
 }
 
 /* Odstavce uvnitř sekcí */
 section p {
-    font-size: 16px;
+    font-size: 18px;
+    color: var(--secondary-color);
     line-height: 1.8;
-    text-align: center;
+    margin: 15px 0;
+    text-align: center; /* Text uvnitř sekcí je nyní zarovnaný na střed */
 }
 
 /* Seznamy (ul) */
