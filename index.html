@@ -592,7 +592,7 @@ h2 {
     color: #2980b9;
     text-decoration: underline;
 }
-        
+
 .social-links a {
     display: inline-flex;
     align-items: center;
@@ -617,6 +617,33 @@ h2 {
     margin-top: 20px;
     border-radius: 8px;
     border: none;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    .card {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    #kontakty h2 {
+        font-size: 2rem;
+    }
+
+    .card h3 {
+        font-size: 1.4rem;
+    }
+
+    .card p {
+        font-size: 1rem;
+    }
 }
 
 /* Footer */
