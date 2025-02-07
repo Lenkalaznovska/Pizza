@@ -215,12 +215,13 @@ nav ul li a:hover {
     transform: translate(-50%, -50%);
     text-align: center;
     color: #fff;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
 }
 
 .content h1 {
     font-size: 50px;
     margin-bottom: 20px;
+    text-shadow: 6px 6px 15px rgba(0, 0, 0, 0.9);
 }
 
 .buttons {
@@ -229,6 +230,7 @@ nav ul li a:hover {
     align-items: center;
     flex-direction: column;
     gap: 20px;
+    position: relative;
 }
 
 .buttons a {
@@ -239,8 +241,17 @@ nav ul li a:hover {
     padding: 10px 20px;
     border-radius: 5px;
     text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.3s ease, transform 0.5s ease;
+    opacity: 0;
     animation: shake-interval 8s infinite;
+}
+
+.buttons a:nth-child(odd) {
+    animation: slide-in-left 2s forwards, shake-interval 8s infinite 2s;
+}
+
+.buttons a:nth-child(even) {
+    animation: slide-in-right 2s forwards, shake-interval 8s infinite 2s;
 }
 
 .buttons a:hover {
@@ -248,7 +259,28 @@ nav ul li a:hover {
     transform: scale(1.05);
 }
 
-/* Keyframes for dynamic shaking */
+@keyframes slide-in-left {
+    from {
+        transform: translateX(-300%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in-right {
+    from {
+        transform: translateX(300%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
 @keyframes shake-interval {
     0%, 20%, 37%, 50%, 67%, 100% {
         transform: none;
@@ -276,6 +308,40 @@ nav ul li a:hover {
     }
     35%, 36%, 65%, 66% {
         transform: rotate(1deg);
+    }
+}
+
+/* Responzivní design */
+@media (max-width: 1024px) {
+    .content h1 {
+        font-size: 40px;
+    }
+
+    .buttons a {
+        padding: 8px 16px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .content h1 {
+        font-size: 32px;
+    }
+
+    .buttons a {
+        padding: 6px 14px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .content h1 {
+        font-size: 24px;
+    }
+
+    .buttons a {
+        padding: 5px 10px;
+        font-size: 12px;
     }
 }
 
