@@ -632,9 +632,11 @@ section:hover {
 
 .social-links {
     display: flex;
-    gap: 30px; /* Nastavení větší mezery mezi ikonami */
+    gap: 50px; /* Větší mezera mezi ikonami */
     justify-content: center;
     align-items: center;
+    list-style: none; /* Odstranění případných odrážek */
+    padding: 0;
 }
 
 .social-links a {
@@ -645,9 +647,13 @@ section:hover {
     transition: color 0.3s ease;
 }
 
+.social-links a::before {
+    content: none; /* Odstranění čárek nebo symbolů před ikonami */
+}
+
 .social-links a img {
-    margin: 0; /* Odstranění rušivých mezer */
-    width: 40px; /* Nastavení rozměru ikon (volitelné) */
+    margin: 0;
+    width: 45px; /* Mírně větší ikony pro lepší vzhled */
     height: auto;
 }
 
