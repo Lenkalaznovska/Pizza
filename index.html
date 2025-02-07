@@ -88,12 +88,12 @@ header {
     z-index: 10;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 0 20px;
+    transition: background-color 0.3s ease; /* Přidán přechod pro plynulé ztmavení */
 }
 
 /* Navigační lišta v tmavém režimu */
 header.scrolled {
     background-color: rgba(51, 51, 51, 0.9); /* Tmavší barva */
-    transition: background-color 0.3s ease;
 }
 
 /* Mobilní styly pro tmavou navigaci */
@@ -108,7 +108,7 @@ header.scrolled {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    border: 3px solid white; /* Increased by 1px */
+    border: 3px solid white;
     background-color: transparent;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 10% 0 10% 0;
@@ -163,7 +163,6 @@ header.scrolled {
         right: 50%;
         transform: translateX(50%);
     }
-}
     
 /* Slider */
 .slider {
