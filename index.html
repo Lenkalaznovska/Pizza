@@ -1,1 +1,946 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzerie San Marino – Pizza jinak již od roku 1994</title>
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+    <!-- Open Graph Meta Tags for Facebook -->
+    <meta property="og:title" content="Pizzerie San Marino – Pizza jinak již od roku 1994">
+    <meta property="og:description" content="Originální pizzy, legendární 'Burgry jako kráva', kuřecí speciality Wing It! a další dobroty s doručením až k vašim dveřím.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/Lenkalaznovska/Pizza/main/images/sanmarino.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://www.pizzakladno.cz">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="cs_CZ">
+    <meta property="fb:app_id" content="1234567890"> <!-- Pokud máte Facebook App ID, nahraďte číslem -->
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pizzerie San Marino – Pizza jinak již od roku 1994">
+    <meta name="twitter:description" content="Originální pizzy, legendární 'Burgry jako kráva', kuřecí speciality Wing It! a další dobroty s doručením až k vašim dveřím.">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/Lenkalaznovska/Pizza/main/images/sanmarino.jpg">
+
+    <!-- Instagram Meta Tags (App Links) -->
+    <meta property="al:ios:url" content="https://www.instagram.com/pizzakladno">
+    <meta property="al:ios:app_name" content="Instagram">
+    <meta property="al:ios:app_store_id" content="389801252">
+    <meta property="al:android:url" content="https://www.instagram.com/pizzakladno">
+    <meta property="al:android:app_name" content="Instagram">
+    <meta property="al:android:package" content="com.instagram.android">
+
+    <!-- General Meta Tags -->
+    <meta name="description" content="Pizzerie San Marino nabízí originální pizzy, legendární burgry, kuřecí speciality a další dobroty s doručením až k vašim dveřím.">
+    <meta name="keywords" content="pizzerie, pizza, burgry, kuřecí speciality, Kladno, rozvoz jídla">
+    <meta name="author" content="Pizzerie San Marino">
+</head>
+
+<style>
+/* Global Variables */
+:root {
+    --primary-color: #e63946;
+    --secondary-color: #333;
+    --text-color: #ffffff;
+    --background-color: #f4f4f4;
+    --font-family: Arial, sans-serif;
+    --transition-speed: 0.3s;
+    --logo-size: 60px;
+    --icon-size: 30px;
+    --menu-gap: 220px;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Container */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Logo */
+.logo {
+    position: absolute;
+    z-index: 15;
+    right: 48%;
+    border: 2px solid white;
+    background-color: transparent;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10% 0 10% 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img {
+    height: var(--logo-size);
+    display: block;
+}
+
+/* Navigační lišta */
+header {
+    background-color: rgba(128, 128, 128, 0.3);
+    color: var(--text-color);
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 0 10px;
+}
+
+/* Navigation Menu */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    background-color: transparent;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: var(--menu-gap);
+}
+
+nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color var(--transition-speed) ease;
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+.nav-links, .social-icons {
+    background: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links li a, .social-icons a img {
+    background: none;
+    color: inherit;
+}
+
+.nav-links li a:hover, .social-icons a:hover img {
+    background: none;
+}
+
+/* Navigační lišta v tmavém režimu */
+header.scrolled {
+    background-color: rgba(51, 51, 51, 0.9); /* Tmavší barva */
+    transition: background-color 0.3s ease;
+}
+
+/* Mobilní styly pro tmavou navigaci */
+@media (max-width: 768px) {
+    header.scrolled {
+        background-color: rgba(51, 51, 51, 0.9);
+    }
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 15;
+}
+
+.hamburger div {
+    background-color: #fff;
+    height: 3px;
+    width: 25px;
+    margin: 4px 0;
+    transition: 0.3s ease;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .logo {
+        right: 62%;
+    }
+
+    .social-icons {
+        display: flex;
+        justify-content: center;
+        padding-left: 60px;
+        width: 100%;
+    }
+
+    nav {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        padding: 0;
+        margin: 0;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 10;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    nav ul li {
+        margin: 0;
+    }
+
+    nav ul li a {
+        font-size: 20px;
+        color: #fff;
+        font-weight: bold;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hamburger.active div:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .hamburger.active div:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active div:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
+    
+/* Slider */
+.slider {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 30px);
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    transition: transform 1s ease;
+    height: 100%;
+}
+
+.slide {
+    min-width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.content h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.buttons a {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    animation: shake-interval 8s infinite;
+}
+
+.buttons a:hover {
+    background-color: #d62839;
+    transform: scale(1.05);
+}
+
+/* Keyframes for dynamic shaking */
+@keyframes shake-interval {
+    0%, 20%, 37%, 50%, 67%, 100% {
+        transform: none;
+    }
+    21%, 22%, 51%, 52% {
+        transform: rotate(-3deg);
+    }
+    23%, 24%, 53%, 54% {
+        transform: rotate(3deg);
+    }
+    25%, 26%, 55%, 56% {
+        transform: rotate(-4deg);
+    }
+    27%, 28%, 57%, 58% {
+        transform: rotate(4deg);
+    }
+    29%, 30%, 59%, 60% {
+        transform: rotate(-2deg);
+    }
+    31%, 32%, 61%, 62% {
+        transform: rotate(2deg);
+    }
+    33%, 34%, 63%, 64% {
+        transform: rotate(-1deg);
+    }
+    35%, 36%, 65%, 66% {
+        transform: rotate(1deg);
+    }
+}
+
+/* Section */
+section {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Nadpisy uvnitř sekcí */
+section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    font-weight: bold;
+    text-align: center; /* Nadpisy jsou již na střed */
+}
+
+/* Odstavce uvnitř sekcí */
+section p {
+    font-size: 18px;
+    color: var(--secondary-color);
+    line-height: 1.8;
+    margin: 15px 0;
+    text-align: center; /* Text uvnitř sekcí je nyní zarovnaný na střed */
+}
+
+/* Seznamy (ul) */
+section ul {
+    margin: auto;
+    padding: 0;
+    list-style-type: none;
+    text-align: justify;
+    max-width: 500px;
+}
+
+section ul li {
+    margin-bottom: 10px;
+    position: relative;
+    font-size: 18px;
+    color: var(--secondary-color);
+    font-weight: normal;
+    padding-left: 30px;
+    line-height: 1.5;
+}
+
+/* Zvýrazněný text (strong) */
+section p strong,
+section ul li strong {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* Efekt při najetí na sekci */
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 480px) {
+    section h2 {
+        font-size: 1.8rem;
+    }
+
+    section p {
+        font-size: 1rem;
+    }
+
+    /* Zarovnání textu na střed pro mobilní zařízení */
+    section p, section ul {
+        text-align: center;
+    }
+
+    section ul {
+        padding-left: 0;
+        max-width: 100%; /* Zajistí, že seznamy nebudou omezeny na maximální šířku */
+    }
+}
+        
+/* Recenze */
+.recenze-section {
+    margin: 40px 0;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.reviews-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.review-widget,
+.yext-widget {
+    max-width: 300px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 180px;
+    box-sizing: border-box;
+}
+
+.review-img {
+    max-width: 100%;
+    height: auto;
+}
+
+.yext-widget script {
+    width: 100%;
+    max-width: 300px;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .reviews-container {
+        flex-direction: column; /* Widgets will be stacked vertically */
+        gap: 5px; /* Smaller gaps between widgets */
+    }
+
+    .review-widget,
+    .yext-widget {
+        max-width: 100%; /* Widgets will occupy full width */
+        min-height: auto; /* Auto height adjustment */
+    }
+
+    .gallery {
+        display: flex;
+        flex-wrap: nowrap; /* Prevent wrapping into multiple rows */
+        justify-content: center;
+        gap: 10px;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .gallery img {
+        width: 100%;
+        height: 265px; /* Fixed height for all images */
+        object-fit: cover; /* Maintain aspect ratio without distortion */
+    }
+
+    .gallery img {
+        display: none; /* Hide all images except the first one */
+    }
+  
+    .gallery img:first-child {
+        display: block;
+    }
+
+    .card {
+        width: 100%; /* Cards take full width on mobile */
+    }
+}
+
+/* Links for phone and email */
+.contact-link {
+    color: #e63946;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-link:hover {
+    text-decoration: none;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    margin: 10px 0;
+    color: #555;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-links a img {
+    margin-right: 20px; /* Zvětšení mezery mezi ikonami */
+}
+
+.social-links a:hover {
+    color: #3498db;
+}
+
+/* Responsive Gallery */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.gallery img {
+    width: calc(33.333% - 20px);
+    object-fit: cover;
+    border-radius: 12px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 1024px) {
+    .gallery img {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery img {
+        width: calc(100% - 40px);
+        margin: 0 20px;
+    }
+}
+
+/* Contact section */
+#kontakty {
+    background-color: #f9f9f9;
+    padding: 40px 0;
+    text-align: center;
+}
+
+#kontakty h2 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+/* Contact Section - Fully Responsive */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: calc(33.333% - 20px);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+    
+.card h3 {
+    font-size: 1.6rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.card p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.contact-link {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-link:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+/* Social links - odstranění čárek a větší mezera */
+.social-links {
+    display: flex;
+    gap: 80px; /* Ještě větší mezera mezi ikonami */
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin-top: 15px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.social-links a img {
+    width: 50px; /* Větší ikony pro lepší vzhled */
+    height: auto;
+}
+
+/* Map iframe */
+.card iframe {
+    width: 100%;
+    height: 320px;
+    margin-top: 20px;
+    border-radius: 8px;
+    border: none;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    .card {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: 100%;
+    }
+
+    #kontakty h2 {
+        font-size: 2rem;
+    }
+
+    .card h3 {
+        font-size: 1.4rem;
+    }
+
+    .card p {
+        font-size: 1rem;
+    }
+
+    .social-links {
+        gap: 50px; /* Menší mezera pro menší obrazovky */
+    }
+}
+
+@media (max-width: 480px) {
+    #kontakty h2 {
+        font-size: 2rem;
+    }
+
+    .card h3 {
+        font-size: 1.4rem;
+    }
+
+    .card p {
+        font-size: 1rem;
+    }
+
+    .social-links {
+        gap: 40px; /* Další úprava mezer pro nejmenší obrazovky */
+    }
+}
+    
+/* Footer */
+footer {
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 0;
+    background-color: #333;
+    color: #fff;
+}
+</style>
+
+</head>
+<body>
+    
+<!-- Header -->
+<header>
+<div class="logo">
+    <a href="https://www.pizzakladno.cz">
+        <img src="images/PizzerieSanMarino.png" alt="Logo of Pizzerie San Marino" loading="lazy">
+    </a>
+</div>
+<nav aria-label="Main Navigation">
+    <ul class="nav-links">
+        <li><a href="index.html#onas">O nás</a></li>
+        <li><a href="https://www.pizzakladno.cz" target="_blank">E-shop</a></li>
+        <li><a href="index.html#galerie">Galerie</a></li>
+        <li><a href="index.html#kontakty">Kontakt</a></li>
+    </ul>
+</nav>
+<div class="social-icons">
+    <a href="https://www.facebook.com/profile.php?id=100095016576324" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook ikona" width="24" height="24">
+    </a>
+    <a href="https://www.instagram.com/pizzakladno/" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram ikona" width="24" height="24">
+    </a>
+    <a href="https://www.tiktok.com/@pizzakladno?_t=ZN-8tbxv0q0T6k&_r=1" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/3046/3046125.png" alt="TikTok ikona" width="24" height="24">
+    </a>
+</div>
+    <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</header>
+
+<!-- Slider -->
+<div class="slider">
+    <div class="slides">
+        <div class="slide" style="background-image: url('images/sanmarino.jpg');"></div>
+        <div class="slide" style="background-image: url('images/VEČER.jpg');"></div>
+        <div class="slide" style="background-image: url('images/menu.jpg');"></div>
+    </div>
+    <div class="content">
+        <h1>Pizzerie San Marino</h1>
+        <div class="buttons">
+            <a href="https://www.pizzakladno.cz" class="order-button"><i class="fas fa-shopping-cart"></i> Objednat online</a>
+            <a href="tel:+420604633373" class="order-button"><i class="fas fa-phone"></i> Zavolat</a>
+        </div>
+    </div>
+</div>
+        
+<section id="onas">
+    <div class="container">
+        <h2>O nás</h2>
+        
+        <!-- Pizza section -->
+        <div class="pizza-category">
+            <p><strong>🍕 Naše pizza, náš originál – tohle není žádná Itálie, to je tradice již od roku 1994! 🍕</strong></p>
+            <ul>
+                <li>✅ Poctivé těsto: Nadýchané, s křupavými okraji.</li>
+                <li>✅ Originální formy: Těstu dodávají jedinečný tvar a strukturu.</li>
+                <li>✅ Poctivá porce ingrediencí: Bohatě obložené nejlepšími ingrediencemi.</li>
+                <li>✅ Zasypané sýrem: Tvoří perfektní vrstvu.</li>
+            </ul>
+            <p><strong>56 druhů pizz, 4 velikosti a jedno skvělé rozhodnutí – ochutnat náš originál!</strong></p>
+            <p>A pokud máte vlastní představy, vytvořte si svou pizzu na míru! Přidejte nebo odeberte ingredience podle vašich preferencí – ať už řešíte alergie, nechcete některou ingredienci, nebo si chcete dopřát extra porci něčeho, co máte rádi! 🍕</p>
+        </div>
+
+        <!-- Other items section -->
+        <div class="other-category">
+            <p><strong>A to není vše – u nás najdete i další dobroty:</strong></p>
+            <ul>
+                <li>🍔 Legendární Burgry jako Kráva – šťavnaté, výjimečné a plné chuti. Objednejte a zjistěte, proč si je naši zákazníci tak chválí!</li>
+                <li>🍝 Těstoviny – zapečené těstoviny přímo z pece, nebo klasické.</li>
+                <li>🥗 Čerstvé saláty – plné vitamínů pro lepší kondici.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="recenze-section">
+    <h2 class="section-title">Recenze</h2>
+    <div class="reviews-container">
+        <!-- Widget firmy -->
+        <div class="review-widget">
+            <a href="https://www.firmy.cz/detail/293070-pizzerie-san-marino-kladno.html#hodnoceni" target="_blank" rel="noopener">
+                <img class="review-img" src="https://www.firmy.cz/img-stars/light-293070.svg" alt="Pizzerie San Marino na Firmy.cz">
+            </a>
+        </div>
+
+        <!-- Script Yext -->
+        <div class="yext-widget">
+            <script type="text/javascript" src="//sites.yext.com/347876-reviews.js"></script>
+        </div>
+
+        <!-- Mapa -->
+        <div class="review-widget">
+            <a target="_blank" href="https://mapy.cz/?source=firm&id=293070&firmBadge=1">
+                <img class="review-img" width="249" src="https://mapy.cz/firm-badge.svg?id=293070&source=firm" alt="Mapa Pizzerie San Marino">
+            </a>
+        </div>
+    </div>
+</section>
+
+    <section id="galerie">
+    <div class="container">
+        <h2>Galerie</h2>
+        <div class="gallery">
+            <img src="images/VEČER.jpg" alt="Večer">
+            <img src="images/menu.jpg" alt="Menu">
+            <img src="images/Burgry.jpg" alt="Burgry">
+            <img src="images/sanmarino.jpg" alt="San Marino">
+            <img src="images/Omáčky.jpg" alt="Omáčky">
+            <img src="images/Popkorn.jpg" alt="Popkorn">
+        </div>
+    </div>
+</section>
+    
+: <!-- Kontakt sekce -->
+<section id="kontakty">
+    <div class="container">
+        <div class="card-container">
+            <!-- Otevírací a rozvozová doba karta -->
+            <div class="card">
+                <h3>Otevírací a rozvozová doba</h3>
+                <p><strong>Pondělí:</strong> ZAVŘENO</p>
+                <p><strong>Úterý:</strong> 11:00 - 21:15</p>
+                <p><strong>Středa:</strong> 11:00 - 21:15</p>
+                <p><strong>Čtvrtek:</strong> 11:00 - 21:15</p>
+                <p><strong>Pátek:</strong> 11:00 - 21:15</p>
+                <p><strong>Sobota:</strong> 11:00 - 21:15</p>
+                <p><strong>Neděle:</strong> 11:00 - 21:15</p>
+            </div>
+            <!-- Kudy k nám karta -->
+            <div class="card">
+                <h3>Kudy k nám</h3>
+                <!-- Mapový odkaz -->
+                <iframe width="640" height="420" src="https://frame.mapy.cz/zakladni?x=14.1267168917&y=50.1338058083&z=17&source=firm&id=293070&widgetFirmy=293070" style="border: none;" frameborder="0"></iframe>
+            </div>
+<!-- Kontakt karta -->
+<div class="card">
+    <h3>Kontakt</h3>
+    <p>Pizzerie San Marino</p>
+    <p>Adresa: Obránců míru 2721, 27201 Kladno</p>
+    <p>Mobil: <a href="tel:+420604633373" class="contact-link">+420 604 633 373</a></p>
+    <p>Telefon: +420 312 686 996</p>
+    <p>E-mail: <a href="mailto:sanmarino@kladno.cz" class="contact-link">sanmarino@kladno.cz</a></p>
+    <p>
+        <a href="https://www.facebook.com/profile.php?id=100095016576324" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook ikona" width="24" height="24">
+        </a>
+        <a href="https://www.instagram.com/pizzakladno/" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram ikona" width="24" height="24">
+        </a>
+        <a href="https://www.tiktok.com/@pizzakladno?_t=ZN-8tbxv0q0T6k&_r=1" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/3046/3046125.png" alt="TikTok ikona" width="24" height="24">
+        </a>
+    </p>
+</div>
+</section>
+    
+<footer>
+    <div class="container">
+        <p>&copy; 2025 Pizzerie San Marino. Všechna práva vyhrazena.</p>
+    </div>
+</footer>
+    
+<script>
+// Hamburger Menu Toggle
+document.addEventListener("DOMContentLoaded", () => {
+    const hamburger = document.querySelector('.hamburger');
+    const nav = document.querySelector('nav');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        nav.classList.toggle('active');
+    });
+
+    // Slider
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slider .slide');
+    const slidesContainer = document.querySelector('.slides');
+    const totalSlides = slides.length;
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides; // Posun na další slide (cyklicky)
+        updateSliderPosition();
+    }
+
+    function updateSliderPosition() {
+        slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    setInterval(nextSlide, 4000); // Automatické posouvání každé 4 sekundy
+
+    // Galerie
+    const galleryContainer = document.querySelector('.gallery');
+    const galleryImages = document.querySelectorAll('.gallery img');
+    
+    if (window.innerWidth <= 768 && galleryImages.length > 0) {
+        let currentIndex = 0;
+
+        function moveToNextImage() {
+            galleryImages[currentIndex].style.display = 'none';
+            currentIndex = (currentIndex + 1) % galleryImages.length;
+            galleryImages[currentIndex].style.display = 'block';
+        }
+
+        setInterval(moveToNextImage, 4000);
+    }
+
+    // Ztmavení navigační lišty
+    const header = document.querySelector("header");
+    const heroSectionHeight = header.offsetHeight;
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > heroSectionHeight) {
+            header.classList.add("scrolled");
+        } else {
+            header.classList.remove("scrolled");
+        }
+    });
+});
+</script>
+</body>
+</html>
