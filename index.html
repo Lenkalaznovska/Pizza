@@ -630,17 +630,25 @@ section:hover {
     text-decoration: underline;
 }
 
-.social-links a {
-    display: inline-flex;
+.social-links {
+    display: flex;
+    gap: 30px; /* Nastavení větší mezery mezi ikonami */
+    justify-content: center;
     align-items: center;
-    margin: 10px 15px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
     color: #555;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .social-links a img {
-    margin-right: 15px;
+    margin: 0; /* Odstranění rušivých mezer */
+    width: 40px; /* Nastavení rozměru ikon (volitelné) */
+    height: auto;
 }
 
 .social-links a:hover {
