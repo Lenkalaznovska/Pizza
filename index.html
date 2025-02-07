@@ -790,7 +790,7 @@ footer {
         <p>&copy; 2025 Pizzerie San Marino. Všechna práva vyhrazena.</p>
     </div>
 </footer>
-    
+
 <script>
 // Hamburger Menu Toggle
 document.addEventListener("DOMContentLoaded", () => {
@@ -836,13 +836,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Ztmavení navigační lišty
-window.addEventListener('scroll', function() {
-    let header = document.querySelector('header');
-    if (window.scrollY > window.innerHeight) {
-        header.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-    } else {
-        header.style.backgroundColor = 'rgba(128, 128, 128, 0.3)';
-    }
+    const header = document.querySelector("header");
+    const heroSectionHeight = header.offsetHeight;
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > heroSectionHeight) {
+            header.classList.add("scrolled");
+        } else {
+            header.classList.remove("scrolled");
+        }
     });
 });
 </script>
