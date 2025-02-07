@@ -840,16 +840,6 @@ footer {
 </footer>
 
 <script>
-// Hamburger Menu Toggle
-document.addEventListener("DOMContentLoaded", () => {
-    const hamburger = document.querySelector('.hamburger');
-    const nav = document.querySelector('nav');
-
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        nav.classList.toggle('active');
-    });
-
     // Slider
     let currentSlide = 0;
     const slides = document.querySelectorAll('.slider .slide');
@@ -883,18 +873,20 @@ document.addEventListener("DOMContentLoaded", () => {
         setInterval(moveToNextImage, 4000);
     }
 
-    // Ztmavení navigační lišty
-    const header = document.querySelector("header");
-    const heroSectionHeight = header.offsetHeight;
+// Získání navigační lišty
+const header = document.querySelector('header');
 
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > heroSectionHeight) {
-            header.classList.add("scrolled");
-        } else {
-            header.classList.remove("scrolled");
-        }
-    });
-});
+// Funkce pro kontrolu pozice scrollu
+function handleScroll() {
+    if (window.scrollY > 250) {  // Ztmavnutí až po posunutí o 250px
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+}
+
+// Připojení funkce ke scroll události
+window.addEventListener('scroll', handleScroll);
 </script>
 </body>
 </html>
