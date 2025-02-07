@@ -384,74 +384,80 @@ section:hover {
         max-width: 100%; /* Zajistí, že seznamy nebudou omezeny na maximální šířku */
     }
 }
-        
+
 /* Recenze */
-.recenze-section {
-    margin: 40px 0;
-    padding: 20px;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.section-title {
-    text-align: center;
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
 .reviews-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    flex-wrap: wrap;
-    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    width: 70%;
+    margin: 0 auto;
+    align-items: stretch;
 }
 
-.review-widget,
-.yext-widget {
-    max-width: 300px;
-    text-align: center;
+.left-column, .right-column {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 20px;
+    justify-content: center;
     align-items: center;
-    min-height: 180px;
-    box-sizing: border-box;
 }
 
 .review-img {
-    max-width: 100%;
+    width: 90%;
     height: auto;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
-.yext-widget script {
-    width: 100%;
-    max-width: 300px;
+.certifikat-img {
+    width: 90%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.review-description {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 5px;
+    color: #333;
+}
+
+.certifikat-widget, .yext-widget {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    height: 100%;
 }
 
 /* Mobile Styles */
 @media (max-width: 768px) {
     .reviews-container {
-        flex-direction: column; /* Widgets will be stacked vertically */
-        gap: 5px; /* Smaller gaps between widgets */
+        grid-template-columns: 1fr;
+        gap: 10px;
+        width: 90%;
     }
 
-    .review-widget,
-    .yext-widget {
-        max-width: 100%; /* Widgets will occupy full width */
-        min-height: auto; /* Auto height adjustment */
+    .review-widget, .yext-widget, .certifikat-widget {
+        max-width: 100%;
+        min-height: auto;
+    }
+
+    .review-img, .certifikat-img {
+        width: 100%;
+        height: auto;
+        max-height: 120px;
+    }
+
+    .review-description {
+        font-size: 14px;
     }
 
     .gallery {
         display: flex;
-        flex-wrap: nowrap; /* Prevent wrapping into multiple rows */
+        flex-wrap: nowrap;
         justify-content: center;
         gap: 10px;
         overflow: hidden;
@@ -460,20 +466,17 @@ section:hover {
 
     .gallery img {
         width: 100%;
-        height: 265px; /* Fixed height for all images */
-        object-fit: cover; /* Maintain aspect ratio without distortion */
+        height: 265px;
+        object-fit: cover;
+        display: none;
     }
 
-    .gallery img {
-        display: none; /* Hide all images except the first one */
-    }
-  
     .gallery img:first-child {
         display: block;
     }
 
     .card {
-        width: 100%; /* Cards take full width on mobile */
+        width: 100%;
     }
 }
 
@@ -737,29 +740,38 @@ footer {
             </div>
         </section>
 
-<section class="recenze-section">
-    <h2 class="section-title">Recenze</h2>
-    <div class="reviews-container">
-        <!-- Widget firmy -->
-        <div class="review-widget">
-            <a href="https://www.firmy.cz/detail/293070-pizzerie-san-marino-kladno.html#hodnoceni" target="_blank" rel="noopener">
-                <img class="review-img" src="https://www.firmy.cz/img-stars/light-293070.svg" alt="Pizzerie San Marino na Firmy.cz">
-            </a>
-        </div>
-
-        <!-- Script Yext -->
-        <div class="yext-widget">
-            <script type="text/javascript" src="//sites.yext.com/347876-reviews.js"></script>
-        </div>
-
-        <!-- Mapa -->
-        <div class="review-widget">
-            <a target="_blank" href="https://mapy.cz/?source=firm&id=293070&firmBadge=1">
-                <img class="review-img" width="249" src="https://mapy.cz/firm-badge.svg?id=293070&source=firm" alt="Mapa Pizzerie San Marino">
-            </a>
-        </div>
-    </div>
-</section>
+        <section class="recenze-section">
+            <h2 class="section-title">Recenze</h2>
+            <div class="reviews-container">
+                <div class="left-column">
+                    <!-- Widget firmy -->
+                    <div class="review-widget">
+                        <a href="https://www.firmy.cz/detail/293070-pizzerie-san-marino-kladno.html#hodnoceni" target="_blank" rel="noopener">
+                            <img class="review-img" src="https://www.firmy.cz/img-stars/light-293070.svg" alt="Pizzerie San Marino na Firmy.cz">
+                        </a>
+                    </div>
+        
+                    <!-- Mapa -->
+                    <div class="review-widget">
+                        <a target="_blank" href="https://mapy.cz/?source=firm&id=293070&firmBadge=1">
+                            <img class="review-img" src="https://mapy.cz/firm-badge.svg?id=293070&source=firm" alt="Mapa Pizzerie San Marino">
+                        </a>
+                    </div>
+        
+                    <!-- Script Yext -->
+                    <div class="yext-widget">
+                        <script type="text/javascript" src="//sites.yext.com/347876-reviews.js"></script>
+                    </div>
+                </div>
+        
+                <div class="right-column">
+                    <!-- Obrázek certifikátu -->
+                    <div class="certifikat-widget">
+                        <img class="certifikat-img" src="images/certifikat.jpeg" alt="Certifikát">
+                    </div>
+                </div>
+            </div>
+        </section>
 
     <section id="galerie">
     <div class="container">
