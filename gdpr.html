@@ -31,7 +31,7 @@
         font-size: 28px;
         margin-top: 20px;
         color: #d51e1e;
-        text-align: left; /* Zarovnání nadpisu na střed */
+        text-align: left;
       }
 
       p {
@@ -48,6 +48,27 @@
 
       a:hover {
         text-decoration: underline;
+      }
+
+      /* Responzivní design */
+      @media (max-width: 768px) {
+        main {
+          width: 90%;
+        }
+
+        h1 {
+          font-size: 28px;
+        }
+
+        h2 {
+          font-size: 24px;
+          text-align: center; /* Zarovnání nadpisu na střed pro mobilní zařízení */
+        }
+
+        p {
+          font-size: 14px;
+          text-align: left; /* Zarovnání textu vlevo pro lepší čitelnost na mobilních zařízeních */
+        }
       }
     </style>
   </head>
