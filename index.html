@@ -457,10 +457,6 @@ section:hover {
     margin-right: 20px; /* Zvětšení mezery mezi ikonami */
 }
 
-.social-links a:hover {
-    color: #3498db;
-}
-
 /* Galerie */
 .image-container {
     display: flex;
@@ -591,8 +587,7 @@ section:hover {
 
 /* Contact Section - Fully Responsive */
 .card-container {
-    display: flex;
-    flex-wrap: wrap;
+    display:flex;
     gap: 20px;
     justify-content: center;
 }
@@ -692,18 +687,50 @@ footer {
     text-align: center;
 }
 
+/* Odkazy v patičce */
+footer a {
+    color: #1f7a39; /* Výchozí barva odkazů */
+    text-decoration: none; /* Bez podtržení */
+    font-weight: bold;
+    margin: 10px; /* Mezery mezi odkazy */
+    display: inline-block; /* Aby odkazy byly vedle sebe */
+}
+
+footer a:hover {
+    color: #17a03e; /* Barva při najetí */
+}
+
+/* Zarovnání textu v .footer-provozovatel */
 .footer-provozovatel {
     color: white;
     font-weight: bold;
-    text-align: left;
-    margin-top: 15px;
+    text-align: center; /* Upraveno na centrum pro responzivní design */
+    margin-top: 30px; /* Zvýšená mezera mezi odkazy a provozovatelem */
     font-size: 16px;
 }
 
+/* Nadpisy v .footer-provozovatel */
 .footer-provozovatel h5 {
     margin-bottom: 10px;
     font-weight: bold;
 }
+
+/* Responzivní design: Upravujeme pro mobilní zařízení */
+@media (max-width: 768px) {
+    footer {
+        padding: 15px 0;
+    }
+
+    .footer-provozovatel {
+        font-size: 14px;
+        margin-top: 20px; /* Menší mezera pro mobilní zařízení */
+    }
+
+    footer a {
+        font-size: 14px; /* Menší písmo pro mobilní zařízení */
+    }
+}
+
 </style>
 
 </head>
@@ -870,25 +897,34 @@ footer {
             </div>
 <!-- Kontakt karta -->
 <div class="card">
-    <h3>Kontakt</h3>
+    <h3>Kontakt</h3></br>
     <p>Pizzerie San Marino</p>
     <p>Adresa: Obránců míru 2721, 27201 Kladno</p>
     <p>Mobil: <a href="tel:+420604633373" class="contact-link">+420 604 633 373</a></p>
     <p>Mobil: <a href="tel:+420312686996" class="contact-link">+420 604 312 686 996</a></p>
     <p>E-mail: <a href="mailto:sanmarino@kladno.cz" class="contact-link">sanmarino@kladno.cz</a></p>
     <p>
-
 </section>
     
-<footer> 
+<footer>  
     <div class="container">
         <p>&copy; 2025 Pizzerie San Marino. Všechna práva vyhrazena.</p>
+        
         <div class="footer-provozovatel">
             <h5>Provozovatel</h5>
             <p><strong> ALFA plus s.r.o.</strong></p>
             <p><strong>Adresa:</strong> Železničářů 2350, 27201 Kladno</p>
             <p><strong>IČ:</strong> 46349154</p>
             <p><strong>DIČ:</strong> CZ46349154</p>
+        </div>
+
+        <!-- Odkaz na obchodní podmínky -->
+        <div class="footer-links">
+            <a href="obchodni-podminky.html">Obchodní podmínky</a>
+        </div>
+        <!-- Odkaz na obchodní podmínky -->
+        <div class="footer-links">
+            <a href="gdpr.html">GDPR - Podmínky ochrany osobních údajů</a>
         </div>
     </div>
 </footer>
