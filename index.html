@@ -587,7 +587,8 @@ section:hover {
 
 /* Contact Section - Fully Responsive */
 .card-container {
-    display:flex;
+    display: flex;
+    flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
 }
@@ -662,6 +663,10 @@ section:hover {
     .card p {
         font-size: 1rem;
     }
+
+    .social-links {
+        gap: 50px; /* Menší mezera pro menší obrazovky */
+    }
 }
 
 @media (max-width: 480px) {
@@ -676,6 +681,10 @@ section:hover {
     .card p {
         font-size: 1rem;
     }
+
+    .social-links {
+        gap: 40px; /* Další úprava mezer pro nejmenší obrazovky */
+    }
 }
     
 /* Footer */
@@ -689,7 +698,7 @@ footer {
 
 /* Odkazy v patičce */
 footer a {
-    color: #1f7a39; /* Výchozí barva odkazů */
+    color: white; /* Výchozí barva odkazů */
     text-decoration: none; /* Bez podtržení */
     font-weight: bold;
     margin: 10px; /* Mezery mezi odkazy */
@@ -697,7 +706,7 @@ footer a {
 }
 
 footer a:hover {
-    color: #17a03e; /* Barva při najetí */
+    color: whitesmoke; /* Barva při najetí */
 }
 
 /* Zarovnání textu v .footer-provozovatel */
