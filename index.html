@@ -447,24 +447,75 @@ section:hover {
     color: #3498db;
 }
 
-/* Responsive Gallery */
-.gallery {
+/* Galerie */
+.image-container {
     display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 100%;
     flex-wrap: wrap;
+}
+
+.flip-card {
+    width: calc(33.333% - 20px); /* Odpočet prostoru mezi kartami */
+    height: 400px;
+    perspective: 1000px;
+    margin: 10px; /* Prostor mezi kartami */
+    border-radius: 10px; /* Zaoblení okrajů */
+    overflow: hidden; /* Skrytí přetékajícího obsahu */
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    border-radius: 10px; /* Zaoblení okrajů i pro vnitřní obsah */
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px; /* Zaoblení okrajů i pro přední a zadní stranu */
+}
+
+.flip-card-front {
+    display: flex;
     justify-content: center;
-    gap: 20px;
+    align-items: center;
 }
 
-.gallery img {
-    width: calc(33.333% - 20px);
-    object-fit: cover;
-    border-radius: 12px;
-    transition: transform 0.3s, box-shadow 0.3s;
+.flip-card-back {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0d9a0;
+    color: var(--primary-color);
+    transform: rotateY(180deg);
 }
 
-.gallery img:hover {
+.gallery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Umožňuje přizpůsobení rozměrům karty */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+.gallery-image:hover {
     transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 30px var(--shadow-color);
+    filter: brightness(1.1);
 }
 
 @media (max-width: 1024px) {
@@ -685,20 +736,94 @@ footer {
             </div>
         </section>
         
-    <section id="galerie">
-    <div class="container">
-        <h2>Galerie</h2>
-        <div class="gallery">
-            <img src="images/certifikat.jpeg" alt="Večer">
-            <img src="images/VEČER.jpg" alt="Večer">
-            <img src="images/menu.jpg" alt="Menu">
-            <img src="images/Burgry.jpg" alt="Burgry">
-            <img src="images/sanmarino.jpg" alt="San Marino">
-            <img src="images/Omáčky.jpg" alt="Omáčky">
-            <img src="images/Popkorn.jpg" alt="Popkorn">
-        </div>
-    </div>
-</section>
+        <section id="galerie">
+            <div class="container">
+                <h2>Galerie</h2>
+                <div class="image-container">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="images/certifikat.jpeg" alt="Večer" class="gallery-image">
+                            </div>
+                            <div class="flip-card-back">
+                                <p>Pizzerie San Marino byla doporučena i pro tento rok na Restaurant Guru 2025! Tento úspěch je pro nás velkou motivací a poctou pokračovat v tom, co nás baví již od roku 1994. Děkujeme vám, našim skvělým zákazníkům, za veškerou přízeň a pozitivní recenze. ❤️</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="images/pizza1.jpg" alt="Večer" class="gallery-image">
+                            </div>
+                            <div class="flip-card-back">
+                                <p>
+                                    Naše pizzy jsou jedinečné a pečeme je jinak:<br>
+                                    ✅ Ve formách, které dodávají těstu dokonalý tvar a strukturu.<br>
+                                    ✅ Těsto je nadýchané s křupavým okrajem.<br>
+                                    ✅ Zasypané sýrem, který tvoří dokonalou vrstvu.<br>
+                                    ✅ Bohatá porce kvalitních surovin.<br><br>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="images/burgr.jpg" alt="Menu" class="gallery-image">
+                            </div>
+                            <div class="flip-card-back">
+                                <p>
+                                    Cože, vy jste ještě neochutnali tyhle legendární „burgry jako kráva“? 😲 Pro pravé gurmány máme i variantu s trhaným masem. Tak na co čekáte? 🕐 Mrkněte do naší nabídky a objednejte si tu svou legendu! 🍔
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="images/auta.jpg" alt="Burgry" class="gallery-image">
+                            </div>
+                            <div class="flip-card-back">
+                                <p>
+                                    Neplaťte víc, než musíte! U nás platíte pouze za jídlo a doručení. Na dalších platformách vás mohou čekat další poplatky, tak proč platit víc? 💸 Objednejte pohodlně online a naši kurýři jsou již na cestě! 🚗💨
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="images/omacky.jpg" alt="Omáčky" class="gallery-image">
+                            </div>
+                            <div class="flip-card-back">
+                                <p>
+                                    Tak jaká omáčka bude pro vás ta pravá? Ochutnejte a najděte si svou vyladěnou omáčku k našim dobrotám! 🍴😋
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="images/wingit.jpg" alt="Popkorn" class="gallery-image">
+                            </div>
+                            <div class="flip-card-back">
+                                <p>
+                                    Miluješ kuřecí maso? 🍗 Tak to si jistě zamiluješ i kuřecí speciality Wing It! 😋
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+        
     
 : <!-- Kontakt sekce -->
 <section id="kontakty">
