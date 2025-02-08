@@ -473,6 +473,7 @@ section:hover {
     margin: 10px; /* Prostor mezi kartami */
     border-radius: 10px; /* Zaoblení okrajů */
     overflow: hidden; /* Skrytí přetékajícího obsahu */
+    cursor: pointer; /* Přidání kurzoru pro lepší uživatelský zážitek */
 }
 
 .flip-card-inner {
@@ -484,8 +485,9 @@ section:hover {
     border-radius: 10px; /* Zaoblení okrajů i pro vnitřní obsah */
 }
 
-.flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
+.flip-card:hover .flip-card-inner,
+.flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg); /* Přidání třídy .flipped pro kliknutí */
 }
 
 .flip-card-front,
@@ -558,17 +560,9 @@ section:hover {
         border-radius: 10px;
     }
 
-    .flip-card .flip-card-inner {
-        transform: rotateY(0deg); /* Neotáčí se, pokud je otáčení na mobilu vypnuté */
-    }
-
-    /* Automatické otáčení na pozadí, pokud není zobrazen první obrázek */
-    .flip-card:hover .flip-card-inner {
-        transform: rotateY(180deg);
-    }
-
-    .flip-card-back {
-        transform: rotateY(180deg);
+    /* Přidání funkce pro kliknutí na mobilních zařízeních */
+    .flip-card.flipped .flip-card-inner {
+        transform: rotateY(180deg); /* Otáčení karty po kliknutí */
     }
 }
 
@@ -934,28 +928,80 @@ footer a:hover {
 </footer>
 
 <script>
-    // Slider
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.slider .slide');
-    const slidesContainer = document.querySelector('.slides');
-    const totalSlides = slides.length;
+// 1. Nastavení pro mobilní interakci (touch) s kartami
+let startX = 0;
+let endX = 0;
+const flipCards = document.querySelectorAll('.flip-card');
+const isMobile = window.innerWidth <= 768; // Kontrola mobilní verze
 
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % totalSlides; // Posun na další slide (cyklicky)
-        updateSliderPosition();
-    }
+/**
+ * Funkce pro zpracování posunu prstu na kartách
+ */
+function handleCardTouch(card, index) {
+    card.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX; // Zachytí počáteční pozici prstu
+    });
 
-    function updateSliderPosition() {
-        slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
-    }
+    card.addEventListener('touchmove', (e) => {
+        endX = e.touches[0].clientX; // Zachytí konečnou pozici prstu
+    });
 
-    setInterval(nextSlide, 4000); // Automatické posouvání každé 4 sekundy
+    card.addEventListener('touchend', () => {
+        // Posun prstu doprava (otáčí kartu)
+        if (startX > endX + 50) {
+            flipCards[index].classList.add('flipped');
+            if (index + 1 < flipCards.length) {
+                flipCards[index + 1].classList.add('flipped');
+                flipCards[index].classList.remove('flipped');
+            }
+        } 
+        // Posun prstu doleva (vrací kartu zpět)
+        else if (endX > startX + 50) {
+            flipCards[index].classList.remove('flipped');
+            if (index - 1 >= 0) {
+                flipCards[index - 1].classList.remove('flipped');
+            }
+        }
+    });
+}
+
+// Volání funkce pro inicializaci
+if (isMobile) {
+    initCardInteraction();
+}
 
 
-// Získání navigační lišty
+// 2. Nastavení pro automatický posuv slidu (Slider)
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slider .slide');
+const slidesContainer = document.querySelector('.slides');
+const totalSlides = slides.length;
+
+/**
+ * Posunutí na další slide
+ */
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides; // Cyklování přes slidy
+    updateSliderPosition();
+}
+
+/**
+ * Funkce pro aktualizaci pozice slidu
+ */
+function updateSliderPosition() {
+    slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+}
+
+// Automatické posouvání slidu každé 4 sekundy
+setInterval(nextSlide, 4000);
+
+
+// 3. Navigační lišta a efekt ztmavnutí při scrollování
 const header = document.querySelector('header');
 
-// Funkce pro kontrolu pozice scrollu
+/**
+ * Funkce pro kontrolu pozice scrollu a přidání efektu ztmavnutí
+ */
 function handleScroll() {
     if (window.scrollY > 250) {  // Ztmavnutí až po posunutí o 250px
         header.classList.add('scrolled');
