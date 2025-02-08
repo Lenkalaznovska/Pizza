@@ -663,10 +663,6 @@ section:hover {
     .card p {
         font-size: 1rem;
     }
-
-    .social-links {
-        gap: 50px; /* Menší mezera pro menší obrazovky */
-    }
 }
 
 @media (max-width: 480px) {
@@ -686,60 +682,60 @@ section:hover {
         gap: 40px; /* Další úprava mezer pro nejmenší obrazovky */
     }
 }
-    
+
 /* Footer */
 footer {
-    background-color: #333; /* Pozadí patičky */
-    color: white; /* Text bílý */
-    padding: 20px 0;
+    background-color: var(--secondary-color); /* Pozadí patičky */
+    color: var(--text-color); /* Text bílý */
+    padding: 15px 0; /* Zmenšil jsem padding pro menší mezery */
     font-weight: bold;
     text-align: center;
 }
 
 /* Odkazy v patičce */
 footer a {
-    color: white; /* Výchozí barva odkazů */
+    color: var(--text-color); /* Výchozí barva odkazů */
     text-decoration: none; /* Bez podtržení */
     font-weight: bold;
-    margin: 10px; /* Mezery mezi odkazy */
+    margin: 10px;
     display: inline-block; /* Aby odkazy byly vedle sebe */
+    transition: color var(--transition-speed);
 }
 
 footer a:hover {
-    color: whitesmoke; /* Barva při najetí */
+    color: var(--primary-color); /* Barva při najetí */
 }
 
 /* Zarovnání textu v .footer-provozovatel */
 .footer-provozovatel {
-    color: white;
+    color: var(--text-color);
     font-weight: bold;
     text-align: center; /* Upraveno na centrum pro responzivní design */
-    margin-top: 30px; /* Zvýšená mezera mezi odkazy a provozovatelem */
     font-size: 16px;
 }
 
 /* Nadpisy v .footer-provozovatel */
-.footer-provozovatel h5 {
-    margin-bottom: 10px;
+.footer-provozovatel h4 {
+    margin-bottom: 5px; /* Zmenšil jsem spodní margin u nadpisu */
     font-weight: bold;
 }
 
 /* Responzivní design: Upravujeme pro mobilní zařízení */
 @media (max-width: 768px) {
     footer {
-        padding: 15px 0;
+        padding: 12px 0; /* Menší padding pro mobilní zařízení */
     }
 
     .footer-provozovatel {
         font-size: 14px;
-        margin-top: 20px; /* Menší mezera pro mobilní zařízení */
+        margin-top: 8px; /* Ještě menší mezera pro mobilní zařízení */
     }
 
     footer a {
         font-size: 14px; /* Menší písmo pro mobilní zařízení */
+        margin: 5px; /* Menší mezery pro mobilní zařízení */
     }
 }
-
 </style>
 
 </head>
@@ -916,11 +912,9 @@ footer a:hover {
 </section>
     
 <footer>  
-    <div class="container">
-        <p>&copy; 2025 Pizzerie San Marino. Všechna práva vyhrazena.</p>
-        
+    <div class="container">        
         <div class="footer-provozovatel">
-            <h5>Provozovatel</h5>
+            <h4>Provozovatel</h4>
             <p><strong> ALFA plus s.r.o.</strong></p>
             <p><strong>Adresa:</strong> Železničářů 2350, 27201 Kladno</p>
             <p><strong>IČ:</strong> 46349154</p>
@@ -935,6 +929,7 @@ footer a:hover {
         <div class="footer-links">
             <a href="gdpr.html">GDPR - Podmínky ochrany osobních údajů</a>
         </div>
+        <p>&copy; 2025 Pizzerie San Marino. Všechna práva vyhrazena.</p>
     </div>
 </footer>
 
