@@ -930,21 +930,6 @@ footer {
 
     setInterval(nextSlide, 4000); // Automatické posouvání každé 4 sekundy
 
-    // Galerie
-    const galleryContainer = document.querySelector('.gallery');
-    const galleryImages = document.querySelectorAll('.gallery img');
-    
-    if (window.innerWidth <= 768 && galleryImages.length > 0) {
-        let currentIndex = 0;
-
-        function moveToNextImage() {
-            galleryImages[currentIndex].style.display = 'none';
-            currentIndex = (currentIndex + 1) % galleryImages.length;
-            galleryImages[currentIndex].style.display = 'block';
-        }
-
-        setInterval(moveToNextImage, 4000);
-    }
 
 // Získání navigační lišty
 const header = document.querySelector('header');
