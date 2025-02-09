@@ -251,7 +251,7 @@ nav ul li a:hover {
 }
 
 .call {
-  width: 100%;
+  width: 30%;
   margin-top: 20px;
   margin-bottom: 10px; /* Additional space below "call" button */
 }
