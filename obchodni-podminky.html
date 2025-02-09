@@ -3,72 +3,114 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="images/favicon.png" type="image/png" />
     <title>Obchodní podmínky - Pizzerie San Marino</title>
     <style>
-      /* Hlavní text */
-      main {
+      /* Definice barev a základních hodnot pro snadnější změny */
+      :root {
+        --background-color: #f4f4f4;
+        --text-color: #333;
+        --accent-color: #cc9a5d; /* Hřejivá medová barva */
+        --link-color: #007bff;
+        --link-hover-color: #0056b3;
+        --max-width: 900px;
+        --font-size-base: 1em;
+        --font-size-small: 0.875em;
+        --font-size-medium: 1.1em;
+        --padding-base: 20px;
+        --padding-section: 30px;
+        --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Základní styl pro stránku */
+      body {
         font-family: Arial, sans-serif;
-        color: #2b2b2b; /* Černá barva pro text */
-        line-height: 1.6; /* Větší řádkování pro lepší čitelnost */
-        margin: 20px auto; /* Vycentrování kontejneru */
-        width: 70%; /* Nastavení šířky na 70% */
+        background-color: var(--background-color);
+        margin: 0;
+        padding: 0;
+        color: var(--text-color);
+        font-size: var(--font-size-base);
+      }
+
+      main {
+        padding: var(--padding-base);
       }
 
       h1,
       h2 {
-        font-weight: bold;
-        color: #2b2b2b; /* Černá barva pro nadpisy */
-      }
-
-      h1 {
-        font-size: 32px;
-        text-align: center;
-        margin-bottom: 20px;
-      }
-
-      h2 {
-        font-size: 28px;
-        margin-top: 20px;
-        color: #d51e1e; /* Červená pro nadpisy sekcí */
+        color: var(--text-color);
+        margin-bottom: 10px;
       }
 
       p {
-        font-size: 16px;
-        text-align: justify; /* Zarovnání textu do bloku */
+        line-height: 1.6;
+        margin-bottom: 20px;
+        font-size: var(--font-size-medium);
       }
 
-      /* Doplňkové formátování pro odkazy v textu */
       a {
-        color: #d51e1e; /* Červené odkazy */
+        color: var(--link-color);
         text-decoration: none;
-        font-weight: bold;
       }
 
       a:hover {
+        color: var(--link-hover-color);
         text-decoration: underline;
       }
 
-      /* Responzivní design */
+      /* Karta pro obchodní podmínky */
+      .terms {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        background-color: #fff;
+        padding: var(--padding-section);
+        border-radius: 8px;
+        box-shadow: var(--box-shadow);
+      }
+
+      h1 {
+        text-align: center;
+        color: var(--accent-color);
+      }
+
+      h2 {
+        color: var(--accent-color);
+        border-bottom: 2px solid var(--accent-color);
+        padding-bottom: 5px;
+      }
+
+      /* Styly pro oddělení sekcí */
+      section {
+        margin-bottom: 20px;
+      }
+
+      /* Responzivita pro mobilní zařízení */
       @media (max-width: 768px) {
-        main {
-          width: 90%; /* Zvětšení šířky na 90% pro mobilní zařízení */
+        body {
+          font-size: var(--font-size-small);
         }
+
+        .terms {
+          padding: 20px;
+        }
+
         h1 {
-          font-size: 28px; /* Menší nadpis pro mobilní zařízení */
+          font-size: 1.5em;
         }
+
         h2 {
-          font-size: 24px; /* Menší nadpis pro mobilní zařízení */
+          font-size: 1.2em;
         }
+
         p {
-          text-align: left; /* Zarovnání textu vlevo pro mobilní zařízení */
+          font-size: 1em;
         }
       }
     </style>
   </head>
-
   <body>
     <main>
-      <section>
+      <section class="terms">
         <h1>Obchodní podmínky</h1>
         <p>Platné od 1. března 2025</p>
         <h2>Úvodní ustanovení</h2>
@@ -80,8 +122,6 @@
           prostřednictvím webových stránek
           <a href="https://www.pizzakladno.cz">www.pizzakladno.cz</a>.
         </p>
-      </section>
-      <section>
         <h2>Rozsah rozvozu</h2>
         <p>
           Pizzerie San Marino nabízí rozvážkovou službu do většiny obydlených
@@ -90,16 +130,12 @@
           Aktuální zóny rozvozu, ceny a minimální hodnoty objednávek jsou
           uvedeny na našich webových stránkách.
         </p>
-      </section>
-      <section>
         <h2>Otevírací doba a objednávky</h2>
         <p>
           Otevírací doba provozovny je od 11:00 do 21:15. Poslední objednávka
           pro rozvoz je přijímána ve 21:15. Otevírací doba může být změněna;
           aktuální informace jsou dostupné na našich webových stránkách.
         </p>
-      </section>
-      <section>
         <h2>Doručení</h2>
         <p>
           Kurýr doručuje objednávku k prvním dveřím budovy. Doručení "do patra"
@@ -108,8 +144,6 @@
           možná pouze po předchozí domluvě a v případě zdravotního omezení
           zákazníka.
         </p>
-      </section>
-      <section>
         <h2>Platební podmínky</h2>
         <p>
           Za naše služby a produkty můžete platit kurýrovi v hotovosti nebo
@@ -124,8 +158,6 @@
           Express. Podporuje také platby digitální peněženkou MasterPass a
           MasterCard Mobile.
         </p>
-      </section>
-      <section>
         <h2>Produkty</h2>
         <p>
           Obrazový materiál na webu
@@ -135,8 +167,6 @@
           mohou být dočasně vyprodány. V takových případech vám bude nabídnuta
           alternativa. Nápoje a sladkosti se rozvážejí pouze s pizzou.
         </p>
-      </section>
-      <section>
         <h2>Záruka spokojenosti</h2>
         <p>
           Pizzerie San Marino dodává jídla za použití čerstvých a kvalitních
@@ -147,8 +177,6 @@
           <a href="mailto:sanmarino@pizzakladno.cz">sanmarino@pizzakladno.cz</a
           >; prosím zašlete fotografii produktu včetně účtenky.
         </p>
-      </section>
-      <section>
         <h2>Dodací lhůty</h2>
         <p>
           Zajišťujeme rozvoz jídla s garancí teploty a brzkým dovozem vaší
@@ -159,8 +187,6 @@
           oprávněné reklamace. V případě komplikací budete telefonicky
           vyrozuměni.
         </p>
-      </section>
-      <section>
         <h2>Doprava</h2>
         <p>
           Pizzerie San Marino dodává jídla do obydlených částí města Kladna a
@@ -169,8 +195,6 @@
           započatý kilometr je účtován poplatek 10 Kč/km. Maximální dojezdová
           vzdálenost se může měnit dle aktuální vytíženosti provozovny.
         </p>
-      </section>
-      <section>
         <h2>Ochrana osobních údajů</h2>
         <p>
           Registrací, případně potvrzením a odesláním objednávky dáváte souhlas
@@ -185,20 +209,14 @@
           marketingových aktivit. Zákazník má právo kdykoliv požádat o výmaz
           nebo opravu svých osobních údajů prostřednictvím e-mailu
           <a href="mailto:sanmarino@pizzakladno.cz">sanmarino@pizzakladno.cz</a
-          >. Údaje zákazníků nebudou předávány třetím stranám s výjimkou
-          partnerů zajišťujících platební styk, dopravu či jiné služby nezbytné
-          pro splnění objednávky. Více informací o zpracování osobních údajů
-          naleznete v sekci Zásady ochrany osobních údajů na našich webových
-          stránkách.
+          >.
         </p>
-      </section>
-      <section>
         <h2>Závěrečná ustanovení</h2>
         <p>
           Pizzerie San Marino si vyhrazuje právo kdykoliv upravit tyto obchodní
-          podmínky bez předchozího upozornění. Tyto podmínky jsou účinné k datu
-          uvedenému výše. Všechny reklamace vyřizujeme v souladu s platnými
-          právními předpisy.
+          podmínky bez předchozího upozornění. Změny jsou účinné okamžitě po
+          zveřejnění na webových stránkách. Těmito podmínkami se řídí veškeré
+          právní vztahy mezi zákazníkem a prodávajícím.
         </p>
       </section>
     </main>
