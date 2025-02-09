@@ -474,6 +474,9 @@ section:hover {
     border-radius: 10px; /* Zaoblení okrajů */
     overflow: hidden; /* Skrytí přetékajícího obsahu */
     cursor: pointer; /* Přidání kurzoru pro lepší uživatelský zážitek */
+    display: flex;
+    justify-content: center; /* Centrum pro obrázky */
+    align-items: center;
 }
 
 .flip-card-inner {
@@ -497,6 +500,8 @@ section:hover {
     height: 100%;
     backface-visibility: hidden;
     border-radius: 10px; /* Zaoblení okrajů i pro přední a zadní stranu */
+    padding: 15px; /* Odsazení pro text na obou stranách */
+    box-sizing: border-box;
 }
 
 .flip-card-front {
@@ -517,7 +522,7 @@ section:hover {
 
 .gallery-image {
     width: 100%;
-    height: 100%;
+    height: 100%; /* Nastavení pro jednotnou velikost všech obrázků */
     object-fit: cover; /* Umožňuje přizpůsobení rozměrům karty */
     border-radius: 10px;
     box-shadow: 0 5px 15px var(--shadow-color);
