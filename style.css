@@ -497,19 +497,6 @@ section:hover {
   text-decoration: none;
 }
 
-.social-links a {
-  display: inline-flex;
-  align-items: center;
-  margin: 10px 0;
-  color: #555;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.social-links a img {
-  margin-right: 20px; /* Zvětšení mezery mezi ikonami */
-}
-
 /* Galerie */
 .image-container {
   display: flex;
@@ -718,7 +705,7 @@ h3 {
 /* Responsive design */
 @media (max-width: 1024px) {
   .card {
-    width: 48%;
+    width: 100%;
   }
 }
 
