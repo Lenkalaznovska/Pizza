@@ -35,10 +35,9 @@ body {
 .logo {
   position: absolute;
   z-index: 15;
-  left: 50%; /* Posune logo na střed kontejneru */
-  transform: translateX(
-    -50%
-  ); /* Přesunutí o polovinu šířky loga zpět pro přesné zarovnání */
+  left: 50%;
+  transform: translateX(-50%) scale(1); /* Původní pozice a velikost */
+  transition: transform 0.5s ease, opacity 0.3s ease; /* Přechody pro transformace a opacity */
   border: 2px solid white;
   background-color: transparent;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -51,6 +50,12 @@ body {
 .logo img {
   height: var(--logo-size);
   display: block;
+}
+
+/* Logo skryté (transformace a opacity) */
+.logo.hidden {
+  opacity: 0; /* Skryje logo */
+  transform: translateX(-50%) scale(0.5) rotate(-180deg); /* Posune a otočí logo */
 }
 
 /* Navigační lišta */
@@ -235,7 +240,7 @@ nav ul li a:hover {
 }
 
 .buttons a:hover {
-  background-color: #d62839;
+  background-color: #da3a3a;
   transform: scale(1.05);
 }
 
@@ -433,7 +438,7 @@ section:hover {
 
 /* Links for phone and email */
 .contact-link {
-  color: #e63946;
+  color: #d51e1e;
   text-decoration: none;
   font-weight: bold;
 }
@@ -569,114 +574,107 @@ section:hover {
   }
 }
 
-/* Contact section */
+/* Kontakt sekce */
 #kontakty {
-  background-color: #f9f9f9;
-  padding: 40px 0;
+  background-color: #f8f8f8;
+  padding: 50px 0;
   text-align: center;
+  margin-bottom: 30px; /* Přidáno pro stejné mezery */
 }
 
+/* Hlavní nadpis pro kontakt */
 #kontakty h2 {
-  font-size: 2.5rem;
-  color: #2c3e50;
-  margin-bottom: 20px;
+  margin-bottom: 30px; /* Zajištění stejné mezery jako v kartách */
 }
 
-/* Contact Section - Fully Responsive */
+/* General styling for cards */
 .card-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   gap: 20px;
-  justify-content: center;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .card {
   background-color: #fff;
-  padding: 20px;
+  padding: 25px; /* Zvětšení paddingu, aby odpovídal textu */
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: calc(33.333% - 20px);
-  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 32%;
+  text-align: left;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-size: 1rem;
+  margin-bottom: 20px; /* Zajištění rovnoměrných mezer mezi kartami */
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
-.card h3 {
-  font-size: 1.6rem;
-  color: #2c3e50;
-  margin-bottom: 15px;
+/* Kontakt sekce karty - úprava */
+.contact-card {
+  padding: 25px;
+  text-align: left;
 }
 
-.card p {
-  font-size: 1.1rem;
-  color: #555;
-  margin-bottom: 10px;
-}
-
-.contact-link {
-  color: #1f7a39;
-  text-decoration: none;
+.contact-card,
+.opening-hours,
+h3 {
+  color: #333;
   font-weight: bold;
 }
 
-.contact-link:hover {
-  color: #17a03e;
-  text-decoration: underline;
+.contact-card p {
+  display: flex;
+  text-align: left;
+  gap: 10px;
+  margin-bottom: 15px; /* Zajištění stejné mezery jako v hlavním nadpisu */
+  font-weight: 500;
 }
 
-/* Map iframe */
-.card iframe {
+.contact-card p i {
+  color: #d51e1e;
+}
+
+/* Otevírací a rozvozová doba karta */
+.opening-hours p {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  margin: 5px 0;
+}
+
+.opening-hours p.highlight {
+  color: #d32f2f;
+  font-weight: bold;
+}
+
+/* Map card adjustments */
+.map-card {
+  padding: 0;
+}
+
+.map-card iframe {
   width: 100%;
-  height: 320px;
-  margin-top: 20px;
+  height: 100%;
   border-radius: 8px;
   border: none;
+  display: block;
 }
 
 /* Responsive design */
 @media (max-width: 1024px) {
   .card {
-    width: calc(50% - 20px);
+    width: 48%;
   }
 }
 
 @media (max-width: 768px) {
   .card {
     width: 100%;
-  }
-
-  #kontakty h2 {
-    font-size: 2rem;
-  }
-
-  .card h3 {
-    font-size: 1.4rem;
-  }
-
-  .card p {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  #kontakty h2 {
-    font-size: 2rem;
-  }
-
-  .card h3 {
-    font-size: 1.4rem;
-  }
-
-  .card p {
-    font-size: 1rem;
-  }
-
-  .social-links {
-    gap: 40px; /* Další úprava mezer pro nejmenší obrazovky */
   }
 }
 
@@ -699,7 +697,7 @@ section:hover {
 
 @media (max-width: 768px) {
   .scroll-to-top {
-    right: 10px; /* Posunuto blíže k pravému okraji pouze na responzivních zařízeních */
+    right: 45px; /* Posunuto blíže k pravému okraji pouze na responzivních zařízeních */
   }
 }
 
@@ -789,7 +787,7 @@ footer a:hover {
 }
 
 .cookie-btn {
-  background-color: #ff6347;
+  background-color: #d51e1e;
   color: white;
   border: none;
   padding: 10px 20px;
