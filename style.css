@@ -1,1 +1,851 @@
-:root{--primary-color:#d51e1e;--secondary-color:#333;--text-color:#fff;--background-color:#f4f4f4;--font-family:Arial,sans-serif;--transition-speed:.3s;--logo-size:60px;--icon-size:30px;--menu-gap:220px}*{margin:0;padding:0;box-sizing:border-box}body{font-family:var(--font-family);background:var(--background-color);color:var(--text-color)}.container{max-width:1100px;margin:0 auto;padding:20px}.logo{position:absolute;z-index:15;left:50%;transform:translateX(-50%) scale(1);transition:transform .5s ease,opacity .3s ease;border:2px solid #fff;background-color:transparent;box-shadow:0 4px 8px rgba(0,0,0,.2);border-radius:10% 0 10% 0;display:flex;justify-content:center;align-items:center}.logo img{height:var(--logo-size);display:block}.logo.hidden{opacity:0;transform:translateX(-50%) scale(.5) rotate(-180deg)}header{background-color:rgba(128,128,128,.3);color:var(--text-color);height:100px;display:flex;justify-content:space-between;align-items:center;position:fixed;top:0;width:100%;left:50%;transform:translateX(-50%);z-index:10;box-shadow:0 2px 5px rgba(0,0,0,.1);padding:0 10px}.review-img{width:90%;height:auto;object-fit:cover;border-radius:8px}header.scrolled{background-color:rgba(51,51,51,.9);transition:background-color .3s ease}nav{display:flex;justify-content:center;align-items:center;flex:1;background-color:transparent}nav ul{display:flex;list-style:none;gap:var(--menu-gap)}nav ul li a{color:var(--text-color);text-decoration:none;font-size:18px;font-weight:bold;transition:color var(--transition-speed) ease}nav ul li a:hover{color:var(--primary-color)}.social-icons{position:absolute;right:140px;display:flex;gap:25px}.social-icons a img{width:var(--icon-size);height:var(--icon-size);transition:transform var(--transition-speed) ease,box-shadow .3s ease-in-out;animation:pulse 1.5s infinite}.social-icons a:hover img{transform:scale(1.2);box-shadow:0 0 15px rgba(255,255,255,.9)}@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.2)}100%{transform:scale(1)}}@media (max-width:768px){.logo{left:25%}.social-icons{right:40px}nav ul{flex-direction:column;text-align:center;gap:15px}.review-img{display:none}}.slider{position:relative;width:100%;height:calc(100vh - 30px);overflow:hidden}.slides{display:flex;transition:transform 1s ease;height:100%}.slide{min-width:100%;height:100%;background-size:cover;background-position:center}.content{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;color:#fff;text-shadow:4px 4px 10px rgba(0,0,0,.8)}.content h1{font-size:60px;margin-bottom:20px;text-shadow:6px 6px 15px rgba(0,0,0,.9)}.buttons{display:flex;justify-content:center;align-items:center;flex-wrap:wrap}.buttons a{display:inline-block;background-color:var(--primary-color);color:#fff;font-weight:bold;padding:10px 20px;font-size:18px;border-radius:5px;text-decoration:none;transition:background-color .3s ease,transform .5s ease;opacity:0;animation:shake-interval 8s infinite;margin-right:25px}.buttons a:nth-child(odd){animation:slide-in-left 2s forwards,shake-interval 8s infinite 2s}.buttons a:nth-child(even){animation:slide-in-right 2s forwards,shake-interval 8s infinite 2s}.buttons a:hover{background-color:#da3a3a;transform:scale(1.05)}.buttons{width:100%;margin-top:20px;display:block;text-align:center}.call{width:100%;margin-top:20px;margin-bottom:10px}@media (max-width:768px){.content h1{font-size:50px}.buttons a{padding:12px 25px;font-size:16px}.buttons{flex-direction:row;justify-content:space-between}.buttons a:nth-child(1),.buttons a:nth-child(2){margin-right:30px}.call{width:100%}}@media (max-width:480px){.content h1{font-size:40px}.buttons a{padding:10px 10px;margin-bottom:10px;font-size:14px}.buttons{flex-direction:column}.buttons a:nth-child(1),.buttons a:nth-child(2){margin-right:0}.buttons a:nth-child(n+3){margin-top:15px}.call{width:100%}}@keyframes slide-in-left{from{transform:translateX(-300%);opacity:0}to{transform:translateX(0);opacity:1}}@keyframes slide-in-right{from{transform:translateX(300%);opacity:0}to{transform:translateX(0);opacity:1}}@keyframes shake-interval{0%,20%,37%,50%,67%,100%{transform:none}21%,22%,51%,52%{transform:rotate(-3deg)}23%,24%,53%,54%{transform:rotate(3deg)}25%,26%,55%,56%{transform:rotate(-4deg)}27%,28%,57%,58%{transform:rotate(4deg)}29%,30%,59%,60%{transform:rotate(-2deg)}31%,32%,61%,62%{transform:rotate(2deg)}33%,34%,63%,64%{transform:rotate(-1deg)}35%,36%,65%,66%{transform:rotate(1deg)}}section{background-color:#fff;padding:20px;margin:20px 0;border-radius:8px;box-shadow:0 4px 8px rgba(0,0,0,.1);transition:transform .3s ease,box-shadow .3s ease}section h2{font-size:36px;margin-bottom:20px;color:var(--primary-color);font-weight:bold;text-align:center}section p{font-size:18px;color:var(--secondary-color);line-height:1.8;margin:15px 0;text-align:center}section ul{margin:auto;padding:0;list-style-type:none;text-align:justify;max-width:500px}section ul li{margin-bottom:10px;position:relative;font-size:18px;color:var(--secondary-color);font-weight:normal;padding-left:30px;line-height:1.5}section p strong,section ul li strong{color:var(--primary-color);font-weight:bold}section:hover{transform:translateY(-5px);box-shadow:0 6px 12px rgba(0,0,0,.2)}@media (max-width:480px){section h2{font-size:1.8rem}section p{font-size:1rem}section p,section ul{text-align:center}section ul{padding-left:0;max-width:100%}}@media (max-width:768px){.card{width:100%}}.contact-link{color:#d51e1e;text-decoration:none;font-weight:bold}.contact-link:hover{text-decoration:underline}
+/* Global Variables */
+:root {
+  --primary-color: #d51e1e; /* Changed to the desired red color */
+  --secondary-color: #333;
+  --text-color: #ffffff;
+  --background-color: #f4f4f4;
+  --font-family: Arial, sans-serif;
+  --transition-speed: 0.3s;
+  --logo-size: 60px;
+  --icon-size: 30px;
+  --menu-gap: 220px;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Container */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Logo */
+.logo {
+  position: absolute;
+  z-index: 15;
+  left: 50%;
+  transform: translateX(-50%) scale(1); /* Původní pozice a velikost */
+  transition: transform 0.5s ease, opacity 0.3s ease; /* Přechody pro transformace a opacity */
+  border: 2px solid white;
+  background-color: transparent;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10% 0 10% 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo img {
+  height: var(--logo-size);
+  display: block;
+}
+
+/* Logo skryté (transformace a opacity) */
+.logo.hidden {
+  opacity: 0; /* Skryje logo */
+  transform: translateX(-50%) scale(0.5) rotate(-180deg); /* Posune a otočí logo */
+}
+
+/* Navigační lišta */
+header {
+  background-color: rgba(128, 128, 128, 0.3);
+  color: var(--text-color);
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 0 10px;
+}
+
+.review-img {
+  width: 90%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Navigační lišta v tmavém režimu */
+header.scrolled {
+  background-color: rgba(51, 51, 51, 0.9); /* Tmavší barva */
+  transition: background-color 0.3s ease;
+}
+
+/* Navigation Menu */
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  background-color: transparent;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: var(--menu-gap);
+}
+
+nav ul li a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  transition: color var(--transition-speed) ease;
+}
+
+nav ul li a:hover {
+  color: var(--primary-color);
+}
+
+/* Social Icons */
+.social-icons {
+  position: absolute;
+  right: 140px; /* Posunutí o 20px doprava */
+  display: flex;
+  gap: 25px;
+}
+
+.social-icons a img {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  transition: transform var(--transition-speed) ease,
+    box-shadow 0.3s ease-in-out;
+  animation: pulse 1.5s infinite;
+}
+
+.social-icons a:hover img {
+  transform: scale(1.2);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+}
+
+/* Pulzující animace */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .logo {
+    left: 25%;
+  }
+
+  .social-icons {
+    right: 40px; /* Udržení posunu i na mobilní verzi */
+  }
+
+  nav ul {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .review-img {
+    display: none;
+  }
+}
+
+/* Slider */
+.slider {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 30px);
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  transition: transform 1s ease;
+  height: 100%;
+}
+
+.slide {
+  min-width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
+}
+
+.content h1 {
+  font-size: 60px;
+  margin-bottom: 20px;
+  text-shadow: 6px 6px 15px rgba(0, 0, 0, 0.9);
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Allows buttons to wrap if space is limited */
+}
+
+.buttons a {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.5s ease;
+  opacity: 0;
+  animation: shake-interval 8s infinite;
+  margin-right: 25px; /* Larger gap between buttons */
+}
+
+.buttons a:nth-child(odd) {
+  animation: slide-in-left 2s forwards, shake-interval 8s infinite 2s;
+}
+
+.buttons a:nth-child(even) {
+  animation: slide-in-right 2s forwards, shake-interval 8s infinite 2s;
+}
+
+.buttons a:hover {
+  background-color: #da3a3a;
+  transform: scale(1.05);
+}
+
+.buttons {
+  width: 100%;
+  margin-top: 20px;
+  display: block;
+  text-align: center;
+}
+
+.call {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 10px; /* Additional space below "call" button */
+}
+
+/* Adjust buttons in responsive design */
+@media (max-width: 768px) {
+  .content h1 {
+    font-size: 50px;
+  }
+
+  .buttons a {
+    padding: 12px 25px;
+    font-size: 16px;
+  }
+
+  /* First two buttons next to each other */
+  .buttons {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  /* Larger gap between buttons */
+  .buttons a:nth-child(1),
+  .buttons a:nth-child(2) {
+    margin-right: 30px; /* Larger gap between first and second button */
+  }
+
+  /* Call button below */
+  .call {
+    width: 100%; /* Call button takes full width on smaller screens */
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content h1 {
+    font-size: 40px;
+  }
+
+  .buttons a {
+    padding: 10px 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+
+  /* Buttons will be in column on mobile */
+  .buttons {
+    flex-direction: column;
+  }
+
+  .buttons a:nth-child(1),
+  .buttons a:nth-child(2) {
+    margin-right: 0; /* Remove margin on smaller screens */
+  }
+
+  .buttons a:nth-child(n + 3) {
+    margin-top: 15px; /* Space between "Order Pizza" and "Other Treats" on mobile */
+  }
+
+  .call {
+    width: 100%; /* Call button takes full width */
+  }
+}
+
+/* Keyframes for animation */
+@keyframes slide-in-left {
+  from {
+    transform: translateX(-300%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(300%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes shake-interval {
+  0%,
+  20%,
+  37%,
+  50%,
+  67%,
+  100% {
+    transform: none;
+  }
+  21%,
+  22%,
+  51%,
+  52% {
+    transform: rotate(-3deg);
+  }
+  23%,
+  24%,
+  53%,
+  54% {
+    transform: rotate(3deg);
+  }
+  25%,
+  26%,
+  55%,
+  56% {
+    transform: rotate(-4deg);
+  }
+  27%,
+  28%,
+  57%,
+  58% {
+    transform: rotate(4deg);
+  }
+  29%,
+  30%,
+  59%,
+  60% {
+    transform: rotate(-2deg);
+  }
+  31%,
+  32%,
+  61%,
+  62% {
+    transform: rotate(2deg);
+  }
+  33%,
+  34%,
+  63%,
+  64% {
+    transform: rotate(-1deg);
+  }
+  35%,
+  36%,
+  65%,
+  66% {
+    transform: rotate(1deg);
+  }
+}
+
+/* Section */
+section {
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Nadpisy uvnitř sekcí */
+section h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+  font-weight: bold;
+  text-align: center; /* Nadpisy jsou již na střed */
+}
+
+/* Odstavce uvnitř sekcí */
+section p {
+  font-size: 18px;
+  color: var(--secondary-color);
+  line-height: 1.8;
+  margin: 15px 0;
+  text-align: center; /* Text uvnitř sekcí je nyní zarovnaný na střed */
+}
+
+/* Seznamy (ul) */
+section ul {
+  margin: auto;
+  padding: 0;
+  list-style-type: none;
+  text-align: justify;
+  max-width: 500px;
+}
+
+section ul li {
+  margin-bottom: 10px;
+  position: relative;
+  font-size: 18px;
+  color: var(--secondary-color);
+  font-weight: normal;
+  padding-left: 30px;
+  line-height: 1.5;
+}
+
+/* Zvýrazněný text (strong) */
+section p strong,
+section ul li strong {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+/* Efekt při najetí na sekci */
+section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 480px) {
+  section h2 {
+    font-size: 1.8rem;
+  }
+
+  section p {
+    font-size: 1rem;
+  }
+
+  /* Zarovnání textu na střed pro mobilní zařízení */
+  section p,
+  section ul {
+    text-align: center;
+  }
+
+  section ul {
+    padding-left: 0;
+    max-width: 100%; /* Zajistí, že seznamy nebudou omezeny na maximální šířku */
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+  }
+}
+
+/* Links for phone and email */
+.contact-link {
+  color: #d51e1e;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.contact-link:hover {
+  text-decoration: none;
+}
+
+/* Galerie */
+.image-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.flip-card {
+  width: calc(33.333% - 20px); /* Odpočet prostoru mezi kartami */
+  height: 400px;
+  perspective: 1000px;
+  margin: 10px; /* Prostor mezi kartami */
+  border-radius: 10px; /* Zaoblení okrajů */
+  overflow: hidden; /* Skrytí přetékajícího obsahu */
+  cursor: pointer; /* Přidání kurzoru pro lepší uživatelský zážitek */
+  display: flex;
+  justify-content: center; /* Centrum pro obrázky */
+  align-items: center;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  border-radius: 10px; /* Zaoblení okrajů i pro vnitřní obsah */
+}
+
+.flip-card:hover .flip-card-inner,
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg); /* Přidání třídy .flipped pro kliknutí */
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px; /* Zaoblení okrajů i pro přední a zadní stranu */
+  padding: 15px; /* Odsazení pro text na obou stranách */
+  box-sizing: border-box;
+}
+
+.flip-card-front {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flip-card-back {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0d9a0;
+  color: var(--primary-color);
+  transform: rotateY(180deg);
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%; /* Nastavení pro jednotnou velikost všech obrázků */
+  object-fit: cover; /* Umožňuje přizpůsobení rozměrům karty */
+  border-radius: 10px;
+  box-shadow: 0 5px 15px var(--shadow-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+.gallery-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px var(--shadow-color);
+  filter: brightness(1.1);
+}
+
+@media (max-width: 1024px) {
+  .gallery img {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden; /* Skryje nepoužívané obrázky */
+    position: relative;
+  }
+
+  .flip-card {
+    width: 100%;
+    max-width: 400px; /* Maximální šířka pro lepší vzhled */
+    margin: 10px 0;
+    transition: transform 0.6s ease-in-out; /* Přechod pro animaci karet */
+  }
+
+  .flip-card-inner {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    border-radius: 10px;
+  }
+
+  /* Přidání funkce pro kliknutí na mobilních zařízeních */
+  .flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg); /* Otáčení karty po kliknutí */
+  }
+}
+
+/* Kontakt sekce */
+#kontakty {
+  background-color: #f8f8f8;
+  padding: 50px 0;
+  text-align: center;
+  margin-bottom: 30px; /* Přidáno pro stejné mezery */
+}
+
+/* Hlavní nadpis pro kontakt */
+#kontakty h2 {
+  margin-bottom: 30px; /* Zajištění stejné mezery jako v kartách */
+}
+
+/* General styling for cards */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.card {
+  background-color: #fff;
+  padding: 25px; /* Zvětšení paddingu, aby odpovídal textu */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 32%;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-size: 1rem;
+  margin-bottom: 20px; /* Zajištění rovnoměrných mezer mezi kartami */
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Kontakt sekce karty - úprava */
+.contact-card {
+  padding: 25px;
+  text-align: left;
+}
+
+.contact-card,
+.opening-hours,
+h3 {
+  color: #333;
+  font-weight: bold;
+}
+
+.contact-card p {
+  display: flex;
+  text-align: left;
+  gap: 10px;
+  margin-bottom: 15px; /* Zajištění stejné mezery jako v hlavním nadpisu */
+  font-weight: 500;
+}
+
+.contact-card p i {
+  color: #d51e1e;
+}
+
+/* Otevírací a rozvozová doba karta */
+.opening-hours p {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  margin: 5px 0;
+}
+
+.opening-hours p.highlight {
+  color: #d32f2f;
+  font-weight: bold;
+}
+
+/* Map card adjustments */
+.map-card {
+  padding: 0;
+}
+
+.map-card iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  border: none;
+  display: block;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+  }
+}
+
+/* Scroll to top button */
+.scroll-to-top {
+  position: fixed;
+  bottom: 370px;
+  right: 50px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s ease;
+  animation: moveUp 1s infinite alternate;
+}
+
+@media (max-width: 768px) {
+  .scroll-to-top {
+    right: 45px; /* Posunuto blíže k pravému okraji pouze na responzivních zařízeních */
+  }
+}
+
+@keyframes moveUp {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Footer */
+footer {
+  background-color: rgba(51, 51, 51, 0.9); /* Tmavší barva */
+  color: var(--text-color); /* Text bílý */
+  padding: 15px 0; /* Zmenšil jsem padding pro menší mezery */
+  font-weight: bold;
+  text-align: center;
+  font-size: 16px; /* Přidáno pro sjednocení velikosti textu */
+}
+
+/* Odkazy v patičce */
+footer a {
+  color: var(--text-color); /* Výchozí barva odkazů */
+  text-decoration: none; /* Bez podtržení */
+  font-weight: bold;
+  margin: 10px;
+  display: block; /* Aby odkazy byly vedle sebe */
+  transition: color var(--transition-speed);
+}
+
+footer a:hover {
+  color: var(--primary-color); /* Barva při najetí */
+}
+
+/* Zarovnání textu v .footer-provozovatel */
+.footer-provozovatel {
+  color: var(--text-color);
+  font-weight: bold;
+  text-align: center; /* Upraveno na centrum pro responzivní design */
+  font-size: 16px; /* Velikost textu v patičce */
+}
+
+/* Nadpisy v .footer-provozovatel */
+.footer-provozovatel h4 {
+  margin-bottom: 5px; /* Zmenšil jsem spodní margin u nadpisu */
+  font-weight: bold;
+}
+
+/* Responzivní design: Upravujeme pro mobilní zařízení */
+@media (max-width: 768px) {
+  footer {
+    padding: 12px 0; /* Menší padding pro mobilní zařízení */
+  }
+
+  .footer-provozovatel {
+    font-size: 16px; /* Udržujeme velikost textu 16px i na mobilech */
+    margin-top: 8px; /* Ještě menší mezera pro mobilní zařízení */
+  }
+
+  footer a {
+    font-size: 16px; /* Udržujeme velikost textu 16px pro odkazy */
+    margin: 5px; /* Menší mezery pro mobilní zařízení */
+  }
+}
+
+/* Cookie Consent Styles */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  display: none;
+  z-index: 1000;
+}
+
+.cookie-banner-content {
+  width: 70%;
+  margin: 0 auto;
+  text-align: left; /* Pro lepší čitelnost */
+  line-height: 1.5;
+}
+
+.cookie-btn {
+  background-color: #d51e1e;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.cookie-settings-modal {
+  display: none;
+  position: fixed;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  background-color: #333;
+  padding: 20px;
+  border: 1px solid #ccc;
+  z-index: 1001;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.cookie-settings-modal h3 {
+  margin-top: 0;
+}
