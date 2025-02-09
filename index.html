@@ -928,61 +928,7 @@ footer a:hover {
 </footer>
 
 <script>
-// 1. Nastavení pro mobilní interakci (touch) s kartami
-let startX = 0;
-let endX = 0;
-const flipCards = document.querySelectorAll('.flip-card');
-const isMobile = window.innerWidth <= 768; // Kontrola mobilní verze
-
-/**
- * Funkce pro zpracování posunu prstu na kartách
- */
-function handleCardTouch(card, index) {
-    card.addEventListener('touchstart', (e) => {
-        startX = e.touches[0].clientX; // Zachytí počáteční pozici prstu
-    });
-
-    card.addEventListener('touchmove', (e) => {
-        endX = e.touches[0].clientX; // Zachytí konečnou pozici prstu
-    });
-
-    card.addEventListener('touchend', () => {
-        // Posun prstu doprava (otáčí kartu)
-        if (startX > endX + 50) {
-            flipCards[index].classList.add('flipped');
-        } 
-        // Posun prstu doleva (vrací kartu zpět)
-        else if (endX > startX + 50) {
-            flipCards[index].classList.remove('flipped');
-        }
-    });
-
-    // Kliknutí na kartu pro otočení zpět do výchozího stavu
-    card.addEventListener('click', () => {
-        if (card.classList.contains('flipped')) {
-            card.classList.remove('flipped');
-        } else {
-            card.classList.add('flipped');
-        }
-    });
-}
-
-/**
- * Aplikace mobilní interakce na všechny karty
- */
-function initCardInteraction() {
-    flipCards.forEach((card, index) => {
-        handleCardTouch(card, index); // Volání funkce pro každou kartu
-    });
-}
-
-// Volání funkce pro inicializaci, pokud je mobilní zařízení
-if (isMobile) {
-    initCardInteraction();
-}
-
-
-// 2. Nastavení pro automatický posuv slidu (Slider)
+// Nastavení pro automatický posuv slidu (Slider)
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slider .slide');
 const slidesContainer = document.querySelector('.slides');
@@ -1007,7 +953,7 @@ function updateSliderPosition() {
 setInterval(nextSlide, 4000);
 
 
-// 3. Navigační lišta a efekt ztmavnutí při scrollování
+// Navigační lišta a efekt ztmavnutí při scrollování
 const header = document.querySelector('header');
 
 /**
