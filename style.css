@@ -203,7 +203,7 @@ nav ul li a:hover {
 }
 
 .content h1 {
-  font-size: 60px; /* Zvýšení velikosti nadpisu */
+  font-size: 60px;
   margin-bottom: 20px;
   text-shadow: 6px 6px 15px rgba(0, 0, 0, 0.9);
 }
@@ -212,7 +212,7 @@ nav ul li a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap; /* Umožní tlačítkům přecházet na další řádky, pokud je místo omezené */
+  flex-wrap: wrap; /* Allows buttons to wrap if space is limited */
 }
 
 .buttons a {
@@ -220,14 +220,14 @@ nav ul li a:hover {
   background-color: var(--primary-color);
   color: #fff;
   font-weight: bold;
-  padding: 10px 20px; /* Zmenšení výšky tlačítek */
-  font-size: 18px; /* Zvýšení velikosti písma v tlačítkách */
+  padding: 10px 20px;
+  font-size: 18px;
   border-radius: 5px;
   text-decoration: none;
   transition: background-color 0.3s ease, transform 0.5s ease;
   opacity: 0;
   animation: shake-interval 8s infinite;
-  margin-right: 15px; /* Zvýšení mezery mezi tlačítky */
+  margin-right: 25px; /* Larger gap between buttons */
 }
 
 .buttons a:nth-child(odd) {
@@ -244,17 +244,79 @@ nav ul li a:hover {
 }
 
 .buttons {
-  width: 100%; /* Tlačítko Zavolat se bude zobrazovat na samostatném řádku */
-  margin-top: 20px; /* Dodá mezery mezi tlačítky */
-  display: block; /* Ujistíme se, že tlačítko je blokové */
-  text-align: center; /* Zarovná tlačítko na střed */
+  width: 100%;
+  margin-top: 20px;
+  display: block;
+  text-align: center;
 }
 
 .call {
-  width: 35%; /* Tlačítko Zavolat se bude zobrazovat na samostatném řádku */
-  margin-top: 20px; /* Dodá mezery mezi tlačítky */
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 10px; /* Additional space below "call" button */
 }
 
+/* Adjust buttons in responsive design */
+@media (max-width: 768px) {
+  .content h1 {
+    font-size: 50px;
+  }
+
+  .buttons a {
+    padding: 12px 25px;
+    font-size: 16px;
+  }
+
+  /* First two buttons next to each other */
+  .buttons {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  /* Larger gap between buttons */
+  .buttons a:nth-child(1),
+  .buttons a:nth-child(2) {
+    margin-right: 30px; /* Larger gap between first and second button */
+  }
+
+  /* Call button below */
+  .call {
+    width: 100%; /* Call button takes full width on smaller screens */
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content h1 {
+    font-size: 40px;
+  }
+
+  .buttons a {
+    padding: 10px 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+
+  /* Buttons will be in column on mobile */
+  .buttons {
+    flex-direction: column;
+  }
+
+  .buttons a:nth-child(1),
+  .buttons a:nth-child(2) {
+    margin-right: 0; /* Remove margin on smaller screens */
+  }
+
+  .buttons a:nth-child(n + 3) {
+    margin-top: 15px; /* Space between "Order Pizza" and "Other Treats" on mobile */
+  }
+
+  .call {
+    width: 100%; /* Call button takes full width */
+  }
+}
+
+/* Keyframes for animation */
 @keyframes slide-in-left {
   from {
     transform: translateX(-300%);
@@ -333,37 +395,6 @@ nav ul li a:hover {
   65%,
   66% {
     transform: rotate(1deg);
-  }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .content h1 {
-    font-size: 50px; /* Pro tablety */
-  }
-
-  .buttons a {
-    padding: 12px 25px;
-    font-size: 16px;
-  }
-
-  .buttons {
-    flex-direction: column; /* Tlačítka se přeskupí do sloupce na tabletech */
-  }
-}
-
-@media (max-width: 480px) {
-  .content h1 {
-    font-size: 40px; /* Pro mobily */
-  }
-
-  .buttons a {
-    padding: 10px 20px;
-    font-size: 14px;
-  }
-
-  .buttons {
-    flex-direction: column; /* Tlačítka se přeskupí do sloupce na mobilních zařízeních */
   }
 }
 
