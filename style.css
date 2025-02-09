@@ -212,9 +212,7 @@ nav ul li a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  gap: 20px;
-  position: relative;
+  flex-wrap: wrap; /* Umožní tlačítkům přecházet na další řádky, pokud je místo omezené */
 }
 
 .buttons a {
@@ -222,13 +220,14 @@ nav ul li a:hover {
   background-color: var(--primary-color);
   color: #fff;
   font-weight: bold;
-  padding: 15px 30px; /* Zvýšení velikosti tlačítek */
+  padding: 10px 20px; /* Zmenšení výšky tlačítek */
   font-size: 18px; /* Zvýšení velikosti písma v tlačítkách */
   border-radius: 5px;
   text-decoration: none;
   transition: background-color 0.3s ease, transform 0.5s ease;
   opacity: 0;
   animation: shake-interval 8s infinite;
+  margin-right: 15px; /* Zvýšení mezery mezi tlačítky */
 }
 
 .buttons a:nth-child(odd) {
@@ -242,6 +241,18 @@ nav ul li a:hover {
 .buttons a:hover {
   background-color: #da3a3a;
   transform: scale(1.05);
+}
+
+.buttons {
+  width: 100%; /* Tlačítko Zavolat se bude zobrazovat na samostatném řádku */
+  margin-top: 20px; /* Dodá mezery mezi tlačítky */
+  display: block; /* Ujistíme se, že tlačítko je blokové */
+  text-align: center; /* Zarovná tlačítko na střed */
+}
+
+.call {
+  width: 35%; /* Tlačítko Zavolat se bude zobrazovat na samostatném řádku */
+  margin-top: 20px; /* Dodá mezery mezi tlačítky */
 }
 
 @keyframes slide-in-left {
@@ -335,6 +346,10 @@ nav ul li a:hover {
     padding: 12px 25px;
     font-size: 16px;
   }
+
+  .buttons {
+    flex-direction: column; /* Tlačítka se přeskupí do sloupce na tabletech */
+  }
 }
 
 @media (max-width: 480px) {
@@ -345,6 +360,10 @@ nav ul li a:hover {
   .buttons a {
     padding: 10px 20px;
     font-size: 14px;
+  }
+
+  .buttons {
+    flex-direction: column; /* Tlačítka se přeskupí do sloupce na mobilních zařízeních */
   }
 }
 
