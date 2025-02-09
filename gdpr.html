@@ -3,181 +3,220 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="images/favicon.png" type="image/png" />
     <title>GDPR - Podmínky ochrany osobních údajů</title>
-
     <style>
-      /* Hlavní text */
-      main {
+      /* Nastavení globálních proměnných pro barvy a hodnoty */
+      :root {
+        --bg-color: #f4f4f4; /* Světle šedé pozadí */
+        --text-color: #333; /* Tmavý text */
+        --container-bg-color: #fff; /* Bílý pozadí kontejneru */
+        --primary-color: #cc9a5d; /* Hřejivá medová barva */
+        --link-color: #007bff; /* Barva odkazů */
+        --link-hover-color: #0056b3; /* Barva odkazů při hoveru */
+        --font-size-base: 1.1em; /* Výchozí velikost písma */
+        --font-size-mobile: 14px; /* Velikost písma pro mobilní zařízení */
+        --max-width: 900px; /* Maximální šířka kontejneru */
+        --padding-base: 20px; /* Výchozí padding pro kontejner */
+        --padding-mobile: 15px; /* Padding pro mobilní zařízení */
+      }
+
+      /* Základní styl pro stránku */
+      body {
         font-family: Arial, sans-serif;
-        color: #2b2b2b;
-        line-height: 1.6;
-        margin: 20px auto;
-        width: 70%;
+        background-color: var(--bg-color);
+        margin: 0;
+        padding: 0;
+        color: var(--text-color);
+      }
+
+      .terms-container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        background-color: var(--container-bg-color);
+        padding: var(--padding-base);
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      main {
+        padding: var(--padding-base);
       }
 
       h1,
       h2 {
-        font-weight: bold;
-        color: #2b2b2b;
-      }
-
-      h1 {
-        font-size: 32px;
-        text-align: center;
-        margin-bottom: 20px;
-      }
-
-      h2 {
-        font-size: 28px;
-        margin-top: 20px;
-        color: #d51e1e;
-        text-align: left;
+        color: var(--text-color);
+        margin-bottom: 10px;
       }
 
       p {
-        font-size: 16px;
-        text-align: justify;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        font-size: var(--font-size-base);
       }
 
-      /* Doplňkové formátování pro odkazy v textu */
       a {
-        color: #d51e1e;
+        color: var(--link-color);
         text-decoration: none;
-        font-weight: bold;
       }
 
       a:hover {
+        color: var(--link-hover-color);
         text-decoration: underline;
       }
 
-      /* Responzivní design */
+      /* Styly pro jednotlivé sekce */
+      section {
+        margin-bottom: 30px;
+      }
+
+      h1 {
+        text-align: center;
+        color: var(--primary-color);
+      }
+
+      h2 {
+        color: var(--primary-color);
+        border-bottom: 2px solid var(--primary-color);
+        padding-bottom: 5px;
+      }
+
+      /* Responzivita pro mobilní zařízení */
       @media (max-width: 768px) {
-        main {
-          width: 90%;
+        body {
+          font-size: var(--font-size-mobile);
+        }
+
+        .terms-container {
+          padding: var(--padding-mobile);
         }
 
         h1 {
-          font-size: 28px;
+          font-size: 1.5em;
         }
 
         h2 {
-          font-size: 24px;
-          text-align: center; /* Zarovnání nadpisu na střed pro mobilní zařízení */
+          font-size: 1.2em;
         }
 
         p {
-          font-size: 14px;
-          text-align: left; /* Zarovnání textu vlevo pro lepší čitelnost na mobilních zařízeních */
+          font-size: 1em;
         }
       }
     </style>
   </head>
   <body>
-    <main>
-      <h1>GDPR - Podmínky ochrany osobních údajů</h1>
-      <p><strong>Platné od 1. března 2025</strong></p>
+    <div class="terms-container">
+      <main>
+        <h1>GDPR - Podmínky ochrany osobních údajů</h1>
+        <p>Platné od 1. března 2025</p>
 
-      <h2>Základní ustanovení</h2>
-      <p>
-        Správcem osobních údajů podle čl. 4 bod 7 nařízení Evropského parlamentu
-        a Rady (EU) 2016/679 o ochraně fyzických osob v souvislosti se
-        zpracováním osobních údajů (dále jen „GDPR“) je ALFA plus, s.r.o., IČ
-        46349154 se sídlem Železničářů 2350, 272 01 Kladno (dále jen „správce“).
-      </p>
+        <h2>Základní ustanovení</h2>
+        <p>
+          Správcem osobních údajů podle čl. 4 bod 7 nařízení Evropského
+          parlamentu a Rady (EU) 2016/679 o ochraně fyzických osob v souvislosti
+          se zpracováním osobních údajů (dále jen „GDPR“) je ALFA plus, s.r.o.,
+          IČ 46349154 se sídlem Železničářů 2350, 272 01 Kladno (dále jen
+          „správce“).
+        </p>
 
-      <p><strong>Kontaktní údaje správce:</strong></p>
-      <p>
-        Adresa: Železničářů 2350, 272 01 Kladno<br />
-        E-mail:
-        <a href="mailto:sanmarino@pizzakladno.cz">sanmarino@pizzakladno.cz</a
-        ><br />
-        Telefon: +420 603 416 513
-      </p>
+        <p><strong>Kontaktní údaje správce:</strong></p>
+        <p>
+          Adresa: Železničářů 2350, 272 01 Kladno<br />
+          E-mail:
+          <a href="mailto:sanmarino@pizzakladno.cz">sanmarino@pizzakladno.cz</a
+          ><br />
+          Telefon: +420 603 416 513
+        </p>
 
-      <p>
-        Osobními údaji se rozumí veškeré informace o identifikované nebo
-        identifikovatelné fyzické osobě.
-      </p>
+        <p>
+          Osobními údaji se rozumí veškeré informace o identifikované nebo
+          identifikovatelné fyzické osobě.
+        </p>
 
-      <p>Správce nejmenoval pověřence pro ochranu osobních údajů.</p>
+        <p>Správce nejmenoval pověřence pro ochranu osobních údajů.</p>
 
-      <h2>Zdroje a kategorie zpracovávaných osobních údajů</h2>
-      <p>
-        Správce zpracovává osobní údaje, které jste mu poskytli, nebo osobní
-        údaje, které správce získal na základě plnění vaší objednávky.
-      </p>
-      <p>
-        Správce zpracovává vaše identifikační a kontaktní údaje a údaje nezbytné
-        pro plnění vaší objednávky.
-      </p>
+        <h2>Zdroje a kategorie zpracovávaných osobních údajů</h2>
+        <p>
+          Správce zpracovává osobní údaje, které jste mu poskytli, nebo osobní
+          údaje, které správce získal na základě plnění vaší objednávky.
+        </p>
+        <p>
+          Správce zpracovává vaše identifikační a kontaktní údaje a údaje
+          nezbytné pro plnění vaší objednávky.
+        </p>
 
-      <h2>Zákonný důvod a účel zpracování osobních údajů</h2>
-      <p>Zákonným důvodem zpracování osobních údajů je:</p>
-      <ul>
-        <li>
-          plnění vaší objednávky mezi vámi a správcem podle čl. 6 odst. 1 písm.
-          b) GDPR
-        </li>
-        <li>
-          oprávněný zájem správce na poskytování přímého marketingu dle čl. 6
-          odst. 1 písm. f) GDPR
-        </li>
-        <li>
-          váš souhlas pro účely zasílání obchodních sdělení a newsletterů dle
-          čl. 6 odst. 1 písm. a) GDPR
-        </li>
-      </ul>
+        <h2>Zákonný důvod a účel zpracování osobních údajů</h2>
+        <p>Zákonným důvodem zpracování osobních údajů je:</p>
+        <ul>
+          <li>
+            plnění vaší objednávky mezi vámi a správcem podle čl. 6 odst. 1
+            písm. b) GDPR
+          </li>
+          <li>
+            oprávněný zájem správce na poskytování přímého marketingu dle čl. 6
+            odst. 1 písm. f) GDPR
+          </li>
+          <li>
+            váš souhlas pro účely zasílání obchodních sdělení a newsletterů dle
+            čl. 6 odst. 1 písm. a) GDPR
+          </li>
+        </ul>
 
-      <p>Účelem zpracování osobních údajů je:</p>
-      <ul>
-        <li>vyřízení vaší objednávky</li>
-        <li>zasílání obchodních sdělení a marketingových nabídek</li>
-      </ul>
+        <p>Účelem zpracování osobních údajů je:</p>
+        <ul>
+          <li>vyřízení vaší objednávky</li>
+          <li>zasílání obchodních sdělení a marketingových nabídek</li>
+        </ul>
 
-      <p>
-        Nedochází k automatizovanému individuálnímu rozhodování ve smyslu čl. 22
-        GDPR.
-      </p>
+        <p>
+          Nedochází k automatizovanému individuálnímu rozhodování ve smyslu čl.
+          22 GDPR.
+        </p>
 
-      <h2>Doba uchovávání údajů</h2>
-      <p>
-        Správce uchovává osobní údaje po dobu nezbytnou k plnění vaší objednávky
-        a dále po dobu 5 let pro marketingové účely nebo do odvolání souhlasu.
-      </p>
-      <p>Po uplynutí doby uchovávání správce osobní údaje vymaže.</p>
+        <h2>Doba uchovávání údajů</h2>
+        <p>
+          Správce uchovává osobní údaje po dobu nezbytnou k plnění vaší
+          objednávky a dále po dobu 5 let pro marketingové účely nebo do
+          odvolání souhlasu.
+        </p>
+        <p>Po uplynutí doby uchovávání správce osobní údaje vymaže.</p>
 
-      <h2>Příjemci osobních údajů</h2>
-      <p>Příjemci osobních údajů jsou:</p>
-      <ul>
-        <li>osoby podílející se na plnění vaší objednávky</li>
-        <li>poskytovatelé IT služeb a marketingu</li>
-      </ul>
+        <h2>Příjemci osobních údajů</h2>
+        <p>Příjemci osobních údajů jsou:</p>
+        <ul>
+          <li>osoby podílející se na plnění vaší objednávky</li>
+          <li>poskytovatelé IT služeb a marketingu</li>
+        </ul>
 
-      <p>Osobní údaje nebudou předávány mimo EU.</p>
+        <p>Osobní údaje nebudou předávány mimo EU.</p>
 
-      <h2>Vaše práva</h2>
-      <p>Dle GDPR máte právo:</p>
-      <ul>
-        <li>na přístup ke svým údajům (čl. 15)</li>
-        <li>na opravu (čl. 16) nebo vymaz (čl. 17)</li>
-        <li>vznést námitku proti zpracování (čl. 21)</li>
-        <li>na přenositelnost údajů (čl. 20)</li>
-        <li>podat stížnost u Úřadu pro ochranu osobních údajů</li>
-      </ul>
+        <h2>Vaše práva</h2>
+        <p>Dle GDPR máte právo:</p>
+        <ul>
+          <li>na přístup ke svým údajům (čl. 15)</li>
+          <li>na opravu (čl. 16) nebo vymaz (čl. 17)</li>
+          <li>vznést námitku proti zpracování (čl. 21)</li>
+          <li>na přenositelnost údajů (čl. 20)</li>
+          <li>podat stížnost u Úřadu pro ochranu osobních údajů</li>
+        </ul>
 
-      <h2>Zabezpečení osobních údajů</h2>
-      <p>
-        Správce přijal technická a organizační opatření k ochraně osobních
-        údajů.
-      </p>
-      <p>K osobním údajům mají přístup pouze pověřené osoby.</p>
+        <h2>Zabezpečení osobních údajů</h2>
+        <p>
+          Správce přijal technická a organizační opatření k ochraně osobních
+          údajů.
+        </p>
+        <p>K osobním údajům mají přístup pouze pověřené osoby.</p>
 
-      <h2>Závěrečná ustanovení</h2>
-      <p>
-        Telefonickou nebo online objednávkou potvrzujete souhlas s podmínkami
-        ochrany osobních údajů.
-      </p>
-      <p>Správce může tyto podmínky změnit a zveřejnit novou verzi na webu.</p>
-    </main>
+        <h2>Závěrečná ustanovení</h2>
+        <p>
+          Telefonickou nebo online objednávkou potvrzujete souhlas s podmínkami
+          ochrany osobních údajů.
+        </p>
+        <p>
+          Správce může tyto podmínky změnit a zveřejnit novou verzi na webu.
+        </p>
+      </main>
+    </div>
   </body>
 </html>
