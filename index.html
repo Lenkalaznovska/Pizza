@@ -367,6 +367,37 @@
       </div>
     </section>
 
+    <div class="cookie-banner" id="cookieBanner">
+      <div class="cookie-banner-content">
+        <p>
+          Na cookies jsme experti – nejen v prohlížeči, ale i na pizze! 🍕
+          Pomáhají nám zajistit, aby váš zážitek byl šťavnatý, stránky rychlé a
+          reklamy dochucené podle vaší chuti. Vyberte si, které „přísady“ chcete
+          přidat do svého zážitku!
+        </p>
+        <button class="cookie-btn" id="acceptAllCookies">Přijmout vše</button>
+        <button class="cookie-btn" id="rejectAllCookies">Odmítnout vše</button>
+        <button class="cookie-btn" id="cookieSettings">
+          Nastavení cookies
+        </button>
+      </div>
+    </div>
+
+    <!-- Modal for cookie settings -->
+    <div id="cookieSettingsModal" class="cookie-settings-modal">
+      <h3>Nastavení cookies</h3>
+      <label
+        ><input type="checkbox" id="analyticsCookies" checked /> Analytické
+        cookies</label
+      ><br />
+      <label
+        ><input type="checkbox" id="marketingCookies" checked /> Marketingové
+        cookies</label
+      ><br />
+      <button id="saveCookies" class="cookie-btn">Uložit změny</button>
+      <button id="closeSettings" class="cookie-btn">Zavřít</button>
+    </div>
+
     <!-- Footer -->
     <footer>
       <div class="container">
