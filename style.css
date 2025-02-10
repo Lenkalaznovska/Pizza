@@ -71,12 +71,10 @@ header {
 }
 
 .review-img {
-  width: 90%;
+  width: 20%;
   height: auto;
   object-fit: cover;
   border-radius: 8px;
-  left: 10px;
-  z-index: 20;  
 }
 
 header.scrolled {
