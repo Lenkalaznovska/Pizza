@@ -774,7 +774,7 @@ footer {
 
 /* Pravá strana (odkazy, autor, práva) */
 .footer-right {
-  text-align: right;
+  text-align: left;
   flex: 1;
   min-width: 250px;
 }
