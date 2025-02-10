@@ -735,7 +735,7 @@ h3 {
 @media (max-width: 768px) {
   .scroll-to-top {
     right: 45px; /* Posunuto blíže k pravému okraji pouze na responzivních zařízeních */
-      bottom: 300px;
+      bottom: 400px;
   }
 }
 
@@ -774,7 +774,7 @@ footer {
 
 /* Pravá strana (odkazy, autor, práva) */
 .footer-right {
-  text-align: left;
+  text-align: right;
   flex: 1;
   min-width: 250px;
 }
