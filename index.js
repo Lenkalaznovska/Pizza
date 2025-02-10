@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-  /*** SLIDER ***/
   let currentSlide = 0;
   const slides = document.querySelectorAll(".slider .slide");
   const slidesContainer = document.querySelector(".slides");
@@ -20,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
     setInterval(nextSlide, 4000);
   }
 
-  /*** HLAVIČKA PŘI SCROLLU ***/
   const header = document.querySelector("header");
 
   function handleScroll() {
@@ -35,7 +33,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.addEventListener("scroll", handleScroll);
 
-  /*** ANIMACE SEKCÍ ***/
   const sections = document.querySelectorAll(".text-container");
   const observer = new IntersectionObserver(
     (entries) => {
@@ -51,7 +48,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   sections.forEach((section) => observer.observe(section));
 
-  /*** TLAČÍTKO PRO NÁVRAT NAHORU ***/
   const scrollToTopButton = document.getElementById("scrollToTop");
 
   if (scrollToTopButton) {
@@ -70,7 +66,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  /*** COOKIE BANNER ***/
   const cookieBanner = document.getElementById("cookieBanner");
   const cookieSettingsModal = document.getElementById("cookieSettingsModal");
   const acceptAllCookies = document.getElementById("acceptAllCookies");
@@ -125,7 +120,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-/*** DNY ***/
 document.addEventListener("DOMContentLoaded", function () {
   let today = new Date().getDay(); // Získá aktuální den (0 = Neděle, 1 = Pondělí, ...)
   let days = document.querySelectorAll(".opening-hours .day");
@@ -137,7 +131,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-/*** LOGO ***/
 document.addEventListener("DOMContentLoaded", function () {
   const logo = document.querySelector(".logo");
   let lastScrollTop = 0;
