@@ -1,5 +1,5 @@
 :root {
-  --primary-color: #d51e1e; /* Changed to the desired red color */
+  --primary-color: #d51e1e;
   --secondary-color: #333;
   --text-color: #ffffff;
   --background-color: #f4f4f4;
@@ -32,8 +32,8 @@ body {
   position: absolute;
   z-index: 15;
   left: 50%;
-  transform: translateX(-50%) scale(1); /* Původní pozice a velikost */
-  transition: transform 0.5s ease, opacity 0.3s ease; /* Přechody pro transformace a opacity */
+  transform: translateX(-50%) scale(1);
+  transition: transform 0.5s ease, opacity 0.3s ease;
   border: 2px solid white;
   background-color: transparent;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -49,8 +49,8 @@ body {
 }
 
 .logo.hidden {
-  opacity: 0; /* Skryje logo */
-  transform: translateX(-50%) scale(0.5) rotate(-180deg); /* Posune a otočí logo */
+  opacity: 0;
+  transform: translateX(-50%) scale(0.5) rotate(-180deg);
 }
 
 header {
@@ -78,7 +78,7 @@ header {
 }
 
 header.scrolled {
-  background-color: rgba(51, 51, 51, 0.9); /* Tmavší barva */
+  background-color: rgba(51, 51, 51, 0.9);
   transition: background-color 0.3s ease;
 }
 
@@ -110,7 +110,7 @@ nav ul li a:hover {
 
 .social-icons {
   position: absolute;
-  right: 140px; /* Posunutí o 20px doprava */
+  right: 140px;
   display: flex;
   gap: 25px;
 }
@@ -146,7 +146,7 @@ nav ul li a:hover {
   }
 
   .social-icons {
-    right: 40px; /* Udržení posunu i na mobilní verzi */
+    right: 40px;
   }
 
   nav ul {
@@ -200,7 +200,7 @@ nav ul li a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap; /* Allows buttons to wrap if space is limited */
+  flex-wrap: wrap;
 }
 
 .buttons a {
@@ -215,7 +215,7 @@ nav ul li a:hover {
   transition: background-color 0.3s ease, transform 0.5s ease;
   opacity: 0;
   animation: shake-interval 8s infinite;
-  margin-right: 25px; /* Larger gap between buttons */
+  margin-right: 25px;
 }
 
 .buttons a:nth-child(odd) {
@@ -241,7 +241,7 @@ nav ul li a:hover {
 .call {
   width: 30%;
   margin-top: 20px;
-  margin-bottom: 10px; /* Additional space below "call" button */
+  margin-bottom: 10px;
 }
 
 @media (max-width: 768px) {
@@ -261,11 +261,11 @@ nav ul li a:hover {
 
   .buttons a:nth-child(1),
   .buttons a:nth-child(2) {
-    margin-right: 30px; /* Larger gap between first and second button */
+    margin-right: 30px;
   }
 
   .call {
-    width: 100%; /* Call button takes full width on smaller screens */
+    width: 100%;
     margin-top: 20px;
   }
 }
@@ -287,15 +287,15 @@ nav ul li a:hover {
 
   .buttons a:nth-child(1),
   .buttons a:nth-child(2) {
-    margin-right: 0; /* Remove margin on smaller screens */
+    margin-right: 0;
   }
 
   .buttons a:nth-child(n + 3) {
-    margin-top: 15px; /* Space between "Order Pizza" and "Other Treats" on mobile */
+    margin-top: 15px;
   }
 
   .call {
-    width: 100%; /* Call button takes full width */
+    width: 100%;
   }
 }
 
@@ -394,7 +394,7 @@ section h2 {
   margin-bottom: 20px;
   color: var(--primary-color);
   font-weight: bold;
-  text-align: center; /* Nadpisy jsou již na střed */
+  text-align: center;
 }
 
 section p {
@@ -402,7 +402,7 @@ section p {
   color: var(--secondary-color);
   line-height: 1.8;
   margin: 15px 0;
-  text-align: center; /* Text uvnitř sekcí je nyní zarovnaný na střed */
+  text-align: center;
 }
 
 section ul {
@@ -450,7 +450,7 @@ section:hover {
 
   section ul {
     padding-left: 0;
-    max-width: 100%; /* Zajistí, že seznamy nebudou omezeny na maximální šířku */
+    max-width: 100%;
   }
 }
 
@@ -479,15 +479,15 @@ section:hover {
 }
 
 .flip-card {
-  width: calc(33.333% - 20px); /* Odpočet prostoru mezi kartami */
+  width: calc(33.333% - 20px);
   height: 400px;
   perspective: 1000px;
-  margin: 10px; /* Prostor mezi kartami */
-  border-radius: 10px; /* Zaoblení okrajů */
-  overflow: hidden; /* Skrytí přetékajícího obsahu */
-  cursor: pointer; /* Přidání kurzoru pro lepší uživatelský zážitek */
+  margin: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
   display: flex;
-  justify-content: center; /* Centrum pro obrázky */
+  justify-content: center;
   align-items: center;
 }
 
@@ -497,12 +497,12 @@ section:hover {
   height: 100%;
   transition: transform 0.6s;
   transform-style: preserve-3d;
-  border-radius: 10px; /* Zaoblení okrajů i pro vnitřní obsah */
+  border-radius: 10px;
 }
 
 .flip-card:hover .flip-card-inner,
 .flip-card.flipped .flip-card-inner {
-  transform: rotateY(180deg); /* Přidání třídy .flipped pro kliknutí */
+  transform: rotateY(180deg);
 }
 
 .flip-card-front,
@@ -511,8 +511,8 @@ section:hover {
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  border-radius: 10px; /* Zaoblení okrajů i pro přední a zadní stranu */
-  padding: 15px; /* Odsazení pro text na obou stranách */
+  border-radius: 10px;
+  padding: 15px;
   box-sizing: border-box;
 }
 
@@ -534,8 +534,8 @@ section:hover {
 
 .gallery-image {
   width: 100%;
-  height: 100%; /* Nastavení pro jednotnou velikost všech obrázků */
-  object-fit: cover; /* Umožňuje přizpůsobení rozměrům karty */
+  height: 100%;
+  object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 5px 15px var(--shadow-color);
   transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
@@ -558,15 +558,15 @@ section:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow: hidden; /* Skryje nepoužívané obrázky */
+    overflow: hidden;
     position: relative;
   }
 
   .flip-card {
     width: 100%;
-    max-width: 400px; /* Maximální šířka pro lepší vzhled */
+    max-width: 400px;
     margin: 10px 0;
-    transition: transform 0.6s ease-in-out; /* Přechod pro animaci karet */
+    transition: transform 0.6s ease-in-out;
   }
 
   .flip-card-inner {
@@ -578,7 +578,7 @@ section:hover {
   }
 
   .flip-card.flipped .flip-card-inner {
-    transform: rotateY(180deg); /* Otáčení karty po kliknutí */
+    transform: rotateY(180deg);
   }
 }
 
@@ -586,11 +586,11 @@ section:hover {
   background-color: #f8f8f8;
   padding: 50px 0;
   text-align: center;
-  margin-bottom: 30px; /* Přidáno pro stejné mezery */
+  margin-bottom: 30px;
 }
 
 #kontakty h2 {
-  margin-bottom: 30px; /* Zajištění stejné mezery jako v kartách */
+  margin-bottom: 30px;
 }
 
 .card-container {
@@ -604,14 +604,14 @@ section:hover {
 
 .card {
   background-color: #fff;
-  padding: 25px; /* Zvětšení paddingu, aby odpovídal textu */
+  padding: 25px;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   width: 32%;
   text-align: left;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   font-size: 1rem;
-  margin-bottom: 20px; /* Zajištění rovnoměrných mezer mezi kartami */
+  margin-bottom: 20px;
 }
 
 .card:hover {
@@ -635,7 +635,7 @@ h3 {
   display: flex;
   text-align: left;
   gap: 10px;
-  margin-bottom: 15px; /* Zajištění stejné mezery jako v hlavním nadpisu */
+  margin-bottom: 15px;
   font-weight: 500;
 }
 
@@ -697,7 +697,7 @@ h3 {
 
 @media (max-width: 768px) {
   .scroll-to-top {
-    right: 45px; /* Posunuto blíže k pravému okraji pouze na responzivních zařízeních */
+    right: 45px;
       bottom: 400px;
   }
 }
@@ -712,7 +712,7 @@ h3 {
 }
 
 footer {
-  background-color: rgba(51, 51, 51, 0.9); /* Tmavší barva */
+  background-color: rgba(51, 51, 51, 0.9);
   color: var(--text-color);
   padding: 20px 0;
   font-size: 16px;
@@ -787,7 +787,7 @@ footer {
 .cookie-banner-content {
   width: 70%;
   margin: 0 auto;
-  text-align: left; /* Pro lepší čitelnost */
+  text-align: left;
   line-height: 1.5;
 }
 
