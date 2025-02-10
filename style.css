@@ -1,4 +1,3 @@
-/* Global Variables */
 :root {
   --primary-color: #d51e1e; /* Changed to the desired red color */
   --secondary-color: #333;
@@ -11,7 +10,6 @@
   --menu-gap: 220px;
 }
 
-/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -24,14 +22,12 @@ body {
   color: var(--text-color);
 }
 
-/* Container */
 .container {
   max-width: 1100px;
   margin: 0 auto;
   padding: 20px;
 }
 
-/* Logo */
 .logo {
   position: absolute;
   z-index: 15;
@@ -52,13 +48,11 @@ body {
   display: block;
 }
 
-/* Logo skryté (transformace a opacity) */
 .logo.hidden {
   opacity: 0; /* Skryje logo */
   transform: translateX(-50%) scale(0.5) rotate(-180deg); /* Posune a otočí logo */
 }
 
-/* Navigační lišta */
 header {
   background-color: rgba(128, 128, 128, 0.3);
   color: var(--text-color);
@@ -83,13 +77,11 @@ header {
   border-radius: 8px;
 }
 
-/* Navigační lišta v tmavém režimu */
 header.scrolled {
   background-color: rgba(51, 51, 51, 0.9); /* Tmavší barva */
   transition: background-color 0.3s ease;
 }
 
-/* Navigation Menu */
 nav {
   display: flex;
   justify-content: center;
@@ -116,7 +108,6 @@ nav ul li a:hover {
   color: var(--primary-color);
 }
 
-/* Social Icons */
 .social-icons {
   position: absolute;
   right: 140px; /* Posunutí o 20px doprava */
@@ -137,7 +128,6 @@ nav ul li a:hover {
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
 }
 
-/* Pulzující animace */
 @keyframes pulse {
   0% {
     transform: scale(1);
@@ -150,7 +140,6 @@ nav ul li a:hover {
   }
 }
 
-/* Mobile Styles */
 @media (max-width: 768px) {
   .logo {
     left: 25%;
@@ -171,7 +160,6 @@ nav ul li a:hover {
   }
 }
 
-/* Slider */
 .slider {
   position: relative;
   width: 100%;
@@ -256,7 +244,6 @@ nav ul li a:hover {
   margin-bottom: 10px; /* Additional space below "call" button */
 }
 
-/* Adjust buttons in responsive design */
 @media (max-width: 768px) {
   .content h1 {
     font-size: 50px;
@@ -267,19 +254,16 @@ nav ul li a:hover {
     font-size: 16px;
   }
 
-  /* First two buttons next to each other */
   .buttons {
     flex-direction: row;
     justify-content: space-between;
   }
 
-  /* Larger gap between buttons */
   .buttons a:nth-child(1),
   .buttons a:nth-child(2) {
     margin-right: 30px; /* Larger gap between first and second button */
   }
 
-  /* Call button below */
   .call {
     width: 100%; /* Call button takes full width on smaller screens */
     margin-top: 20px;
@@ -297,7 +281,6 @@ nav ul li a:hover {
     font-size: 14px;
   }
 
-  /* Buttons will be in column on mobile */
   .buttons {
     flex-direction: column;
   }
@@ -316,7 +299,6 @@ nav ul li a:hover {
   }
 }
 
-/* Keyframes for animation */
 @keyframes slide-in-left {
   from {
     transform: translateX(-300%);
@@ -398,7 +380,6 @@ nav ul li a:hover {
   }
 }
 
-/* Section */
 section {
   background-color: #fff;
   padding: 20px;
@@ -408,7 +389,6 @@ section {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Nadpisy uvnitř sekcí */
 section h2 {
   font-size: 36px;
   margin-bottom: 20px;
@@ -417,7 +397,6 @@ section h2 {
   text-align: center; /* Nadpisy jsou již na střed */
 }
 
-/* Odstavce uvnitř sekcí */
 section p {
   font-size: 18px;
   color: var(--secondary-color);
@@ -426,7 +405,6 @@ section p {
   text-align: center; /* Text uvnitř sekcí je nyní zarovnaný na střed */
 }
 
-/* Seznamy (ul) */
 section ul {
   margin: auto;
   padding: 0;
@@ -445,14 +423,12 @@ section ul li {
   line-height: 1.5;
 }
 
-/* Zvýrazněný text (strong) */
 section p strong,
 section ul li strong {
   color: var(--primary-color);
   font-weight: bold;
 }
 
-/* Efekt při najetí na sekci */
 section:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
@@ -467,7 +443,6 @@ section:hover {
     font-size: 1rem;
   }
 
-  /* Zarovnání textu na střed pro mobilní zařízení */
   section p,
   section ul {
     text-align: center;
@@ -479,14 +454,12 @@ section:hover {
   }
 }
 
-/* Mobile Styles */
 @media (max-width: 768px) {
   .card {
     width: 100%;
   }
 }
 
-/* Links for phone and email */
 .contact-link {
   color: #d51e1e;
   text-decoration: none;
@@ -497,7 +470,6 @@ section:hover {
   text-decoration: none;
 }
 
-/* Galerie */
 .image-container {
   display: flex;
   justify-content: space-between;
@@ -605,13 +577,11 @@ section:hover {
     border-radius: 10px;
   }
 
-  /* Přidání funkce pro kliknutí na mobilních zařízeních */
   .flip-card.flipped .flip-card-inner {
     transform: rotateY(180deg); /* Otáčení karty po kliknutí */
   }
 }
 
-/* Kontakt sekce */
 #kontakty {
   background-color: #f8f8f8;
   padding: 50px 0;
@@ -619,12 +589,10 @@ section:hover {
   margin-bottom: 30px; /* Přidáno pro stejné mezery */
 }
 
-/* Hlavní nadpis pro kontakt */
 #kontakty h2 {
   margin-bottom: 30px; /* Zajištění stejné mezery jako v kartách */
 }
 
-/* General styling for cards */
 .card-container {
   display: flex;
   flex-wrap: wrap;
@@ -651,7 +619,6 @@ section:hover {
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
-/* Kontakt sekce karty - úprava */
 .contact-card {
   padding: 25px;
   text-align: left;
@@ -676,7 +643,6 @@ h3 {
   color: #d51e1e;
 }
 
-/* Otevírací a rozvozová doba karta */
 .opening-hours p {
   display: flex;
   justify-content: space-between;
@@ -689,7 +655,6 @@ h3 {
   font-weight: bold;
 }
 
-/* Map card adjustments */
 .map-card {
   padding: 0;
 }
@@ -702,7 +667,6 @@ h3 {
   display: block;
 }
 
-/* Responsive design */
 @media (max-width: 1024px) {
   .card {
     width: 100%;
@@ -715,7 +679,6 @@ h3 {
   }
 }
 
-/* Scroll to top button */
 .scroll-to-top {
   position: fixed;
   bottom: 370px;
@@ -748,7 +711,6 @@ h3 {
   }
 }
 
-/* Footer */
 footer {
   background-color: rgba(51, 51, 51, 0.9); /* Tmavší barva */
   color: var(--text-color);
@@ -765,14 +727,12 @@ footer {
   flex-wrap: wrap;
 }
 
-/* Levá strana (provozovatel) */
 .footer-left {
   text-align: left;
   flex: 1;
   min-width: 250px;
 }
 
-/* Pravá strana (odkazy, autor, práva) */
 .footer-right {
   text-align: right;
   flex: 1;
@@ -792,14 +752,12 @@ footer {
   color: var(--primary-color);
 }
 
-/* Autor a práva na střed */
 .footer-author,
 .footer-rights {
   text-align: center;
   margin-top: 10px;
 }
 
-/* Responzivní design */
 @media (max-width: 768px) {
   .footer-container {
     flex-direction: column;
@@ -813,7 +771,6 @@ footer {
   }
 }
 
-/* Cookie Consent Styles */
 .cookie-banner {
   position: fixed;
   bottom: 0;
