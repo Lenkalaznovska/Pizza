@@ -750,55 +750,65 @@ h3 {
 /* Footer */
 footer {
   background-color: rgba(51, 51, 51, 0.9); /* Tmavší barva */
-  color: var(--text-color); /* Text bílý */
-  padding: 15px 0; /* Zmenšil jsem padding pro menší mezery */
-  font-weight: bold;
-  text-align: center;
-  font-size: 16px; /* Přidáno pro sjednocení velikosti textu */
+  color: var(--text-color);
+  padding: 20px 0;
+  font-size: 16px;
 }
 
-/* Odkazy v patičce */
-footer a {
-  color: var(--text-color); /* Výchozí barva odkazů */
-  text-decoration: none; /* Bez podtržení */
+.footer-container {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+/* Levá strana (provozovatel) */
+.footer-left {
+  text-align: left;
+  flex: 1;
+  min-width: 250px;
+}
+
+/* Pravá strana (odkazy, autor, práva) */
+.footer-right {
+  text-align: right;
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-right a {
+  display: block;
+  color: var(--text-color);
+  text-decoration: none;
   font-weight: bold;
-  margin: 10px;
-  display: block; /* Aby odkazy byly vedle sebe */
+  margin: 5px 0;
   transition: color var(--transition-speed);
 }
 
-footer a:hover {
-  color: var(--primary-color); /* Barva při najetí */
+.footer-right a:hover {
+  color: var(--primary-color);
 }
 
-/* Zarovnání textu v .footer-provozovatel */
-.footer-provozovatel {
-  color: var(--text-color);
-  font-weight: bold;
-  text-align: center; /* Upraveno na centrum pro responzivní design */
-  font-size: 16px; /* Velikost textu v patičce */
+/* Autor a práva na střed */
+.footer-author,
+.footer-rights {
+  text-align: center;
+  margin-top: 10px;
 }
 
-/* Nadpisy v .footer-provozovatel */
-.footer-provozovatel h4 {
-  margin-bottom: 5px; /* Zmenšil jsem spodní margin u nadpisu */
-  font-weight: bold;
-}
-
-/* Responzivní design: Upravujeme pro mobilní zařízení */
+/* Responzivní design */
 @media (max-width: 768px) {
-  footer {
-    padding: 12px 0; /* Menší padding pro mobilní zařízení */
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
-  .footer-provozovatel {
-    font-size: 16px; /* Udržujeme velikost textu 16px i na mobilech */
-    margin-top: 8px; /* Ještě menší mezera pro mobilní zařízení */
-  }
-
-  footer a {
-    font-size: 16px; /* Udržujeme velikost textu 16px pro odkazy */
-    margin: 5px; /* Menší mezery pro mobilní zařízení */
+  .footer-left,
+  .footer-right {
+    text-align: center;
   }
 }
 
