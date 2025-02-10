@@ -135,7 +135,11 @@ nav ul li a:hover {
 
 @media (max-width: 768px) {
   .logo {
-    left: 25%;
+    right: 40%;
+  }
+
+  .logo img {
+    padding: 3px;
   }
 
   .social-icons {
