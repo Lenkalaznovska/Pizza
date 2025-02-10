@@ -681,7 +681,7 @@ h3 {
 
 .scroll-to-top {
   position: fixed;
-  bottom: 370px;
+  bottom: 80px;
   right: 50px;
   display: none;
   justify-content: center;
@@ -698,7 +698,7 @@ h3 {
 @media (max-width: 768px) {
   .scroll-to-top {
     right: 45px;
-      bottom: 450px;
+    bottom: 450px;
   }
 }
 
