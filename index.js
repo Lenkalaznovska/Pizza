@@ -168,7 +168,24 @@ function animateNumbers(element, start, end, duration) {
   }, 20);
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  animateNumbers(document.getElementById("foodora-reviews"), 0, 1000, 2000);
-  animateNumbers(document.getElementById("google-reviews"), 0, 500, 2000);
-});
+function isElementInViewport(el) {
+  let rect = el.getBoundingClientRect();
+  return (
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <=
+      (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  );
+}
+
+function onScroll() {
+  let onasSection = document.getElementById("onas");
+  if (isElementInViewport(onasSection)) {
+    animateNumbers(document.getElementById("foodora-reviews"), 0, 1000, 2000);
+    animateNumbers(document.getElementById("google-reviews"), 0, 500, 2000);
+    window.removeEventListener("scroll", onScroll);
+  }
+}
+
+window.addEventListener("scroll", onScroll);
