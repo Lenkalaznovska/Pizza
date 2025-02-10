@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  let today = new Date().getDay(); // Získá aktuální den (0 = Neděle, 1 = Pondělí, ...)
+  let today = new Date().getDay();
   let days = document.querySelectorAll(".opening-hours .day");
 
   days.forEach((day) => {
@@ -139,22 +139,17 @@ document.addEventListener("DOMContentLoaded", function () {
     let currentScroll =
       window.pageYOffset || document.documentElement.scrollTop;
 
-    // Pokud je scroll větší než 200px a scrollujeme dolů, skryjeme logo
     if (currentScroll > 250) {
       if (currentScroll > lastScrollTop) {
-        // Scrollujeme dolů - skrytí loga
         logo.classList.add("hidden");
       }
     } else {
-      // Pokud je scroll menší než 249px, logo se objeví
       logo.classList.remove("hidden");
     }
 
-    // Zobrazení loga pouze tehdy, když jsme opět nad 200px
     if (currentScroll <= 200) {
       logo.classList.remove("hidden");
     }
-
     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
   });
 });
