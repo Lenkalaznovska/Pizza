@@ -735,6 +735,7 @@ h3 {
 @media (max-width: 768px) {
   .scroll-to-top {
     right: 45px; /* Posunuto blíže k pravému okraji pouze na responzivních zařízeních */
+      bottom: 300px;
   }
 }
 
