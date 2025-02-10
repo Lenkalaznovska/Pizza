@@ -768,6 +768,14 @@ footer {
   .footer-left,
   .footer-right {
     text-align: center;
+    flex: 1;
+    min-width: auto;
+  }
+
+  .footer-author,
+  .footer-rights {
+    text-align: center;
+    margin-top: 10px;
   }
 }
 
