@@ -1,0 +1,53 @@
+
+# Blokování škodlivých robotů
+User-agent: BUbiNG
+Disallow: /
+
+User-agent: Baidu
+Disallow: /
+
+User-agent: Yandex
+Disallow: /
+
+User-agent: Sogou
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: Crawlera
+Disallow: /
+
+User-agent: Nutch
+Disallow: /
+
+User-agent: Domain Revalidation
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: SurveyBot
+Disallow: /
+
+User-agent: ZoominfoBot
+Disallow: /
+
+User-agent: spbot
+Disallow: /
+
+# Povolení přístupu pro standardní roboty
+User-agent: *
+Allow: /
+
+# Odkaz na sitemapu
+Sitemap: https://www.pizzakladno.cz/sitemap.xml
