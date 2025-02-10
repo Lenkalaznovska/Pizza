@@ -153,3 +153,22 @@ document.addEventListener("DOMContentLoaded", function () {
     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
   });
 });
+
+function animateNumbers(element, start, end, duration) {
+  let range = end - start;
+  let current = start;
+  let increment = range / (duration / 20);
+  let timer = setInterval(() => {
+    current += increment;
+    if (current >= end) {
+      current = end;
+      clearInterval(timer);
+    }
+    element.textContent = Math.floor(current) + "+";
+  }, 20);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  animateNumbers(document.getElementById("foodora-reviews"), 0, 1000, 2000);
+  animateNumbers(document.getElementById("google-reviews"), 0, 500, 2000);
+});
