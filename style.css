@@ -73,10 +73,10 @@ body {
 
   .social-icons {
     position: absolute;
-    right: 5px;
-    bottom: 10px;
+    right: 0px;
+    bottom: 15px;
     display: flex;
-    gap: 15px;
+    gap: 12px;
   }
 
   .social-icons a img {
@@ -97,8 +97,8 @@ body {
   }
 
   .social-icons {
-    right: 5px;
-    bottom: 10px;
+    right: 0px;
+    bottom: 12px;
     gap: 10px;
   }
 
@@ -120,8 +120,8 @@ body {
   }
 
   .social-icons {
-    right: 3px;
-    bottom: 8px;
+    right: 0px;
+    bottom: 10px;
     gap: 8px;
   }
 
