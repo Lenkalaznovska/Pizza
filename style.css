@@ -31,9 +31,8 @@ body {
 .logo {
   position: absolute;
   z-index: 15;
-  right: 50%;
-  top: 10px;
-  transform: translateX(50%) scale(1);
+  right: 75%;
+  transform: translateX(-50%) scale(1);
   transition: transform 0.5s ease, opacity 0.3s ease;
   border: 2px solid white;
   background-color: transparent;
@@ -42,13 +41,16 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5px;
 }
 
 .logo img {
-  height: clamp(50px, 8vw, 120px); /* Přizpůsobení velikosti podle viewportu */
-  width: auto;
+  height: var(--logo-size);
   display: block;
+}
+
+.logo.hidden {
+  opacity: 0;
+  transform: translateX(-50%) scale(0.5) rotate(-180deg);
 }
 
 /* Skrytí loga s animací */
