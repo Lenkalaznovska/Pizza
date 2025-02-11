@@ -58,7 +58,6 @@ body {
   transform: translateX(50%) scale(0.5) rotate(-180deg);
 }
 
-/* Responzivní úpravy */
 @media (max-width: 768px) {
   .logo {
     position: absolute;
