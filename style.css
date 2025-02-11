@@ -73,44 +73,18 @@ body {
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
 }
 
+
 @media (max-width: 768px) {
-  .container {
-    width: 100%; /* Full width on mobile */
-    flex-direction: column; /* Stack logo and social icons vertically */
-    align-items: center; /* Center content */
-  }
+    .logo {
+        right: 62%;
+    }
 
-  .logo {
-    margin-bottom: 20px; /* Add space between logo and icons */
-    justify-content: center;
-  }
-
-  .social-icons {
-    justify-content: center;
-    padding-left: 0; /* Center the social icons */
-    width: 100%;
-  }
-
-  .logo img {
-    height: 50px; /* Reduce logo size on smaller screens */
-  }
-
-  .social-icons a img {
-    width: 25px;
-    height: 25px; /* Adjust icon size for small screens */
-  }
-}
-
-@media (max-width: 480px) {
-  .logo img {
-    height: 40px; /* Further reduce logo size on very small screens */
-  }
-
-  .social-icons a img {
-    width: 20px;
-    height: 20px; /* Further reduce icon size on very small screens */
-  }
-}
+    .social-icons {
+        display: flex;
+        justify-content: center;
+        padding-left: 60px;
+        width: 100%;
+    }
 
 header {
   background-color: rgba(128, 128, 128, 0.3);
