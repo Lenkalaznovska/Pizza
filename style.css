@@ -26,12 +26,14 @@ body {
   max-width: 1100px;
   margin: 0 auto;
   padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%; /* Ensure the container takes up 70% width */
 }
 
 .logo {
-  position: absolute;
-  z-index: 15;
-  right: 75%;
+  position: relative;
   border: 2px solid white;
   background-color: transparent;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -39,6 +41,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-shrink: 0; /* Prevents the logo from shrinking */
 }
 
 .logo img {
@@ -51,17 +54,61 @@ body {
   transform: translateX(-50%) scale(0.5) rotate(-180deg);
 }
 
-/* Mobile Styles */
-@media (max-width: 768px) {
-    .logo {
-        right: 62%;
-    }
+.social-icons {
+  display: flex;
+  gap: 25px;
+  justify-content: flex-end; /* Align social icons to the right */
+}
 
-    .social-icons {
-        display: flex;
-        justify-content: center;
-        padding-left: 60px;
-        width: 100%;
+.social-icons a img {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  transition: transform var(--transition-speed) ease,
+    box-shadow 0.3s ease-in-out;
+  animation: pulse 1.5s infinite;
+}
+
+.social-icons a:hover img {
+  transform: scale(1.2);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 100%; /* Full width on mobile */
+    flex-direction: column; /* Stack logo and social icons vertically */
+    align-items: center; /* Center content */
+  }
+
+  .logo {
+    margin-bottom: 20px; /* Add space between logo and icons */
+    justify-content: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+    padding-left: 0; /* Center the social icons */
+    width: 100%;
+  }
+
+  .logo img {
+    height: 50px; /* Reduce logo size on smaller screens */
+  }
+
+  .social-icons a img {
+    width: 25px;
+    height: 25px; /* Adjust icon size for small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .logo img {
+    height: 40px; /* Further reduce logo size on very small screens */
+  }
+
+  .social-icons a img {
+    width: 20px;
+    height: 20px; /* Further reduce icon size on very small screens */
   }
 }
 
