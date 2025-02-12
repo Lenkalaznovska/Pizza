@@ -255,6 +255,17 @@ nav ul li a:hover {
   margin-bottom: 10px;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+}
+
 @media (max-width: 768px) {
   .content h1 {
     font-size: 50px;
