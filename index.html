@@ -81,53 +81,38 @@
     </div>
     <div id="calendar"></div>
     
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            let calendarEl = document.getElementById('calendar');
-            let calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth',
-                editable: true,
-                selectable: true,
-                droppable: true,
-                dateClick: function(info) {
-                    document.querySelectorAll('.draggable').forEach(el => {
-                        el.onclick = function() {
-                            let event = calendar.addEvent({
-                                title: el.dataset.name,
-                                start: info.dateStr,
-                                backgroundColor: el.style.backgroundColor
-                            });
-                            saveEvents(calendar);
-                        };
-                    });
-                },
-                eventClick: function(info) {
-                    if (confirm("Opravdu chcete odstranit tuto směnu?")) {
-                        info.event.remove();
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let calendarEl = document.getElementById('calendar');
+        let calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            editable: true,
+            selectable: true,
+            droppable: true,
+            locale: 'cs', // Přidá české názvy měsíců a dní
+            dateClick: function(info) {
+                document.querySelectorAll('.draggable').forEach(el => {
+                    el.onclick = function() {
+                        let event = calendar.addEvent({
+                            title: el.dataset.name,
+                            start: info.dateStr,
+                            backgroundColor: el.style.backgroundColor
+                        });
                         saveEvents(calendar);
-                    }
+                    };
+                });
+            },
+            eventClick: function(info) {
+                if (confirm("Opravdu chcete odstranit tuto směnu?")) {
+                    info.event.remove();
+                    saveEvents(calendar);
                 }
-            });
-            
-            loadEvents(calendar);
-            calendar.render();
+            }
         });
-        
-        function saveEvents(calendar) {
-            let events = calendar.getEvents().map(event => ({
-                title: event.title,
-                start: event.start.toISOString(),
-                backgroundColor: event.backgroundColor
-            }));
-            localStorage.setItem('savedEvents', JSON.stringify(events));
-        }
-        
-        function loadEvents(calendar) {
-            let savedEvents = JSON.parse(localStorage.getItem('savedEvents') || '[]');
-            savedEvents.forEach(eventData => {
-                calendar.addEvent(eventData);
-            });
-        }
-    </script>
+
+        loadEvents(calendar);
+        calendar.render();
+    });
+</script>
 </body>
 </html>
