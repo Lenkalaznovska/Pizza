@@ -1,118 +1,397 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalendář směn</title>
-    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/interaction@5.11.3/main.global.min.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-        }
-        .sidebar {
-            width: 250px;
-            padding: 20px;
-            background: #f8f9fa;
-            border-right: 1px solid #ddd;
-        }
-        .section {
-            margin-bottom: 15px;
-            padding: 10px;
-            border-radius: 5px;
-        }
-        .kitchen {
-            background: #ffcc00;
-        }
-        .couriers {
-            background: #28a745;
-        }
-        .bar {
-            background: #dc3545;
-        }
-        .draggable {
-            padding: 10px;
-            margin: 5px;
-            color: white;
-            cursor: pointer;
-            border-radius: 5px;
-            text-align: center;
-        }
-        .kitchen .draggable {
-            background: #ffcc00;
-        }
-        .couriers .draggable {
-            background: #28a745;
-        }
-        .bar .draggable {
-            background: #dc3545;
-        }
-        #calendar {
-            flex-grow: 1;
-            padding: 20px;
-        }
-    </style>
-</head>
-<body>
-    <div class="sidebar">
-        <h3>Zaměstnanci</h3>
-        <div class="section kitchen">
-            <h4>Kuchyň</h4>
-            <div class="draggable" data-name="Martin">Martin</div>
-            <div class="draggable" data-name="Hanka">Hanka</div>
-            <div class="draggable" data-name="Marie">Marie</div>
-            <div class="draggable" data-name="Renata">Renata</div>
-            <div class="draggable" data-name="Martina">Martina</div>
-        </div>
-        <div class="section couriers">
-            <h4>Kurýři</h4>
-            <div class="draggable" data-name="Katka">Katka</div>
-            <div class="draggable" data-name="Jirka">Jirka</div>
-            <div class="draggable" data-name="Pavel">Pavel</div>
-            <div class="draggable" data-name="Michaela">Michaela</div>
-        </div>
-        <div class="section bar">
-            <h4>Bar</h4>
-            <div class="draggable" data-name="Jiřina">Jiřina</div>
-            <div class="draggable" data-name="Katka">Katka</div>
-        </div>
-    </div>
-    <div id="calendar"></div>
-    
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        let calendarEl = document.getElementById('calendar');
-        let calendar = new FullCalendar.Calendar(calendarEl, {
-            initialView: 'dayGridMonth',
-            editable: true,
-            selectable: true,
-            droppable: true,
-            locale: 'cs', // Přidá české názvy měsíců a dní
-            dateClick: function(info) {
-                document.querySelectorAll('.draggable').forEach(el => {
-                    el.onclick = function() {
-                        let event = calendar.addEvent({
-                            title: el.dataset.name,
-                            start: info.dateStr,
-                            backgroundColor: el.style.backgroundColor
-                        });
-                        saveEvents(calendar);
-                    };
-                });
-            },
-            eventClick: function(info) {
-                if (confirm("Opravdu chcete odstranit tuto směnu?")) {
-                    info.event.remove();
-                    saveEvents(calendar);
-                }
-            }
-        });
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pizzerie San Marino – Pizza jinak již od roku 1994</title>
+    <link rel="icon" href="images/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.png">
+    <link rel="canonical" href="https://www.pizzakladno.cz/" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
 
-        loadEvents(calendar);
-        calendar.render();
-    });
-</script>
-</body>
+    <meta property="og:title" content="Pizzerie San Marino – Pizza jinak již od roku 1994" />
+    <meta property="og:description" content="Pizzerie San Marino to jsou originální pizzy, legendární burgry, kuřecí speciality Wing It! a další dobroty s doručením až k vašim dveřím." />
+    <meta property="og:image" content="https://raw.githubusercontent.com/Lenkalaznovska/Pizza/main/images/sanmarino.jpg" />
+    <meta property="og:image:secure_url" content="https://raw.githubusercontent.com/Lenkalaznovska/Pizza/main/images/sanmarino.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content="https://www.pizzakladno.cz" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="cs_CZ" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Pizzerie San Marino – Pizza jinak již od roku 1994" />
+    <meta name="twitter:description" content="Pizzerie San Marino to jsou originální pizzy, legendární burgry, kuřecí speciality Wing It! a další dobroty s doručením až k vašim dveřím." />
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/Lenkalaznovska/Pizza/main/images/sanmarino.jpg" />
+
+    <meta property="al:ios:url" content="https://www.instagram.com/pizzakladno" />
+    <meta property="al:ios:app_name" content="Instagram" />
+    <meta property="al:ios:app_store_id" content="389801252" />
+    <meta property="al:android:url" content="https://www.instagram.com/pizzakladno" />
+    <meta property="al:android:app_name" content="Instagram" />
+    <meta property="al:android:package" content="com.instagram.android" />
+
+    <meta name="description" content="Pizzerie San Marino to jsou originální pizzy, legendární burgry, kuřecí speciality Wing It! a další dobroty s doručením až k vašim dveřím." />
+    <meta name="keywords" content="San Marino Kladno, pizza, legendární burgry, burgry, burgery, kuřecí speciality, Wing It, zapečené těstoviny, saláty, rozvoz jídla, pizzerie Kladno, pizza Kladno, burgry Kladno, kuřecí speciality Kladno, těstoviny Kladno, saláty Kladno, rozvoz jídla Kladno, restaurace Kladno, pizzerie s rozvozem, jídlo na objednávku, online objednávky" />
+    <meta name="author" content="Pizzerie San Marino" />
+</head>
+</html>
+
+  <body>
+    <header>
+    <div class="logo">
+        <img
+          src="images/logo.png"
+          alt="Logo of Pizzerie San Marino"
+          loading="lazy"
+        />
+      </div>
+<nav>
+  <div class="social-icons">
+    <a
+      href="https://www.facebook.com/profile.php?id=100095016576324"
+      target="_blank"
+    >
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
+        alt="Facebook ikona"
+        width="24"
+        height="24"
+      />
+    </a>
+    <a href="https://www.instagram.com/pizzakladno/" target="_blank">
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/733/733558.png"
+        alt="Instagram ikona"
+        width="24"
+        height="24"
+      />
+    </a>
+    <a
+      href="https://www.tiktok.com/@pizzakladno?_t=ZN-8tbxv0q0T6k&_r=1"
+      target="_blank"
+    >
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/3046/3046125.png"
+        alt="TikTok ikona"
+        width="24"
+        height="24"
+      />
+    </a>
+  </div>
+</nav>
+    </header>
+
+    <div class="slider">
+      <div class="slides">
+        <div
+          class="slide"
+          style="background-image: url('images/pizza.jpg')"
+        ></div>
+        <div
+          class="slide"
+          style="background-image: url('images/burger.jpg')"
+        ></div>
+        <div
+          class="slide"
+          style="background-image: url('images/sanmarino.jpg')"
+        ></div>
+      </div>
+      <div class="content">
+        <h1>Pizzerie San Marino</h1>
+        <div class="buttons">
+          <a
+            href="https://www.pizzakladno.cz/pizza"
+            class="order-button"
+            target="_blank"
+          >
+            Objednej pizzu
+          </a>
+          <a
+            href="https://www.pizzakladno.cz/burgry"
+            class="order-button"
+            target="_blank"
+          >
+            Objednej burger
+          </a>
+          <a href="tel:+420604633373" class="call">
+            <i class="fas fa-phone"></i> Zavolat
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <section id="onas"> 
+      <div class="container">
+        <h2>O nás</h2>
+        <div class="pizza-category">
+          <p>
+            <strong>🍕 Naše pizza, náš originál – tohle není žádná Itálie, to je tradice již od roku 1994! 🍕</strong>
+          </p>
+          <p>
+            Pizzerie San Marino spojuje poctivou porci čerstvých ingrediencí, vrstvu zlatavě rozpečeného sýra, nadýchané těsto s křupavými okraji a vyladěné recepty, které dělají naši pizzu jedinečnou.
+          </p>
+          <p>
+            Naše nabídka neobsahuje pouze pizzu, ale také legendární <strong>„burgry jako kráva“</strong>, zapečené těstoviny přímo z pece nebo klasické těstoviny a čerstvé saláty.
+          </p>
+          <p>
+            Milovníky masa potěšíme kuřecími specialitami <strong>Wing It!</strong> a dalšími lahodnými dobrotami, které si zamilujete na první ochutnání.
+          </p>
+          <p>
+            🎉 <strong>Pizzerie San Marino byla doporučena i pro tento rok na Restaurant Guru 2025!</strong> Tento úspěch je pro nás velkou motivací a poctou pokračovat v tom, co nás baví již od roku 1994. Děkujeme vám, našim skvělým zákazníkům, za veškerou přízeň a pozitivní recenze. ❤️
+          </p>
+          <div class="reviews">
+            <p>⭐ Foodora recenze: <span id="foodora-reviews">1000+</span></p>
+            <p>⭐ Google recenze: <span id="google-reviews">500+</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section id="galerie">
+      <div class="container">
+        <h2>Galerie</h2>
+        <div class="image-container">
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img
+                  src="images/certifikat.jpeg"
+                  alt="Certifikát od Restaurand Guru 2025"
+                  class="gallery-image"
+                />
+              </div>
+              <div class="flip-card-back">
+                <p>
+                  Pizzerie San Marino byla doporučena i pro tento rok na
+                  Restaurant Guru 2025! Tento úspěch je pro nás velkou motivací
+                  a poctou pokračovat v tom, co nás baví již od roku 1994.
+                  Děkujeme vám, našim skvělým zákazníkům, za veškerou přízeň a
+                  pozitivní recenze. ❤️
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img
+                  src="images/pizza1.jpg"
+                  alt="Pizza"
+                  class="gallery-image"
+                />
+              </div>
+              <div class="flip-card-back">
+                <p>
+                  Naše pizzy jsou jedinečné a pečeme je jinak:<br />
+                  ✅ Ve formách, které dodávají těstu dokonalý tvar a
+                  strukturu.<br />
+                  ✅ Těsto je nadýchané s křupavým okrajem.<br />
+                  ✅ Zasypané sýrem, který tvoří dokonalou vrstvu.<br />
+                  ✅ Bohatá porce kvalitních surovin.<br /><br />
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img
+                  src="images/burgr.jpg"
+                  alt="Legendární burgry jako kráva"
+                  class="gallery-image"
+                />
+              </div>
+              <div class="flip-card-back">
+                <p>
+                  Cože, vy jste ještě neochutnali tyhle legendární „burgry jako
+                  kráva“? 😲 Pro pravé gurmány máme i variantu s trhaným masem.
+                  Tak na co čekáte? 🕐 Mrkněte do naší nabídky a objednejte si
+                  tu svou legendu! 🍔
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img
+                  src="images/auta.jpg"
+                  alt="Kurýrní auta"
+                  class="gallery-image"
+                />
+              </div>
+              <div class="flip-card-back">
+                <p>
+                  Neplaťte víc, než musíte! U nás platíte pouze za jídlo a
+                  doručení. Na dalších platformách vás mohou čekat další
+                  poplatky, tak proč platit víc? 💸 Objednejte pohodlně online a
+                  naši kurýři jsou již na cestě! 🚗💨
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img
+                  src="images/omacky.jpg"
+                  alt="Omáčky"
+                  class="gallery-image"
+                />
+              </div>
+              <div class="flip-card-back">
+                <p>
+                  Tak jaká omáčka bude pro vás ta pravá? Ochutnejte a najděte si
+                  svou vyladěnou omáčku k našim dobrotám! 🍴😋
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img
+                  src="images/wingit.jpg"
+                  alt="Kuřecí speciality Wing It!"
+                  class="gallery-image"
+                />
+              </div>
+              <div class="flip-card-back">
+                <p>
+                  Miluješ kuřecí maso? 🍗 Tak to si jistě zamiluješ i kuřecí
+                  speciality Wing It! 😋
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakty">
+      <div class="container">
+        <div class="card-container">
+          <div class="card opening-hours">
+            <h3>OTEVÍRACÍ A ROZVOZOVÁ DOBA</h3>
+            <p class="day" data-day="1">
+              <strong>Pondělí:</strong> <span>ZAVŘENO</span>
+            </p>
+            <p class="day" data-day="2">
+              <strong>Úterý:</strong> <span>11:00 - 21:15</span>
+            </p>
+            <p class="day" data-day="3">
+              <strong>Středa:</strong> <span>11:00 - 21:15</span>
+            </p>
+            <p class="day" data-day="4">
+              <strong>Čtvrtek:</strong> <span>11:00 - 21:15</span>
+            </p>
+            <p class="day" data-day="5">
+              <strong>Pátek:</strong> <span>11:00 - 21:15</span>
+            </p>
+            <p class="day" data-day="6">
+              <strong>Sobota:</strong> <span>11:00 - 21:15</span>
+            </p>
+            <p class="day" data-day="0">
+              <strong>Neděle:</strong> <span>11:00 - 21:15</span>
+            </p>
+          </div>
+
+            <div class="card map-card">
+            <iframe
+              width="640"
+              height="420"
+              src="https://frame.mapy.cz/zakladni?x=14.1267168917&y=50.1338058083&z=17&source=firm&id=293070&widgetFirmy=293070"
+              style="border: none"
+              frameborder="0"
+            ></iframe>
+          </div>
+
+            <div class="card contact-card">
+            <h3>KONTAKT</h3>
+            <p>Pizzerie San Marino</p>
+            <p>
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              Obránců míru 2721, 27201 Kladno
+            </p>
+            <p>
+              <i class="fa fa-phone" aria-hidden="true"></i>
+              <a href="tel:+420 604 633 373" class="contact-link"
+                >+420 604 633 373</a
+              >
+            </p>
+            <p>
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <a href="mailto:sanmarino@pizzakladno.cz" class="contact-link"
+                >sanmarino@pizzakladno.cz</a
+              >
+            </p>
+            <p>
+              <i class="fa fa-credit-card" aria-hidden="true"></i>
+              Platba: hotovost, kartou, stravenky
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="cookie-banner" id="cookieBanner">
+      <div class="cookie-banner-content">
+        <p>
+          Na cookies jsme experti – nejen v prohlížeči, ale i na pizze! 🍕
+          Pomáhají nám zajistit, aby váš zážitek byl šťavnatý, stránky rychlé a
+          reklamy dochucené podle vaší chuti. Vyberte si, které „přísady“ chcete
+          přidat do svého zážitku!
+        </p>
+        <button class="cookie-btn" id="acceptAllCookies">Přijmout vše</button>
+        <button class="cookie-btn" id="rejectAllCookies">Odmítnout vše</button>
+        <button class="cookie-btn" id="cookieSettings">
+          Nastavení cookies
+        </button>
+      </div>
+    </div>
+
+    <div id="cookieSettingsModal" class="cookie-settings-modal">
+      <h3>Nastavení cookies</h3>
+      <label
+        ><input type="checkbox" id="analyticsCookies" checked /> Analytické
+        cookies</label
+      ><br />
+      <label
+        ><input type="checkbox" id="marketingCookies" checked /> Marketingové
+        cookies</label
+      ><br />
+      <button id="saveCookies" class="cookie-btn">Uložit změny</button>
+      <button id="closeSettings" class="cookie-btn">Zavřít</button>
+    </div>
+
+<footer>
+  <div class="container footer-container">
+    <div class="footer-left">
+      <h4>Provozovatel</h4>
+      <p><strong>ALFA plus s.r.o.</strong></p>
+      <p><strong>Adresa:</strong> Železničářů 2350, 27201 Kladno</p>
+      <p><strong>IČ:</strong> 46349154</p>
+      <p><strong>DIČ:</strong> CZ46349154</p>
+    </div>
+
+    <div class="footer-right">
+    <a href="gdpr.html">GDPR - Podmínky ochrany osobních údajů</a>
+    <a href="obchodni-podminky.html">Obchodní podmínky</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p class="footer-author">Tento web upekla Lenka Lážnovská</p>
+    <p class="footer-rights">&copy; 2025 Pizzerie San Marino. Všechna práva vyhrazena.</p>
+  </div>
+</footer>
+
+    <div class="scroll-to-top" id="scrollToTop" style="display: none">
+      <img src="images/icons.png" alt="Scroll to Top" />
+    </div>
+
+    <script src="index.js" defer></script>
+  </body>
 </html>
