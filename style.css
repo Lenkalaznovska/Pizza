@@ -701,29 +701,6 @@ h3 {
   }
 }
 
-.scroll-to-top {
-  position: fixed;
-  bottom: 80px;
-  right: 50px;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  background: none;
-  border: none;
-  cursor: pointer;
-  width: 30px;
-  height: 30px;
-  transition: transform 0.3s ease;
-  animation: moveUp 1s infinite alternate;
-}
-
-@media (max-width: 768px) {
-  .scroll-to-top {
-    right: 45px;
-    bottom: 450px;
-  }
-}
-
 @keyframes moveUp {
   0% {
     transform: translateY(0);
