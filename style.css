@@ -48,6 +48,11 @@ body {
   display: block;
 }
 
+.logo.hidden {
+  opacity: 0;
+  transform: translateX(-50%) scale(0.5) rotate(-180deg);
+}
+
 header {
   background-color: rgba(128, 128, 128, 0.3);
   color: var(--text-color);
@@ -65,12 +70,35 @@ header {
   padding: 0 10px;
 }
 
+header.scrolled {
+  background-color: rgba(51, 51, 51, 0.9);
+  transition: background-color 0.3s ease;
+}
+
 nav {
   display: flex;
   justify-content: center;
   align-items: center;
   flex: 1;
   background-color: transparent;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: var(--menu-gap);
+}
+
+nav ul li a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  transition: color var(--transition-speed) ease;
+}
+
+nav ul li a:hover {
+  color: var(--primary-color);
 }
 
 .social-icons {
@@ -116,6 +144,12 @@ nav {
 
   .social-icons {
     right: 40px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
   }
 }
 
@@ -564,10 +598,16 @@ section:hover {
   text-align: left;
 }
 
-.contact-card,
-.opening-hours,
+.opening-hours p {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  margin: 5px 0;
+}
+
+.opening-hours p.highlight,
 h3 {
-  color: #333;
+  color: #d32f2f;
   font-weight: bold;
 }
 
