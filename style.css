@@ -32,138 +32,21 @@ nav ul {flex-direction: column;text-align: center;gap: 15px;}}
 .buttons a:hover {background-color: #da3a3a;transform: scale(1.05);}
 .buttons {width: 100%;margin-top: 20px;display: block;text-align: center;}
 .call {width: 30%;margin-top: 20px;margin-bottom: 10px;}
-@media (max-width: 768px) {
-  .content h1 {
-    font-size: 50px;
-  }
-
-  .buttons a {
-    padding: 12px 25px;
-    font-size: 16px;
-  }
-
-  .buttons {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .buttons a:nth-child(1),
-  .buttons a:nth-child(2) {
-    margin-right: 30px;
-  }
-
-  .call {
-    width: 100%;
-    margin-top: 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .content h1 {
-    font-size: 40px;
-  }
-
-  .buttons a {
-    padding: 10px 10px;
-    margin-bottom: 10px;
-    font-size: 14px;
-  }
-
-  .buttons {
-    flex-direction: column;
-  }
-
-  .buttons a:nth-child(1),
-  .buttons a:nth-child(2) {
-    margin-right: 0;
-  }
-
-  .call {
-    width: 100%;
-  }
-}
-
-@keyframes slide-in-left {
-  from {
-    transform: translateX(-300%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slide-in-right {
-  from {
-    transform: translateX(300%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes shake-interval {
-  0%,
-  20%,
-  37%,
-  50%,
-  67%,
-  100% {
-    transform: none;
-  }
-  21%,
-  22%,
-  51%,
-  52% {
-    transform: rotate(-3deg);
-  }
-  23%,
-  24%,
-  53%,
-  54% {
-    transform: rotate(3deg);
-  }
-  25%,
-  26%,
-  55%,
-  56% {
-    transform: rotate(-4deg);
-  }
-  27%,
-  28%,
-  57%,
-  58% {
-    transform: rotate(4deg);
-  }
-  29%,
-  30%,
-  59%,
-  60% {
-    transform: rotate(-2deg);
-  }
-  31%,
-  32%,
-  61%,
-  62% {
-    transform: rotate(2deg);
-  }
-  33%,
-  34%,
-  63%,
-  64% {
-    transform: rotate(-1deg);
-  }
-  35%,
-  36%,
-  65%,
-  66% {
-    transform: rotate(1deg);
-  }
-}
-
+@media (max-width: 768px) {.content h1 {font-size: 50px;}
+.buttons a {padding: 12px 25px;font-size: 16px;}
+.buttons {flex-direction: row;justify-content: space-between;}
+.buttons a:nth-child(1),.buttons a:nth-child(2) {margin-right: 30px;}
+.call {width: 100%;margin-top: 20px;}}
+@media (max-width: 480px) {.content h1 {font-size: 40px;}
+.buttons a {padding: 10px 10px;margin-bottom: 10px;font-size: 14px;}
+.buttons {flex-direction: column;}
+.buttons a:nth-child(1),.buttons a:nth-child(2) {margin-right: 0;}
+.call {width: 100%;}}
+@keyframes slide-in-left {from {transform: translateX(-300%);opacity: 0;}
+to {transform: translateX(0);opacity: 1;}}
+@keyframes slide-in-right {from {transform: translateX(300%);opacity: 0;}
+to {transform: translateX(0);opacity: 1;}}
+@keyframes shake-interval {0%,20%,37%,50%,67%,100% {transform: none;}21%,22%,51%,52% {transform: rotate(-3deg);}23%,24%,53%,54% {transform: rotate(3deg);}25%,26%,55%,56% {transform: rotate(-4deg);}27%,28%,57%,58% {transform: rotate(4deg);}29%,30%,59%,60% {transform: rotate(-2deg);}31%,32%,61%,62% {transform: rotate(2deg);}33%,34%,63%,64% {transform: rotate(-1deg);}35%,36%,65%,66% {transform: rotate(1deg);}}
 section {
   background-color: #fff;
   padding: 20px;
