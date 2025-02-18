@@ -253,22 +253,21 @@ nav {
 
 /* Odsazení pro první sekci */
 .pizza-section:first-of-type {
-  margin-top: 50px; /* Odsazení první sekce od hlavičky */
+  margin-top: 30px; /* Zmenšené odsazení první sekce od hlavičky */
 }
 
 /* Ombre efekt pro celé pozadí stránky */
 body {
-  background: linear-gradient(180deg, #d1d1d1, #ffffff); /* Ombre přechod od světle betonové po bílou */
+  background: linear-gradient(180deg, #d1d1d1, #ffffff);
   padding: 0;
   margin: 0;
   font-family: "Arial", sans-serif;
 }
 
-/* Sekce pizzy */
-.pizza-section {
+.pizza-section, .reviews-section {
   background: linear-gradient(180deg, #d1d1d1, #ffffff);
-  padding: 30px 20px;
-  margin-bottom: 50px;
+  padding: 20px 15px;
+  margin-bottom: 30px;
   border-radius: 15px;
   display: flex;
   justify-content: center;
@@ -278,176 +277,77 @@ body {
   width: 70%;
   margin-left: auto;
   margin-right: auto;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   transition: box-shadow 0.4s ease;
 }
 
-.pizza-section:hover {
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+.pizza-section:hover, .reviews-section:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
-/* Uspořádání textu a obrázku vedle sebe */
-.pizza-section .section-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  width: 100%; /* Zajistí, že text a obrázky budou v jedné sekci */
-  gap: 30px; /* Vzdálenost mezi obrázkem a textem */
-}
-
-/* Obrácený pořadí pro obrázky na opačné straně */
-.pizza-section.reverse .section-content {
-  flex-direction: row-reverse; /* Obrácený pořadí pro obrázky na opačné straně */
-}
-
-/* Textová část (nadpis a popis) */
-.pizza-section .text-content {
-  max-width: 650px;
-  margin: 0 20px;
-  padding: 20px;
-}
-
-.pizza-section h2 {
-  font-size: 2.2rem;
-  color: #ff4500; /* Stejná barva jako tlačítka */
-  text-transform: uppercase;
-  font-weight: bold;
-  margin-bottom: 15px;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.pizza-section h2:hover {
-  transform: translateY(-5px);
-  color: #da3a3a; /* Hover efekt pro změnu barvy na tmavší červenou */
-}
-
-.pizza-section p {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  color: #555;
-  margin-bottom: 15px;
-  max-width: 550px;
-}
-
-/* Efekt pro obrázky při hover */
-.pizza-section .section-image {
-  max-width: 300px; /* Zvýšení šířky obrázků */
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Výrazný stín pro silný 3D efekt */
-  margin: 10px;
-  object-fit: cover;
-  transition: transform 0.6s ease, box-shadow 0.6s ease, opacity 0.6s ease; /* Plynulý přechod pro transformaci, stín a opacity */
-  animation: fadeIn 0.6s forwards, slideUp 0.6s ease-out; /* Přidání animace vystupování */
-  max-height: 450px; /* Zvýšení maximální výšky pro obrázky */
-}
-
-/* Efekt pro obrázky při načítání */
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Efekt pro vystupování obrázků zespodu */
-@keyframes slideUp {
-  0% {
-    opacity: 0;
-    transform: translateY(50px); /* Začátek animace, obrázek je pod původní pozicí */
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0); /* Konec animace, obrázek se vrací do původní pozice */
-  }
-}
-
-/* Efekt pro hover obrázků - výjezd směrem k uživateli a přiblížení */
-.pizza-section .section-image:hover {
-  transform: scale(1.2) translateY(-20px) translateZ(30px); /* Zvětšení a pohyb obrázku směrem k uživateli */
-  opacity: 0.9; /* Mírná změna opacity při hoveru */
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5); /* Zesílení stínu při hoveru pro výraznější 3D efekt */
-  transition: transform 0.6s ease, box-shadow 0.6s ease, opacity 0.6s ease; /* Dlouhý přechod pro transformaci a efekty */
-}
-
-/* Responsive typography */
-@media (max-width: 768px) {
-  .content h1 { font-size: 50px; }
-  .cta-text { font-size: 20px; padding: 10px 20px; }
-  .buttons a { padding: 12px 20px; font-size: 18px; }
-}
-
-@media (max-width: 480px) {
-  .content h1 { font-size: 40px; }
-  .cta-text { font-size: 18px; padding: 8px 15px; }
-  .buttons { flex-direction: column; }
-  .buttons a { width: 80%; text-align: center; }
-}
-
-/* Nastylování sekce recenzí stejně jako ostatní sekce */
-.reviews-section {
-  background: linear-gradient(180deg, #d1d1d1, #ffffff);
-  padding: 30px 20px;
-  margin-bottom: 50px;
-  border-radius: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  width: 70%;
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-  transition: box-shadow 0.4s ease;
-}
-
-.reviews-section:hover {
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-}
-
-.reviews-section .section-content {
+/* Cik-cak struktura sekcí */
+.pizza-section .section-content, .reviews-section .section-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
-  gap: 30px;
+  gap: 20px;
 }
 
-.reviews-section .text-content {
-  max-width: 650px;
-  margin: 0 20px;
-  padding: 20px;
+.pizza-section.reverse .section-content, .reviews-section.reverse .section-content {
+  flex-direction: row-reverse;
 }
 
-.reviews-section h2 {
-  font-size: 2.2rem;
+/* Textová část */
+.text-content {
+  max-width: 600px;
+  margin: 0 15px;
+  padding: 15px;
+}
+
+.pizza-section h2, .reviews-section h2 {
+  font-size: 2rem;
   color: #ff4500;
   text-transform: uppercase;
   font-weight: bold;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.reviews-section h2:hover {
-  transform: translateY(-5px);
+.pizza-section h2:hover, .reviews-section h2:hover {
+  transform: translateY(-3px);
   color: #da3a3a;
 }
 
-.reviews-section p {
-  font-size: 1.2rem;
-  line-height: 1.6;
+.pizza-section p, .reviews-section p {
+  font-size: 1.1rem;
+  line-height: 1.5;
   color: #555;
-  margin-bottom: 15px;
-  max-width: 550px;
+  margin-bottom: 10px;
 }
 
-/* Recenze */
+/* Obrázky */
+.section-image {
+  max-width: 280px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  margin: 10px;
+  object-fit: cover;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.section-image:hover {
+  transform: scale(1.1) translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Sekce recenzí */
 .reviews {
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: 30px;
 }
 
 .review {
@@ -466,6 +366,20 @@ body {
   font-size: 16px;
   color: #777;
   margin-top: 5px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .pizza-section, .reviews-section {
+    width: 90%;
+  }
+  .pizza-section .section-content, .reviews-section .section-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .section-image {
+    max-width: 100%;
+  }
 }
 
 /* Contact section style matching other sections */
