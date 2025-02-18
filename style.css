@@ -329,10 +329,10 @@ body {
   padding: 20px;
 }
 
-.pizza-section h2 {
+.pizza-section,
+h2 {
   font-size: 2.2rem;
   color: #ff4500; /* Stejná barva jako tlačítka */
-  text-transform: uppercase;
   font-weight: bold;
   margin-bottom: 15px;
   transition: transform 0.3s ease, color 0.3s ease;
@@ -468,7 +468,6 @@ body {
 .reviews-section h2 {
   font-size: 2.2rem;
   color: #ff4500;
-  text-transform: uppercase;
   font-weight: bold;
   margin-bottom: 15px;
   transition: transform 0.3s ease, color 0.3s ease;
@@ -523,21 +522,10 @@ body {
 
 /* Contact section style matching other sections */
 #kontakty {
-  background: linear-gradient(180deg, #d1d1d1, #ffffff); /* Ombre effect */
-  padding: 30px 20px;
-  margin-bottom: 50px;
   text-align: center;
-  border-radius: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-  transition: box-shadow 0.4s ease;
-}
-
-/* Hover effect for the contact section */
-#kontakty:hover {
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
 
 .card-container {
@@ -545,15 +533,14 @@ body {
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 20px;
-  max-width: 1100px;
   margin: 0 auto;
 }
 
 .card {
   background-color: #fff;
-  padding: 25px;
+  padding: 30px;
   border-radius: 15px; /* Zaoblení rohů pro kartový vzhled */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(180deg, #d1d1d1, #ffffff); /* Ombre effect */
   width: 32%;
   text-align: left;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -570,7 +557,7 @@ body {
 }
 
 .contact-card {
-  padding: 25px;
+  padding: 40px;
   text-align: left;
 }
 
@@ -582,9 +569,13 @@ body {
 }
 
 .opening-hours p.highlight,
-h3 {
-  color: #d32f2f;
+h3,
+h4 {
+  font-size: 0, 5rem;
+  color: #ff4500; /* Stejná barva jako tlačítka */
   font-weight: bold;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .contact-card p {
@@ -607,22 +598,49 @@ h3 {
   display: block;
 }
 
+@media (max-width: 1024px) {
+  .card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+  }
+}
+
+.social-icons a {
+  text-decoration: none;
+  padding-left: 20px;
+}
+
 /* Pulzující efekty pro ikony sociálních sítí */
-.social-icon {
+.social-icons {
   font-size: 2rem; /* Velikost ikon */
   margin: 0 15px;
   color: #555;
   transition: transform 0.4s ease, color 0.4s ease;
+  display: inline-block;
+  animation: pulse 1.5s infinite; /* Pulzující animace */
 }
 
-.social-icon:hover {
+/* Pulzující animace */
+@keyframes pulse {
+  0% {
+    transform: scale(1); /* Počáteční velikost */
+  }
+  50% {
+    transform: scale(1.1); /* Zvětšení o 10% */
+  }
+  100% {
+    transform: scale(1); /* Konečná velikost */
+  }
+}
+
+.social-icons:hover {
   transform: scale(1.2); /* Zvětšení ikony při hoveru */
   color: #d32f2f; /* Změna barvy ikony při hoveru */
-}
-
-/* Pulzující efekt pro ikony */
-.social-icon.pulse {
-  animation: pulse 1.5s infinite; /* Pulzující animace */
 }
 
 @keyframes pulse {
@@ -640,21 +658,9 @@ h3 {
   }
 }
 
-@media (max-width: 1024px) {
-  .card {
-    width: 100%;
-  }
-}
-
-@media (max-width: 768px) {
-  .card {
-    width: 100%;
-  }
-}
-
 /* Footer style with darker concrete-like color */
 footer {
-  background-color: #444444; /* Dark concrete color */
+  background-color: #969696; /* Dark concrete color */
   color: #fff;
   padding: 20px;
   text-align: center;
@@ -680,14 +686,14 @@ footer {
 }
 .footer-right a {
   display: block;
-  color: var(--text-color);
+  color: white;
   text-decoration: none;
   font-weight: bold;
   margin: 5px 0;
   transition: color var(--transition-speed);
 }
 .footer-right a:hover {
-  color: var(--primary-color);
+  color: #da3a3a;
 }
 .footer-author,
 .footer-rights {
