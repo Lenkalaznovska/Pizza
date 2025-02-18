@@ -63,19 +63,6 @@ nav {
   display: none;
 }
 
-/* Responsive adjustments */
-@media (max-width: 820px) {
-  .logo { right: 60%; }
-}
-
-@media (max-width: 430px) {
-  .logo { right: 50%; transform: translateX(-50%) scale(0.8); }
-}
-
-@media (max-width: 280px) {
-  .logo { right: 35%; transform: translateX(-50%) scale(0.8); }
-}
-
 .slider {
   position: relative;
   width: 100%;
@@ -243,7 +230,8 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 40px; /* Mezera mezi sekcemi */
+  margin-bottom: 40px;
+  padding-top: 20px; /* Posun první sekce o 20px dolů */
 }
 
 .pizza-section.reverse {
@@ -253,8 +241,8 @@ nav {
 .section-content {
   display: flex;
   flex-direction: row;
-  width: 70%; /* Nastavení šířky kontejneru na 70% */
-  margin: 0 auto; /* Centrum kontejneru */
+  width: 70%;
+  margin: 0 auto;
   justify-content: space-between;
   align-items: center;
 }
@@ -264,7 +252,6 @@ nav {
   padding: 20px;
 }
 
-/* 3D efekt pro obrázky */
 .section-image img {
   width: 100%;
   max-width: 300px;
@@ -321,9 +308,8 @@ ul li {
   background-color: #ff3d00;
 }
 
-/* Zlepšení vzhledu pro "Kontakty" sekci */
 #kontakty {
-  background: linear-gradient(180deg, #d1d1d1, #ffffff); /* Ombre effect */
+  background: linear-gradient(180deg, #d1d1d1, #ffffff);
   padding: 30px 20px;
   margin-bottom: 50px;
   text-align: center;
@@ -339,7 +325,6 @@ ul li {
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* Vylepšení pro "Card" vzhled */
 .card-container {
   display: flex;
   flex-wrap: wrap;
@@ -363,12 +348,49 @@ ul li {
 
 .card:hover {
   transform: scale(1.05) translateZ(10px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
 }
 
-.contact-card {
-  padding: 25px;
-  text-align: left;
+.card .header {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.card .body {
+  font-size: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.card-footer {
+  font-size: 0.8rem;
+  color: #555;
+}
+
+.card-footer a {
+  color: #ff5733;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.card-footer a:hover {
+  color: #da3a3a;
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    justify-content: center;
+  }
+  .card {
+    width: 48%;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: 100%;
+  }
 }
 
 .opening-hours p {
