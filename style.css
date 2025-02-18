@@ -344,10 +344,20 @@ body {
 }
 
 /* Sekce recenzí */
+.reviews-section {
+  text-align: center;
+}
+
+.text-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 .reviews {
   display: flex;
   justify-content: center;
   gap: 30px;
+  margin-top: 20px;
 }
 
 .review {
@@ -362,16 +372,6 @@ body {
   margin-bottom: 5px;
 }
 
-.stars {
-  display: flex;
-  gap: 5px;
-}
-
-.stars img {
-  width: 22px;
-  height: 22px;
-}
-
 .review-count {
   font-size: 16px;
   color: #777;
@@ -380,15 +380,16 @@ body {
 
 /* Responsive design */
 @media (max-width: 768px) {
-  .pizza-section, .reviews-section {
+  .reviews-section {
     width: 90%;
   }
-  .pizza-section .section-content, .reviews-section .section-content {
+  .section-content {
     flex-direction: column;
     text-align: center;
   }
-  .section-image {
-    max-width: 100%;
+  .reviews {
+    flex-direction: column;
+    gap: 15px;
   }
 }
 
