@@ -264,17 +264,30 @@ nav {
   padding: 20px;
 }
 
-.section-image {
-  flex: 1;
+/* 3D efekt pro obrázky */
+.section-image img {
   width: 100%;
-  height: auto;
-  max-width: 300px; /* Zmenšení obrázků na max 300px */
-  margin-left: 20px; /* Vytvoření mezery mezi textem a obrázkem */
+  max-width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
 }
 
+.section-image img:hover {
+  transform: scale(1.1);
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Nastavení h2 nadpisů */
 h2 {
   font-size: 1.8rem;
   margin-bottom: 1rem;
+  color: #ff4500; /* Oranžová barva jako tlačítko */
+  transition: color 0.3s ease;
+}
+
+h2:hover {
+  color: #da3a3a; /* Červená při najetí */
 }
 
 ul {
