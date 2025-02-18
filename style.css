@@ -245,8 +245,10 @@ section {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 50px 0;
-  transition: transform 0.5s ease-in-out;
+  padding: 60px 20px; /* větší padding pro lepší rozmístění */
+  background-color: #f9f9f9; /* jemné pozadí pro kontrast */
+  border-bottom: 1px solid #ddd; /* jemné oddělení sekcí */
+  transition: transform 0.5s ease-in-out, opacity 1s ease-in-out;
 }
 
 /* Část pro zajištění cik-cak efektu */
@@ -301,30 +303,6 @@ section.visible .section-content {
   transform: scale(1.05);
 }
 
-/* Definice efektu pro scrollování */
-.reviews-section {
-  background-color: #fff;
-  padding: 50px 0;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.social-icons a {
-  margin-right: 20px;
-}
-
-.review-button {
-  background-color: #f4b400;
-  color: #fff;
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-}
-
-.review-button:hover {
-  background-color: #d39b00;
-}
-
 /* Efekt pro zobrazení sekcí při skrolování */
 @media (min-width: 768px) {
   section {
@@ -337,19 +315,7 @@ section.visible .section-content {
   }
 }
 
-/* Přidání efektu pro jednotlivé sekce */
-@keyframes scrollIn {
-  from {
-    transform: translateY(50px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-/* Responzivita */
+/* Responzivita pro mobilní zařízení */
 @media (max-width: 768px) {
   .section-content {
     flex-direction: column;
@@ -360,42 +326,17 @@ section.visible .section-content {
     width: 100%;
     margin-bottom: 20px;
   }
-}
 
-/* Zmenšení obrázků a jejich umístění vedle textu */
-.img-text-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-bottom: 20px; /* prostor mezi jednotlivými bloky */
-}
-
-.img-text-container img {
-  max-width: 45%;  /* Zmenšení obrázku */
-  height: auto;
-  margin-bottom: 10px; /* Prostor pod obrázkem */
-}
-
-.img-text-container .text {
-  max-width: 45%;
-  text-align: justify; /* text bude více roztažený */
-  margin-bottom: 10px; /* Prostor pod textem */
-}
-
-/* Zajistit, že při menších obrazovkách bude obsah vertikálně */
-@media (max-width: 768px) {
-  .img-text-container {
-    flex-direction: column; /* Obsah bude pod sebou */
-    align-items: center;
+  .text-content h2 {
+    font-size: 2em;
   }
 
-  .img-text-container img, 
-  .img-text-container .text {
-    max-width: 100%;
+  .text-content p {
+    font-size: 1.1em;
   }
 }
 
-/* Contact section style matching other sections */
+/* Zlepšení vzhledu pro "Kontakty" sekci */
 #kontakty {
   background: linear-gradient(180deg, #d1d1d1, #ffffff); /* Ombre effect */
   padding: 30px 20px;
@@ -409,11 +350,11 @@ section.visible .section-content {
   transition: box-shadow 0.4s ease;
 }
 
-/* Hover effect for the contact section */
 #kontakty:hover {
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
 
+/* Vylepšení pro "Card" vzhled */
 .card-container {
   display: flex;
   flex-wrap: wrap;
@@ -426,21 +367,18 @@ section.visible .section-content {
 .card {
   background-color: #fff;
   padding: 25px;
-  border-radius: 15px; /* Zaoblení rohů pro kartový vzhled */
+  border-radius: 15px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   width: 32%;
   text-align: left;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   font-size: 1rem;
   margin-bottom: 20px;
-  transform: scale(1);
-  transition: transform 0.4s ease-out, box-shadow 0.3s ease;
-  will-change: transform; /* Připravenost na změny transformace pro plynulost */
 }
 
 .card:hover {
-  transform: scale(1.05) translateZ(10px); /* Zvětšení a efekt vystupování na uživatele */
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2); /* Silnější stín pro 3D efekt */
+  transform: scale(1.05) translateZ(10px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
 }
 
 .contact-card {
@@ -469,43 +407,13 @@ h3 {
   font-weight: 500;
 }
 
-.map-card {
-  padding: 0;
-}
-
+/* Map Card */
 .map-card iframe {
   width: 100%;
   height: 100%;
   border-radius: 8px;
   border: none;
   display: block;
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.1);
-    opacity: 0.8;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-@media (max-width: 1024px) {
-  .card {
-    width: 100%;
-  }
-}
-
-@media (max-width: 768px) {
-  .card {
-    width: 100%;
-  }
 }
 
 /* Footer style with darker concrete-like color */
