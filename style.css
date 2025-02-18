@@ -219,12 +219,10 @@ nav {
   .content h1 {
     font-size: 50px;
   }
-
   .cta-text {
     font-size: 20px;
     padding: 10px 20px;
   }
-
   .buttons a {
     padding: 12px 20px;
     font-size: 18px;
@@ -232,19 +230,9 @@ nav {
 }
 
 @media (max-width: 480px) {
-  .content h1 {
-    font-size: 40px;
-  }
-
-  .cta-text {
-    font-size: 18px;
-    padding: 8px 15px;
-  }
-
   .buttons {
     flex-direction: column;
   }
-
   .buttons a {
     width: 80%;
     text-align: center;
@@ -365,12 +353,8 @@ body {
   margin-top: 5px;
 }
 
-/* Responsive design */
 @media (max-width: 768px) {
   .pizza-section, .reviews-section {
-    width: 90%;
-  }
-  .pizza-section .section-content, .reviews-section .section-content {
     flex-direction: column;
     text-align: center;
   }
