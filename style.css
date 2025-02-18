@@ -239,7 +239,7 @@ nav {
   }
 }
 
-/* Odsazení pro první sekci */ 
+/* Odsazení pro první sekci */
 .pizza-section:first-of-type {
   margin-top: 30px;
 }
@@ -273,15 +273,17 @@ body {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
-/* Cik-cak struktura sekcí */
-.pizza-section:nth-child(even),
-.reviews-section:nth-child(even) {
-  flex-direction: row-reverse;
+/* Cik-cak struktura sekcí (levá a pravá strana pro obrázky a text) */
+.pizza-section .section-content, .reviews-section .section-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
-.pizza-section:nth-child(odd),
-.reviews-section:nth-child(odd) {
-  flex-direction: row;
+.pizza-section.reverse .section-content, .reviews-section.reverse .section-content {
+  flex-direction: row-reverse;
 }
 
 /* Textová část */
