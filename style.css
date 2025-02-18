@@ -264,17 +264,18 @@ body {
   font-family: "Arial", sans-serif;
 }
 
+/* Sekce s pozadím a zaoblenými rohy */
 .pizza-section, .reviews-section {
   background: linear-gradient(180deg, #d1d1d1, #ffffff);
   padding: 20px 15px;
-  margin-bottom: 30px;
+  margin-bottom: 20px; /* Menší mezery mezi sekcemi */
   border-radius: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   text-align: left;
-  width: 70%;
+  width: 80%; /* Zmenšeno pro menší sekce */
   margin-left: auto;
   margin-right: auto;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -342,44 +343,11 @@ body {
   transform: scale(1.1) translateY(-10px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
+
+/* Sekce pro recenze */
 .reviews-section {
-    text-align: center;
     padding: 40px 20px;
     background: #f9f9f9;
-}
-
-.section-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.text-content h2 {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.text-content p {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-.buttons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.reviews-section {
-    text-align: center;
-    padding: 60px 20px;
-    background: #f9f9f9;
-}
-
-.section-content {
-    max-width: 800px;
-    margin: 0 auto;
 }
 
 .text-content h2 {
@@ -423,8 +391,10 @@ body {
 
 /* 🌟 Responzivní design */
 @media (max-width: 768px) {
-    .reviews-section {
-        padding: 40px 15px;
+    /* Pro všechny sekce */
+    .pizza-section, .reviews-section {
+        width: 90%; /* Zvětšená šířka pro malé obrazovky */
+        padding: 20px 10px;
     }
     
     .section-content {
@@ -432,11 +402,12 @@ body {
         text-align: center;
     }
 
-    .text-content h2 {
+    /* Texty a nadpisy */
+    .pizza-section h2, .reviews-section h2 {
         font-size: 28px;
     }
 
-    .text-content p {
+    .pizza-section p, .reviews-section p {
         font-size: 16px;
         margin-bottom: 20px;
     }
@@ -450,6 +421,12 @@ body {
     .review-button {
         width: 80%;
         max-width: 300px;
+    }
+
+    /* Obrázky */
+    .section-image {
+        max-width: 100%;
+        margin: 10px 0;
     }
 }
 
