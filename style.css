@@ -240,98 +240,70 @@ nav {
 }
 
 .pizza-section {
-    padding: 50px 20px;
-    background-color: #f4f4f4;
-    transition: all 0.3s ease-in-out;
-  }
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 0;
+}
 
-  .pizza-section.reverse {
-    background-color: #fff;
-    flex-direction: row-reverse;
-  }
+.pizza-section.reverse {
+  flex-direction: row-reverse;
+}
 
-  .section-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
+.section-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
 
-  .text-content {
-    max-width: 50%;
-    padding: 20px;
-  }
+.text-content {
+  flex: 1;
+  padding: 20px;
+}
 
-  .text-content h2 {
-    font-size: 2rem;
-    color: #333;
-    margin-bottom: 15px;
-    font-weight: bold;
-  }
+.section-image {
+  flex: 1;
+  max-width: 100%;
+  height: auto;
+}
 
-  .text-content p {
-    font-size: 1rem;
-    color: #555;
-    line-height: 1.6;
-  }
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
 
-  .section-image {
-    max-width: 45%;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-  }
+ul {
+  margin-top: 1rem;
+}
 
-  .section-image:hover {
-    transform: scale(1.05);
-  }
+ul li {
+  margin-bottom: 0.5rem;
+}
 
-  ul {
-    margin-top: 10px;
-  }
+.reviews-section .section-content {
+  flex-direction: column;
+}
 
-  ul li {
-    font-size: 1rem;
-    color: #555;
-    margin-bottom: 8px;
-  }
+.social-icons a {
+  margin-right: 15px;
+}
 
-  .social-icons {
-    display: flex;
-    gap: 15px;
-    margin-top: 20px;
-  }
+.buttons a {
+  margin-top: 10px;
+  display: block;
+  background-color: #ff5733;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  border-radius: 5px;
+  text-decoration: none;
+}
 
-  .social-icons a img {
-    width: 30px;
-    height: 30px;
-    transition: opacity 0.3s ease;
-  }
-
-  .social-icons a img:hover {
-    opacity: 0.7;
-  }
-
-  .buttons {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-  }
-
-  .review-button {
-    background-color: #ff6f61;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-  }
-
-  .review-button:hover {
-    background-color: #e25c50;
-  }
-
+.buttons a:hover {
+  background-color: #ff3d00;
+}
 /* Zlepšení vzhledu pro "Kontakty" sekci */
 #kontakty {
   background: linear-gradient(180deg, #d1d1d1, #ffffff); /* Ombre effect */
