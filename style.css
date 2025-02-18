@@ -1,27 +1,31 @@
+/* Reset stylů */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Ombre effect for the entire page, including footer */
+/* Ombre efekt pro celé pozadí stránky */
 body {
   font-family: Arial, sans-serif;
   background: linear-gradient(
     180deg,
     #d1d1d1,
     #ffffff
-  ); /* Ombre gradient from light concrete to white */
-  color: #333; /* Adjusted to a more neutral tone for text */
+  ); /* Ombre přechod od světle betonové po bílou */
+  color: #333;
   padding: 0;
   margin: 0;
 }
+
+/* Styly pro container, zajištění zarovnání a maximální šířky */
 .container {
   max-width: 1100px;
   margin: 0 auto;
   padding: 20px;
 }
 
+/* Styly pro logo */
 .logo {
   position: absolute;
   z-index: 15;
@@ -282,31 +286,25 @@ body {
   font-family: "Arial", sans-serif;
 }
 
-/* Sekce s ombre efektem pozadí */
 .pizza-section {
-  background: linear-gradient(
-    180deg,
-    #d1d1d1,
-    #ffffff
-  ); /* Ombre přechod od světle betonové po bílou */
-  padding: 30px 20px; /* Menší padding zhora a zdola pro zmenšení sekcí */
+  background: linear-gradient(180deg, #d1d1d1, #ffffff);
+  padding: 30px 20px;
   margin-bottom: 50px;
   border-radius: 15px;
   display: flex;
-  justify-content: center; /* Vycentrování sekcí */
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   text-align: left;
-  width: 70%; /* Nastavení šířky sekce na 70% */
+  width: 70%;
   margin-left: auto;
   margin-right: auto;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Výrazný stín pro sekce pro 3D efekt */
-  transition: box-shadow 0.4s ease; /* Plynulý přechod pro změnu stínu */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.4s ease;
 }
 
-/* Efekt pro sekci při hoveru */
 .pizza-section:hover {
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Zesílení stínu při hoveru pro výraznější 3D efekt */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
 
 /* Uspořádání textu a obrázku vedle sebe */
@@ -396,6 +394,131 @@ body {
   opacity: 0.9; /* Mírná změna opacity při hoveru */
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5); /* Zesílení stínu při hoveru pro výraznější 3D efekt */
   transition: transform 0.6s ease, box-shadow 0.6s ease, opacity 0.6s ease; /* Dlouhý přechod pro transformaci a efekty */
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+  .content h1 {
+    font-size: 50px;
+  }
+  .cta-text {
+    font-size: 20px;
+    padding: 10px 20px;
+  }
+  .buttons a {
+    padding: 12px 20px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content h1 {
+    font-size: 40px;
+  }
+  .cta-text {
+    font-size: 18px;
+    padding: 8px 15px;
+  }
+  .buttons {
+    flex-direction: column;
+  }
+  .buttons a {
+    width: 80%;
+    text-align: center;
+  }
+}
+
+/* Nastylování sekce recenzí */
+.reviews-section {
+  background: linear-gradient(180deg, #d1d1d1, #ffffff);
+  padding: 30px 20px;
+  margin-bottom: 50px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.4s ease;
+  text-align: center; /* Přidáno pro zarovnání textu */
+}
+
+.reviews-section:hover {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.reviews-section .section-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 30px;
+}
+
+.reviews-section .text-content {
+  max-width: 650px;
+  margin: 0 20px;
+  padding: 20px;
+}
+
+.reviews-section h2 {
+  font-size: 2.2rem;
+  color: #ff4500;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.reviews-section h2:hover {
+  transform: translateY(-5px);
+  color: #da3a3a;
+}
+
+.reviews-section p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 15px;
+  max-width: 550px;
+}
+
+.reviews {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.review {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.review-button {
+  display: inline-block;
+  background: #ff4500; /* Stejná barva jako ostatní tlačítka */
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 10px;
+  font-size: 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+  transition: all 0.3s ease, transform 0.3s ease;
+  margin: 10px;
+  opacity: 0;
+  animation: slide-in-bottom 1.5s forwards, shake-interval 8s infinite 2s;
+}
+
+.review-button:hover {
+  background: #da3a3a;
+  transform: scale(1.1);
 }
 
 /* Contact section style matching other sections */
