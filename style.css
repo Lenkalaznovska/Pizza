@@ -342,69 +342,51 @@ body {
   transform: scale(1.1) translateY(-10px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
-
-/* Sekce recenzí */
 .reviews-section {
-  text-align: center;
+    text-align: center;
+    padding: 40px 20px;
+    background: #f9f9f9;
 }
 
-.text-content {
-  max-width: 600px;
-  margin: 0 auto;
+.section-content {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-.reviews {
-  margin: 20px 0;
+.text-content h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
-.review {
-  font-size: 18px;
-  margin: 10px 0;
-}
-
-.review-platform a {
-  font-weight: bold;
-  color: #ff4500;
-  text-decoration: none;
-}
-
-.review-platform a:hover {
-  text-decoration: underline;
-}
-
-.review-count {
-  display: block;
-  margin-top: 5px;
-  color: #666;
+.text-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
 }
 
 .buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
-.buttons a {
-  display: inline-block;
-  background: #ff4500;
-  color: #fff;
-  font-weight: bold;
-  padding: 15px 25px;
-  font-size: 20px;
-  border-radius: 10px;
-  text-decoration: none;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
-  transition: all 0.3s ease, transform 0.3s ease;
-  margin: 10px;
-  opacity: 0;
-  animation: slide-in-bottom 1.5s forwards, shake-interval 8s infinite 2s;
+.review-button {
+    display: inline-block;
+    padding: 15px 25px;
+    background-color: #ff4500; /* Oranžová */
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    transition: all 0.3s ease, transform 0.3s ease;
 }
 
-.buttons a:hover {
-  background: #da3a3a;
-  transform: scale(1.1);
+.review-button:hover {
+    background: #da3a3a;
+    transform: scale(1.1);
 }
 
 /* Responsive design */
