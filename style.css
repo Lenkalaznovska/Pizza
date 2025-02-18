@@ -306,10 +306,10 @@ body {
   padding: 15px;
 }
 
-/* Update for section headings */
+/* Nadpisy s oranžovou barvou */
 .pizza-section h2, .reviews-section h2 {
   font-size: 2rem;
-  color: #ff4500;
+  color: #ff6600; /* Oranžová barva jako tlačítka */
   text-transform: uppercase;
   font-weight: bold;
   margin-bottom: 10px;
@@ -374,6 +374,7 @@ body {
   justify-content: center; /* Zarovnání tlačítek na střed */
   gap: 15px; /* Tlačítka vedle sebe */
   flex-wrap: wrap;
+  width: 100%;
 }
 
 /* Tlačítka */
@@ -397,13 +398,14 @@ body {
 
 /* 🌟 Responzivní design */
 @media (max-width: 768px) {
-  .reviews-section {
-    padding: 40px 15px;
+  .pizza-section, .reviews-section {
+    width: 90%; /* Zvýšení šířky sekcí pro mobil */
   }
 
   .section-content {
-    width: 100%;
+    flex-direction: column; /* Zobrazení textu a obrázku pod sebou */
     text-align: center;
+    gap: 20px;
   }
 
   .text-content h2 {
@@ -413,6 +415,11 @@ body {
   .text-content p {
     font-size: 16px;
     margin-bottom: 20px;
+  }
+
+  .section-image {
+    max-width: 100%; /* Obrázky se roztáhnou na 100% šířky */
+    margin: 0;
   }
 
   .buttons {
