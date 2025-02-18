@@ -252,17 +252,19 @@ nav {
   padding: 20px;
 }
 
-.section-image img {
-  width: 100%;
-  max-width: 250px; /* Zmenšení obrázků */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
+.section img {
+    width: 40%;  /* Zmenšení obrázků na 40 % původní velikosti */
+    max-width: 300px;  /* Maximální šířka obrázků */
+    height: auto;  /* Zachování poměru stran */
+    display: block;
+    margin: 0 auto;  /* Zarovnání obrázků na střed */
 }
 
-.section-image img:hover {
-  transform: scale(1.1);
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+@media (max-width: 768px) {
+    .section img {
+        width: 60%;  /* Na mobilních zařízeních větší pro lepší čitelnost */
+        max-width: 200px;
+    }
 }
 
 /* Nastavení h2 nadpisů */
