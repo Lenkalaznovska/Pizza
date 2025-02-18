@@ -274,7 +274,7 @@ body {
   align-items: center;
   flex-wrap: wrap;
   text-align: left;
-  width: 70%; /* Nastaveno na 70% šířky */
+  width: 60%; /* Zmenšená šířka sekce */
   margin-left: auto;
   margin-right: auto;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -288,7 +288,7 @@ body {
 /* Cik-cak struktura sekcí */
 .pizza-section .section-content, .reviews-section .section-content {
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Zarovnání na střed */
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
@@ -301,7 +301,7 @@ body {
 
 /* Textová část */
 .text-content {
-  max-width: 600px;
+  max-width: 500px; /* Zmenšení šířky textu */
   margin: 0 15px;
   padding: 15px;
 }
@@ -371,7 +371,7 @@ body {
 
 .buttons {
   display: flex;
-  justify-content: center;
+  justify-content: center; /* Zarovnání tlačítek na střed */
   gap: 15px; /* Tlačítka vedle sebe */
   flex-wrap: wrap;
 }
