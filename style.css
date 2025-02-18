@@ -264,18 +264,17 @@ body {
   font-family: "Arial", sans-serif;
 }
 
-/* Sekce s pozadím a zaoblenými rohy */
 .pizza-section, .reviews-section {
   background: linear-gradient(180deg, #d1d1d1, #ffffff);
   padding: 20px 15px;
-  margin-bottom: 20px; /* Menší mezery mezi sekcemi */
+  margin-bottom: 30px;
   border-radius: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   text-align: left;
-  width: 80%; /* Zmenšeno pro menší sekce */
+  width: 70%; /* Nastaveno na 70% šířky */
   margin-left: auto;
   margin-right: auto;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -344,90 +343,87 @@ body {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
-/* Sekce pro recenze */
+/* Recenze sekce */
 .reviews-section {
-    padding: 40px 20px;
-    background: #f9f9f9;
+  text-align: center;
+  padding: 40px 20px;
+  background: #f9f9f9;
 }
 
+/* Container pro obsah sekce */
+.section-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Nastavení textu v recenzích */
 .text-content h2 {
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 15px;
-    color: #333;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .text-content p {
-    font-size: 18px;
-    margin-bottom: 25px;
-    line-height: 1.6;
-    color: #555;
+  font-size: 18px;
+  margin-bottom: 20px;
 }
 
 .buttons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* Tlačítka vedle sebe */
+  flex-wrap: wrap;
 }
 
+/* Tlačítka */
 .review-button {
-    display: inline-block;
-    padding: 15px 30px;
-    background-color: #ff6600; /* Výraznější oranžová */
-    color: #fff;
-    font-weight: bold;
-    font-size: 18px;
-    border-radius: 8px;
-    text-decoration: none;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease, transform 0.2s ease;
+  display: inline-block;
+  padding: 15px 30px;
+  background-color: #ff6600; /* Výraznější oranžová */
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease, transform 0.2s ease;
 }
 
 .review-button:hover {
-    background: #e05500;
-    transform: scale(1.05);
+  background: #e05500;
+  transform: scale(1.05);
 }
 
 /* 🌟 Responzivní design */
 @media (max-width: 768px) {
-    /* Pro všechny sekce */
-    .pizza-section, .reviews-section {
-        width: 90%; /* Zvětšená šířka pro malé obrazovky */
-        padding: 20px 10px;
-    }
-    
-    .section-content {
-        width: 100%;
-        text-align: center;
-    }
+  .reviews-section {
+    padding: 40px 15px;
+  }
 
-    /* Texty a nadpisy */
-    .pizza-section h2, .reviews-section h2 {
-        font-size: 28px;
-    }
+  .section-content {
+    width: 100%;
+    text-align: center;
+  }
 
-    .pizza-section p, .reviews-section p {
-        font-size: 16px;
-        margin-bottom: 20px;
-    }
+  .text-content h2 {
+    font-size: 28px;
+  }
 
-    .buttons {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-    }
+  .text-content p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
 
-    .review-button {
-        width: 80%;
-        max-width: 300px;
-    }
+  .buttons {
+    flex-direction: column; /* Tlačítka pod sebou pro menší obrazovky */
+    align-items: center;
+    gap: 15px;
+  }
 
-    /* Obrázky */
-    .section-image {
-        max-width: 100%;
-        margin: 10px 0;
-    }
+  .review-button {
+    width: 80%;
+    max-width: 300px;
+  }
 }
 
 /* Contact section style matching other sections */
