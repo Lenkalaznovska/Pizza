@@ -462,16 +462,6 @@ body {
   margin-bottom: 5px;
 }
 
-.stars {
-  display: flex;
-  gap: 5px;
-}
-
-.stars img {
-  width: 25px;
-  height: 25px;
-}
-
 .review-count {
   font-size: 16px;
   color: #777;
