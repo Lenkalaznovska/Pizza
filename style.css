@@ -371,36 +371,86 @@ body {
     flex-wrap: wrap;
 }
 
+.reviews-section {
+    text-align: center;
+    padding: 60px 20px;
+    background: #f9f9f9;
+}
+
+.section-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.text-content h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.text-content p {
+    font-size: 18px;
+    margin-bottom: 25px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
 .review-button {
     display: inline-block;
-    padding: 15px 25px;
-    background-color: #ff4500; /* Oranžová */
+    padding: 15px 30px;
+    background-color: #ff6600; /* Výraznější oranžová */
     color: #fff;
     font-weight: bold;
     font-size: 18px;
-    border-radius: 10px;
+    border-radius: 8px;
     text-decoration: none;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
-    transition: all 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease, transform 0.2s ease;
 }
 
 .review-button:hover {
-    background: #da3a3a;
-    transform: scale(1.1);
+    background: #e05500;
+    transform: scale(1.05);
 }
 
-/* Responsive design */
+/* 🌟 Responzivní design */
 @media (max-width: 768px) {
-  .reviews-section {
-    width: 90%;
-  }
-  .section-content {
-    flex-direction: column;
-    text-align: center;
-  }
-  .buttons {
-    flex-direction: column;
-  }
+    .reviews-section {
+        padding: 40px 15px;
+    }
+    
+    .section-content {
+        width: 100%;
+        text-align: center;
+    }
+
+    .text-content h2 {
+        font-size: 28px;
+    }
+
+    .text-content p {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    .buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .review-button {
+        width: 80%;
+        max-width: 300px;
+    }
 }
 
 /* Contact section style matching other sections */
