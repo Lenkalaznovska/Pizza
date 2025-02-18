@@ -253,7 +253,8 @@ nav {
 .section-content {
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: 70%; /* Nastavení šířky kontejneru na 70% */
+  margin: 0 auto; /* Centrum kontejneru */
   justify-content: space-between;
   align-items: center;
 }
@@ -267,7 +268,7 @@ nav {
   flex: 1;
   width: 100%;
   height: auto;
-  max-width: 600px; /* Omezí maximální šířku obrázku */
+  max-width: 300px; /* Zmenšení obrázků na max 300px */
   margin-left: 20px; /* Vytvoření mezery mezi textem a obrázkem */
 }
 
