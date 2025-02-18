@@ -241,7 +241,6 @@ nav {
 
 .pizza-section {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 40px 0;
@@ -253,6 +252,7 @@ nav {
 
 .section-content {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   width: 100%;
@@ -267,6 +267,7 @@ nav {
   flex: 1;
   max-width: 100%;
   height: auto;
+  margin: 0 20px;
 }
 
 h2 {
@@ -304,6 +305,7 @@ ul li {
 .buttons a:hover {
   background-color: #ff3d00;
 }
+
 /* Zlepšení vzhledu pro "Kontakty" sekci */
 #kontakty {
   background: linear-gradient(180deg, #d1d1d1, #ffffff); /* Ombre effect */
