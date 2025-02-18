@@ -306,6 +306,7 @@ body {
   padding: 15px;
 }
 
+/* Update for section headings */
 .pizza-section h2, .reviews-section h2 {
   font-size: 2rem;
   color: #ff4500;
