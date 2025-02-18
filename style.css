@@ -362,6 +362,39 @@ section.visible .section-content {
   }
 }
 
+/* Zmenšení obrázků a jejich umístění vedle textu */
+.img-text-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 20px; /* prostor mezi jednotlivými bloky */
+}
+
+.img-text-container img {
+  max-width: 45%;  /* Zmenšení obrázku */
+  height: auto;
+  margin-bottom: 10px; /* Prostor pod obrázkem */
+}
+
+.img-text-container .text {
+  max-width: 45%;
+  text-align: justify; /* text bude více roztažený */
+  margin-bottom: 10px; /* Prostor pod textem */
+}
+
+/* Zajistit, že při menších obrazovkách bude obsah vertikálně */
+@media (max-width: 768px) {
+  .img-text-container {
+    flex-direction: column; /* Obsah bude pod sebou */
+    align-items: center;
+  }
+
+  .img-text-container img, 
+  .img-text-container .text {
+    max-width: 100%;
+  }
+}
+
 /* Contact section style matching other sections */
 #kontakty {
   background: linear-gradient(180deg, #d1d1d1, #ffffff); /* Ombre effect */
