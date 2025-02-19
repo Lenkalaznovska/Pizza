@@ -175,19 +175,16 @@ header {
   }
 }
 
-/* Responsivní úpravy */
 @media (max-width: 1200px) {
   .content h1 {
     font-size: 45px;
-    white-space: normal; /* Zalamování textu pro menší obrazovky */
+    white-space: normal;
   }
-
   .buttons a {
     font-size: 18px;
   }
-
   .logo {
-    left: 40px; /* Posunutí logo dál od levého okraje pro větší obrazovky */
+    left: 40px;
   }
 }
 
@@ -195,20 +192,20 @@ header {
   header {
     height: 100px;
   }
-
   .content h1 {
     font-size: 35px;
     margin-bottom: 15px;
-    white-space: normal; /* Zalamování textu */
   }
-
+  .cta-text {
+    font-size: 20px;
+    padding: 10px 20px;
+  }
   .buttons a {
     font-size: 16px;
     padding: 12px 22px;
   }
-
   .logo {
-    left: 30px; /* Posunutí logo dál od levého okraje pro menší obrazovky */
+    left: 30px;
   }
 }
 
@@ -216,16 +213,22 @@ header {
   .content h1 {
     font-size: 30px;
     margin-bottom: 10px;
-    white-space: normal; /* Zalamování textu */
   }
-
+  .cta-text {
+    font-size: 18px;
+    padding: 8px 15px;
+  }
+  .buttons {
+    flex-direction: column;
+  }
   .buttons a {
+    width: 80%;
+    text-align: center;
     font-size: 14px;
     padding: 10px 18px;
   }
-
   .logo {
-    left: 20px; /* Posunutí logo dál od levého okraje pro mobilní zařízení */
+    left: 20px;
   }
 }
 
@@ -249,23 +252,15 @@ header {
   }
 }
 
-/* Galaxy Fold (280x653) */
 @media (max-width: 280px) and (max-height: 653px) {
   .content h1 {
-    font-size: 15px;
+    font-size: 25px;
     margin-bottom: 10px;
   }
 }
 
------ .pizza-section:first-of-type {
+.pizza-section:first-of-type {
   margin-top: 50px;
-}
-
-body {
-  background: linear-gradient(180deg, #d1d1d1, #ffffff);
-  padding: 0;
-  margin: 0;
-  font-family: "Arial", sans-serif;
 }
 
 .pizza-section {
@@ -365,38 +360,6 @@ h2 {
   opacity: 0.9;
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
   transition: transform 0.6s ease, box-shadow 0.6s ease, opacity 0.6s ease;
-}
-
-/* Responsive typography */
-@media (max-width: 768px) {
-  .content h1 {
-    font-size: 50px;
-  }
-  .cta-text {
-    font-size: 20px;
-    padding: 10px 20px;
-  }
-  .buttons a {
-    padding: 12px 20px;
-    font-size: 18px;
-  }
-}
-
-@media (max-width: 480px) {
-  .content h1 {
-    font-size: 40px;
-  }
-  .cta-text {
-    font-size: 18px;
-    padding: 8px 15px;
-  }
-  .buttons {
-    flex-direction: column;
-  }
-  .buttons a {
-    width: 80%;
-    text-align: center;
-  }
 }
 
 .reviews-section {
