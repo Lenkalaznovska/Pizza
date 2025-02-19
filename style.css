@@ -39,18 +39,13 @@ body {
   display: block;
 }
 
-.logo.hidden {
-  opacity: 0;
-  transform: scale(0.5) rotate(-180deg);
-}
-
 header {
   background-color: transparent;
   color: #fff;
   height: 100px;
   display: flex;
   justify-content: center;
-  align-items: flex-end; /* Posunutí textu dolů v headeru */
+  align-items: flex-end;
   position: fixed;
   top: 0;
   width: 100%;
@@ -91,7 +86,7 @@ header {
 /* Obsah na slideru */
 .content {
   position: absolute;
-  top: 50%;
+  top: 55%; /* Posunuto dolů */
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -207,7 +202,7 @@ header {
 /* Responzivita */
 @media (max-width: 768px) {
   .content h1 {
-    font-size: 50px;
+    font-size: 48px;
   }
   .cta-text {
     font-size: 20px;
@@ -220,8 +215,11 @@ header {
 }
 
 @media (max-width: 480px) {
+  .content {
+    top: 58%; /* Posunuto dolů */
+  }
   .content h1 {
-    font-size: 40px;
+    font-size: 38px;
   }
   .cta-text {
     font-size: 18px;
@@ -233,12 +231,22 @@ header {
   .buttons a {
     width: 80%;
     text-align: center;
+    padding: 10px 15px;
+    font-size: 16px;
   }
 }
 
 @media (max-width: 320px) {
   .content h1 {
-    font-size: 35px;
+    font-size: 32px;
+  }
+  .cta-text {
+    font-size: 16px;
+    padding: 7px 12px;
+  }
+  .buttons a {
+    font-size: 14px;
+    padding: 8px 12px;
   }
 }
 
@@ -263,6 +271,7 @@ header {
     transform: scale(0.7);
   }
 }
+
 .pizza-section {
   background: linear-gradient(180deg, #d1d1d1, #ffffff);
   padding: 30px 20px;
