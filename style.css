@@ -1,4 +1,4 @@
-* { 
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -10,7 +10,6 @@ body {
   color: #333;
   padding: 0;
   margin: 0;
-  overflow-x: hidden; /* Zabrání horizontálnímu posunu */
 }
 
 .container {
@@ -19,11 +18,12 @@ body {
   padding: 20px;
 }
 
-/* === LOGO === */
+/* Styly pro logo */
 .logo {
-  position: absolute;
+  position: fixed;
   z-index: 15;
   left: 20px;
+  top: 15px;
   transform: scale(1);
   transition: transform 0.5s ease, opacity 0.3s ease;
   border: 2px solid white;
@@ -48,15 +48,14 @@ body {
 /* Skrytí loga při skrolování */
 @media (max-width: 1024px) {
   .logo {
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
   .logo.hidden {
     opacity: 0;
-    transform: scale(0.8) rotate(-180deg);
+    transform: scale(0.5) rotate(-180deg);
   }
 }
 
-/* === HEADER === */
 header {
   background-color: transparent;
   color: #fff;
@@ -73,7 +72,7 @@ header {
   padding: 20px 10px;
 }
 
-/* === SLIDER === */
+/* Slider */
 .slider {
   position: relative;
   width: 100%;
@@ -96,12 +95,12 @@ header {
 }
 
 .slide img {
-  width: 100%; /* Obrázky nyní pokryjí celou šířku */
+  width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* === OBSAH NA SLIDERU === */
+/* Obsah na slideru */
 .content {
   position: absolute;
   top: 55%;
@@ -114,31 +113,31 @@ header {
 }
 
 .content h1 {
-  font-size: 60px;
-  margin-bottom: 20px;
+  font-size: 55px;
+  margin-bottom: 15px;
   font-weight: 900;
   text-transform: uppercase;
   text-shadow: 6px 6px 15px rgba(0, 0, 0, 0.9);
 }
 
-/* CTA TEXT */
+/* CTA Text */
 .cta-text {
   font-size: 22px;
   font-weight: bold;
   background: rgba(0, 0, 0, 0.6);
-  padding: 15px 25px;
+  padding: 12px 22px;
   border-radius: 10px;
   display: inline-block;
   animation: pulse 2s infinite;
 }
 
-/* === TLAČÍTKA === */
+/* Tlačítka */
 .buttons {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  margin-top: 25px;
+  margin-top: 20px;
 }
 
 .buttons a {
@@ -146,13 +145,13 @@ header {
   background: #ff4500;
   color: #fff;
   font-weight: bold;
-  padding: 15px 25px;
-  font-size: 20px;
+  padding: 14px 22px;
+  font-size: 18px;
   border-radius: 10px;
   text-decoration: none;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
   transition: all 0.3s ease, transform 0.3s ease;
-  margin: 10px;
+  margin: 8px;
   opacity: 0;
   animation: slide-in-bottom 1.5s forwards, shake-interval 8s infinite 2s;
 }
@@ -162,80 +161,125 @@ header {
   transform: scale(1.1);
 }
 
-/* === RESPOZIVITA === */
-@media (max-width: 768px) {
-  .content {
-    top: 60%; /* Posunutí obsahu dolů */
+/* Klíčové animace */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -55%);
   }
-
-  .content h1 {
-    font-size: 45px;
-  }
-
-  .cta-text {
-    font-size: 20px;
-    padding: 10px 20px;
-  }
-
-  .buttons a {
-    padding: 12px 20px;
-    font-size: 18px;
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
   }
 }
 
-/* Pro iPhone SE (375 × 667) a podobná zařízení */
-@media (max-width: 400px) {
-  .content {
-    top: 65%; /* Ještě více dolů */
+@keyframes slide-in-bottom {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
   }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes shake-interval {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-3px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(3px);
+  }
+}
+
+/* Responzivita */
+@media (max-width: 768px) {
   .content h1 {
-    font-size: 35px; /* Zmenšení H1 */
+    font-size: 45px;
   }
+  .cta-text {
+    font-size: 18px;
+    padding: 10px 20px;
+  }
+  .buttons a {
+    padding: 10px 18px;
+    font-size: 16px;
+  }
+}
 
+@media (max-width: 480px) {
+  .content h1 {
+    font-size: 38px;
+  }
   .cta-text {
     font-size: 16px;
     padding: 8px 15px;
   }
-
   .buttons {
     flex-direction: column;
   }
-
   .buttons a {
-    width: 90%;
+    width: 80%;
     text-align: center;
-    padding: 10px 18px;
-    font-size: 16px;
+    font-size: 14px;
+    padding: 8px 12px;
   }
+}
 
+@media (max-width: 375px) {
+  .content h1 {
+    font-size: 32px;
+  }
+  .cta-text {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+  .buttons a {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+}
+
+/* Logo responzivita */
+@media (max-width: 820px) {
+  .logo {
+    left: 15px;
+    transform: scale(0.9);
+  }
+}
+
+@media (max-width: 430px) {
   .logo {
     left: 10px;
     transform: scale(0.8);
   }
 }
 
-/* Nejmenší telefony (Galaxy Fold, starší iPhone 5, atd.) */
-@media (max-width: 320px) {
-  .content {
-    top: 70%;
-  }
-
-  .content h1 {
-    font-size: 30px;
-  }
-
-  .cta-text {
-    font-size: 14px;
-    padding: 6px 12px;
-  }
-
-  .buttons a {
-    width: 100%;
-    font-size: 14px;
-    padding: 8px 15px;
-  }
-
+@media (max-width: 280px) {
   .logo {
     left: 5px;
     transform: scale(0.7);
