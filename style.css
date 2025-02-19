@@ -67,7 +67,7 @@ header img {
 
 .content {
   position: absolute;
-  top: 55%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -77,7 +77,7 @@ header img {
 }
 
 .content h1 {
-  font-size: 28px;
+  font-size: 24px;
   margin-bottom: 15px;
   font-weight: 900;
   text-transform: uppercase;
@@ -85,7 +85,7 @@ header img {
 }
 
 .cta-text {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   background: rgba(0, 0, 0, 0.6);
   padding: 10px 20px;
@@ -107,8 +107,8 @@ header img {
   background: #ff4500;
   color: #fff;
   font-weight: bold;
-  padding: 12px 20px;
-  font-size: 16px;
+  padding: 10px 16px;
+  font-size: 14px;
   border-radius: 10px;
   text-decoration: none;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
@@ -123,36 +123,50 @@ header img {
   transform: scale(1.05);
 }
 
+/* Slider Styles */
+.slider {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.slider-wrapper {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slider img {
+  width: 100%;
+  flex-shrink: 0;
+}
+
 @media (max-width: 768px) {
   .content h1 {
-    font-size: 24px;
+    font-size: 22px;
   }
-
   .cta-text {
-    font-size: 16px;
+    font-size: 14px;
     padding: 8px 16px;
   }
-
   .buttons a {
-    padding: 10px 16px;
-    font-size: 14px;
+    padding: 8px 14px;
+    font-size: 12px;
   }
 }
 
 @media (max-width: 480px) {
   .content h1 {
-    font-size: 20px;
+    font-size: 18px;
   }
-
   .cta-text {
-    font-size: 14px;
+    font-size: 12px;
     padding: 6px 12px;
   }
-
   .buttons {
     flex-direction: column;
   }
-
   .buttons a {
     width: 75%;
     text-align: center;
@@ -161,18 +175,15 @@ header img {
 
 @media (max-width: 375px) {
   .content {
-    top: 58%;
+    top: 55%;
   }
-
   .content h1 {
-    font-size: 18px;
+    font-size: 16px;
   }
-
   .cta-text {
     font-size: 12px;
     padding: 5px 10px;
   }
-
   .buttons a {
     width: 85%;
   }
