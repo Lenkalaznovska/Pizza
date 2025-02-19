@@ -95,7 +95,7 @@ header {
 /* Obsah na slideru */
 .content {
   position: absolute;
-  top: 50%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -104,7 +104,7 @@ header {
   animation: fade-in 1.5s ease-in-out;
 }
 
-/* Nadpis H1 */
+/* Hlavní nadpis */
 .content h1 {
   font-size: 50px;
   margin-bottom: 20px;
@@ -155,10 +155,10 @@ header {
 
 /* RESPONSIVNÍ ÚPRAVY */
 
-/* Menší tablety */
+/* Tablety */
 @media (max-width: 768px) {
   .content h1 {
-    font-size: 40px;
+    font-size: 38px;
   }
   .cta-text {
     font-size: 18px;
@@ -168,12 +168,15 @@ header {
     padding: 12px 20px;
     font-size: 16px;
   }
+  .content {
+    top: 60%;
+  }
 }
 
-/* iPhone SE (375 × 667) a Samsung Galaxy S8+ (360 × 740) */
+/* iPhone SE a Galaxy S8+ */
 @media (max-width: 380px) {
   .content h1 {
-    font-size: 28px;
+    font-size: 26px;
     margin-bottom: 15px;
   }
   
@@ -186,16 +189,27 @@ header {
     font-size: 14px;
     padding: 10px 15px;
   }
+
+  .content {
+    top: 65%;
+  }
 }
 
-/* Ultra malé telefony (Samsung Galaxy Fold) */
+/* Ultra malé telefony (Galaxy Fold) */
 @media (max-width: 320px) {
   .content h1 {
-    font-size: 26px;
+    font-size: 22px;
   }
   .cta-text {
-    font-size: 14px;
+    font-size: 13px;
     padding: 5px 10px;
+  }
+  .buttons a {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+  .content {
+    top: 67%;
   }
 }
 
@@ -221,7 +235,7 @@ header {
   }
 }
 
-/* Efekt vystupování */
+/* Efekt vystupování pro text i tlačítka */
 @keyframes slide-in-bottom {
   from {
     transform: translateY(50px);
@@ -245,8 +259,8 @@ header {
   }
 }
 
-/* Aplikace efektu na H1, text i tlačítka */
-.content h1, .cta-text, .buttons a {
+/* Aplikace efektu */
+.cta-text, .buttons a {
   opacity: 0;
   animation: slide-in-bottom 1.5s forwards;
 }
