@@ -166,22 +166,20 @@ header {
   }
 }
 
-/* Pro telefony (např. iPhone SE) */
-@media (max-width: 480px) {
+/* Pro iPhone SE (375 × 667) a Samsung Galaxy S8+ (360 × 740) */
+@media (max-width: 380px) {
   .content h1 {
-    font-size: 35px;
+    font-size: 28px; /* Menší nadpis */
+    margin-bottom: 15px;
   }
+  
   .cta-text {
-    font-size: 16px;
-    padding: 6px 12px;
+    font-size: 14px; /* Menší text */
+    padding: 5px 10px;
   }
-  .buttons {
-    flex-direction: column;
-  }
+
   .buttons a {
-    width: 80%;
-    text-align: center;
-    font-size: 15px;
+    font-size: 14px; /* Menší tlačítka */
     padding: 10px 15px;
   }
 }
