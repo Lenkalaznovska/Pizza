@@ -1,3 +1,4 @@
+/* Obecné nastavení */
 * {
   margin: 0;
   padding: 0;
@@ -5,20 +6,21 @@
 }
 
 html, body {
-  overflow-x: hidden; /* Zabránění vodorovnému posouvání */
+  overflow-x: hidden;
   font-family: Arial, sans-serif;
   background: linear-gradient(180deg, #d1d1d1, #ffffff);
   color: #333;
   width: 100%;
 }
 
+/* Kontejner */
 .container {
   max-width: 70%;
   margin: 0 auto;
   padding: 20px;
 }
 
-/* LOGO */
+/* Logo */
 .logo {
   position: absolute;
   z-index: 15;
@@ -44,7 +46,7 @@ html, body {
   transform: scale(0.5) rotate(-180deg);
 }
 
-/* HEADER */
+/* Header */
 header {
   background-color: transparent;
   color: #fff;
@@ -61,7 +63,7 @@ header {
   padding: 20px 10px;
 }
 
-/* SLIDER */
+/* Slider */
 .slider {
   position: relative;
   width: 100%;
@@ -90,7 +92,7 @@ header {
   object-fit: cover;
 }
 
-/* OBSAH NA SLIDERU */
+/* Obsah na slideru */
 .content {
   position: absolute;
   top: 50%;
@@ -102,6 +104,7 @@ header {
   animation: fade-in 1.5s ease-in-out;
 }
 
+/* Nadpis H1 */
 .content h1 {
   font-size: 50px;
   margin-bottom: 20px;
@@ -110,7 +113,7 @@ header {
   text-shadow: 6px 6px 15px rgba(0, 0, 0, 0.9);
 }
 
-/* CTA TEXT */
+/* CTA text */
 .cta-text {
   font-size: 20px;
   font-weight: bold;
@@ -120,7 +123,7 @@ header {
   display: inline-block;
 }
 
-/* BUTTONY */
+/* Tlačítka */
 .buttons {
   display: flex;
   justify-content: center;
@@ -147,11 +150,12 @@ header {
 .buttons a:hover {
   background: #da3a3a;
   transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.8);
 }
 
 /* RESPONSIVNÍ ÚPRAVY */
 
-/* Pro menší tablety */
+/* Menší tablety */
 @media (max-width: 768px) {
   .content h1 {
     font-size: 40px;
@@ -166,28 +170,28 @@ header {
   }
 }
 
-/* Pro iPhone SE (375 × 667) a Samsung Galaxy S8+ (360 × 740) */
+/* iPhone SE (375 × 667) a Samsung Galaxy S8+ (360 × 740) */
 @media (max-width: 380px) {
   .content h1 {
-    font-size: 28px; /* Menší nadpis */
+    font-size: 28px;
     margin-bottom: 15px;
   }
   
   .cta-text {
-    font-size: 14px; /* Menší text */
+    font-size: 14px;
     padding: 5px 10px;
   }
 
   .buttons a {
-    font-size: 14px; /* Menší tlačítka */
+    font-size: 14px;
     padding: 10px 15px;
   }
 }
 
-/* Pro ultra malé telefony (Samsung Galaxy Fold) */
+/* Ultra malé telefony (Samsung Galaxy Fold) */
 @media (max-width: 320px) {
   .content h1 {
-    font-size: 30px;
+    font-size: 26px;
   }
   .cta-text {
     font-size: 14px;
@@ -229,6 +233,18 @@ header {
   }
 }
 
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 /* Aplikace efektu na H1, text i tlačítka */
 .content h1, .cta-text, .buttons a {
   opacity: 0;
@@ -238,6 +254,7 @@ header {
 /* Oddělené načasování pro tlačítka */
 .buttons a {
   animation-delay: 0.5s;
+  animation: slide-in-bottom 1.5s forwards, pulse 2s infinite ease-in-out;
 }
 
 .pizza-section {
