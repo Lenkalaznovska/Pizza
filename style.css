@@ -130,6 +130,7 @@ header {
   align-items: center;
   flex-wrap: wrap;
   margin-top: 25px;
+  gap: 15px; /* Větší mezera mezi tlačítky */
 }
 
 .buttons a {
@@ -171,13 +172,16 @@ header {
   .content {
     top: 60%;
   }
+  .buttons {
+    gap: 10px; /* Menší mezera mezi tlačítky */
+  }
 }
 
 /* iPhone SE a Galaxy S8+ */
 @media (max-width: 380px) {
   .content h1 {
     font-size: 26px;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
   }
   
   .cta-text {
@@ -192,6 +196,10 @@ header {
 
   .content {
     top: 65%;
+  }
+
+  .buttons {
+    flex-direction: column; /* Tlačítka na malých displejích pod sebou */
   }
 }
 
