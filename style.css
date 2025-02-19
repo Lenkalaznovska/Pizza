@@ -217,6 +217,29 @@ header {
   }
 }
 
+/* Efekt vystupování */
+@keyframes slide-in-bottom {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Aplikace efektu na H1, text i tlačítka */
+.content h1, .cta-text, .buttons a {
+  opacity: 0;
+  animation: slide-in-bottom 1.5s forwards;
+}
+
+/* Oddělené načasování pro tlačítka */
+.buttons a {
+  animation-delay: 0.5s;
+}
+
 .pizza-section {
   background: linear-gradient(180deg, #d1d1d1, #ffffff);
   padding: 30px 20px;
