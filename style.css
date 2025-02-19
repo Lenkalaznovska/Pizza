@@ -60,77 +60,7 @@ header {
   padding: 20px 10px;
 }
 
-header img {
-  width: 100%;
-}
-
-.content h1 {
-  font-size: 35px;
-  margin-bottom: 10px;
-  font-weight: 900;
-  text-transform: uppercase;
-  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
-}
-
-/* Adjustments for smaller screens */
-@media (max-width: 1024px) {
-  .container {
-    max-width: 90%;
-  }
-  .content h1 {
-    font-size: 32px;
-  }
-  header {
-    height: 90px;
-  }
-}
-
-@media (max-width: 768px) {
-  .content h1 {
-    font-size: 30px;
-  }
-  header {
-    height: 85px;
-  }
-}
-
-@media (max-width: 480px) {
-  .container {
-    max-width: 95%;
-  }
-  .content h1 {
-    font-size: 25px;
-  }
-  header {
-    height: 80px;
-  }
-}
-
-nav {
-  display: none;
-}
-
-@media (max-width: 820px) {
-  .logo {
-    left: 15px;
-    transform: scale(0.9);
-  }
-}
-
-@media (max-width: 430px) {
-  .logo {
-    left: 10px;
-    transform: scale(0.8);
-  }
-}
-
-@media (max-width: 280px) {
-  .logo {
-    left: 5px;
-    transform: scale(0.7);
-  }
-}
-
+/* Slider */
 .slider {
   position: relative;
   width: 100%;
@@ -158,6 +88,7 @@ nav {
   object-fit: cover;
 }
 
+/* Obsah na slideru */
 .content {
   position: absolute;
   top: 50%;
@@ -169,6 +100,56 @@ nav {
   animation: fade-in 1.5s ease-in-out;
 }
 
+.content h1 {
+  font-size: 65px;
+  margin-bottom: 20px;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-shadow: 6px 6px 15px rgba(0, 0, 0, 0.9);
+}
+
+/* CTA Text */
+.cta-text {
+  font-size: 24px;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 15px 25px;
+  border-radius: 10px;
+  display: inline-block;
+  animation: pulse 2s infinite;
+}
+
+/* Tlačítka */
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+
+.buttons a {
+  display: inline-block;
+  background: #ff4500;
+  color: #fff;
+  font-weight: bold;
+  padding: 15px 25px;
+  font-size: 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+  transition: all 0.3s ease, transform 0.3s ease;
+  margin: 10px;
+  opacity: 0;
+  animation: slide-in-bottom 1.5s forwards, shake-interval 8s infinite 2s;
+}
+
+.buttons a:hover {
+  background: #da3a3a;
+  transform: scale(1.1);
+}
+
+/* Klíčové animace */
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -191,28 +172,47 @@ nav {
   }
 }
 
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 @keyframes shake-interval {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateX(0);
   }
-  10%, 30%, 50%, 70%, 90% {
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
     transform: translateX(-3px);
   }
-  20%, 40%, 60%, 80% {
+  20%,
+  40%,
+  60%,
+  80% {
     transform: translateX(3px);
   }
 }
 
+/* Responzivita */
 @media (max-width: 768px) {
   .content h1 {
     font-size: 50px;
   }
-
   .cta-text {
     font-size: 20px;
     padding: 10px 20px;
   }
-
   .buttons a {
     padding: 12px 20px;
     font-size: 18px;
@@ -223,33 +223,46 @@ nav {
   .content h1 {
     font-size: 40px;
   }
-
   .cta-text {
     font-size: 18px;
     padding: 8px 15px;
   }
-
   .buttons {
     flex-direction: column;
   }
-
   .buttons a {
     width: 80%;
     text-align: center;
   }
 }
 
-.pizza-section:first-of-type {
-  margin-top: 50px;
+@media (max-width: 320px) {
+  .content h1 {
+    font-size: 35px;
+  }
 }
 
-body {
-  background: linear-gradient(180deg, #d1d1d1, #ffffff);
-  padding: 0;
-  margin: 0;
-  font-family: "Arial", sans-serif;
+/* Logo responzivita */
+@media (max-width: 820px) {
+  .logo {
+    left: 15px;
+    transform: scale(0.9);
+  }
 }
 
+@media (max-width: 430px) {
+  .logo {
+    left: 10px;
+    transform: scale(0.8);
+  }
+}
+
+@media (max-width: 280px) {
+  .logo {
+    left: 5px;
+    transform: scale(0.7);
+  }
+}
 .pizza-section {
   background: linear-gradient(180deg, #d1d1d1, #ffffff);
   padding: 30px 20px;
