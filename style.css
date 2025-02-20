@@ -420,101 +420,120 @@ header {
 }
 
 .reviews-section {
-  background: linear-gradient(180deg, #d1d1d1, #ffffff);
-  padding: 30px 20px;
-  margin-bottom: 50px;
-  border-radius: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start; /* Ujistíme se, že tlačítka budou nahoře */
-  flex-wrap: wrap;
-  width: 70%;
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1); /* Zjemněný stín */
-  transition: box-shadow 0.6s ease; /* Delší přechod pro stín */
-  text-align: left; /* Text zarovnaný vlevo */
+    background: linear-gradient(180deg, #d1d1d1, #ffffff);
+    padding: 30px 20px;
+    margin-bottom: 50px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between; /* Upravujeme pro zobrazení vedle sebe */
+    align-items: flex-start; /* Udržuje obsah nahoře */
+    flex-wrap: wrap;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1); /* Zjemněný stín */
+    transition: box-shadow 0.6s ease;
+    text-align: left;
 }
 
-.reviews-section .section-content {
-  display: flex;
-  flex-direction: row; /* Uspořádání vedle sebe */
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 100%;
-  gap: 30px;
+.reviews-section:hover {
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2); /* Zjemněný stín při hoveru */
 }
 
 .reviews-section .text-content {
-  max-width: 650px;
-  margin: 0 20px;
-  padding: 20px;
+    max-width: 650px;
+    margin: 0 20px;
+    padding: 20px;
+    text-align: left;
 }
 
 .reviews-section h2 {
-  font-size: 2.2rem;
-  color: #ff4500;
-  font-weight: bold;
-  margin-bottom: 15px;
-  transition: transform 0.3s ease, color 0.3s ease;
+    font-size: 2.2rem;
+    color: #ff4500;
+    font-weight: bold;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.reviews-section h2:hover {
+    transform: translateY(-3px);
+    color: #da3a3a;
 }
 
 .reviews-section p {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  color: #555;
-  margin-bottom: 15px;
-  max-width: 550px;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 15px;
 }
 
-.reviews {
-  display: flex;
-  gap: 20px;
-  justify-content: flex-start;
-}
-
-.review {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.review-buttons {
+    display: flex;
+    flex-direction: column; /* Tlačítka budou pod sebou na mobilních zařízeních */
+    gap: 20px;
+    justify-content: flex-start;
 }
 
 .review-button {
-  display: inline-block;
-  background: #ff4500;
-  color: #fff;
-  font-weight: bold;
-  padding: 10px 10px;
-  font-size: 20px;
-  border-radius: 10px;
-  text-decoration: none;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
-  transition: all 0.3s ease, transform 0.3s ease;
-  margin: 10px;
+    display: inline-block;
+    background: #ff4500;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 15px;
+    font-size: 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    transition: all 0.3s ease, transform 0.3s ease;
+    margin: 10px;
+    opacity: 1;
 }
 
 .review-button:hover {
-  background: #da3a3a;
-  transform: scale(1.1);
+    background: #da3a3a;
+    transform: scale(1.1);
 }
 
-/* Pro mobilní zařízení (max-width 999px) */
+@media (min-width: 1000px) {
+    .reviews-section {
+        display: flex;
+        justify-content: space-between; /* Tlačítka a text vedle sebe */
+    }
+
+    .reviews-section .text-content {
+        max-width: 60%;
+    }
+
+    .review-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
 @media (max-width: 999px) {
-  .reviews-section {
-    width: 100%;
-    margin: 0;
-    padding: 20px 10px;
-  }
+    .reviews-section {
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+        padding: 20px 10px;
+    }
 
-  .reviews-section .section-content {
-    flex-direction: column; /* Na mobilu se vše seřadí pod sebe */
-    text-align: center;
-  }
+    .reviews-section .text-content {
+        max-width: 90%;
+        margin: 0 auto;
+        padding: 10px;
+    }
 
-  .reviews {
-    flex-direction: column;
-    align-items: center;
-  }
+    .review-buttons {
+        flex-direction: column;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .reviews-section h2 {
+        text-align: center;
+    }
 }
 
 @media (max-width: 320px) {
