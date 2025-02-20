@@ -384,12 +384,11 @@ header {
     max-width: 90%;
     margin: 0 auto;
     padding: 10px;
+    text-align: left; /* Keep text left-aligned on smaller screens */
   }
 
-  .pizza-section .section-image {
-    max-width: 90%;
-    height: auto;
-    object-fit: contain;
+  .pizza-section h2 {
+    text-align: center; /* Align heading to the center on smaller screens */
   }
 }
 
@@ -397,22 +396,26 @@ header {
   .pizza-section {
     width: 100%;
     padding: 10px 5px;
-    box-sizing: border-box; /* Zabrání přetékání */
-    overflow: hidden; /* Zajistí, že obsah nepřetéká sekcí */
+    box-sizing: border-box;
+    overflow: hidden;
   }
 
   .pizza-section .text-content {
     font-size: 1rem;
-    max-width: 100%; /* Text nebude omezován */
-    text-align: center; /* Lepší zarovnání */
+    max-width: 100%;
+    text-align: left; /* Keep text left-aligned on very small screens */
   }
 
   .pizza-section .section-image {
     max-width: 100%;
     height: auto;
-    display: block; /* Zajistí správné přizpůsobení */
-    margin: 0 auto; /* Vycentrování */
-    object-fit: contain; /* Zabrání přetékání */
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+  }
+
+  .pizza-section h2 {
+    text-align: center; /* Ensure heading is centered on very small screens */
   }
 }
 
@@ -563,12 +566,17 @@ header {
     max-width: 90%;
     margin: 0 auto;
     padding: 10px;
+    text-align: left; /* Align text to the left on smaller screens */
   }
 
   .reviews-section .section-image {
     max-width: 90%;
     height: auto;
     object-fit: contain;
+  }
+
+  .reviews-section h2 {
+    text-align: center; /* Ensuring the heading stays centered on smaller screens */
   }
 }
 
@@ -583,7 +591,7 @@ header {
   .reviews-section .text-content {
     font-size: 1rem;
     max-width: 100%;
-    text-align: center;
+    text-align: left; /* Align text to the left */
   }
 
   .reviews-section .section-image {
@@ -592,6 +600,10 @@ header {
     display: block;
     margin: 0 auto;
     object-fit: contain;
+  }
+
+  .reviews-section h2 {
+    text-align: center; /* Ensure heading is centered even on smaller screens */
   }
 }
 
