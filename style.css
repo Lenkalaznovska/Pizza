@@ -431,15 +431,20 @@ header {
   width: 70%;
   margin-left: auto;
   margin-right: auto;
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.6s ease;
-  text-align: left;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1); /* Zjemněný stín */
+  transition: box-shadow 0.6s ease; /* Delší přechod pro stín */
+  text-align: left; /* Text zarovnaný vlevo */
+}
+
+.reviews-section:hover {
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2); /* Zjemněný stín při hoveru */
 }
 
 .reviews-section .section-content {
   display: flex;
+  flex-direction: column; /* Stacked by default on smaller screens */
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
   gap: 30px;
 }
@@ -457,6 +462,11 @@ header {
   margin-bottom: 15px;
   transition: transform 0.3s ease, color 0.3s ease;
   text-align: center;
+}
+
+.reviews-section h2:hover {
+  transform: translateY(-3px);
+  color: #da3a3a;
 }
 
 .reviews-section p {
@@ -494,6 +504,7 @@ header {
   transition: all 0.3s ease, transform 0.3s ease;
   margin: 10px;
   opacity: 1;
+  animation: slide-in-bottom 1.5s forwards, shake-interval 8s infinite 2s;
 }
 
 .review-button:hover {
@@ -501,31 +512,26 @@ header {
   transform: scale(1.1);
 }
 
+/* For Desktop (1000px and above) */
 @media (min-width: 1000px) {
   .reviews-section {
     width: 70%;
   }
 
   .reviews-section .section-content {
-    display: flex;
-    align-items: center;
+    flex-direction: row; /* Align text and buttons side by side */
     justify-content: space-between;
-    gap: 30px;
   }
 
-  .reviews-section .review-button {
-    margin-top: 0; /* Keep buttons aligned next to the text */
-  }
-
-  .reviews-section:nth-child(odd) .section-content {
-    flex-direction: row;
-  }
-
-  .reviews-section:nth-child(even) .section-content {
-    flex-direction: row-reverse;
+  .reviews {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px; /* Adjust button spacing */
+    flex-wrap: nowrap;
   }
 }
 
+/* For Mobile (max-width 999px) */
 @media (max-width: 999px) {
   .reviews-section {
     width: 100%;
@@ -543,15 +549,17 @@ header {
     max-width: 90%;
     margin: 0 auto;
     padding: 10px;
-    text-align: left; 
+    text-align: left; /* Align text to the left on smaller screens */
   }
 
-  .reviews-section .review-button {
-    margin-top: 10px; /* Buttons stacked vertically */
+  .reviews-section .section-image {
+    max-width: 90%;
+    height: auto;
+    object-fit: contain;
   }
 
   .reviews-section h2 {
-    text-align: center;
+    text-align: center; /* Ensuring the heading stays centered on smaller screens */
   }
 }
 
@@ -566,7 +574,7 @@ header {
   .reviews-section .text-content {
     font-size: 1rem;
     max-width: 100%;
-    text-align: left;
+    text-align: left; /* Align text to the left */
   }
 
   .reviews-section .section-image {
@@ -578,7 +586,7 @@ header {
   }
 
   .reviews-section h2 {
-    text-align: center;
+    text-align: center; /* Ensure heading is centered even on smaller screens */
   }
 }
 
