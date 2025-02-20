@@ -329,16 +329,24 @@ header {
 
 @media (max-width: 320px) {
   .pizza-section {
+    width: 100%; /* Sekce zabere celou šířku */
     padding: 10px 5px;
+    box-sizing: border-box; /* Zabrání přetékání */
+    overflow: hidden; /* Zajistí, že obsah nepřetéká sekcí */
   }
 
   .pizza-section .text-content {
     font-size: 1rem;
-    max-width: 95%;
+    max-width: 100%; /* Text nebude omezován */
+    text-align: center; /* Lepší zarovnání */
   }
 
   .pizza-section .section-image {
     max-width: 100%;
+    height: auto;
+    display: block; /* Zajistí správné přizpůsobení */
+    margin: 0 auto; /* Vycentrování */
+    object-fit: contain; /* Zabrání přetékání */
   }
 }
 
