@@ -428,20 +428,19 @@ header {
   width: 70%;
   margin-left: auto;
   margin-right: auto;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-  transition: box-shadow 0.4s ease;
-  text-align: center;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1); /* Zjemněný stín */
+  transition: box-shadow 0.6s ease; /* Delší přechod pro stín */
+  text-align: left; /* Text zarovnaný vlevo */
 }
 
 .reviews-section:hover {
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2); /* Zjemněný stín při hoveru */
 }
 
 .reviews-section .section-content {
   display: flex;
-  justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+  justify-content: space-between;
   width: 100%;
   gap: 30px;
 }
@@ -461,7 +460,7 @@ header {
 }
 
 .reviews-section h2:hover {
-  transform: translateY(-5px);
+  transform: translateY(-3px); /* Menší posun nadpisu při hoveru */
   color: #da3a3a;
 }
 
@@ -498,13 +497,102 @@ header {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
   transition: all 0.3s ease, transform 0.3s ease;
   margin: 10px;
-  opacity: 1; /* Tlačítka budou viditelná hned */
+  opacity: 1;
   animation: slide-in-bottom 1.5s forwards, shake-interval 8s infinite 2s;
 }
 
 .review-button:hover {
   background: #da3a3a;
   transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 1000px) {
+  .reviews-section {
+    width: 70%;
+  }
+
+  .reviews-section .section-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 30px;
+  }
+
+  .reviews-section:nth-child(odd) .section-content {
+    flex-direction: row;
+  }
+
+  .reviews-section:nth-child(even) .section-content {
+    flex-direction: row-reverse;
+  }
+}
+
+@media (max-width: 999px) {
+  .reviews-section {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+    padding: 20px 10px;
+  }
+
+  .reviews-section .section-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .reviews-section .text-content {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 10px;
+  }
+
+  .reviews-section .section-image {
+    max-width: 90%;
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 320px) {
+  .reviews-section {
+    width: 100%;
+    padding: 10px 5px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .reviews-section .text-content {
+    font-size: 1rem;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .reviews-section .section-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+  }
 }
 
 #kontakty {
