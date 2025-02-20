@@ -233,7 +233,7 @@ header {
 
 @media (max-width: 375px) and (max-height: 667px) {
   .content h1 {
-    font-size: 25px;
+    font-size: 35px;
     margin-bottom: 10px;
   }
 }
@@ -253,7 +253,7 @@ header {
 
 @media (max-width: 280px) and (max-height: 653px) {
   .content h1 {
-    font-size: 25px;
+    font-size: 35px;
     margin-bottom: 10px;
   }
 }
@@ -279,21 +279,71 @@ header {
   transition: box-shadow 0.4s ease;
 }
 
+@media (min-width: 1000px) {
+  .pizza-section {
+    width: 70%;
+  }
+
+  .pizza-section .section-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 30px;
+  }
+
+  .pizza-section:nth-child(odd) .section-content {
+    flex-direction: row;
+  }
+
+  .pizza-section:nth-child(even) .section-content {
+    flex-direction: row-reverse;
+  }
+}
+
+@media (max-width: 999px) {
+  .pizza-section {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+    padding: 20px 10px;
+  }
+
+  .pizza-section .section-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .pizza-section .text-content {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 10px;
+  }
+
+  .pizza-section .section-image {
+    max-width: 90%;
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 320px) {
+  .pizza-section {
+    padding: 10px 5px;
+  }
+
+  .pizza-section .text-content {
+    font-size: 1rem;
+    max-width: 95%;
+  }
+
+  .pizza-section .section-image {
+    max-width: 100%;
+  }
+}
+
 .pizza-section:hover {
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-}
-
-.pizza-section .section-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  width: 100%;
-  gap: 30px;
-}
-
-.pizza-section.reverse .section-content {
-  flex-direction: row-reverse;
 }
 
 .pizza-section .text-content {
@@ -302,8 +352,7 @@ header {
   padding: 20px;
 }
 
-.pizza-section,
-h2 {
+.pizza-section h2 {
   font-size: 2.2rem;
   color: #ff4500;
   font-weight: bold;
@@ -330,9 +379,8 @@ h2 {
   border-radius: 8px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
   margin: 10px;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 0.6s ease, box-shadow 0.6s ease, opacity 0.6s ease;
-  animation: fadeIn 0.6s forwards, slideUp 0.6s ease-out;
   max-height: 450px;
 }
 
@@ -359,63 +407,6 @@ h2 {
   opacity: 0.9;
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
   transition: transform 0.6s ease, box-shadow 0.6s ease, opacity 0.6s ease;
-}
-
-@media (max-width: 1000px) {
-  .pizza-section {
-    width: 100vw; /* Zajistí plnou šířku obrazovky */
-    text-align: center;
-    flex-direction: column;
-    padding: 20px;
-    margin-left: 0;
-    margin-right: 0;
-    border-radius: 0; /* Zruší zaoblení, aby sekce byla přes celou šířku */
-  }
-
-  .pizza-section .section-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-  }
-
-  .pizza-section.reverse .section-content {
-    flex-direction: column;
-  }
-
-  .pizza-section .text-content {
-    max-width: 90%;
-    margin: 0 auto;
-    padding: 15px;
-  }
-
-  .pizza-section .section-image {
-    max-width: 90%;
-    height: auto;
-    max-height: 300px;
-  }
-
-  /* Cik-cak formát na telefonech */
-  .pizza-section:nth-child(odd) .section-content {
-    align-items: flex-start;
-    text-align: left;
-    padding-left: 5%;
-  }
-
-  .pizza-section:nth-child(even) .section-content {
-    align-items: flex-end;
-    text-align: right;
-    padding-right: 5%;
-  }
-
-  .pizza-section:nth-child(odd) .section-image {
-    align-self: flex-start;
-  }
-
-  .pizza-section:nth-child(even) .section-image {
-    align-self: flex-end;
-  }
 }
 
 .reviews-section {
