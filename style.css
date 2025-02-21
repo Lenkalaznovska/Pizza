@@ -385,11 +385,11 @@ header {
     max-width: 90%;
     margin: 0 auto;
     padding: 10px;
-    text-align: left; /* Keep text left-aligned on smaller screens */
+    text-align: left;
   }
 
   .pizza-section h2 {
-    text-align: center; /* Align heading to the center on smaller screens */
+    text-align: left;
   }
 }
 
