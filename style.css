@@ -459,6 +459,11 @@ header {
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
+.reviews-section h2:hover {
+  transform: translateY(-3px);
+  color: #da3a3a;
+}
+
 .reviews-section p {
   font-size: 1.2rem;
   line-height: 1.6;
