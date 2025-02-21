@@ -19,86 +19,22 @@ header {background-color: transparent;color: #fff;height: 120px;display: flex;ju
 @keyframes shake-interval {0%,100% {transform: translateX(0);}10%,30%,50%,70%,90% {transform: translateX(-3px);}20%,40%,60%,80% {transform: translateX(3px);}}
 @media (max-width: 1200px) {.content h1 {font-size: 45px;white-space: normal;}.buttons a {font-size: 18px;}.logo {left: 40px;}}
 @media (max-width: 900px) {.content h1 {font-size: 50px;}}
-
-@media (max-width: 768px) {
-  header {
-    height: 100px;
-  }
-  .content h1 {
-    font-size: 35px;
-    margin-bottom: 15px;
-    white-space: normal;
-  }
-  .cta-text {
-    font-size: 20px;
-    padding: 10px 20px;
-  }
-  .buttons a {
-    font-size: 16px;
-    padding: 12px 22px;
-  }
-  .logo {
-    left: 30px;
-  }
-}
-
-@media (max-width: 480px) {
-  .content h1 {
-    font-size: 30px;
-    margin-bottom: 10px;
-  }
-  .cta-text {
-    font-size: 18px;
-    padding: 8px 15px;
-  }
-  .buttons {
-    flex-direction: column;
-  }
-  .buttons a {
-    width: 80%;
-    text-align: center;
-    font-size: 14px;
-    padding: 10px 18px;
-  }
-  .logo {
-    left: 20px;
-  }
-  .reviews {
-    padding: 10px;
-  }
-}
-
-@media (max-width: 375px) and (max-height: 667px) {
-  .content h1 {
-    font-size: 60px;
-    margin-bottom: 10px;
-  }
-}
-
-@media (max-width: 390px) and (max-height: 844px) {
-  .content h1 {
-    margin: 50px;
-  }
-}
-
-@media (max-width: 540px) and (max-height: 720px) {
-  .content h1 {
-    font-size: 25px;
-    margin: 80px;
-  }
-}
-
-@media (max-width: 280px) and (max-height: 653px) {
-  .content h1 {
-    font-size: 30px;
-    margin-bottom: 10px;
-  }
-}
-
-.pizza-section:first-of-type {
-  margin-top: 50px;
-}
-
+@media (max-width: 768px) {header {height: 100px;}
+.content h1 {font-size: 35px;margin-bottom: 15px;white-space: normal;}
+.cta-text {
+font-size: 20px;padding: 10px 20px;}
+.buttons a {font-size: 16px;padding: 12px 22px;}
+.logo {left: 30px;}}
+@media (max-width: 480px) {.content h1 {font-size: 30px;margin-bottom: 10px;}
+.cta-text {font-size: 18px;padding: 8px 15px;}
+.buttons {flex-direction: column;}
+.buttons a {width: 80%;text-align: center;font-size: 14px;padding: 10px 18px;}.logo {left: 20px;}
+.reviews {padding: 10px;}}
+@media (max-width: 375px) and (max-height: 667px) {.content h1 {font-size: 60px;margin-bottom: 10px;}}
+@media (max-width: 390px) and (max-height: 844px) {.content h1 {margin: 50px;}}
+@media (max-width: 540px) and (max-height: 720px) {.content h1 {font-size: 25px;margin: 80px;}}
+@media (max-width: 280px) and (max-height: 653px) {.content h1 {font-size: 30px;margin-bottom: 10px;}}
+.pizza-section:first-of-type {margin-top: 50px;}
 .pizza-section {
   background: linear-gradient(180deg, #d1d1d1, #ffffff);
   padding: 30px 20px;
