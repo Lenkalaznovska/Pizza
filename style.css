@@ -425,86 +425,107 @@ header {
   margin-bottom: 50px;
   border-radius: 15px;
   display: flex;
-  flex-direction: column;  /* Change to column to stack elements */
-  align-items: center;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   width: 70%;
   margin-left: auto;
   margin-right: auto;
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.6s ease;
-  text-align: center;  /* Center text and icons */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1); /* Zjemněný stín */
+  transition: box-shadow 0.6s ease; /* Delší přechod pro stín */
+  text-align: left; /* Text zarovnaný vlevo */
 }
 
 .reviews-section:hover {
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
-}
-
-.social-icons {
-  font-size: 2rem;
-  margin-bottom: 30px;  /* Increased margin to separate icons from buttons */
-  display: flex;
-  justify-content: center;
-  gap: 15px; /* Adjusted gap between icons */
-}
-
-.social-icons a {
-  text-decoration: none;
-  padding-left: 20px;
-  font-size: 2rem;
-  color: #555;
-  transition: transform 0.4s ease, color 0.4s ease;
-  display: inline-block;
-  animation: pulse 1.5s infinite;
-}
-
-.social-icons a:hover {
-  color: #ff4500;  /* Hover effect for the icons */
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2); /* Zjemněný stín při hoveru */
+  transition: box-shadow 0.8s ease; /* Delší přechod pro stín při hoveru */
 }
 
 .reviews-section .section-content {
   display: flex;
   align-items: center;
-  justify-content: center; /* Center reviews and text */
+  justify-content: space-between;
   width: 100%;
   gap: 30px;
-  flex-direction: column; /* Stack text and reviews vertically */
 }
 
-.review-buttons {
+.reviews-section .text-content {
+  max-width: 650px;
+  margin: 0 20px;
+  padding: 20px;
+}
+
+.reviews-section h2 {
+  font-size: 2.2rem;
+  color: #ff4500;
+  font-weight: bold;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.reviews-section h2:hover {
+  transform: translateY(-3px); /* Menší posun nadpisu při hoveru */
+  color: #da3a3a;
+  text-decoration: underline;
+}
+
+.reviews-section p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 15px;
+  max-width: 550px;
+}
+
+.reviews {
   display: flex;
   justify-content: center;
-  gap: 20px; /* Keep spacing between buttons */
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.review {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .review-button {
-  padding: 10px 20px;
-  background-color: #ff4500;
+  display: inline-block;
+  background: #ff4500;
   color: #fff;
-  border-radius: 5px;
+  font-weight: bold;
+  padding: 10px 10px;
+  font-size: 20px;
+  border-radius: 10px;
   text-decoration: none;
-  font-size: 1.2rem;
-  transition: background-color 0.3s, transform 0.3s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+  transition: all 0.3s ease, transform 0.3s ease;
+  margin: 10px;
+  opacity: 1;
+  animation: slide-in-bottom 1.5s forwards, shake-interval 8s infinite 2s;
 }
 
 .review-button:hover {
-  background-color: #da3a3a;
+  background: #da3a3a;
   transform: scale(1.1);
 }
 
-@keyframes pulse {
-  0% {
-    transform: scale(1);
+@keyframes fadeIn {
+  to {
     opacity: 1;
+    transform: scale(1);
   }
-  50% {
-    transform: scale(1.1);
-    opacity: 0.8;
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
   }
   100% {
-    transform: scale(1);
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -548,6 +569,7 @@ header {
     margin: 0 auto;
     padding: 10px;
     text-align: left; /* Align text to the left on smaller screens */
+    font-size: 1rem; /* Slightly smaller text on very small screens */
   }
 
   .reviews-section .section-image {
@@ -684,20 +706,22 @@ h4:hover,
   }
 }
 
-.contact-icon {
-  margin-right: 10px;
+.social-icons a {
+  text-decoration: none;
+  padding-left: 20px;
 }
 
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
+.social-icons {
+  font-size: 2rem;
+  margin: 0 15px;
+  color: #555;
+  transition: transform 0.4s ease, color 0.4s ease;
+  display: inline-block;
+  animation: pulse 1.5s infinite;
+}
+
+.contact-icon {
+  margin-right: 10px;
 }
 
 @keyframes pulse {
