@@ -188,12 +188,6 @@ header {
   }
 }
 
-@media (max-width: 1080px) and (max-height: 2340px) {
-  .content h1 {
-    font-size: 80px; /* Zvýšení velikosti pro Samsung Galaxy S22+ */
-  }
-}
-
 @media (max-width: 900px) {
   .content h1 {
     font-size: 50px; /* Střední velikost */
@@ -250,7 +244,7 @@ header {
 
 @media (max-width: 375px) and (max-height: 667px) {
   .content h1 {
-    font-size: 35px;
+    font-size: 60px;
     margin-bottom: 10px;
   }
 }
