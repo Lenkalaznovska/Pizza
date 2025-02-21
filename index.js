@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function updateSliderPosition() {
     if (slidesContainer) {
-      slidesContainer.style.transform = translateX(-${currentSlide * 100}%);
+      slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
     }
   }
 
@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const email = "sanmarino@pizzakladno.cz",
     emailLink = document.getElementById("emailLink");
   if (emailLink) {
-    emailLink.href = mailto:${email};
+    emailLink.href = `mailto:${email}`;
     emailLink.textContent = email;
   }
 });
