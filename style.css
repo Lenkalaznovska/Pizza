@@ -425,67 +425,47 @@ header {
   margin-bottom: 50px;
   border-radius: 15px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;  /* Change to column to stack elements */
   align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
   width: 70%;
   margin-left: auto;
   margin-right: auto;
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1); /* Zjemněný stín */
-  transition: box-shadow 0.6s ease; /* Delší přechod pro stín */
-  text-align: left; /* Text zarovnaný vlevo */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.6s ease;
+  text-align: center;  /* Center text and icons */
 }
 
 .reviews-section:hover {
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2); /* Zjemněný stín při hoveru */
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+.social-icons {
+  margin-bottom: 20px;  /* Add some space between icons and reviews */
+}
+
+.social-icons a {
+  text-decoration: none;
+  padding-left: 20px;
+  font-size: 2rem;
+  color: #555;
+  transition: transform 0.4s ease, color 0.4s ease;
+  display: inline-block;
+  animation: pulse 1.5s infinite;
+}
+
+.social-icons a:hover {
+  color: #ff4500;  /* Add a hover effect for the icons */
 }
 
 .reviews-section .section-content {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center; /* Center reviews and text */
   width: 100%;
   gap: 30px;
-}
-
-.reviews-section .text-content {
-  max-width: 650px;
-  margin: 0 20px;
-  padding: 20px;
-}
-
-.reviews-section h2 {
-  font-size: 2.2rem;
-  color: #ff4500;
-  font-weight: bold;
-  margin-bottom: 15px;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.reviews-section h2:hover {
-  transform: translateY(-3px); /* Menší posun nadpisu při hoveru */
-  color: #da3a3a;
-}
-
-.reviews-section p {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  color: #555;
-  margin-bottom: 15px;
-  max-width: 550px;
-}
-
-.reviews {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
-}
-
-.review {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: column; /* Stack text and reviews vertically */
 }
 
 .review-button {
@@ -501,7 +481,6 @@ header {
   transition: all 0.3s ease, transform 0.3s ease;
   margin: 10px;
   opacity: 1;
-  animation: slide-in-bottom 1.5s forwards, shake-interval 8s infinite 2s;
 }
 
 .review-button:hover {
@@ -509,24 +488,20 @@ header {
   transform: scale(1.1);
 }
 
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes slideUp {
+@keyframes pulse {
   0% {
-    opacity: 0;
-    transform: translateY(30px);
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
   }
   100% {
+    transform: scale(1);
     opacity: 1;
-    transform: translateY(0);
   }
 }
-
 @media (min-width: 1000px) {
   .reviews-section {
     width: 70%;
@@ -701,20 +676,6 @@ h4:hover,
   .card {
     width: 100%;
   }
-}
-
-.social-icons a {
-  text-decoration: none;
-  padding-left: 20px;
-}
-
-.social-icons {
-  font-size: 2rem;
-  margin: 0 15px;
-  color: #555;
-  transition: transform 0.4s ease, color 0.4s ease;
-  display: inline-block;
-  animation: pulse 1.5s infinite;
 }
 
 .contact-icon {
