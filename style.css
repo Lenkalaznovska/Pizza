@@ -188,6 +188,13 @@ header {
   }
 }
 
+@media (max-width: 1080px) and (max-height: 2340px) {
+  .content h1 {
+    font-size: 70px;
+    white-space: normal;
+  }
+}
+
 @media (max-width: 768px) {
   header {
     height: 100px;
@@ -195,6 +202,7 @@ header {
   .content h1 {
     font-size: 35px;
     margin-bottom: 15px;
+    white-space: normal;
   }
   .cta-text {
     font-size: 20px;
