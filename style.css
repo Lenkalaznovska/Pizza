@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow-x: hidden; /* Odstranění horizontálního posuvníku */
 }
 
 body {
@@ -11,11 +10,10 @@ body {
   color: #333;
   padding: 0;
   margin: 0;
-  overflow-x: hidden; /* Předejití posuvníku */
 }
 
 .container {
-  max-width: 70%;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 20px;
 }
@@ -61,7 +59,7 @@ header {
 }
 
 .content h1 {
-  font-size: 70px; /* Zvýšení velikosti H1 */
+  font-size: 65px;
   margin-bottom: 20px;
   font-weight: 900;
   text-transform: uppercase;
@@ -186,17 +184,6 @@ header {
   }
   .logo {
     left: 40px;
-  }
-}
-
-/* Média dotazy pro Samsung Galaxy S22+ */
-@media (max-width: 1080px) and (max-height: 2340px) {
-  .content h1 {
-    font-size: 50px;
-    white-space: normal;
-  }
-  .buttons a {
-    font-size: 18px;
   }
 }
 
