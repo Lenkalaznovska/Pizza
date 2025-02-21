@@ -438,7 +438,6 @@ header {
 
 .reviews-section:hover {
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2); /* Zjemněný stín při hoveru */
-  transition: box-shadow 0.8s ease; /* Delší přechod pro stín při hoveru */
 }
 
 .reviews-section .section-content {
@@ -460,13 +459,14 @@ header {
   color: #ff4500;
   font-weight: bold;
   margin-bottom: 15px;
+  text-decoration: none; /* Odstranění podtržení */
+  white-space: nowrap; /* Zajistí, že nadpis bude na jednom řádku */
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .reviews-section h2:hover {
   transform: translateY(-3px); /* Menší posun nadpisu při hoveru */
   color: #da3a3a;
-  text-decoration: underline;
 }
 
 .reviews-section p {
@@ -569,7 +569,6 @@ header {
     margin: 0 auto;
     padding: 10px;
     text-align: left; /* Align text to the left on smaller screens */
-    font-size: 1rem; /* Slightly smaller text on very small screens */
   }
 
   .reviews-section .section-image {
@@ -706,18 +705,19 @@ h4:hover,
   }
 }
 
-.social-icons a {
-  text-decoration: none;
-  padding-left: 20px;
-}
-
 .social-icons {
+  display: flex; /* Ikony sociálních sítí v jednom řádku */
+  justify-content: center;
+  gap: 20px; /* Mezery mezi ikonami */
   font-size: 2rem;
   margin: 0 15px;
   color: #555;
   transition: transform 0.4s ease, color 0.4s ease;
-  display: inline-block;
-  animation: pulse 1.5s infinite;
+}
+
+.social-icons a {
+  text-decoration: none;
+  padding-left: 20px;
 }
 
 .contact-icon {
