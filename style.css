@@ -633,7 +633,8 @@ header {
   }
 
   .reviews-section h2 {
-    text-align: center; /* Ensure heading is centered even on smaller screens */
+    text-align: center;
+      white-space: wrap; 
   }
 }
 
