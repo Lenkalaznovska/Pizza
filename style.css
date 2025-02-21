@@ -421,7 +421,8 @@ header {
 }
 
 .reviews-section {
-  font-family: Arial, sans-serif !important; /* Zajištění stejného písma */
+  font-family: Arial, sans-serif !important;
+  font-size: 1rem;
   background: linear-gradient(180deg, #d1d1d1, #ffffff);
   padding: 30px 20px;
   margin-bottom: 50px;
