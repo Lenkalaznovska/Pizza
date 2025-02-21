@@ -1,11 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const slides = document.querySelectorAll(".slide");
-  const slider = document.querySelector(".slides");
-  let currentIndex = 0;
+  let currentSlide = 0,
+    slides = document.querySelectorAll(".slider .slide"),
+    slidesContainer = document.querySelector(".slides"),
+    totalSlides = slides.length;
 
   function nextSlide() {
-    currentIndex = (currentIndex + 1) % slides.length;
-    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateSliderPosition();
   }
 
   function updateSliderPosition() {
@@ -14,8 +15,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  setInterval(nextSlide, 4000); // Každé 4 sekundy přepne na další snímek
-});
+  if (totalSlides > 1) {
+    setInterval(nextSlide, 4000);
+  }
 
   const header = document.querySelector("header");
 
