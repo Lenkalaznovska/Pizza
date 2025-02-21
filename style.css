@@ -443,7 +443,7 @@ header {
 
 .social-icons {
   font-size: 2rem;
-  margin-bottom: 20px;  /* Added margin to separate icons from review buttons */
+  margin-bottom: 30px;  /* Increased margin to separate icons from buttons */
   display: flex;
   justify-content: center;
   gap: 15px; /* Adjusted gap between icons */
@@ -460,7 +460,7 @@ header {
 }
 
 .social-icons a:hover {
-  color: #ff4500;  /* Add a hover effect for the icons */
+  color: #ff4500;  /* Hover effect for the icons */
 }
 
 .reviews-section .section-content {
@@ -475,11 +475,21 @@ header {
 .review-buttons {
   display: flex;
   justify-content: center;
-  gap: 20px; /* Keep the spacing between buttons */
+  gap: 20px; /* Keep spacing between buttons */
+}
+
+.review-button {
+  padding: 10px 20px;
+  background-color: #ff4500;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 .review-button:hover {
-  background: #da3a3a;
+  background-color: #da3a3a;
   transform: scale(1.1);
 }
 
@@ -497,6 +507,7 @@ header {
     opacity: 1;
   }
 }
+
 @media (min-width: 1000px) {
   .reviews-section {
     width: 70%;
