@@ -506,16 +506,10 @@ header {
 }
 
 .reviews {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
-}
-
-.review {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  max-width: 100%;
+  padding: 20px;
+  overflow: hidden;
+  text-align: center;
 }
 
 .review-button {
