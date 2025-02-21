@@ -442,7 +442,11 @@ header {
 }
 
 .social-icons {
-  margin-bottom: 20px;  /* Add some space between icons and reviews */
+  font-size: 2rem;
+  margin-bottom: 20px;  /* Added margin to separate icons from review buttons */
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* Adjusted gap between icons */
 }
 
 .social-icons a {
@@ -468,19 +472,10 @@ header {
   flex-direction: column; /* Stack text and reviews vertically */
 }
 
-.review-button {
-  display: inline-block;
-  background: #ff4500;
-  color: #fff;
-  font-weight: bold;
-  padding: 10px 10px;
-  font-size: 20px;
-  border-radius: 10px;
-  text-decoration: none;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
-  transition: all 0.3s ease, transform 0.3s ease;
-  margin: 10px;
-  opacity: 1;
+.review-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Keep the spacing between buttons */
 }
 
 .review-button:hover {
