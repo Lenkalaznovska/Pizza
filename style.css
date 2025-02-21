@@ -61,7 +61,7 @@ header {
 }
 
 .content h1 {
-  font-size: 65px;
+  font-size: 70px; /* Zvýšení velikosti H1 */
   margin-bottom: 20px;
   font-weight: 900;
   text-transform: uppercase;
