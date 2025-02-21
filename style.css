@@ -481,6 +481,11 @@ header {
   color: #da3a3a;
 }
 
+.reviews h2 {
+  transition: none !important;
+  transform: none !important;
+}
+
 .reviews-section p {
   font-size: 1.2rem;
   line-height: 1.6;
