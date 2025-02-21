@@ -1,4 +1,16 @@
-    let e = 0, 
+document.addEventListener("DOMContentLoaded", function() {
+    // Přesměrování z /gdpr.html na http://www.pizza.pizzakladno.cz/gdpr
+    if (window.location.pathname === '/gdpr.html') {
+        window.location.replace('http://www.pizza.pizzakladno.cz/gdpr');
+    }
+
+    // Přesměrování z /obchodni-podminky.html na http://www.pizza.pizzakladno.cz/obchodni-podminky
+    if (window.location.pathname === '/obchodni-podminky.html') {
+        window.location.replace('http://www.pizza.pizzakladno.cz/obchodni-podminky');
+    }
+});
+
+let e = 0, 
         t = document.querySelectorAll(".slider .slide"),
         o = document.querySelector(".slides"),
         n = t.length;
